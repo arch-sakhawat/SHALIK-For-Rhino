@@ -798,6 +798,413 @@
             .tool-row-card { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
+
+        /* ==========================================================================
+           ArtCraft Animations & Interactive Slider Suite
+           ========================================================================== */
+
+        /* Corner Reticles / Drafting Ticks */
+        .tick {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .tick-tl { top: -1px; left: -1px; border-top: 2px solid var(--border-line-strong); border-left: 2px solid var(--border-line-strong); }
+        .tick-tr { top: -1px; right: -1px; border-top: 2px solid var(--border-line-strong); border-right: 2px solid var(--border-line-strong); }
+        .tick-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--border-line-strong); border-left: 2px solid var(--border-line-strong); }
+        .tick-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--border-line-strong); border-right: 2px solid var(--border-line-strong); }
+        
+        .showcase-card:hover .tick,
+        .bento-cell:hover .tick,
+        .tier-card:hover .tick {
+            border-color: var(--accent-crimson-bright);
+        }
+
+        /* Ambient Hero Breathing Glow */
+        .hero-ambient-glow {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 650px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(211, 47, 47, 0.20) 0%, rgba(158, 26, 26, 0.08) 50%, transparent 75%);
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+            animation: ambient-breathe 8s ease-in-out infinite alternate;
+        }
+        @keyframes ambient-breathe {
+            0% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.92); }
+            100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.18); }
+        }
+
+        /* Pulsing Status LED Dot */
+        .status-pulse-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #25d366;
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            animation: pulse-ring 2.2s infinite cubic-bezier(0.66, 0, 0, 1);
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Continuous Infinite Marquee Ticker (ArtCraft Style) */
+        .marquee-section {
+            width: 100%;
+            overflow: hidden;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-line);
+            border-bottom: 1px solid var(--border-line);
+            user-select: none;
+            display: flex;
+            padding: 13px 0;
+            position: relative;
+            z-index: 5;
+        }
+        .marquee-section:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            min-width: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            animation: marquee-scroll 34s linear infinite;
+        }
+        @keyframes marquee-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 28px;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-secondary);
+        }
+        .marquee-bullet {
+            display: inline-block;
+            color: var(--accent-crimson-bright);
+            margin-right: 14px;
+            font-size: 0.72rem;
+        }
+
+        /* Scroll-Triggered Reveal Animations */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        [data-reveal].is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Interactive 3D Showcase Slider Container */
+        .showcase-slider-wrapper {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+        .slider-header-bar {
+            padding: 14px 24px;
+            background: var(--bg-surface-elevated);
+            border-bottom: 1px solid var(--border-line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .slider-tabs-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .slider-tab-btn {
+            background: transparent;
+            color: var(--ink-secondary);
+            border: 1px solid var(--border-line);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .slider-tab-btn:hover {
+            color: #ffffff;
+            border-color: var(--border-line-hover);
+            background: rgba(255,255,255,0.03);
+        }
+        .slider-tab-btn.active {
+            color: #ffffff;
+            background: var(--bg-surface);
+            border-color: var(--accent-crimson-bright);
+            box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
+        }
+
+        .slider-viewport {
+            position: relative;
+            min-height: 520px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-slide-item {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.98);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+            padding: 30px;
+        }
+        .slider-slide-item.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            position: relative;
+        }
+        .slider-slide-item img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+        .slider-slide-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Interactive Split Comparison Slider (Slide 3) */
+        .split-compare-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 480px;
+            overflow: hidden;
+            user-select: none;
+            background: #ffffff;
+            border-radius: 8px;
+            cursor: ew-resize;
+        }
+        .split-image-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .split-image-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .split-image-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            clip-path: inset(0 50% 0 0);
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .split-image-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .split-divider-line {
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            width: 2px;
+            background: var(--accent-crimson-bright);
+            box-shadow: 0 0 12px rgba(211, 47, 47, 0.9);
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        .split-handle-pill {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #0a0a0c;
+            border: 2px solid var(--accent-crimson-bright);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: auto;
+            cursor: ew-resize;
+        }
+
+        /* Slider Controls Footer */
+        .slider-footer-bar {
+            padding: 16px 24px;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .slider-caption-text {
+            color: var(--ink-secondary);
+            font-size: 0.92rem;
+            max-width: 600px;
+        }
+        .slider-caption-text b {
+            color: #ffffff;
+        }
+        .slider-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .slider-btn-nav {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-line-strong);
+            color: var(--ink-primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .slider-btn-nav:hover {
+            border-color: #ffffff;
+            background: #ffffff;
+            color: #000000;
+        }
+        .slider-counter-display {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--ink-faint);
+            letter-spacing: 0.1em;
+        }
+
+        /* Tool Catalog Filter Bar */
+        .tools-filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 16px;
+        }
+        .filter-chip-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            color: var(--ink-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .filter-chip-btn:hover {
+            border-color: var(--border-line-strong);
+            color: #ffffff;
+        }
+        .filter-chip-btn.active {
+            background: var(--accent-crimson);
+            border-color: var(--accent-crimson-bright);
+            color: #ffffff;
+            box-shadow: 0 0 12px var(--accent-crimson-glow);
+        }
+
+        /* Lightbox Fullscreen Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 12, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: zoom-out;
+        }
+        .lightbox-modal.open {
+            display: flex;
+            animation: fadeIn 0.25s ease;
+        }
+        .lightbox-modal img {
+            max-width: 95vw;
+            max-height: 90vh;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            border: 1px solid var(--border-line-strong);
+            background: #ffffff;
+            border-radius: 6px;
+        }
+        .lightbox-close-btn {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line-strong);
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .lightbox-close-btn:hover {
+            background: var(--accent-crimson);
+            border-color: var(--accent-crimson-bright);
+        }
+
     </style>
     <!-- Bulletproof Image Fallback Handler -->
     <script>
@@ -841,6 +1248,7 @@
 
 <!-- Hero Section -->
 <header class="hero-section" id="top">
+    <div class="hero-ambient-glow"></div>
     
     <!-- Author Profile Card -->
     <div class="author-card-hero">
@@ -862,7 +1270,7 @@
     <!-- Software Branding & Title -->
     <div>
         <img src="assets/icon.png" alt="Shalik Logo" class="shalik-brand-logo">
-        <div class="hud-label" style="margin-bottom: 12px;">RHINOCEROS 8 PARAMETRIC SUITE</div>
+        <div class="hud-label" style="margin-bottom: 12px;"><span class="status-pulse-dot"></span>RHINO 8 NATIVE ENGINE // ONLINE &bull; 44.6 FPS VIEWPORT</div>
         <h1 class="hero-main-title">Shalik for Rhino 8</h1>
         <p class="hero-tagline">
             Next-generation parametric architectural modeling suite & BIM generation engine. Produce code-compliant doors, windows, stairs, railings, walls, curtain walls, and structural space frames in seconds with real-time viewport feedback.
@@ -890,51 +1298,160 @@
 
 </header>
 
+<!-- ========================================================================
+     CONTINUOUS INFINITE MARQUEE TICKER (ArtCraft Signature Component)
+     ======================================================================== -->
+<div class="marquee-section" aria-label="Tool Features Marquee">
+    <ul class="marquee-track">
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchDoor Parametric Generator</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Real-Time Rhino 8 Display Conduit</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Double-Click In-Place Dispatcher</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchWindow Multi-Lite & Sills</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Automatic Wall Boolean Cuts</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchStair Code Compliant Strings</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchCurtainWall Spider Glazing</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchTruss 2D & 3D Space Frames</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchPitchRoof Multi-Slope</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchLouver Sunshade Fins</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Native C# Geometry Kernel</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Zero Grasshopper Dependency</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>AES-256 Node-Locked Protection</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Student License: 500 ৳ / Month</li>
+    </ul>
+    <!-- Duplicated Track for Seamless 100% Loop -->
+    <ul aria-hidden="true" class="marquee-track">
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchDoor Parametric Generator</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Real-Time Rhino 8 Display Conduit</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Double-Click In-Place Dispatcher</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchWindow Multi-Lite & Sills</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Automatic Wall Boolean Cuts</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchStair Code Compliant Strings</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchCurtainWall Spider Glazing</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchTruss 2D & 3D Space Frames</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchPitchRoof Multi-Slope</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchLouver Sunshade Fins</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Native C# Geometry Kernel</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Zero Grasshopper Dependency</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>AES-256 Node-Locked Protection</li>
+        <li class="marquee-item"><span class="marquee-bullet">▪</span>Student License: 500 ৳ / Month</li>
+    </ul>
+</div>
+
+
 <div class="wrapper">
 
     <!-- ========================================================================
          SECTION 01: 3D Render Gallery (ArtCraft Style Studio View)
          ======================================================================== -->
-    <section id="showcase">
+    <section id="showcase" data-reveal>
         <div class="section-header">
-            <div class="hud-label">01 // VISUAL SHOWCASE</div>
-            <h2>Live 3D Geometry Gallery</h2>
-            <p>Pure parametric geometry modeled and rendered natively in Rhinoceros 8 using the Shalik toolbar.</p>
+            <div class="hud-label">01 // VISUAL SHOWCASE & COMPARISON SLIDER</div>
+            <h2>Live 3D Geometry Studio Slider</h2>
+            <p>Pure parametric geometry modeled and rendered natively in Rhinoceros 8 using the Shalik toolbar. Use the interactive slider below to inspect models or compare them side-by-side.</p>
         </div>
 
-        <div class="showcase-grid">
+        <!-- Interactive 3D Showcase Slider -->
+        <div class="showcase-slider-wrapper">
+            <span class="tick tick-tl"></span>
+            <span class="tick tick-tr"></span>
+            <span class="tick tick-bl"></span>
+            <span class="tick tick-br"></span>
+
+            <div class="slider-header-bar">
+                <div class="hud-label">
+                    <span>RHINO 8 VIEWPORT CONDUIT</span>
+                    <span style="color: var(--accent-gold); margin-left: 10px;" id="current-slide-label">SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR</span>
+                </div>
+                <div class="slider-tabs-nav">
+                    <button class="slider-tab-btn active" onclick="switchSlide(0)">01 // Glazed Door</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Fluted Door</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Interactive Split Comparison</button>
+                </div>
+            </div>
+
+            <div class="slider-viewport" id="slider-viewport">
+                
+                <!-- Slide 0: Glazed Door -->
+                <div class="slider-slide-item active" id="slide-0">
+                    <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
+                </div>
+
+                <!-- Slide 1: Fluted Door -->
+                <div class="slider-slide-item" id="slide-1">
+                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
+                </div>
+
+                <!-- Slide 2: Interactive Draggable Split-Screen Comparison -->
+                <div class="slider-slide-item" id="slide-2">
+                    <div class="split-compare-container" id="split-compare-box">
+                        <!-- Bottom Layer: Fluted Door -->
+                        <div class="split-image-layer">
+                            <img src="assets/demo/demo_door_modern_fluted.png" alt="Model 02 Fluted Door">
+                        </div>
+                        <!-- Top Layer: Glazed Door (Clipped) -->
+                        <div class="split-image-overlay" id="split-overlay">
+                            <img src="assets/demo/demo_door_glass.png" alt="Model 01 Glazed Door">
+                        </div>
+                        <!-- Draggable Divider Line & Pill -->
+                        <div class="split-divider-line" id="split-divider">
+                            <div class="split-handle-pill" id="split-handle">
+                                <span>◂ DRAG TO COMPARE ▸</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slider-footer-bar">
+                <div class="slider-caption-text" id="slider-caption">
+                    <b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.
+                </div>
+                <div class="slider-nav-actions">
+                    <span class="slider-counter-display" id="slider-counter">01 / 03</span>
+                    <button class="slider-btn-nav" onclick="prevSlide()">← PREV</button>
+                    <button class="slider-btn-nav" onclick="nextSlide()">NEXT →</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dual Card Grid Below for Direct Side-by-Side Reference -->
+        <div class="showcase-grid" style="margin-bottom: 20px;">
             
-            <!-- Demo Card 1: Glazed Door -->
-            <article class="showcase-card">
+            <article class="showcase-card" data-reveal>
+                <span class="tick tick-tl"></span>
+                <span class="tick tick-tr"></span>
+                <span class="tick tick-bl"></span>
+                <span class="tick tick-br"></span>
                 <div class="showcase-header">
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 01</span>
                 </div>
                 <div class="showcase-canvas-wrap">
-                    <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door in Rhino 8 with Shalik Toolbar" loading="eager">
+                    <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
                     <h3>6-Lite Glazed Contemporary Door</h3>
-                    <p>
-                        Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.
-                    </p>
+                    <p>Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.</p>
                 </div>
             </article>
 
-            <!-- Demo Card 2: Modern Fluted Door -->
-            <article class="showcase-card">
+            <article class="showcase-card" data-reveal>
+                <span class="tick tick-tl"></span>
+                <span class="tick tick-tr"></span>
+                <span class="tick tick-bl"></span>
+                <span class="tick tick-br"></span>
                 <div class="showcase-header">
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 02</span>
                 </div>
                 <div class="showcase-canvas-wrap">
-                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" loading="eager">
+                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
                     <h3>Modern Fluted Slat Feature Door</h3>
-                    <p>
-                        Vertical parametric architectural fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing trim.
-                    </p>
+                    <p>Vertical parametric architectural fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing trim.</p>
                 </div>
             </article>
 
@@ -944,7 +1461,7 @@
     <!-- ========================================================================
          SECTION 02: Core Engine Capabilities (Bento Grid)
          ======================================================================== -->
-    <section id="features">
+    <section id="features" data-reveal>
         <div class="section-header">
             <div class="hud-label">02 // ARCHITECTURAL ENGINE</div>
             <h2>Next-Gen Modeling Capabilities</h2>
@@ -952,32 +1469,32 @@
         </div>
 
         <div class="bento-grid">
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">⚡</span>
                 <h3>Real-Time Viewport Conduits</h3>
                 <p>Interact with shaded and wireframe 3D previews directly in your active Rhino viewport while adjusting sliders before committing geometry to the document.</p>
             </div>
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">🔄</span>
                 <h3>Double-Click to Edit</h3>
                 <p>Need to modify a door width or change a stair tread depth later? Simply double-click any placed element in your viewport to reopen its parameters dialog instantly.</p>
             </div>
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">✂️</span>
                 <h3>1-Click Wall Cut Automation</h3>
                 <p><code>ArchDoorInWall</code> and <code>ArchWindowInWall</code> automatically cut clean solid rectangular openings through solid polysurface walls without Boolean failures.</p>
             </div>
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">📐</span>
                 <h3>Parametric Presets</h3>
                 <p>Save and reuse custom architectural styles (frames, profiles, materials) as portable JSON presets to maintain design consistency across studio projects.</p>
             </div>
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">🎨</span>
                 <h3>Automatic Layer Organization</h3>
                 <p>Elements bake cleanly onto standardized sub-layers (<code>FRAME</code>, <code>PANEL</code>, <code>GLASS</code>, <code>HARDWARE</code>, <code>CORE</code>) grouped by component for instant rendering assignments.</p>
             </div>
-            <div class="bento-cell">
+            <div class="bento-cell" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="bento-icon">📏</span>
                 <h3>Dynamic Unit Intelligence</h3>
                 <p>Seamlessly adapts to your active document units: Imperial (Inches, Feet) or Metric (Millimeters, Centimeters, Meters) with intelligent scale conversions.</p>
@@ -1039,7 +1556,7 @@
     <!-- ========================================================================
          SECTION 03: Tools & Tutorials Catalog (All 15 Tools)
          ======================================================================== -->
-    <section id="tools">
+    <section id="tools" data-reveal>
         <div class="section-header">
             <div class="hud-label">03 // TOOL CATALOG & TUTORIALS</div>
             <h2>15 Parametric Architectural Generators</h2>
@@ -1049,7 +1566,7 @@
         <div class="tools-deck">
 
             <!-- Tool 1: Door -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="openings" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchDoor_64.png" alt="ArchDoor">
                 </div>
@@ -1074,7 +1591,7 @@
             </div>
 
             <!-- Tool 2: Window -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="openings" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchWindow_64.png" alt="ArchWindow">
                 </div>
@@ -1099,7 +1616,7 @@
             </div>
 
             <!-- Tool 3: Door & Window in Wall -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="openings" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchWall_64.png" alt="ArchDoorInWall">
                 </div>
@@ -1125,7 +1642,7 @@
             </div>
 
             <!-- Tool 4: Stair -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="circulation" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchStair_64.png" alt="ArchStair">
                 </div>
@@ -1151,7 +1668,7 @@
             </div>
 
             <!-- Tool 5: Railing -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="circulation" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchRailing_64.png" alt="ArchRailing">
                 </div>
@@ -1177,7 +1694,7 @@
             </div>
 
             <!-- Tool 6: Wall -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="envelope" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/Wall_64.png" alt="ArchWall">
                 </div>
@@ -1201,7 +1718,7 @@
             </div>
 
             <!-- Tool 7: Curtain Wall -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="envelope" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchCurtainWall_64.png" alt="ArchCurtainWall">
                 </div>
@@ -1225,7 +1742,7 @@
             </div>
 
             <!-- Tool 8: Escalator -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="circulation" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchEscalator_64.png" alt="ArchEscalator">
                 </div>
@@ -1250,7 +1767,7 @@
             </div>
 
             <!-- Tool 9: Truss & Spaceframe -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="structures" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchTruss_64.png" alt="ArchTruss">
                 </div>
@@ -1276,7 +1793,7 @@
             </div>
 
             <!-- Tool 10: Pitch Roof -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="structures" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchPitchRoof_64.png" alt="ArchPitchRoof">
                 </div>
@@ -1301,7 +1818,7 @@
             </div>
 
             <!-- Tool 11: Louver -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="details" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchLouver_64.png" alt="ArchLouver">
                 </div>
@@ -1325,7 +1842,7 @@
             </div>
 
             <!-- Tool 12: Grill -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="details" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchGrill_64.png" alt="ArchGrill">
                 </div>
@@ -1350,7 +1867,7 @@
             </div>
 
             <!-- Tool 13: Blinds -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="details" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchBlind_64.png" alt="ArchBlind">
                 </div>
@@ -1375,7 +1892,7 @@
             </div>
 
             <!-- Tool 14: Road & Electric Pole -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="details" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchRoad_64.png" alt="ArchRoad">
                 </div>
@@ -1400,7 +1917,7 @@
             </div>
 
             <!-- Tool 15: Trees & Forest -->
-            <div class="tool-row-card">
+            <div class="tool-row-card" data-category="details" data-reveal>
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchTree_64.png" alt="ArchTree">
                 </div>
@@ -1430,7 +1947,7 @@
     <!-- ========================================================================
          SECTION 04: Pricing & Plans
          ======================================================================== -->
-    <section class="pricing-deck" id="pricing">
+    <section class="pricing-deck" id="pricing" data-reveal>
         <div class="section-header center">
             <div class="hud-label">04 // SUBSCRIPTION & LICENSES</div>
             <h2>Pricing & License Plans</h2>
@@ -1447,7 +1964,7 @@
         <div class="tier-cards-grid">
             
             <!-- 1 Month -->
-            <div class="tier-card">
+            <div class="tier-card" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <h4>1 Month</h4>
                 <div class="tier-price-amount">500 ৳</div>
                 <div class="tier-period">30 DAYS STUDENT ACCESS</div>
@@ -1462,7 +1979,7 @@
             </div>
 
             <!-- 6 Months -->
-            <div class="tier-card">
+            <div class="tier-card" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <h4>6 Months</h4>
                 <div class="tier-price-amount">800 ৳</div>
                 <div class="tier-period">180 DAYS SEMESTER ACCESS</div>
@@ -1477,7 +1994,7 @@
             </div>
 
             <!-- 12 Months -->
-            <div class="tier-card featured">
+            <div class="tier-card featured" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
                 <span class="featured-tag">BEST VALUE</span>
                 <h4>12 Months (1 Year)</h4>
                 <div class="tier-price-amount">1,500 ৳</div>
@@ -1502,7 +2019,7 @@
     <!-- ========================================================================
          SECTION 05: bKash Payment & Instant Activation
          ======================================================================== -->
-    <section id="payment">
+    <section id="payment" data-reveal>
         <div class="section-header">
             <div class="hud-label">05 // PAYMENT & ACTIVATION</div>
             <h2>bKash Payment & 24-Hour Key Delivery</h2>
@@ -1545,7 +2062,7 @@
     <!-- ========================================================================
          SECTION 06: Frequently Asked Questions (FAQ)
          ======================================================================== -->
-    <section id="faq">
+    <section id="faq" data-reveal>
         <div class="section-header">
             <div class="hud-label">06 // SUPPORT & ANSWERS</div>
             <h2>Frequently Asked Questions</h2>
@@ -1602,5 +2119,174 @@
     </p>
 </footer>
 
+
+<!-- Lightbox Fullscreen Modal -->
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+    <button class="lightbox-close-btn" onclick="closeLightbox(event)">CLOSE [ESC]</button>
+    <img id="lightbox-img" src="" alt="Zoomed Architectural Render">
+</div>
+
+<!-- ========================================================================
+     Interactive Engine: Slider, Split Comparison, Reveal & Filter Scripts
+     ======================================================================== -->
+<script>
+    // --- Slide State & Content ---
+    var currentSlide = 0;
+    var totalSlides = 3;
+    var slideLabels = [
+        "SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR",
+        "SLIDE 02 // MODERN FLUTED SLAT FEATURE DOOR",
+        "SLIDE 03 // INTERACTIVE DRAGGABLE SPLIT COMPARISON"
+    ];
+    var slideCaptions = [
+        "<b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.",
+        "<b>Model 02 // Modern Fluted Feature Door:</b> Vertical parametric architectural fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing trim.",
+        "<b>Interactive Split Slider:</b> Drag the center hairline divider left and right across the canvas to inspect geometry variations between the glazed lite core and vertical fluting profiles in real-time."
+    ];
+
+    function switchSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        
+        // Update slides
+        for (var i = 0; i < totalSlides; i++) {
+            var el = document.getElementById("slide-" + i);
+            if (el) {
+                if (i === currentSlide) {
+                    el.classList.add("active");
+                } else {
+                    el.classList.remove("active");
+                }
+            }
+        }
+        
+        // Update tab buttons
+        var tabBtns = document.querySelectorAll(".slider-tab-btn");
+        tabBtns.forEach(function(btn, idx) {
+            if (idx === currentSlide) btn.classList.add("active");
+            else btn.classList.remove("active");
+        });
+
+        // Update labels and counter
+        document.getElementById("current-slide-label").innerText = slideLabels[currentSlide];
+        document.getElementById("slider-caption").innerHTML = slideCaptions[currentSlide];
+        document.getElementById("slider-counter").innerText = "0" + (currentSlide + 1) + " / 0" + totalSlides;
+    }
+
+    function nextSlide() { switchSlide(currentSlide + 1); }
+    function prevSlide() { switchSlide(currentSlide - 1); }
+
+    // Auto rotate slides every 7s unless user interacts
+    var autoSlideTimer = setInterval(nextSlide, 7000);
+    var sliderBox = document.querySelector(".showcase-slider-wrapper");
+    if (sliderBox) {
+        sliderBox.addEventListener("mouseenter", function() { clearInterval(autoSlideTimer); });
+        sliderBox.addEventListener("mouseleave", function() { autoSlideTimer = setInterval(nextSlide, 7000); });
+    }
+
+    // --- Interactive Split-Screen Comparison Drag Logic ---
+    (function initSplitSlider() {
+        var container = document.getElementById("split-compare-box");
+        var overlay = document.getElementById("split-overlay");
+        var divider = document.getElementById("split-divider");
+        if (!container || !overlay || !divider) return;
+
+        var isDragging = false;
+
+        function updateSplit(clientX) {
+            var rect = container.getBoundingClientRect();
+            var x = clientX - rect.left;
+            var pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            overlay.style.clipPath = "inset(0 " + (100 - pct) + "% 0 0)";
+            divider.style.left = pct + "%";
+        }
+
+        container.addEventListener("mousedown", function(e) {
+            isDragging = true;
+            updateSplit(e.clientX);
+        });
+        window.addEventListener("mousemove", function(e) {
+            if (!isDragging) return;
+            updateSplit(e.clientX);
+        });
+        window.addEventListener("mouseup", function() { isDragging = false; });
+
+        // Touch support for mobile
+        container.addEventListener("touchstart", function(e) {
+            isDragging = true;
+            if (e.touches && e.touches[0]) updateSplit(e.touches[0].clientX);
+        }, { passive: true });
+        window.addEventListener("touchmove", function(e) {
+            if (!isDragging) return;
+            if (e.touches && e.touches[0]) updateSplit(e.touches[0].clientX);
+        }, { passive: true });
+        window.addEventListener("touchend", function() { isDragging = false; });
+    })();
+
+    // --- Lightbox Modal ---
+    function openLightbox(src) {
+        var modal = document.getElementById("lightbox-modal");
+        var img = document.getElementById("lightbox-img");
+        if (!modal || !img) return;
+        img.src = src;
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(e) {
+        var modal = document.getElementById("lightbox-modal");
+        if (modal) {
+            modal.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+    }
+    window.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeLightbox();
+    });
+
+    // --- Scroll-Triggered Reveal Animations ---
+    (function initScrollReveal() {
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('[data-reveal]').forEach(function(el) {
+                el.classList.add('is-revealed');
+            });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('[data-reveal]').forEach(function(el, idx) {
+            observer.observe(el);
+        });
+    })();
+
+    // --- Tool Catalog Category Filter ---
+    function filterTools(category, btn) {
+        var buttons = document.querySelectorAll('.filter-chip-btn');
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+
+        var cards = document.querySelectorAll('.tool-row-card');
+        cards.forEach(function(card) {
+            var cat = card.getAttribute('data-category');
+            if (category === 'all' || cat === category || !cat) {
+                card.style.display = 'grid';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 </body>
+
 </html>
