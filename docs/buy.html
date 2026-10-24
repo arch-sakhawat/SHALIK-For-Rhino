@@ -14,7 +14,7 @@
 
     <!-- SEO Meta Tags -->
     <meta name="title" content="Buy Shalik for Rhino 8 &mdash; Payment & Instant Activation">
-    <meta name="description" content="Purchase and activate Shalik for Rhino 8. Complete payment via bKash and submit your Rhino Machine ID directly from this website to receive your genuine license key within 24 hours.">
+    <meta name="description" content="Purchase and activate Shalik for Rhino 8. Complete payment via bKash and submit your Rhino Machine ID and photo proof directly from this website to receive your genuine license key within 24 hours.">
     <meta name="author" content="Sakhawat Hosen Sumon">
     <link rel="canonical" href="https://arch-sakhawat.github.io/SHALIK-For-Rhino/buy.html">
     <link rel="icon" type="image/x-icon" href="assets/setup.ico">
@@ -52,9 +52,9 @@
 
 <!-- Page Header -->
 <header class="buy-page-header">
-    <div class="hud-label">CHECKOUT &amp; ACTIVATION PORTAL</div>
+    <div class="hud-label" style="color: var(--accent-red-bright);">01 // DIRECT ACTIVATION &amp; CHECKOUT</div>
     <h1>Get Shalik for Rhino 8</h1>
-    <p>Complete your payment via bKash, then submit your license order directly from this page. Your personal license key will be delivered within 24 hours.</p>
+    <p>Complete payment via bKash, then submit your license order with your photo proof directly from this page. Your personal key will be delivered within 24 hours.</p>
 </header>
 
 <!-- Main Checkout 2-Step Layout -->
@@ -73,7 +73,7 @@
         <div class="bkash-hero-box">
             <div class="bkash-tag-line">
                 <span class="bkash-badge">bKash Personal</span>
-                <span class="bkash-type-hint">Send Money</span>
+                <span class="bkash-type-hint" style="color: #ff7875;">Send Money</span>
             </div>
             <div class="bkash-number-row">
                 <span class="bkash-number-val" id="bkash-num-text">01750955823</span>
@@ -82,7 +82,7 @@
                 </button>
             </div>
             <div style="margin-top: 10px; font-size: 0.78rem; color: var(--ink-secondary); font-family: var(--font-mono);">
-                Reference note: <b>SHALIK</b> &bull; WhatsApp Support: <b>01521776439</b>
+                Reference note: <b style="color: #ffffff;">SHALIK</b> &bull; WhatsApp Support: <b style="color: #ffffff;">01521776439</b>
             </div>
         </div>
 
@@ -114,7 +114,7 @@
             <div class="inst-step-item">
                 <div class="inst-step-num">1</div>
                 <div class="inst-step-text">
-                    Open your <b>bKash App</b> and select <b>Send Money</b>. Enter the number <b>01750955823</b>.
+                    Open your <b>bKash App</b> and select <b>Send Money</b>. Enter the personal number <b>01750955823</b>.
                 </div>
             </div>
             <div class="inst-step-item">
@@ -126,7 +126,7 @@
             <div class="inst-step-item">
                 <div class="inst-step-num">3</div>
                 <div class="inst-step-text">
-                    Complete the transaction and copy your <b>bKash Transaction ID (TrxID)</b> from the confirmation SMS or statement.
+                    Complete the transaction and copy your <b>bKash Transaction ID (TrxID)</b> and take a screenshot of the confirmation.
                 </div>
             </div>
             <div class="inst-step-item">
@@ -138,25 +138,25 @@
         </div>
 
         <!-- Student Verification Notice -->
-        <div style="margin-top: 24px; padding: 14px 16px; background: rgba(229, 184, 105, 0.08); border: 1px dashed rgba(229, 184, 105, 0.35); border-radius: 8px;">
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px;">
+        <div style="margin-top: 24px; padding: 14px 16px; background: rgba(229, 57, 53, 0.08); border: 1px dashed rgba(229, 57, 53, 0.35); border-radius: 8px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #ff7875; margin-bottom: 4px;">
                 STUDENT SUBSIDY VERIFICATION
             </div>
             <div style="font-size: 0.78rem; color: var(--ink-secondary); line-height: 1.45;">
-                Enrolled Architecture &amp; Engineering students must provide an institutional Student ID photo or university email when ordering to qualify for subsidized pricing.
+                Enrolled Architecture &amp; Engineering students must upload an institutional Student ID card photo to qualify for subsidized student pricing.
             </div>
         </div>
 
     </div>
 
-    <!-- RIGHT COLUMN: Send Mail Directly from Website -->
+    <!-- RIGHT COLUMN: Send Mail Directly from Website with Photo Upload -->
     <div class="buy-panel-card">
-        <div class="buy-step-pill" style="background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.35); color: #86efac;">
+        <div class="buy-step-pill">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             <span>STEP 02 // SEND ORDER EMAIL</span>
         </div>
         <h2 class="buy-panel-title">Send Mail From Website</h2>
-        <p class="buy-panel-desc">Submit your details directly through this form. Our system dispatches your license order instantly to Architect Sakhawat.</p>
+        <p class="buy-panel-desc">Submit your details and upload your payment receipt or student ID photo directly through this form. Our system dispatches your order instantly.</p>
 
         <!-- Direct In-Website Mail Form -->
         <form id="license-order-form" class="buy-order-form" onsubmit="handleOrderSubmit(event)">
@@ -201,15 +201,41 @@
                 </div>
             </div>
 
+            <!-- PHOTO UPLOAD COMPONENT (Payment Screenshot or Student ID) -->
             <div class="form-group">
-                <label for="order-student-id">Student ID Verification (Drive Link / Photo / Roll No)</label>
-                <input type="text" id="order-student-id" name="student_proof" placeholder="Paste Google Drive link to Student ID, or write Department &amp; University">
-                <span class="field-hint">Mandatory for student subsidized rates</span>
+                <label>Upload Photo (bKash Screenshot or Student ID) <span class="req">*</span></label>
+                
+                <div class="photo-upload-zone" id="photo-upload-zone" onclick="triggerFileInput()">
+                    <input type="file" id="order-photo" name="photo" accept="image/*,.pdf" style="display: none;" onchange="handleFileChosen(event)">
+                    
+                    <!-- Empty State -->
+                    <div id="upload-empty-state" class="upload-empty-state">
+                        <div class="upload-icon-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        </div>
+                        <div class="upload-prompt">
+                            <span class="upload-btn-fake">Click to Upload Photo</span> or drag &amp; drop
+                        </div>
+                        <div class="upload-subtext">bKash payment confirmation screenshot or institutional Student ID card</div>
+                    </div>
+
+                    <!-- Selected Preview State -->
+                    <div id="upload-preview-state" class="upload-preview-state" style="display: none;">
+                        <img id="photo-thumbnail" src="" alt="Uploaded Photo" class="photo-thumbnail">
+                        <div class="upload-file-meta">
+                            <div class="file-name" id="file-name-label">filename.png</div>
+                            <div class="file-size" id="file-size-label">1.2 MB</div>
+                            <button type="button" class="btn-remove-file" onclick="removePhoto(event)">✕ Remove &amp; Choose Another</button>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="photo-data-base64" name="photo_base64">
+                <span class="field-hint">Photo proof is required to verify your transaction and student status.</span>
             </div>
 
             <div class="form-group">
-                <label for="order-notes">Additional Message / Inquiries (Optional)</label>
-                <textarea id="order-notes" name="notes" rows="2" placeholder="Any special requests or questions for the developer..."></textarea>
+                <label for="order-notes">Additional Message / Note (Optional)</label>
+                <textarea id="order-notes" name="notes" rows="2" placeholder="Any special notes or university details..."></textarea>
             </div>
 
             <button type="submit" id="btn-submit-order" class="btn-submit-order">
@@ -259,7 +285,7 @@
     </p>
 </footer>
 
-<!-- Interactive Client-Side Scripts for Buy Page -->
+<!-- Interactive Scripts for Buy Page & Photo Upload -->
 <script>
     // Copy bKash Number
     function copyBkashNumber() {
@@ -270,6 +296,63 @@
             setTimeout(function() { btn.innerText = "Copy Number"; }, 2500);
         });
     }
+
+    // Photo Upload Handler
+    function triggerFileInput() {
+        document.getElementById("order-photo").click();
+    }
+
+    function handleFileChosen(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+
+        var emptyState = document.getElementById("upload-empty-state");
+        var previewState = document.getElementById("upload-preview-state");
+        var thumbnail = document.getElementById("photo-thumbnail");
+        var nameLabel = document.getElementById("file-name-label");
+        var sizeLabel = document.getElementById("file-size-label");
+
+        nameLabel.innerText = file.name;
+        sizeLabel.innerText = (file.size / (1024 * 1024)).toFixed(2) + " MB";
+
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            thumbnail.src = evt.target.result;
+            document.getElementById("photo-data-base64").value = evt.target.result;
+            emptyState.style.display = "none";
+            previewState.style.display = "flex";
+        };
+        reader.readAsDataURL(file);
+        updateDirectLinks();
+    }
+
+    function removePhoto(e) {
+        if (e) e.stopPropagation();
+        document.getElementById("order-photo").value = "";
+        document.getElementById("photo-data-base64").value = "";
+        document.getElementById("photo-thumbnail").src = "";
+        document.getElementById("upload-empty-state").style.display = "block";
+        document.getElementById("upload-preview-state").style.display = "none";
+        updateDirectLinks();
+    }
+
+    // Drag and Drop Zone support
+    var dropZone = document.getElementById("photo-upload-zone");
+    dropZone.addEventListener("dragover", function(e) {
+        e.preventDefault();
+        dropZone.classList.add("dragover");
+    });
+    dropZone.addEventListener("dragleave", function(e) {
+        dropZone.classList.remove("dragover");
+    });
+    dropZone.addEventListener("drop", function(e) {
+        e.preventDefault();
+        dropZone.classList.remove("dragover");
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            document.getElementById("order-photo").files = e.dataTransfer.files;
+            handleFileChosen({ target: { files: e.dataTransfer.files } });
+        }
+    });
 
     // Sync Plan Picker Pills with Select Dropdown
     function selectPlan(planKey, selectValue) {
@@ -324,7 +407,7 @@
         var plan = encodeURIComponent(document.getElementById("order-plan").value);
         var machineId = encodeURIComponent(document.getElementById("order-machine-id").value || "[Machine ID]");
         var trxId = encodeURIComponent(document.getElementById("order-trxid").value || "[TrxID]");
-        var studentId = encodeURIComponent(document.getElementById("order-student-id").value || "N/A");
+        var hasPhoto = document.getElementById("order-photo").files.length > 0 ? "Yes (Attached in form)" : "Pending upload";
         var notes = encodeURIComponent(document.getElementById("order-notes").value || "None");
 
         var subject = encodeURIComponent("SHALIK Rhino 8 License Order: " + decodeURIComponent(name) + " (" + decodeURIComponent(plan) + ")");
@@ -336,7 +419,7 @@
                    "Selected Plan: " + plan + "%0D%0A" +
                    "Rhino Machine ID: " + machineId + "%0D%0A" +
                    "bKash TrxID: " + trxId + "%0D%0A" +
-                   "Student ID Proof: " + studentId + "%0D%0A" +
+                   "Photo Proof: " + hasPhoto + "%0D%0A" +
                    "Additional Notes: " + notes + "%0D%0A" +
                    "--------------------------------------------------%0D%0A" +
                    "Sent from official Shalik website.";
@@ -350,7 +433,7 @@
             "• Machine ID: " + decodeURIComponent(machineId) + "\n" +
             "• bKash TrxID: " + decodeURIComponent(trxId) + "\n" +
             "• Email: " + decodeURIComponent(email) + "\n\n" +
-            "Please deliver my activation key."
+            "Photo proof has been attached. Please deliver my activation key."
         );
         document.getElementById("btn-alt-whatsapp").href = "https://wa.me/8801521776439?text=" + waText;
     }
@@ -384,10 +467,11 @@
         .then(function(response) {
             if (response.ok) {
                 statusAlert.className = "form-status-alert success";
-                statusAlert.innerHTML = "<b>✓ Order Email Dispatched Successfully!</b><br>Your license request and bKash payment verification have been delivered directly to Architect Sakhawat. Your genuine activation key will be sent to <b>" + (document.getElementById("order-email").value || "your email") + "</b> within 24 hours.<br><br>For immediate instant verification, you can also ping us on WhatsApp below.";
+                statusAlert.innerHTML = "<b>✓ Order Email &amp; Photo Dispatched Successfully!</b><br>Your license request, photo proof, and bKash payment verification have been delivered directly to Architect Sakhawat. Your genuine activation key will be delivered to <b>" + (document.getElementById("order-email").value || "your email") + "</b> within 24 hours.<br><br>For immediate instant verification, you can also ping us on WhatsApp below.";
                 statusAlert.style.display = "block";
                 btnText.innerText = "Order Dispatched ✓";
                 form.reset();
+                removePhoto();
             } else {
                 throw new Error("Dispatch failed");
             }
@@ -395,10 +479,9 @@
         .catch(function(err) {
             // Fallback: If network or adblocker blocks Formspree, trigger client-side prefilled mailto immediately!
             statusAlert.className = "form-status-alert success";
-            statusAlert.innerHTML = "<b>✓ Order Details Prepared!</b><br>Click <b>'Open in Email App'</b> below to send your pre-formatted order directly to <b>arch.sakhawat@gmail.com</b>, or verify instantly on WhatsApp.";
+            statusAlert.innerHTML = "<b>✓ Order Details &amp; Photo Ready!</b><br>Click <b>'Open in Email App'</b> below to send your pre-formatted order directly to <b>arch.sakhawat@gmail.com</b>, or verify instantly on WhatsApp.";
             statusAlert.style.display = "block";
             btnText.innerText = "Sent via Mail Client";
-            // Trigger mailto directly
             window.location.href = document.getElementById("btn-alt-email").href;
         })
         .finally(function() {

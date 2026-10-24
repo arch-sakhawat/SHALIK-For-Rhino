@@ -26,6 +26,35 @@
 
     <!-- External Shared Design System Stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+        /* Force Guaranteed Immediate Card Visibility */
+        .tool-row-card {
+            opacity: 1 !important;
+            transform: none !important;
+            display: grid !important;
+            grid-template-columns: 75px 1fr !important;
+            gap: 25px !important;
+            margin-bottom: 20px !important;
+        }
+        @media (max-width: 768px) {
+            .tool-row-card {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+        }
+        .tool-counter-badge {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: #ff7875;
+            background: rgba(229, 57, 53, 0.12);
+            border: 1px solid rgba(229, 57, 53, 0.35);
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+    </style>
 </head>
 <body>
 
@@ -52,39 +81,38 @@
 
 <!-- Tools Hero Header -->
 <header class="tools-page-header">
-    <div class="hud-label">03 // ARCHITECTURAL SUITE CATALOG</div>
+    <div class="hud-label" style="color: var(--accent-red-bright);">02 // COMPLETE CATALOG &amp; TUTORIALS</div>
     <h1>15 Parametric Rhino 8 Tools</h1>
     <p>Every tool is built natively in C# RhinoCommon for instantaneous viewport manipulation, IBC/EN building code compliance, and automated manifold Boolean cuts.</p>
     
+    <!-- Live Tool Count Badge -->
+    <div class="tool-counter-badge" id="tool-counter-badge">
+        Showing 15 of 15 Parametric Generators
+    </div>
+
     <!-- Interactive Live Search Bar -->
     <div class="tools-search-bar-wrap">
         <svg class="tools-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input type="text" id="tool-search" class="tools-search-input" placeholder="Search by tool name or command (e.g., ArchDoor, Escalator, Truss)..." oninput="filterTools()">
     </div>
 
-    <!-- Category Filter Tabs -->
+    <!-- Category Filter Tabs (Exactly matching card categories) -->
     <div class="matrix-filter-tabs" style="justify-content: center; margin-bottom: 25px;">
         <button class="matrix-tab-btn active" onclick="filterCategory('all', this)">All Tools (15)</button>
-        <button class="matrix-tab-btn" onclick="filterCategory('openings', this)">Openings &amp; Glazing</button>
-        <button class="matrix-tab-btn" onclick="filterCategory('circulation', this)">Circulation &amp; Stairs</button>
-        <button class="matrix-tab-btn" onclick="filterCategory('enclosures', this)">Enclosures &amp; Walls</button>
-        <button class="matrix-tab-btn" onclick="filterCategory('structural', this)">Structural &amp; Shells</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('openings', this)">Doors &amp; Windows (3)</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('circulation', this)">Stairs &amp; Circulation (3)</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('envelope', this)">Walls &amp; Curtain Walls (2)</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('structures', this)">Trusses &amp; Roofs (2)</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('details', this)">Louvers &amp; Site (5)</button>
     </div>
 </header>
 
-<!-- Main Tools Section -->
+<!-- Main Tools Deck -->
 <main style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
-<section id="tools" data-reveal>
-        <div class="section-header">
-            <div class="hud-label">03 // TOOL CATALOG & TUTORIALS</div>
-            <h2>15 Parametric Architectural Generators</h2>
-            <p>Every tool is engineered with precision geometry, custom profiles, and step-by-step interactive workflows.</p>
-        </div>
-
-        <div class="tools-deck">
+<div class="tools-deck">
 
             <!-- Tool 1: Door -->
-            <div class="tool-row-card" data-category="openings" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="openings" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchDoor_64.png" alt="ArchDoor">
                 </div>
@@ -109,7 +137,7 @@
             </div>
 
             <!-- Tool 2: Window -->
-            <div class="tool-row-card" data-category="openings" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="openings" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchWindow_64.png" alt="ArchWindow">
                 </div>
@@ -134,7 +162,7 @@
             </div>
 
             <!-- Tool 3: Door & Window in Wall -->
-            <div class="tool-row-card" data-category="openings" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="openings" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchWall_64.png" alt="ArchDoorInWall">
                 </div>
@@ -160,7 +188,7 @@
             </div>
 
             <!-- Tool 4: Stair -->
-            <div class="tool-row-card" data-category="circulation" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="circulation" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchStair_64.png" alt="ArchStair">
                 </div>
@@ -186,7 +214,7 @@
             </div>
 
             <!-- Tool 5: Railing -->
-            <div class="tool-row-card" data-category="circulation" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="circulation" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchRailing_64.png" alt="ArchRailing">
                 </div>
@@ -212,7 +240,7 @@
             </div>
 
             <!-- Tool 6: Wall -->
-            <div class="tool-row-card" data-category="envelope" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="envelope" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/Wall_64.png" alt="ArchWall">
                 </div>
@@ -236,7 +264,7 @@
             </div>
 
             <!-- Tool 7: Curtain Wall -->
-            <div class="tool-row-card" data-category="envelope" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="envelope" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchCurtainWall_64.png" alt="ArchCurtainWall">
                 </div>
@@ -260,7 +288,7 @@
             </div>
 
             <!-- Tool 8: Escalator -->
-            <div class="tool-row-card" data-category="circulation" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="circulation" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchEscalator_64.png" alt="ArchEscalator">
                 </div>
@@ -285,7 +313,7 @@
             </div>
 
             <!-- Tool 9: Truss & Spaceframe -->
-            <div class="tool-row-card" data-category="structures" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="structures" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchTruss_64.png" alt="ArchTruss">
                 </div>
@@ -311,7 +339,7 @@
             </div>
 
             <!-- Tool 10: Pitch Roof -->
-            <div class="tool-row-card" data-category="structures" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="structures" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchPitchRoof_64.png" alt="ArchPitchRoof">
                 </div>
@@ -336,7 +364,7 @@
             </div>
 
             <!-- Tool 11: Louver -->
-            <div class="tool-row-card" data-category="details" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="details" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchLouver_64.png" alt="ArchLouver">
                 </div>
@@ -360,7 +388,7 @@
             </div>
 
             <!-- Tool 12: Grill -->
-            <div class="tool-row-card" data-category="details" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="details" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchGrill_64.png" alt="ArchGrill">
                 </div>
@@ -385,7 +413,7 @@
             </div>
 
             <!-- Tool 13: Blinds -->
-            <div class="tool-row-card" data-category="details" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="details" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchBlind_64.png" alt="ArchBlind">
                 </div>
@@ -410,7 +438,7 @@
             </div>
 
             <!-- Tool 14: Road & Electric Pole -->
-            <div class="tool-row-card" data-category="details" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="details" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchRoad_64.png" alt="ArchRoad">
                 </div>
@@ -435,7 +463,7 @@
             </div>
 
             <!-- Tool 15: Trees & Forest -->
-            <div class="tool-row-card" data-category="details" data-reveal>
+            <div class="tool-row-card" style="opacity: 1 !important; display: grid !important;" data-category="details" >
                 <div class="tool-icon-frame">
                     <img src="assets/icons/ArchTree_64.png" alt="ArchTree">
                 </div>
@@ -462,12 +490,14 @@
         </div>
     </section>
 
+    
+
     <!-- Bottom Checkout Call to Action -->
     <div style="margin-top: 50px; text-align: center; padding: 45px 25px; background: var(--bg-surface-elevated); border: 1px solid var(--border-line-strong); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.5);">
-        <div class="hud-label" style="color: var(--accent-gold); margin-bottom: 8px;">READY TO ELEVATE YOUR ARCHITECTURAL PRODUCTION?</div>
+        <div class="hud-label" style="color: var(--accent-red-bright); margin-bottom: 8px;">READY TO ELEVATE YOUR ARCHITECTURAL PRODUCTION?</div>
         <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;">Get Instant Access to All 15 Tools</h2>
         <p style="color: var(--ink-secondary); max-width: 600px; margin: 0 auto 24px; font-size: 0.95rem;">
-            Subsidized student licenses start at just 500 ৳ ($5 USD). Complete payment and receive your activation key directly on WhatsApp or Email within 24 hours.
+            Subsidized student licenses start at just 500 ৳ ($5 USD). Complete payment and upload your student ID to receive your activation key within 24 hours.
         </p>
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
             <a href="buy.html" class="nav-btn-buy" style="padding: 12px 28px !important; font-size: 0.95rem !important;">
@@ -525,19 +555,26 @@
     function applyFilters() {
         var query = document.getElementById('tool-search').value.toLowerCase().trim();
         var cards = document.querySelectorAll('.tool-row-card');
+        var visibleCount = 0;
 
         cards.forEach(function(card) {
             var text = card.innerText.toLowerCase();
             var cardCat = card.getAttribute('data-category') || '';
-            var matchesCat = (currentCat === 'all' || cardCat === currentCat || (currentCat === 'circulation' && (cardCat === 'stairs' || cardCat === 'circulation')));
+            var matchesCat = (currentCat === 'all' || cardCat === currentCat);
             var matchesQuery = !query || text.indexOf(query) !== -1;
 
             if (matchesCat && matchesQuery) {
-                card.style.display = 'flex';
+                card.style.display = 'grid';
+                visibleCount++;
             } else {
                 card.style.display = 'none';
             }
         });
+
+        var badge = document.getElementById('tool-counter-badge');
+        if (badge) {
+            badge.innerText = 'Showing ' + visibleCount + ' of 15 Parametric Generators';
+        }
     }
 
     // Lightbox modal logic
@@ -562,6 +599,12 @@
     document.addEventListener("keydown", function(e) {
         if (e.key === "Escape") closeLightbox();
     });
+
+    // Ensure all cards are visible on load
+    document.addEventListener("DOMContentLoaded", function() {
+        applyFilters();
+    });
+    applyFilters();
 </script>
 
 </body>
