@@ -74,8 +74,15 @@ Dhaka, Bangladesh
 ## 💳 Pricing & License Plans
 
 ### 🎓 Student Special Offer
-> [!NOTE]
-> **Special Student Pricing**: This discounted offer is exclusively available for current **Architecture, Engineering, and Design Students**. A valid Student ID card is required for verification.
+> [!IMPORTANT]
+> ### 🎓 MANDATORY: Proof of Student Status Required
+> **Student Discount Eligibility**: This special subsidized rate is exclusively available for currently enrolled **Architecture, Engineering, Planning, and Design Students**.
+> 
+> **Proof of student status MUST be provided** when requesting your key:
+> - Clear photo of your **valid institutional Student ID Card** (showing valid academic year/date), OR
+> - Official university semester registration receipt / student certificate.
+> 
+> *Applications submitted without verifiable student proof will NOT be eligible for student pricing and will be charged standard commercial rates.*
 
 | Student Plan | Validity | Price (BDT) | Scope & Features |
 | :---: | :---: | :---: | :--- |
@@ -97,8 +104,12 @@ Follow these simple steps to purchase and activate your license:
 - **bKash Personal Number:** `01750955823`
 - Send the exact amount for your chosen plan (**500 Taka**, **800 Taka**, or **1500 Taka** for students; or agreed commercial fee).
 
-### Step 2: Send Payment Proof & Machine ID
-After sending the money, send your **payment documents/screenshot** (or TrxID), your **Machine ID**, and **Student ID** (if applying for student discount):
+### Step 2: Send Verification Documents (Mandatory)
+After sending the money, send the following items via WhatsApp or Email:
+1. 📸 **Payment Proof**: bKash payment screenshot or TrxID.
+2. 💻 **Machine ID**: Copied from Rhino 8 (`SHLK-XXXX-XXXX-XXXX-XXXX`).
+3. 🎓 **Proof of Student Status (Mandatory)**: Clear photo of your valid Student ID card.
+
 - 💬 **WhatsApp:** [**+8801521776439**](https://wa.me/8801521776439) (`01521776439`)
 - 📧 **Email:** [**arch.sakhawat@gmail.com**](mailto:arch.sakhawat@gmail.com)
 
