@@ -13,6 +13,13 @@ Dhaka, Bangladesh
 
 **All licenses, copyrights, and intellectual property held exclusively by Sakhawat Hosen Sumon.**
 
+<br />
+
+[![Version](https://img.shields.io/badge/Version-1.0.4-brightgreen?style=for-the-badge&logo=rhino)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)
+[![Release Date](https://img.shields.io/badge/Updated-October_24%2C_2026-blue?style=for-the-badge)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
+[![Rhino Compatibility](https://img.shields.io/badge/Rhino-8.0%2B-red?style=for-the-badge)](https://www.rhino3d.com/)
+[![Platform](https://img.shields.io/badge/Platform-Windows_x64-lightgrey?style=for-the-badge&logo=windows)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
+
 </div>
 
 ---
@@ -27,13 +34,32 @@ Dhaka, Bangladesh
 <br />
 
 ### 📥 **[Download Official Installer: Shalik-1.0.4-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)**
-*(Direct Download • Version 1.0.4 • 38.1 MB • Compatible with Rhino 8.0+ on Windows 10 / 11 64-bit)*
+**Version:** `1.0.4` • **Update Date:** `October 24, 2026` • **Size:** `38.1 MB` • **OS:** Windows 10 / 11 64-bit (Rhino 8.0+)
 
 <br />
 
 👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.4-Setup.exe)**
 
 </div>
+
+---
+
+## 📌 Release Information
+
+| Field | Detail |
+| :--- | :--- |
+| **Current Version** | **v1.0.4** |
+| **Update Date** | **October 24, 2026** |
+| **Compatibility** | McNeel Rhinoceros 8.0+ (Windows 10 / 11 x64) |
+| **Build Status** | Stable Commercial Release |
+| **Installer Package** | `Shalik-1.0.4-Setup.exe` (38.1 MB) |
+
+### What's New in Version 1.0.4:
+- **Interactive Double-Click Editing**: Double-click any door, window, stair, or railing in your Rhino viewport to instantly modify parameters in place.
+- **Automated Wall Opening Cuts**: `ArchDoorInWall` and `ArchWindowInWall` cut precise rectangular openings through Rhino solid walls and insert parametric assemblies.
+- **Modern Activation Dialog**: Clear Machine ID copy button, plan badge display (Lifetime / Annual / Monthly), and license status diagnostics.
+- **Dynamic Unit Scaling**: Built-in awareness for Imperial (Inches, Feet) and Metric (Millimeters, Centimeters, Meters) document settings.
+- **AES-256 Protected Architecture**: Core algorithms encrypted in RAM for security and performance.
 
 ---
 
