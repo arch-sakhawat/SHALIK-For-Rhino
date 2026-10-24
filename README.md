@@ -77,9 +77,10 @@
 High-fidelity parametric geometry rendered directly in Rhinoceros 8 with the interactive Shalik toolbar:
 
 <div align="center">
-  <img src="assets/demo/demo_door_glass.png" width="48%" alt="6-Lite Glazed Door Generator in Rhino 8 with Shalik Toolbar" />
-  <img src="assets/demo/demo_door_modern_fluted.png" width="48%" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" />
-  <p><i>Left: 6-Lite Glazed Contemporary Door with Swing & Hardware | Right: Modern Fluted Slat Feature Door with Long Pull Handle</i></p>
+  <img src="assets/demo/demo_door_glass.png" width="32%" alt="6-Lite Glazed Contemporary Door in Rhino 8" />
+  <img src="assets/demo/demo_stair_cable_railing.png" width="32%" alt="Quarter-Turn Staircase with Cable Railing in Rhino 8" />
+  <img src="assets/demo/demo_escalator.png" width="32%" alt="Commercial Crisscross Escalator Suite in Rhino 8" />
+  <p><i>Left: 6-Lite Glazed Contemporary Door | Middle: Quarter-Turn Staircase with Cable Railing | Right: Commercial Crisscross Escalator Suite</i></p>
 </div>
 
 ---

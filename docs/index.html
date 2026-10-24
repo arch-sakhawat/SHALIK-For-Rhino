@@ -1516,8 +1516,8 @@
     <section id="showcase" data-reveal>
         <div class="section-header">
             <div class="hud-label">01 // VISUAL SHOWCASE & COMPARISON SLIDER</div>
-            <h2>Live 3D Geometry Studio Slider</h2>
-            <p>Pure parametric geometry modeled and rendered natively in Rhinoceros 8 using the Shalik toolbar. Use the interactive slider below to inspect models or compare them side-by-side.</p>
+            <h2>Live 3D Geometry Studio Gallery</h2>
+            <p>Pure parametric geometry modeled and rendered natively in Rhinoceros 8 using the Shalik toolbar. Use the interactive studio slider below or click any render to inspect in full-screen lightbox view.</p>
         </div>
 
         <!-- Interactive 3D Showcase Slider -->
@@ -1534,8 +1534,9 @@
                 </div>
                 <div class="slider-tabs-nav">
                     <button class="slider-tab-btn active" onclick="switchSlide(0)">01 // Glazed Door</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Fluted Door</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Interactive Split Comparison</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Stair & Cable Railing</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Commercial Escalator</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(3)">04 // Split Comparison</button>
                 </div>
             </div>
 
@@ -1546,26 +1547,31 @@
                     <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
                 </div>
 
-                <!-- Slide 1: Fluted Door -->
+                <!-- Slide 1: Stair with Cable Railing -->
                 <div class="slider-slide-item" id="slide-1">
-                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
+                    <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing in Rhino 8" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
                 </div>
 
-                <!-- Slide 2: Interactive Draggable Split-Screen Comparison -->
+                <!-- Slide 2: Commercial Escalator -->
                 <div class="slider-slide-item" id="slide-2">
+                    <img src="assets/demo/demo_escalator.png" alt="Commercial Crisscross Escalator Suite in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
+                </div>
+
+                <!-- Slide 3: Interactive Draggable Split-Screen Comparison -->
+                <div class="slider-slide-item" id="slide-3">
                     <div class="split-compare-container" id="split-compare-box">
-                        <!-- Bottom Layer: Fluted Door -->
+                        <!-- Bottom Layer: Escalator -->
                         <div class="split-image-layer">
-                            <img src="assets/demo/demo_door_modern_fluted.png" alt="Model 02 Fluted Door">
+                            <img src="assets/demo/demo_escalator.png" alt="Commercial Escalator Suite">
                         </div>
-                        <!-- Top Layer: Glazed Door (Clipped) -->
+                        <!-- Top Layer: Stair with Cable Railing (Clipped) -->
                         <div class="split-image-overlay" id="split-overlay">
-                            <img src="assets/demo/demo_door_glass.png" alt="Model 01 Glazed Door">
+                            <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Stair with Cable Railing">
                         </div>
                         <!-- Draggable Divider Line & Pill -->
                         <div class="split-divider-line" id="split-divider">
                             <div class="split-handle-pill" id="split-handle">
-                                <span>◂ DRAG TO COMPARE ▸</span>
+                                <span>◂ DRAG TO COMPARE CIRCULATION ▸</span>
                             </div>
                         </div>
                     </div>
@@ -1578,7 +1584,7 @@
                     <b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.
                 </div>
                 <div class="slider-nav-actions">
-                    <span class="slider-counter-display" id="slider-counter">01 / 03</span>
+                    <span class="slider-counter-display" id="slider-counter">01 / 04</span>
                     <button class="slider-btn-nav" onclick="prevSlide()">← PREV</button>
                     <button class="slider-btn-nav" onclick="nextSlide()">NEXT →</button>
                 </div>
@@ -1586,9 +1592,10 @@
 
         </div>
 
-        <!-- Dual Card Grid Below for Direct Side-by-Side Reference -->
-        <div class="showcase-grid" style="margin-bottom: 20px;">
+        <!-- 3-Column Visual Showcase Cards Grid for Direct Reference -->
+        <div class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-bottom: 20px;">
             
+            <!-- Card 1: Glazed Door -->
             <article class="showcase-card" data-reveal>
                 <span class="tick tick-tl"></span>
                 <span class="tick tick-tr"></span>
@@ -1607,6 +1614,7 @@
                 </div>
             </article>
 
+            <!-- Card 2: Stair with Cable Railing -->
             <article class="showcase-card" data-reveal>
                 <span class="tick tick-tl"></span>
                 <span class="tick tick-tr"></span>
@@ -1617,11 +1625,30 @@
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 02</span>
                 </div>
                 <div class="showcase-canvas-wrap">
-                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
+                    <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
-                    <h3>Modern Fluted Slat Feature Door</h3>
-                    <p>Vertical parametric architectural fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing trim.</p>
+                    <h3>Quarter-Turn Stair with Cable Railing</h3>
+                    <p>Parametric quarter-turn staircase with intermediate landing, solid wood treads, structural steel stringers, and matte black posts with horizontal stainless cable wire infill.</p>
+                </div>
+            </article>
+
+            <!-- Card 3: Commercial Escalator Suite -->
+            <article class="showcase-card" data-reveal>
+                <span class="tick tick-tl"></span>
+                <span class="tick tick-tr"></span>
+                <span class="tick tick-bl"></span>
+                <span class="tick tick-br"></span>
+                <div class="showcase-header">
+                    <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
+                    <span class="hud-label" style="color: var(--accent-gold);">MODEL 03</span>
+                </div>
+                <div class="showcase-canvas-wrap">
+                    <img src="assets/demo/demo_escalator.png" alt="Commercial Crisscross Escalator Suite" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
+                </div>
+                <div class="showcase-footer">
+                    <h3>Commercial Crisscross Escalator Suite</h3>
+                    <p>Dual crisscross commercial escalators with continuous transparent glass balustrades, slim handrail guides, internal mechanical truss housing, and illuminated comb plates.</p>
                 </div>
             </article>
 
@@ -2302,16 +2329,18 @@
 <script>
     // --- Slide State & Content ---
     var currentSlide = 0;
-    var totalSlides = 3;
+    var totalSlides = 4;
     var slideLabels = [
         "SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR",
-        "SLIDE 02 // MODERN FLUTED SLAT FEATURE DOOR",
-        "SLIDE 03 // INTERACTIVE DRAGGABLE SPLIT COMPARISON"
+        "SLIDE 02 // PARAMETRIC STAIRCASE WITH CABLE RAILING",
+        "SLIDE 03 // COMMERCIAL CRISSCROSS ESCALATOR SUITE",
+        "SLIDE 04 // INTERACTIVE CIRCULATION COMPARISON SLIDER"
     ];
     var slideCaptions = [
         "<b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.",
-        "<b>Model 02 // Modern Fluted Feature Door:</b> Vertical parametric architectural fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing trim.",
-        "<b>Interactive Split Slider:</b> Drag the center hairline divider left and right across the canvas to inspect geometry variations between the glazed lite core and vertical fluting profiles in real-time."
+        "<b>Model 02 // Quarter-Turn Staircase with Cable Railing:</b> Parametric quarter-turn staircase with intermediate landing, solid wood treads, structural steel stringers, and matte black posts with horizontal stainless cable wire infill.",
+        "<b>Model 03 // Commercial Crisscross Escalator Suite:</b> Dual crisscross commercial escalators with continuous transparent glass balustrades, slim handrail guides, internal mechanical truss housing, and illuminated comb plates.",
+        "<b>Interactive Split Slider:</b> Drag the center hairline divider left and right across the canvas to inspect vertical circulation geometry variations between the residential timber stair and the commercial escalator in real-time."
     ];
 
     function switchSlide(index) {
