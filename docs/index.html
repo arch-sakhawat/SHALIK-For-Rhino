@@ -1513,6 +1513,104 @@
                 display: none !important;
             }
         }
+
+        /* ==========================================================================
+           High-End Vector SVG Icons System (ArtCraft Standard)
+           ========================================================================== */
+        .ui-icon {
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
+            transition: transform 0.2s ease, stroke 0.2s ease;
+        }
+        .btn-artcraft-solid {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-artcraft-solid .ui-icon {
+            stroke: #000000;
+        }
+        .btn-artcraft-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-artcraft-whatsapp .ui-icon {
+            stroke: var(--whatsapp-green);
+        }
+        .btn-artcraft-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-artcraft-outline .ui-icon {
+            stroke: var(--ink-secondary);
+        }
+        .btn-artcraft-outline:hover .ui-icon {
+            stroke: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .author-links-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            color: var(--ink-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+        .author-links-bar a:hover {
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+        .author-links-bar .ui-icon {
+            stroke: var(--ink-faint);
+        }
+        .author-links-bar a:hover .ui-icon {
+            stroke: #ffffff;
+        }
+
+        /* Bento Box Vector Icon Framing */
+        .bento-icon-frame {
+            width: 46px;
+            height: 46px;
+            border-radius: 8px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-line-strong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--accent-crimson-bright);
+            transition: all 0.25s ease;
+        }
+        .bento-cell:hover .bento-icon-frame {
+            border-color: var(--accent-crimson-bright);
+            box-shadow: 0 0 16px var(--accent-crimson-glow);
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+        .bento-icon-frame svg {
+            stroke: currentColor;
+        }
+
+        .tutorial-workflow-box h5 {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tutorial-workflow-box h5 .ui-icon {
+            stroke: var(--accent-crimson-bright);
+        }
+
     </style>
     <!-- Bulletproof Image Fallback Handler -->
     <script>
@@ -1588,10 +1686,22 @@
         <div class="author-title">Architect & Computational Software Developer — Dhaka, Bangladesh</div>
         
         <div class="author-links-bar">
-            <a href="https://www.facebook.com/sakhawat.sumon2" target="_blank">🌐 Facebook Profile</a>
-            <a href="https://www.youtube.com/@archsakhawat" target="_blank">📺 YouTube Channel</a>
-            <a href="mailto:arch.sakhawat@gmail.com">📧 arch.sakhawat@gmail.com</a>
-            <a href="https://wa.me/8801521776439" target="_blank">💬 WhatsApp: +8801521776439</a>
+            <a href="https://www.facebook.com/sakhawat.sumon2" target="_blank">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <span>Facebook Profile</span>
+            </a>
+            <a href="https://www.youtube.com/@archsakhawat" target="_blank">
+                <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><polygon points="10 8 15 11 10 14 10 8" fill="currentColor"></polygon><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <span>YouTube Channel</span>
+            </a>
+            <a href="mailto:arch.sakhawat@gmail.com">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                <span>arch.sakhawat@gmail.com</span>
+            </a>
+            <a href="https://wa.me/8801521776439" target="_blank">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>WhatsApp: +8801521776439</span>
+            </a>
         </div>
     </div>
 
@@ -1607,13 +1717,16 @@
 
     <div class="cta-container">
         <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe" class="btn-artcraft-solid">
-            📥 Download Installer (v1.0.4 • 38.1 MB)
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download Installer (v1.0.4 &bull; 38.1 MB)</span>
         </a>
         <a href="https://wa.me/8801521776439?text=Hello%20Sakhawat,%20I%20want%20to%20activate%20Shalik%20for%20Rhino%208." target="_blank" class="btn-artcraft-whatsapp">
-            💬 Quick Activate on WhatsApp
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>Quick Activate on WhatsApp</span>
         </a>
         <a href="https://www.youtube.com/@archsakhawat" target="_blank" class="btn-artcraft-outline">
-            📺 Video Tutorials
+            <svg class="ui-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon></svg>
+            <span>Video Tutorials</span>
         </a>
     </div>
 
@@ -1698,7 +1811,7 @@
                 </div>
             </div>
 
-            <div class="slider-viewport zoom-magnifier-viewport" id="slider-viewport"><span class="zoom-indicator-pill">🔍 MOVE MOUSE TO INSPECT</span>
+            <div class="slider-viewport zoom-magnifier-viewport" id="slider-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
                 
                 <!-- Slide 0: Glazed Door -->
                 <div class="slider-slide-item active" id="slide-0">
@@ -1763,7 +1876,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 01</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill">🔍 MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
                     <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
@@ -1782,7 +1895,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 02</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill">🔍 MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
                     <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
@@ -1801,7 +1914,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-gold);">MODEL 03</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill">🔍 MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
                     <img src="assets/demo/demo_escalator.png" alt="Commercial Crisscross Escalator Suite" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
@@ -1825,32 +1938,32 @@
 
         <div class="bento-grid">
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">⚡</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
                 <h3>Real-Time Viewport Conduits</h3>
                 <p>Interact with shaded and wireframe 3D previews directly in your active Rhino viewport while adjusting sliders before committing geometry to the document.</p>
             </div>
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">🔄</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path><path d="m13 13 6 6"></path></svg></div>
                 <h3>Double-Click to Edit</h3>
                 <p>Need to modify a door width or change a stair tread depth later? Simply double-click any placed element in your viewport to reopen its parameters dialog instantly.</p>
             </div>
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">✂️</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><path d="M14 9h3v6h-3z"></path></svg></div>
                 <h3>1-Click Wall Cut Automation</h3>
                 <p><code>ArchDoorInWall</code> and <code>ArchWindowInWall</code> automatically cut clean solid rectangular openings through solid polysurface walls without Boolean failures.</p>
             </div>
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">📐</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div>
                 <h3>Parametric Presets</h3>
                 <p>Save and reuse custom architectural styles (frames, profiles, materials) as portable JSON presets to maintain design consistency across studio projects.</p>
             </div>
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">🎨</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg></div>
                 <h3>Automatic Layer Organization</h3>
                 <p>Elements bake cleanly onto standardized sub-layers (<code>FRAME</code>, <code>PANEL</code>, <code>GLASS</code>, <code>HARDWARE</code>, <code>CORE</code>) grouped by component for instant rendering assignments.</p>
             </div>
             <div class="bento-cell interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="bento-icon">📏</span>
+                <div class="bento-icon-frame"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path><line x1="14.5" y1="9.5" x2="16.5" y2="7.5"></line><line x1="11.5" y1="12.5" x2="14.5" y2="9.5"></line><line x1="8.5" y1="15.5" x2="10.5" y2="13.5"></line></svg></div>
                 <h3>Dynamic Unit Intelligence</h3>
                 <p>Seamlessly adapts to your active document units: Imperial (Inches, Feet) or Metric (Millimeters, Centimeters, Meters) with intelligent scale conversions.</p>
             </div>
@@ -1900,9 +2013,9 @@
             <!-- Interactive Category Filter Tabs -->
             <div class="matrix-filter-tabs">
                 <button class="matrix-tab-btn active" onclick="filterMatrix('all', this)">All Workflows (6)</button>
-                <button class="matrix-tab-btn" onclick="filterMatrix('speed', this)">⚡ Speed & Efficiency</button>
-                <button class="matrix-tab-btn" onclick="filterMatrix('editing', this)">🔍 Editing & Viewport</button>
-                <button class="matrix-tab-btn" onclick="filterMatrix('integrity', this)">🛡 Code & Integrity</button>
+                <button class="matrix-tab-btn" onclick="filterMatrix('speed', this)"><svg class="ui-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Speed & Efficiency</button>
+                <button class="matrix-tab-btn" onclick="filterMatrix('editing', this)"><svg class="ui-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>Editing & Viewport</button>
+                <button class="matrix-tab-btn" onclick="filterMatrix('integrity', this)"><svg class="ui-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Code & Integrity</button>
             </div>
 
             <!-- Elevated Benchmark Table Shell -->
@@ -1957,7 +2070,7 @@
                                 </td>
                                 <td class="col-hero">
                                     <span class="matrix-badge hero">
-                                        <span class="matrix-badge-icon">⚡</span> 5 &ndash; 10 Seconds
+                                        <span class="matrix-badge-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="display:inline-block;vertical-align:-1px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span> 5 &ndash; 10 Seconds
                                     </span>
                                     <div class="matrix-compare-bar-wrap" title="Shalik: 8 seconds (99.7% faster)">
                                         <div class="matrix-bar-fill bar-green" style="width: 3%;"></div>
@@ -2221,7 +2334,7 @@
                         Creates modern single-leaf, double-leaf, unequal, pivot, and sliding doors with customizable jamb frames, casing trim, door panels, glass lites, threshold profiles, and modern handles.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchDoor</b> in the Rhino command line or click the door icon on the Shalik toolbar.</li>
                             <li>Click two points in your viewport to define the door opening width and orientation.</li>
@@ -2246,7 +2359,7 @@
                         Generates fixed picture, casement, horizontal sliding, awning, hopper, and bifold windows with customizable mullion grids, sill overhangs, glass panes, and transoms.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchWindow</b> in Rhino.</li>
                             <li>Pick the two baseline points defining the window opening width.</li>
@@ -2272,7 +2385,7 @@
                         Automates wall penetrations by cutting precise rectangular openings through Rhino polysurface solid walls and inserting the parametric door or window assembly simultaneously.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Select the target wall polysurface when prompted.</li>
                             <li>Click the baseline insertion point on the wall face.</li>
@@ -2297,7 +2410,7 @@
                         Engineers 10 distinct staircase structural systems: Sawtooth, Closed Housed Stringer, Central Mono-Stringer, Cantilevered Floating Treads, Open Double-Stringer, Spiral, and Dogleg 180° stairs with automatic IBC/EN code riser-tread proportions.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchStair</b>.</li>
                             <li>Input floor-to-floor total height (e.g. 10'-0" or 3000 mm).</li>
@@ -2323,7 +2436,7 @@
                         Generates 10 guardrail and balustrade types: Frameless glass shoe, glass standoff pins, post & clamp, multi-strand stainless cable rail, horizontal pipe rods, and vertical square balusters.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchRailing</b>.</li>
                             <li>Select a baseline path curve or pick two points along a slab edge or balcony.</li>
@@ -2349,7 +2462,7 @@
                         Parametric multi-layered exterior and interior walls with polyline drafting, clean mitered corners, and layer detailing (structural core, rigid insulation, air cavity, brick/cladding veneer, interior gypsum drywall).
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchWall</b> and draw the wall centerline polyline in top viewport.</li>
                             <li>Select wall thickness, height, and layer assembly configuration.</li>
@@ -2373,7 +2486,7 @@
                         Commercial facade system generator with multi-floor grids, vertical mullions, horizontal transoms, spandrel panels, insulated glass units, and interactive baseline alignment.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchCurtainWall</b> and pick the facade baseline curve.</li>
                             <li>Set floor-to-floor count, bay grid width, mullion profile dimensions, and spandrel height.</li>
@@ -2397,7 +2510,7 @@
                         Parametric commercial escalators (30° / 35° incline) and horizontal moving walkways with structural steel trusses, step treads, comb plates, and transparent glass balustrades.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchEscalator</b>.</li>
                             <li>Specify floor-to-floor rise height and step tread width (800mm or 1000mm standard).</li>
@@ -2423,7 +2536,7 @@
                         Generates Pratt, Warren, Howe, and X-braced trusses (solid 3D structural tubes or 2D planar centerline drafting lines) as well as double-layer pyramid grid 3D space frames with spherical MERO ball nodes.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchTruss</b> for planar/3D trusses or <b>ArchSpaceTruss</b> for roof spaceframes.</li>
                             <li>Pick span baseline points or select a bounding roof surface.</li>
@@ -2448,7 +2561,7 @@
                         Creates gable, hip, shed, and gambrel roofs complete with 6 tile/cladding types (Spanish clay tiles, standing seam metal, shingles) and structural rafters, purlins, and fascia boards.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchPitchRoof</b> and pick the building footprint polygon.</li>
                             <li>Select roof shape (Gable / Hip / Shed), set roof pitch angle and eave overhang.</li>
@@ -2473,7 +2586,7 @@
                         Parametric vertical and horizontal solar shading fins, airfoil blades, and brise-soleil facades with customizable blade pitch and tilt angles.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchLouver</b> and select opening boundary curve.</li>
                             <li>Choose fin orientation (Horizontal / Vertical) and blade profile (Airfoil / Box / Slanted).</li>
@@ -2497,7 +2610,7 @@
                         Generates window security grills, privacy screens, and Islamic/modern geometric mashrabiya panels across 12 distinct parametric patterns.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchGrill</b> and pick the opening perimeter.</li>
                             <li>Select pattern typology from the dropdown preview.</li>
@@ -2522,7 +2635,7 @@
                         Creates Venetian horizontal blinds, vertical slat blinds, roller fabric shades, and matchstick bamboo blinds with rotation angles.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchBlind</b> and pick the window frame head.</li>
                             <li>Select shade typology (Venetian / Vertical / Roller).</li>
@@ -2548,7 +2661,7 @@
                         Parametric urban street generator with asphalt lanes, concrete curbs, sidewalks, crosswalk striping, street lighting poles, and electric utility power poles with overhead power lines.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Type <b>ArchRoad</b> and draw the center alignment curve.</li>
                             <li>Set road width, lane count, sidewalk dimensions, and lighting pole intervals.</li>
@@ -2573,7 +2686,7 @@
                         Parametric 3D architectural trees (Hardwood, Softwood, Palm) with foliage density control and linear street avenue or surface random forest scattering.
                     </p>
                     <div class="tutorial-workflow-box">
-                        <h5>📖 Workflow Tutorial:</h5>
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
                         <ol>
                             <li>Run <b>ArchTree</b> for individual trees or <b>ArrayTree</b> for site distribution.</li>
                             <li>Select tree species and canopy height.</li>
@@ -2597,7 +2710,7 @@
         </div>
 
         <div class="student-alert-banner">
-            <h4>🎓 MANDATORY: Proof of Student Status Required</h4>
+            <h4><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg> MANDATORY: Proof of Student Status Required</h4>
             <p>
                 Special subsidized pricing is strictly available for currently enrolled <b>Architecture, Engineering, Planning, and Design Students</b>. Proof of student status (clear photo of valid institutional Student ID card) <b>MUST</b> be provided when requesting activation. Unverified requests will be charged regular commercial fees.
             </p>
@@ -2654,7 +2767,7 @@
         </div>
 
         <div style="text-align: center; color: var(--ink-secondary); font-size: 0.95rem; margin-top: 15px;">
-            🏢 <b>Commercial & Studio Licenses:</b> Commercial architectural practices, visualization firms, and corporate design studios will be charged standard commercial rates. Contact directly via <a href="https://wa.me/8801521776439" style="color: #58a6ff;">WhatsApp (+8801521776439)</a> or <a href="mailto:arch.sakhawat@gmail.com" style="color: #58a6ff;">email</a> for commercial quotations.
+            <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><path d="M9 18h6v4H9z"></path></svg><b>Commercial & Studio Licenses:</b> Commercial architectural practices, visualization firms, and corporate design studios will be charged standard commercial rates. Contact directly via <a href="https://wa.me/8801521776439" style="color: #58a6ff;">WhatsApp (+8801521776439)</a> or <a href="mailto:arch.sakhawat@gmail.com" style="color: #58a6ff;">email</a> for commercial quotations.
         </div>
     </section>
 
@@ -2680,13 +2793,13 @@
                 <h4>2. Submit Verification</h4>
                 <p style="color: var(--ink-secondary); font-size: 0.95rem;">Send the following items via <b>WhatsApp</b> or <b>Email</b>:</p>
                 <ul style="margin-left: 20px; margin-top: 8px; color: var(--ink-secondary); font-size: 0.92rem;">
-                    <li>📸 <b>Payment Proof:</b> bKash screenshot or TrxID</li>
-                    <li>💻 <b>Machine ID:</b> Copied from Rhino 8 activation dialog</li>
-                    <li>🎓 <b>Student ID:</b> Clear photo of valid institutional card</li>
+                    <li><svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><b>Payment Proof:</b> bKash screenshot or TrxID</li>
+                    <li><svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg><b>Machine ID:</b> Copied from Rhino 8 activation dialog</li>
+                    <li><svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg><b>Student ID:</b> Clear photo of valid institutional card</li>
                 </ul>
                 <div style="margin-top: 15px;">
                     <a href="https://wa.me/8801521776439" target="_blank" class="btn-artcraft-whatsapp" style="font-size: 0.9rem; padding: 10px 18px;">
-                        💬 WhatsApp: 01521776439
+                        <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:6px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>WhatsApp: 01521776439
                     </a>
                 </div>
             </div>
