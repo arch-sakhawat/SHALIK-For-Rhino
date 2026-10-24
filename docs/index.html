@@ -81,7 +81,7 @@
 <div class="shalik-sky-stage" id="shalik-sky-stage"></div>
 <div class="bird-flock-counter" id="bird-flock-counter">
     <span style="font-size: 0.95rem;">🦅</span>
-    <span>Shalik Flock: <b id="bird-count-num" class="bird-counter-badge">1</b></span>
+    <span>Shalik Flock: <b id="bird-count-num" class="bird-counter-badge">4</b></span>
     <span style="font-size: 0.7rem; color: #a1a1aa;">(Click bird to double!)</span>
 </div>
 
@@ -158,41 +158,7 @@
 <!-- ========================================================================
      CONTINUOUS INFINITE MARQUEE TICKER (ArtCraft Signature Component)
      ======================================================================== -->
-<div class="marquee-section" aria-label="Tool Features Marquee">
-    <ul class="marquee-track">
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchDoor Parametric Generator</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Real-Time Rhino 8 Display Conduit</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Double-Click In-Place Dispatcher</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchWindow Multi-Lite & Sills</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Automatic Wall Boolean Cuts</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchStair Code Compliant Strings</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchCurtainWall Spider Glazing</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchTruss 2D & 3D Space Frames</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchPitchRoof Multi-Slope</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchLouver Sunshade Fins</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Native C# Geometry Kernel</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Zero Grasshopper Dependency</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>AES-256 Node-Locked Protection</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Student License: 500 ৳ / Month</li>
-    </ul>
-    <!-- Duplicated Track for Seamless 100% Loop -->
-    <ul aria-hidden="true" class="marquee-track">
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchDoor Parametric Generator</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Real-Time Rhino 8 Display Conduit</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Double-Click In-Place Dispatcher</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchWindow Multi-Lite & Sills</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Automatic Wall Boolean Cuts</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchStair Code Compliant Strings</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchCurtainWall Spider Glazing</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchTruss 2D & 3D Space Frames</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchPitchRoof Multi-Slope</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>ArchLouver Sunshade Fins</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Native C# Geometry Kernel</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Zero Grasshopper Dependency</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>AES-256 Node-Locked Protection</li>
-        <li class="marquee-item"><span class="marquee-bullet">▪</span>Student License: 500 ৳ / Month</li>
-    </ul>
-</div>
+
 
 
 <div class="wrapper">
@@ -1333,8 +1299,13 @@
         }
     }
 
-    // Start with 1 bird flying smoothly across screen
-    createBird(window.innerWidth * 0.25, window.innerHeight * 0.35, 1.8, 0.2);
+    // Start with 4 birds by default flying smoothly across screen
+    var initW = window.innerWidth;
+    var initH = window.innerHeight;
+    createBird(initW * 0.18, initH * 0.28, 1.8, 0.25);
+    createBird(initW * 0.38, initH * 0.45, 2.1, -0.3);
+    createBird(initW * 0.62, initH * 0.25, -1.9, 0.35);
+    createBird(initW * 0.82, initH * 0.52, -1.6, -0.2);
 
     // Continuous 60fps flight loop
     function animateFlock() {
