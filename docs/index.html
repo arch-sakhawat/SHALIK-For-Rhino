@@ -1088,25 +1088,38 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
         .slider-header-bar {
-            padding: 14px 24px;
+            padding: 16px 24px;
             background: var(--bg-surface-elevated);
             border-bottom: 1px solid var(--border-line);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
             gap: 12px;
+        }
+        .slider-header-bar .hud-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            width: 100%;
+            text-align: center;
         }
         .slider-tabs-nav {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
         .slider-tab-btn {
             background: transparent;
             color: var(--ink-secondary);
             border: 1px solid var(--border-line);
-            padding: 6px 14px;
+            padding: 7px 16px;
             border-radius: 6px;
             font-family: var(--font-mono);
             font-size: 0.75rem;
@@ -1114,17 +1127,21 @@
             letter-spacing: 0.08em;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .slider-tab-btn:hover {
             color: #ffffff;
             border-color: var(--border-line-hover);
             background: rgba(255,255,255,0.03);
+            transform: translateY(-1px);
         }
         .slider-tab-btn.active {
             color: #ffffff;
             background: var(--bg-surface);
             border-color: var(--accent-crimson-bright);
-            box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
+            box-shadow: 0 0 10px rgba(211, 47, 47, 0.35);
         }
 
         .slider-viewport {
@@ -1135,6 +1152,32 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+        }
+        .zoom-indicator-pill {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(14, 15, 17, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e6edf3;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+        }
+        .zoom-indicator-pill .ui-icon {
+            stroke: var(--accent-gold);
         }
         .slider-slide-item {
             position: absolute;
@@ -1142,11 +1185,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             opacity: 0;
             visibility: hidden;
             transform: scale(0.98);
             transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
             padding: 30px;
+            box-sizing: border-box;
         }
         .slider-slide-item.active {
             opacity: 1;
@@ -1160,6 +1205,8 @@
             object-fit: contain;
             cursor: zoom-in;
             transition: transform 0.3s ease;
+            margin: 0 auto;
+            display: block;
         }
         .slider-slide-item img:hover {
             transform: scale(1.02);
@@ -1246,6 +1293,21 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
+        }
+        @media (max-width: 900px) {
+            .slider-footer-bar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .slider-caption-text {
+                text-align: center;
+                max-width: 100%;
+            }
+            .slider-nav-actions {
+                justify-content: center;
+            }
         }
         .slider-caption-text {
             color: var(--ink-secondary);
@@ -1800,6 +1862,7 @@
 
             <div class="slider-header-bar">
                 <div class="hud-label">
+                    <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent-crimson-bright);box-shadow:0 0 8px var(--accent-crimson-glow);margin-right:4px;"></span>
                     <span>RHINO 8 VIEWPORT CONDUIT</span>
                     <span style="color: var(--accent-gold); margin-left: 10px;" id="current-slide-label">SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR</span>
                 </div>
