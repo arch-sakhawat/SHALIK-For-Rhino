@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Parametric Architectural Tools &mdash; Shalik for Rhino 8</title>
+    
+    <!-- Canonical Script Redirect for Trailing Slash -->
+    <script>
+        if (location.pathname === "/SHALIK-For-Rhino") {
+            location.replace("/SHALIK-For-Rhino/");
+        }
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="15 Parametric Architectural Tools &mdash; Shalik for Rhino 8">
+    <meta name="description" content="Complete documentation and step-by-step tutorials for all 15 parametric architectural modeling tools in Shalik for Rhinoceros 8. Parametric doors, windows, stairs, escalators, curtain walls, railings, and space trusses.">
+    <meta name="author" content="Sakhawat Hosen Sumon">
+    <link rel="canonical" href="https://arch-sakhawat.github.io/SHALIK-For-Rhino/tools.html">
+    <link rel="icon" type="image/x-icon" href="assets/setup.ico">
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External Shared Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+        <img src="assets/icon.png" alt="Shalik Logo">
+        <span>SHALIK FOR RHINO</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#showcase">3D Renders</a>
+        <a href="index.html#engine">Engine</a>
+        <a href="tools.html" class="active">Tools Catalog</a>
+        <a href="index.html#pricing">Pricing</a>
+    </div>
+    <div class="nav-actions">
+        <a href="buy.html" class="nav-btn-buy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>Buy It Now</span>
+        </a>
+    </div>
+</nav>
+
+<!-- Tools Hero Header -->
+<header class="tools-page-header">
+    <div class="hud-label">03 // ARCHITECTURAL SUITE CATALOG</div>
+    <h1>15 Parametric Rhino 8 Tools</h1>
+    <p>Every tool is built natively in C# RhinoCommon for instantaneous viewport manipulation, IBC/EN building code compliance, and automated manifold Boolean cuts.</p>
+    
+    <!-- Interactive Live Search Bar -->
+    <div class="tools-search-bar-wrap">
+        <svg class="tools-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="tool-search" class="tools-search-input" placeholder="Search by tool name or command (e.g., ArchDoor, Escalator, Truss)..." oninput="filterTools()">
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="matrix-filter-tabs" style="justify-content: center; margin-bottom: 25px;">
+        <button class="matrix-tab-btn active" onclick="filterCategory('all', this)">All Tools (15)</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('openings', this)">Openings &amp; Glazing</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('circulation', this)">Circulation &amp; Stairs</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('enclosures', this)">Enclosures &amp; Walls</button>
+        <button class="matrix-tab-btn" onclick="filterCategory('structural', this)">Structural &amp; Shells</button>
+    </div>
+</header>
+
+<!-- Main Tools Section -->
+<main style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
+<section id="tools" data-reveal>
+        <div class="section-header">
+            <div class="hud-label">03 // TOOL CATALOG & TUTORIALS</div>
+            <h2>15 Parametric Architectural Generators</h2>
+            <p>Every tool is engineered with precision geometry, custom profiles, and step-by-step interactive workflows.</p>
+        </div>
+
+        <div class="tools-deck">
+
+            <!-- Tool 1: Door -->
+            <div class="tool-row-card" data-category="openings" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchDoor_64.png" alt="ArchDoor">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Parametric Modern Door Generator</h3>
+                        <span class="code-cmd-tag">ArchDoor</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Creates modern single-leaf, double-leaf, unequal, pivot, and sliding doors with customizable jamb frames, casing trim, door panels, glass lites, threshold profiles, and modern handles.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchDoor</b> in the Rhino command line or click the door icon on the Shalik toolbar.</li>
+                            <li>Click two points in your viewport to define the door opening width and orientation.</li>
+                            <li>Adjust leaf typology (Single / Double / Pivot / Sliding), swing angle, frame width, and glass inserts in the live dialog.</li>
+                            <li>Click <b>Create Door</b> to bake geometry onto organized DOOR sub-layers.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 2: Window -->
+            <div class="tool-row-card" data-category="openings" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchWindow_64.png" alt="ArchWindow">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Parametric Window Generator</h3>
+                        <span class="code-cmd-tag">ArchWindow</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Generates fixed picture, casement, horizontal sliding, awning, hopper, and bifold windows with customizable mullion grids, sill overhangs, glass panes, and transoms.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchWindow</b> in Rhino.</li>
+                            <li>Pick the two baseline points defining the window opening width.</li>
+                            <li>Choose window style (Fixed, Casement, Sliding), specify mullion divisions, sill profile, and frame depth.</li>
+                            <li>Press <b>Create Window</b> to bake geometry with assigned materials.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 3: Door & Window in Wall -->
+            <div class="tool-row-card" data-category="openings" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchWall_64.png" alt="ArchDoorInWall">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Auto Wall Cut & Element Insertion</h3>
+                        <span class="code-cmd-tag">ArchDoorInWall</span>
+                        <span class="code-cmd-tag">ArchWindowInWall</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Automates wall penetrations by cutting precise rectangular openings through Rhino polysurface solid walls and inserting the parametric door or window assembly simultaneously.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Select the target wall polysurface when prompted.</li>
+                            <li>Click the baseline insertion point on the wall face.</li>
+                            <li>Specify door/window dimensions and sill height.</li>
+                            <li>Shalik automatically cuts the wall solid and places the parametric frame perfectly flush.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 4: Stair -->
+            <div class="tool-row-card" data-category="circulation" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchStair_64.png" alt="ArchStair">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Architectural Staircase Generator</h3>
+                        <span class="code-cmd-tag">ArchStair</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Engineers 10 distinct staircase structural systems: Sawtooth, Closed Housed Stringer, Central Mono-Stringer, Cantilevered Floating Treads, Open Double-Stringer, Spiral, and Dogleg 180° stairs with automatic IBC/EN code riser-tread proportions.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchStair</b>.</li>
+                            <li>Input floor-to-floor total height (e.g. 10'-0" or 3000 mm).</li>
+                            <li>Select structural typology (e.g. Central Mono-Stringer, Floating, or Dogleg).</li>
+                            <li>Adjust riser height and tread run (the dialog warns if outside code compliance).</li>
+                            <li>Click <b>Generate Staircase</b> (optionally check "Add Railing" for automatic matching balustrades).</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 5: Railing -->
+            <div class="tool-row-card" data-category="circulation" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchRailing_64.png" alt="ArchRailing">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Guardrail & Balustrade Generator</h3>
+                        <span class="code-cmd-tag">ArchRailing</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Generates 10 guardrail and balustrade types: Frameless glass shoe, glass standoff pins, post & clamp, multi-strand stainless cable rail, horizontal pipe rods, and vertical square balusters.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchRailing</b>.</li>
+                            <li>Select a baseline path curve or pick two points along a slab edge or balcony.</li>
+                            <li>Select railing system (e.g. Frameless Glass Shoe or Cable Rail).</li>
+                            <li>Adjust handrail height (42" / 1067mm standard), post spacing, and glass panel thickness.</li>
+                            <li>Click <b>Create Railing</b>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 6: Wall -->
+            <div class="tool-row-card" data-category="envelope" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/Wall_64.png" alt="ArchWall">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Multi-Layer Architectural Wall</h3>
+                        <span class="code-cmd-tag">ArchWall</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Parametric multi-layered exterior and interior walls with polyline drafting, clean mitered corners, and layer detailing (structural core, rigid insulation, air cavity, brick/cladding veneer, interior gypsum drywall).
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchWall</b> and draw the wall centerline polyline in top viewport.</li>
+                            <li>Select wall thickness, height, and layer assembly configuration.</li>
+                            <li>Press Enter to generate cleanly mitered, solid architectural walls.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 7: Curtain Wall -->
+            <div class="tool-row-card" data-category="envelope" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchCurtainWall_64.png" alt="ArchCurtainWall">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Curtain Wall Facade Generator</h3>
+                        <span class="code-cmd-tag">ArchCurtainWall</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Commercial facade system generator with multi-floor grids, vertical mullions, horizontal transoms, spandrel panels, insulated glass units, and interactive baseline alignment.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchCurtainWall</b> and pick the facade baseline curve.</li>
+                            <li>Set floor-to-floor count, bay grid width, mullion profile dimensions, and spandrel height.</li>
+                            <li>Preview the dynamic facade in 3D and press <b>Create Facade</b>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 8: Escalator -->
+            <div class="tool-row-card" data-category="circulation" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchEscalator_64.png" alt="ArchEscalator">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Commercial Escalator & Moving Walkway</h3>
+                        <span class="code-cmd-tag">ArchEscalator</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Parametric commercial escalators (30° / 35° incline) and horizontal moving walkways with structural steel trusses, step treads, comb plates, and transparent glass balustrades.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchEscalator</b>.</li>
+                            <li>Specify floor-to-floor rise height and step tread width (800mm or 1000mm standard).</li>
+                            <li>Select balustrade type (Glass / Solid Panel) and lighting profile.</li>
+                            <li>Click <b>Create Escalator</b> to place the complete structural assembly.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 9: Truss & Spaceframe -->
+            <div class="tool-row-card" data-category="structures" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchTruss_64.png" alt="ArchTruss">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Structural Truss & 3D Spaceframe</h3>
+                        <span class="code-cmd-tag">ArchTruss</span>
+                        <span class="code-cmd-tag">ArchSpaceTruss</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Generates Pratt, Warren, Howe, and X-braced trusses (solid 3D structural tubes or 2D planar centerline drafting lines) as well as double-layer pyramid grid 3D space frames with spherical MERO ball nodes.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchTruss</b> for planar/3D trusses or <b>ArchSpaceTruss</b> for roof spaceframes.</li>
+                            <li>Pick span baseline points or select a bounding roof surface.</li>
+                            <li>Configure top chord, bottom chord, diagonal web angles, and node sizes.</li>
+                            <li>Bake onto STRUCTURAL sub-layers.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 10: Pitch Roof -->
+            <div class="tool-row-card" data-category="structures" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchPitchRoof_64.png" alt="ArchPitchRoof">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Pitched Roof & Timber/Steel Framing</h3>
+                        <span class="code-cmd-tag">ArchPitchRoof</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Creates gable, hip, shed, and gambrel roofs complete with 6 tile/cladding types (Spanish clay tiles, standing seam metal, shingles) and structural rafters, purlins, and fascia boards.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchPitchRoof</b> and pick the building footprint polygon.</li>
+                            <li>Select roof shape (Gable / Hip / Shed), set roof pitch angle and eave overhang.</li>
+                            <li>Choose covering material and framing rafter dimensions.</li>
+                            <li>Click <b>Generate Roof</b>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 11: Louver -->
+            <div class="tool-row-card" data-category="details" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchLouver_64.png" alt="ArchLouver">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Architectural Louver & Brise-Soleil</h3>
+                        <span class="code-cmd-tag">ArchLouver</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Parametric vertical and horizontal solar shading fins, airfoil blades, and brise-soleil facades with customizable blade pitch and tilt angles.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchLouver</b> and select opening boundary curve.</li>
+                            <li>Choose fin orientation (Horizontal / Vertical) and blade profile (Airfoil / Box / Slanted).</li>
+                            <li>Set solar blade angle and spacing, then bake.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 12: Grill -->
+            <div class="tool-row-card" data-category="details" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchGrill_64.png" alt="ArchGrill">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Decorative Security Grill & Privacy Screen</h3>
+                        <span class="code-cmd-tag">ArchGrill</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Generates window security grills, privacy screens, and Islamic/modern geometric mashrabiya panels across 12 distinct parametric patterns.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchGrill</b> and pick the opening perimeter.</li>
+                            <li>Select pattern typology from the dropdown preview.</li>
+                            <li>Specify bar thickness, pattern repetition frequency, and frame profile.</li>
+                            <li>Bake onto GRILL layers.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 13: Blinds -->
+            <div class="tool-row-card" data-category="details" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchBlind_64.png" alt="ArchBlind">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Parametric Window Blinds & Shades</h3>
+                        <span class="code-cmd-tag">ArchBlind</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Creates Venetian horizontal blinds, vertical slat blinds, roller fabric shades, and matchstick bamboo blinds with rotation angles.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchBlind</b> and pick the window frame head.</li>
+                            <li>Select shade typology (Venetian / Vertical / Roller).</li>
+                            <li>Adjust slat tilt angle (0° to 90°) and drop length.</li>
+                            <li>Click <b>Generate Blinds</b>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 14: Road & Electric Pole -->
+            <div class="tool-row-card" data-category="details" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchRoad_64.png" alt="ArchRoad">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Urban Road Corridor & Utility Poles</h3>
+                        <span class="code-cmd-tag">ArchRoad</span>
+                        <span class="code-cmd-tag">ArchElectricPole</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Parametric urban street generator with asphalt lanes, concrete curbs, sidewalks, crosswalk striping, street lighting poles, and electric utility power poles with overhead power lines.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Type <b>ArchRoad</b> and draw the center alignment curve.</li>
+                            <li>Set road width, lane count, sidewalk dimensions, and lighting pole intervals.</li>
+                            <li>Generate the complete parametric urban corridor.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 15: Trees & Forest -->
+            <div class="tool-row-card" data-category="details" data-reveal>
+                <div class="tool-icon-frame">
+                    <img src="assets/icons/ArchTree_64.png" alt="ArchTree">
+                </div>
+                <div class="tool-info">
+                    <div class="tool-header-line">
+                        <h3>Landscape Vegetation & Forest Scatter</h3>
+                        <span class="code-cmd-tag">ArchTree</span>
+                        <span class="code-cmd-tag">ArrayTree</span>
+                    </div>
+                    <p class="tool-description-text">
+                        Parametric 3D architectural trees (Hardwood, Softwood, Palm) with foliage density control and linear street avenue or surface random forest scattering.
+                    </p>
+                    <div class="tutorial-workflow-box">
+                        <h5 class="tutorial-hd"><svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> // WORKFLOW TUTORIAL:</h5>
+                        <ol>
+                            <li>Run <b>ArchTree</b> for individual trees or <b>ArrayTree</b> for site distribution.</li>
+                            <li>Select tree species and canopy height.</li>
+                            <li>Pick point positions or select boundary path curve to scatter.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bottom Checkout Call to Action -->
+    <div style="margin-top: 50px; text-align: center; padding: 45px 25px; background: var(--bg-surface-elevated); border: 1px solid var(--border-line-strong); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.5);">
+        <div class="hud-label" style="color: var(--accent-gold); margin-bottom: 8px;">READY TO ELEVATE YOUR ARCHITECTURAL PRODUCTION?</div>
+        <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;">Get Instant Access to All 15 Tools</h2>
+        <p style="color: var(--ink-secondary); max-width: 600px; margin: 0 auto 24px; font-size: 0.95rem;">
+            Subsidized student licenses start at just 500 ৳ ($5 USD). Complete payment and receive your activation key directly on WhatsApp or Email within 24 hours.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a href="buy.html" class="nav-btn-buy" style="padding: 12px 28px !important; font-size: 0.95rem !important;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <span>Buy Shalik License Now</span>
+            </a>
+            <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe" class="nav-btn-download" style="padding: 12px 24px !important; font-size: 0.92rem !important;">
+                Download Setup v1.0.4 (Free Trial)
+            </a>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#showcase">3D Renders</a>
+        <a href="index.html#engine">Engine</a>
+        <a href="tools.html">Tools Catalog</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="buy.html">Buy &amp; Activate</a>
+        <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino">GitHub Repository</a>
+        <a href="https://wa.me/8801521776439" target="_blank">WhatsApp: +8801521776439</a>
+        <a href="mailto:arch.sakhawat@gmail.com">arch.sakhawat@gmail.com</a>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 15px; color: var(--ink-faint);">
+        &copy; 2026 Sakhawat Hosen Sumon. All Rights Reserved Worldwide.<br>
+        Rhino&reg; is a registered trademark of Robert McNeel & Associates.
+    </p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+    <button class="lightbox-close-btn" onclick="closeLightbox(event)">CLOSE [ESC]</button>
+    <img id="lightbox-img" src="" alt="Zoomed Architectural Render">
+</div>
+
+<!-- Tools Search & Category Filter Script -->
+<script>
+    var currentCat = 'all';
+
+    function filterCategory(cat, btn) {
+        currentCat = cat;
+        var btns = document.querySelectorAll('.matrix-filter-tabs .matrix-tab-btn');
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        applyFilters();
+    }
+
+    function filterTools() {
+        applyFilters();
+    }
+
+    function applyFilters() {
+        var query = document.getElementById('tool-search').value.toLowerCase().trim();
+        var cards = document.querySelectorAll('.tool-row-card');
+
+        cards.forEach(function(card) {
+            var text = card.innerText.toLowerCase();
+            var cardCat = card.getAttribute('data-category') || '';
+            var matchesCat = (currentCat === 'all' || cardCat === currentCat || (currentCat === 'circulation' && (cardCat === 'stairs' || cardCat === 'circulation')));
+            var matchesQuery = !query || text.indexOf(query) !== -1;
+
+            if (matchesCat && matchesQuery) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Lightbox modal logic
+    function openLightbox(src) {
+        var modal = document.getElementById("lightbox-modal");
+        var img = document.getElementById("lightbox-img");
+        if (modal && img) {
+            img.src = src;
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+    }
+    function closeLightbox(e) {
+        if (!e || e.target.id === "lightbox-modal" || e.target.classList.contains("lightbox-close-btn")) {
+            var modal = document.getElementById("lightbox-modal");
+            if (modal) {
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        }
+    }
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeLightbox();
+    });
+</script>
+
+</body>
+</html>

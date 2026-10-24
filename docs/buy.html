@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Shalik for Rhino 8 &mdash; Payment & Instant Activation</title>
+    
+    <!-- Canonical Script Redirect for Trailing Slash -->
+    <script>
+        if (location.pathname === "/SHALIK-For-Rhino") {
+            location.replace("/SHALIK-For-Rhino/");
+        }
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Buy Shalik for Rhino 8 &mdash; Payment & Instant Activation">
+    <meta name="description" content="Purchase and activate Shalik for Rhino 8. Complete payment via bKash and submit your Rhino Machine ID directly from this website to receive your genuine license key within 24 hours.">
+    <meta name="author" content="Sakhawat Hosen Sumon">
+    <link rel="canonical" href="https://arch-sakhawat.github.io/SHALIK-For-Rhino/buy.html">
+    <link rel="icon" type="image/x-icon" href="assets/setup.ico">
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External Shared Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+        <img src="assets/icon.png" alt="Shalik Logo">
+        <span>SHALIK FOR RHINO</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#showcase">3D Renders</a>
+        <a href="index.html#engine">Engine</a>
+        <a href="tools.html">Tools Catalog</a>
+        <a href="index.html#pricing">Pricing</a>
+    </div>
+    <div class="nav-actions">
+        <a href="buy.html" class="nav-btn-buy active">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>Buy It Now</span>
+        </a>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="buy-page-header">
+    <div class="hud-label">CHECKOUT &amp; ACTIVATION PORTAL</div>
+    <h1>Get Shalik for Rhino 8</h1>
+    <p>Complete your payment via bKash, then submit your license order directly from this page. Your personal license key will be delivered within 24 hours.</p>
+</header>
+
+<!-- Main Checkout 2-Step Layout -->
+<main class="buy-layout-grid">
+
+    <!-- LEFT COLUMN: How to Payment -->
+    <div class="buy-panel-card">
+        <div class="buy-step-pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>STEP 01 // PAYMENT GUIDE</span>
+        </div>
+        <h2 class="buy-panel-title">How to Make Payment</h2>
+        <p class="buy-panel-desc">We accept bKash Personal &amp; Nagad for all student and studio licenses. Follow these exact steps:</p>
+
+        <!-- bKash Primary Highlight Box -->
+        <div class="bkash-hero-box">
+            <div class="bkash-tag-line">
+                <span class="bkash-badge">bKash Personal</span>
+                <span class="bkash-type-hint">Send Money</span>
+            </div>
+            <div class="bkash-number-row">
+                <span class="bkash-number-val" id="bkash-num-text">01750955823</span>
+                <button type="button" class="btn-copy-bkash" onclick="copyBkashNumber()">
+                    <span id="copy-btn-label">Copy Number</span>
+                </button>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.78rem; color: var(--ink-secondary); font-family: var(--font-mono);">
+                Reference note: <b>SHALIK</b> &bull; WhatsApp Support: <b>01521776439</b>
+            </div>
+        </div>
+
+        <!-- Quick Plan Rate Selector -->
+        <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--ink-secondary); margin-bottom: 8px; text-transform: uppercase;">
+            Select License Plan Amount:
+        </div>
+        <div class="pricing-quick-picker" id="plan-picker">
+            <div class="price-pill-option" data-plan="1month" onclick="selectPlan('1month', '1 Month Student (500 ৳)')">
+                <div class="pill-tier-name">1 Month Student</div>
+                <div class="pill-tier-cost">500 ৳ <span style="font-size: 0.75rem; font-weight: normal; color: var(--ink-secondary);">($5)</span></div>
+            </div>
+            <div class="price-pill-option" data-plan="6months" onclick="selectPlan('6months', '6 Months Student (800 ৳)')">
+                <div class="pill-tier-name">6 Months Student</div>
+                <div class="pill-tier-cost">800 ৳ <span style="font-size: 0.75rem; font-weight: normal; color: var(--ink-secondary);">($8)</span></div>
+            </div>
+            <div class="price-pill-option active" data-plan="1year" onclick="selectPlan('1year', '12 Months Student (1,500 ৳)')">
+                <div class="pill-tier-name">12 Months (Best Value)</div>
+                <div class="pill-tier-cost">1,500 ৳ <span style="font-size: 0.75rem; font-weight: normal; color: var(--ink-secondary);">($15)</span></div>
+            </div>
+            <div class="price-pill-option" data-plan="commercial" onclick="selectPlan('commercial', 'Commercial Studio (5,000 ৳)')">
+                <div class="pill-tier-name">Commercial Studio</div>
+                <div class="pill-tier-cost">5,000 ৳ <span style="font-size: 0.75rem; font-weight: normal; color: var(--ink-secondary);">($50)</span></div>
+            </div>
+        </div>
+
+        <!-- Step Instructions -->
+        <div class="instructions-steps-list">
+            <div class="inst-step-item">
+                <div class="inst-step-num">1</div>
+                <div class="inst-step-text">
+                    Open your <b>bKash App</b> and select <b>Send Money</b>. Enter the number <b>01750955823</b>.
+                </div>
+            </div>
+            <div class="inst-step-item">
+                <div class="inst-step-num">2</div>
+                <div class="inst-step-text">
+                    Enter the exact amount for your plan (<b>500 ৳</b>, <b>800 ৳</b>, <b>1,500 ৳</b>, or <b>5,000 ৳</b>). Use Reference: <b>SHALIK</b>.
+                </div>
+            </div>
+            <div class="inst-step-item">
+                <div class="inst-step-num">3</div>
+                <div class="inst-step-text">
+                    Complete the transaction and copy your <b>bKash Transaction ID (TrxID)</b> from the confirmation SMS or statement.
+                </div>
+            </div>
+            <div class="inst-step-item">
+                <div class="inst-step-num">4</div>
+                <div class="inst-step-text">
+                    Open <b>Rhino 8</b>, run the command <b><code>_ShalikLicense</code></b>, and copy your hardware <b>Machine ID</b>.
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Verification Notice -->
+        <div style="margin-top: 24px; padding: 14px 16px; background: rgba(229, 184, 105, 0.08); border: 1px dashed rgba(229, 184, 105, 0.35); border-radius: 8px;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px;">
+                STUDENT SUBSIDY VERIFICATION
+            </div>
+            <div style="font-size: 0.78rem; color: var(--ink-secondary); line-height: 1.45;">
+                Enrolled Architecture &amp; Engineering students must provide an institutional Student ID photo or university email when ordering to qualify for subsidized pricing.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Send Mail Directly from Website -->
+    <div class="buy-panel-card">
+        <div class="buy-step-pill" style="background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.35); color: #86efac;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span>STEP 02 // SEND ORDER EMAIL</span>
+        </div>
+        <h2 class="buy-panel-title">Send Mail From Website</h2>
+        <p class="buy-panel-desc">Submit your details directly through this form. Our system dispatches your license order instantly to Architect Sakhawat.</p>
+
+        <!-- Direct In-Website Mail Form -->
+        <form id="license-order-form" class="buy-order-form" onsubmit="handleOrderSubmit(event)">
+            
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label for="order-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="order-name" name="name" required placeholder="e.g. Sakhawat Hosen">
+                </div>
+                <div class="form-group">
+                    <label for="order-email">Email (Where Key Will Arrive) <span class="req">*</span></label>
+                    <input type="email" id="order-email" name="email" required placeholder="name@domain.com">
+                </div>
+            </div>
+
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label for="order-whatsapp">WhatsApp / Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="order-whatsapp" name="whatsapp" required placeholder="+8801521776439">
+                </div>
+                <div class="form-group">
+                    <label for="order-plan">License Plan <span class="req">*</span></label>
+                    <select id="order-plan" name="plan" required onchange="syncPickerFromSelect(this.value)">
+                        <option value="12 Months Student (1,500 ৳)" selected>12 Months Student — 1,500 ৳ (Best Value)</option>
+                        <option value="6 Months Student (800 ৳)">6 Months Student — 800 ৳</option>
+                        <option value="1 Month Student (500 ৳)">1 Month Student — 500 ৳</option>
+                        <option value="Commercial Studio (5,000 ৳)">Commercial Studio — 5,000 ৳</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label for="order-machine-id">Rhino Machine ID <span class="req">*</span></label>
+                    <input type="text" id="order-machine-id" name="machine_id" required placeholder="e.g. 4F8A-92B1-C34E-00FF">
+                    <span class="field-hint">Run <code>_ShalikLicense</code> in Rhino 8 to copy ID</span>
+                </div>
+                <div class="form-group">
+                    <label for="order-trxid">bKash Transaction ID (TrxID) <span class="req">*</span></label>
+                    <input type="text" id="order-trxid" name="trxid" required placeholder="e.g. BAX894K29L">
+                    <span class="field-hint">From bKash SMS or App statement</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="order-student-id">Student ID Verification (Drive Link / Photo / Roll No)</label>
+                <input type="text" id="order-student-id" name="student_proof" placeholder="Paste Google Drive link to Student ID, or write Department &amp; University">
+                <span class="field-hint">Mandatory for student subsidized rates</span>
+            </div>
+
+            <div class="form-group">
+                <label for="order-notes">Additional Message / Inquiries (Optional)</label>
+                <textarea id="order-notes" name="notes" rows="2" placeholder="Any special requests or questions for the developer..."></textarea>
+            </div>
+
+            <button type="submit" id="btn-submit-order" class="btn-submit-order">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span id="submit-btn-text">Send Order Email From Website</span>
+            </button>
+
+            <!-- Status Alert Box -->
+            <div id="form-status" class="form-status-alert"></div>
+
+            <!-- Alternative 1-Click Dispatch Options -->
+            <div class="alt-dispatch-actions">
+                <div class="alt-dispatch-title">Alternative 1-Click Verification Options:</div>
+                <div class="alt-btn-row">
+                    <a href="mailto:arch.sakhawat@gmail.com" id="btn-alt-email" class="btn-alt-mailto" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>Open in Email App</span>
+                    </a>
+                    <a href="https://wa.me/8801521776439" id="btn-alt-whatsapp" class="btn-alt-wa" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        <span>Verify on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#showcase">3D Renders</a>
+        <a href="index.html#engine">Engine</a>
+        <a href="tools.html">Tools Catalog</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino">GitHub Repository</a>
+        <a href="https://wa.me/8801521776439" target="_blank">WhatsApp: +8801521776439</a>
+        <a href="mailto:arch.sakhawat@gmail.com">arch.sakhawat@gmail.com</a>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 15px; color: var(--ink-faint);">
+        &copy; 2026 Sakhawat Hosen Sumon. All Rights Reserved Worldwide.<br>
+        Rhino&reg; is a registered trademark of Robert McNeel & Associates.
+    </p>
+</footer>
+
+<!-- Interactive Client-Side Scripts for Buy Page -->
+<script>
+    // Copy bKash Number
+    function copyBkashNumber() {
+        var num = document.getElementById("bkash-num-text").innerText;
+        navigator.clipboard.writeText(num).then(function() {
+            var btn = document.getElementById("copy-btn-label");
+            btn.innerText = "Copied ✓";
+            setTimeout(function() { btn.innerText = "Copy Number"; }, 2500);
+        });
+    }
+
+    // Sync Plan Picker Pills with Select Dropdown
+    function selectPlan(planKey, selectValue) {
+        var pills = document.querySelectorAll(".price-pill-option");
+        pills.forEach(function(p) { p.classList.remove("active"); });
+        var targetPill = document.querySelector('.price-pill-option[data-plan="' + planKey + '"]');
+        if (targetPill) targetPill.classList.add("active");
+
+        var select = document.getElementById("order-plan");
+        if (select) {
+            for (var i = 0; i < select.options.length; i++) {
+                if (select.options[i].value.indexOf(planKey) !== -1 || select.options[i].text.indexOf(planKey) !== -1 || select.options[i].value === selectValue) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+        updateDirectLinks();
+    }
+
+    function syncPickerFromSelect(val) {
+        var key = "1year";
+        if (val.indexOf("1 Month") !== -1) key = "1month";
+        else if (val.indexOf("6 Months") !== -1) key = "6months";
+        else if (val.indexOf("12 Months") !== -1) key = "1year";
+        else if (val.indexOf("Commercial") !== -1) key = "commercial";
+
+        var pills = document.querySelectorAll(".price-pill-option");
+        pills.forEach(function(p) { p.classList.remove("active"); });
+        var targetPill = document.querySelector('.price-pill-option[data-plan="' + key + '"]');
+        if (targetPill) targetPill.classList.add("active");
+        updateDirectLinks();
+    }
+
+    // Auto-detect plan parameter from URL (e.g., buy.html?plan=1month)
+    (function checkUrlParams() {
+        var params = new URLSearchParams(window.location.search);
+        var plan = params.get("plan");
+        if (plan) {
+            if (plan === "1month") selectPlan("1month", "1 Month Student (500 ৳)");
+            else if (plan === "6months") selectPlan("6months", "6 Months Student (800 ৳)");
+            else if (plan === "1year" || plan === "12months") selectPlan("1year", "12 Months Student (1,500 ৳)");
+            else if (plan === "commercial") selectPlan("commercial", "Commercial Studio (5,000 ৳)");
+        }
+    })();
+
+    // Update mailto and whatsapp links as user fills the form
+    function updateDirectLinks() {
+        var name = encodeURIComponent(document.getElementById("order-name").value || "Architect");
+        var email = encodeURIComponent(document.getElementById("order-email").value || "");
+        var whatsapp = encodeURIComponent(document.getElementById("order-whatsapp").value || "");
+        var plan = encodeURIComponent(document.getElementById("order-plan").value);
+        var machineId = encodeURIComponent(document.getElementById("order-machine-id").value || "[Machine ID]");
+        var trxId = encodeURIComponent(document.getElementById("order-trxid").value || "[TrxID]");
+        var studentId = encodeURIComponent(document.getElementById("order-student-id").value || "N/A");
+        var notes = encodeURIComponent(document.getElementById("order-notes").value || "None");
+
+        var subject = encodeURIComponent("SHALIK Rhino 8 License Order: " + decodeURIComponent(name) + " (" + decodeURIComponent(plan) + ")");
+        var body = "SHALIK FOR RHINO 8 - LICENSE ACTIVATION ORDER%0D%0A" +
+                   "--------------------------------------------------%0D%0A" +
+                   "Full Name: " + name + "%0D%0A" +
+                   "Email: " + email + "%0D%0A" +
+                   "WhatsApp: " + whatsapp + "%0D%0A" +
+                   "Selected Plan: " + plan + "%0D%0A" +
+                   "Rhino Machine ID: " + machineId + "%0D%0A" +
+                   "bKash TrxID: " + trxId + "%0D%0A" +
+                   "Student ID Proof: " + studentId + "%0D%0A" +
+                   "Additional Notes: " + notes + "%0D%0A" +
+                   "--------------------------------------------------%0D%0A" +
+                   "Sent from official Shalik website.";
+
+        document.getElementById("btn-alt-email").href = "mailto:arch.sakhawat@gmail.com?subject=" + subject + "&body=" + body;
+
+        var waText = encodeURIComponent(
+            "Hello Architect Sakhawat, I have submitted payment for Shalik Rhino 8 license.\n\n" +
+            "• Name: " + decodeURIComponent(name) + "\n" +
+            "• Plan: " + decodeURIComponent(plan) + "\n" +
+            "• Machine ID: " + decodeURIComponent(machineId) + "\n" +
+            "• bKash TrxID: " + decodeURIComponent(trxId) + "\n" +
+            "• Email: " + decodeURIComponent(email) + "\n\n" +
+            "Please deliver my activation key."
+        );
+        document.getElementById("btn-alt-whatsapp").href = "https://wa.me/8801521776439?text=" + waText;
+    }
+
+    var inputs = document.querySelectorAll("#license-order-form input, #license-order-form textarea, #license-order-form select");
+    inputs.forEach(function(input) {
+        input.addEventListener("input", updateDirectLinks);
+    });
+
+    // In-Website Form Submission Handler
+    function handleOrderSubmit(e) {
+        e.preventDefault();
+        var btn = document.getElementById("btn-submit-order");
+        var btnText = document.getElementById("submit-btn-text");
+        var statusAlert = document.getElementById("form-status");
+
+        btn.disabled = true;
+        btnText.innerText = "Dispatching Order Email...";
+        statusAlert.className = "form-status-alert";
+        statusAlert.style.display = "none";
+
+        var form = document.getElementById("license-order-form");
+        var formData = new FormData(form);
+
+        // Submit via Formspree API endpoint to arch.sakhawat@gmail.com
+        fetch("https://formspree.io/f/mqaeekog", {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(function(response) {
+            if (response.ok) {
+                statusAlert.className = "form-status-alert success";
+                statusAlert.innerHTML = "<b>✓ Order Email Dispatched Successfully!</b><br>Your license request and bKash payment verification have been delivered directly to Architect Sakhawat. Your genuine activation key will be sent to <b>" + (document.getElementById("order-email").value || "your email") + "</b> within 24 hours.<br><br>For immediate instant verification, you can also ping us on WhatsApp below.";
+                statusAlert.style.display = "block";
+                btnText.innerText = "Order Dispatched ✓";
+                form.reset();
+            } else {
+                throw new Error("Dispatch failed");
+            }
+        })
+        .catch(function(err) {
+            // Fallback: If network or adblocker blocks Formspree, trigger client-side prefilled mailto immediately!
+            statusAlert.className = "form-status-alert success";
+            statusAlert.innerHTML = "<b>✓ Order Details Prepared!</b><br>Click <b>'Open in Email App'</b> below to send your pre-formatted order directly to <b>arch.sakhawat@gmail.com</b>, or verify instantly on WhatsApp.";
+            statusAlert.style.display = "block";
+            btnText.innerText = "Sent via Mail Client";
+            // Trigger mailto directly
+            window.location.href = document.getElementById("btn-alt-email").href;
+        })
+        .finally(function() {
+            btn.disabled = false;
+        });
+    }
+</script>
+
+</body>
+</html>
