@@ -3,9 +3,7 @@
 
 <div align="center">
 
-<img src="assets/icon.png" width="128" height="128" alt="Shalik Logo" />
-<br />
-<img src="assets/author.png" width="140" height="140" style="border-radius: 50%; margin-top: 10px;" alt="Sakhawat Hosen Sumon" />
+<img src="assets/author.png" width="230" alt="Sakhawat Hosen Sumon" />
 
 ### **Created & Developed by Sakhawat Hosen Sumon**
 Architect & Computational Software Developer  
@@ -15,10 +13,25 @@ Dhaka, Bangladesh
 
 **All licenses, copyrights, and intellectual property held exclusively by Sakhawat Hosen Sumon.**
 
+</div>
+
 ---
 
-### 📥 [Download Official Installer: Shalik-1.0.4-Setup.exe](Shalik-1.0.4-Setup.exe?raw=true)
-*(Compatible with Rhino 8.0+ on Windows 10 / 11 64-bit)*
+<div align="center">
+
+<img src="assets/icon.png" width="180" alt="Shalik Architectural Suite Logo" />
+
+## **SHALIK ARCHITECTURAL MODELING SUITE**
+### High-Performance Parametric Generation Engine for Rhinoceros 8
+
+<br />
+
+### 📥 **[Download Official Installer: Shalik-1.0.4-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)**
+*(Direct Download • Version 1.0.4 • 38.1 MB • Compatible with Rhino 8.0+ on Windows 10 / 11 64-bit)*
+
+<br />
+
+👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.4-Setup.exe)**
 
 </div>
 
@@ -80,8 +93,9 @@ Dhaka, Bangladesh
 ## 🚀 Installation Guide
 
 ### Step 1: Download
-Download the latest installer directly from this repository:
-👉 [**Shalik-1.0.4-Setup.exe**](Shalik-1.0.4-Setup.exe?raw=true)
+Download the latest installer directly using either link below:
+- 📥 **[Download Shalik-1.0.4-Setup.exe (Direct GitHub Raw)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)**
+- 📥 **[Alternative Mirror Link (raw.githubusercontent.com)](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.4-Setup.exe)**
 
 ### Step 2: Install
 1. Make sure **Rhino 8 is closed**.
