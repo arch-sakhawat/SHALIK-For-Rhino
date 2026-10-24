@@ -9,7 +9,7 @@
 Architect & Computational Software Developer  
 Dhaka, Bangladesh
 
-[🌐 Facebook Profile](https://www.facebook.com/sakhawat.sumon2) • [📺 YouTube Channel](https://www.youtube.com/@archsakhawat) • [📧 Email: arch.sakhawat@gmail.com](mailto:arch.sakhawat@gmail.com)
+[🌐 Facebook Profile](https://www.facebook.com/sakhawat.sumon2) • [📺 YouTube Channel](https://www.youtube.com/@archsakhawat) • [📧 Email: arch.sakhawat@gmail.com](mailto:arch.sakhawat@gmail.com) • [💬 WhatsApp: +8801521776439](https://wa.me/8801521776439)
 
 **All licenses, copyrights, and intellectual property held exclusively by Sakhawat Hosen Sumon.**
 
@@ -57,7 +57,7 @@ Dhaka, Bangladesh
 ### What's New in Version 1.0.4:
 - **Interactive Double-Click Editing**: Double-click any door, window, stair, or railing in your Rhino viewport to instantly modify parameters in place.
 - **Automated Wall Opening Cuts**: `ArchDoorInWall` and `ArchWindowInWall` cut precise rectangular openings through Rhino solid walls and insert parametric assemblies.
-- **Modern Activation Dialog**: Clear Machine ID copy button, plan badge display (Lifetime / Annual / Monthly), and license status diagnostics.
+- **Modern Activation Dialog**: Clear Machine ID copy button, plan badge display (Monthly / 6 Months / 12 Months), and license status diagnostics.
 - **Dynamic Unit Scaling**: Built-in awareness for Imperial (Inches, Feet) and Metric (Millimeters, Centimeters, Meters) document settings.
 - **AES-256 Protected Architecture**: Core algorithms encrypted in RAM for security and performance.
 
@@ -68,6 +68,39 @@ Dhaka, Bangladesh
 > - **Commercial License Required**: Shalik is a proprietary, professional commercial software product developed for architectural practitioners, BIM modelers, and 3D visualization studios. It is **NOT** open source and **NOT** free of charge. A valid commercial activation key is required to use the software.
 > - **Full Ownership of 3D Output**: All 3D models, geometry, BIM assemblies, and renderings created with Shalik belong **100% to you**. You can freely use them in commercial architectural projects, client deliverables, and construction documents with zero royalty fees.
 > - **Redistribution Prohibited**: Sharing, re-hosting, or modifying the software binaries, packages, or licenses without express written permission is strictly prohibited by law.
+
+---
+
+## 💳 Pricing & License Plans
+
+| Plan | Validity | Price (BDT) | Scope & Features |
+| :---: | :---: | :---: | :--- |
+| **1 Month** | **30 Days** | **200 ৳** | Complete access to all 15 architectural generators + updates |
+| **6 Months** | **180 Days** | **600 ৳** | Complete access to all 15 architectural generators + updates |
+| **12 Months (1 Year)** | **365 Days** | **1,000 ৳** | Best value: Full suite access, prioritized support & all updates |
+
+---
+
+## 📱 Payment Method (bKash)
+
+Follow these simple steps to purchase and activate your license:
+
+### Step 1: Send Money via bKash
+- **bKash Personal Number:** `01750955823`
+- Send the exact amount for your chosen plan (**200 Taka**, **600 Taka**, or **1000 Taka**).
+
+### Step 2: Send Payment Proof & Machine ID
+After sending the money, send your **payment documents/screenshot** (or TrxID) and your **Machine ID**:
+- 💬 **WhatsApp:** [**+8801521776439**](https://wa.me/8801521776439) (`01521776439`)
+- 📧 **Email:** [**arch.sakhawat@gmail.com**](mailto:arch.sakhawat@gmail.com)
+
+> 💡 **Where to find your Machine ID:**  
+> Open Rhino 8, click any Shalik tool (or type `ArchActivate`), and click the **Copy Machine ID** button.
+
+### Step 3: Receive Activation Key
+- You will receive your genuine **Activation Key within 24 hours** via WhatsApp or Email.
+- Paste the key into the Shalik Activation window and click **Activate License**.
+- The status turns green immediately (**ACTIVE**), unlocking all tools!
 
 ---
 
@@ -138,47 +171,12 @@ Download the latest installer directly using either link below:
 
 ---
 
-## 🔑 Activation & How to Purchase a License
-
-When you first click any Shalik tool or run `ArchActivate`:
-
-```
-+--------------------------------------------------------------+
-|             SHALIK ARCHITECTURE SUITE - ACTIVATION           |
-+--------------------------------------------------------------+
-| Status: NOT ACTIVATED                                        |
-|                                                              |
-| Machine ID:  [ SHLK-8A3F-4B1C-9D0E-7F2A ]  [ Copy ID ]       |
-|                                                              |
-| Instructions:                                                |
-| Send this Machine ID to arch.sakhawat@gmail.com to obtain    |
-| your commercial license key.                                 |
-|                                                              |
-| Activation Key:                                              |
-| [ Paste your key here...                                   ] |
-|                                                              |
-|                    [ Activate License ]                      |
-+--------------------------------------------------------------+
-```
-
-### Steps to Activate:
-1. Click **Copy ID** to copy your unique Machine ID.
-2. Send your Machine ID to **Sakhawat Hosen Sumon** via:
-   - 📧 Email: **[arch.sakhawat@gmail.com](mailto:arch.sakhawat@gmail.com)**
-   - 🌐 Facebook: **[https://www.facebook.com/sakhawat.sumon2](https://www.facebook.com/sakhawat.sumon2)**
-3. Choose your license plan:
-   - **Lifetime Commercial License** (Permanent license with free updates)
-   - **Annual Subscription** (365 Days)
-   - **Monthly Subscription / Evaluation** (30 Days)
-4. You will receive an **Activation Key**. Paste it into the box and click **Activate License**.
-5. The status will immediately turn green: **ACTIVE (Lifetime)**. All tools are unlocked and ready to use!
-
----
-
 ## 📞 Support & Inquiries
 
 For sales, technical support, corporate training, or feature requests:
 - **Architect & Author**: Sakhawat Hosen Sumon
+- **bKash (Personal)**: `01750955823`
+- **WhatsApp**: [**+8801521776439**](https://wa.me/8801521776439) (`01521776439`)
 - **Email**: [arch.sakhawat@gmail.com](mailto:arch.sakhawat@gmail.com)
 - **Facebook**: [https://www.facebook.com/sakhawat.sumon2](https://www.facebook.com/sakhawat.sumon2)
 - **YouTube Tutorials**: [https://www.youtube.com/@archsakhawat](https://www.youtube.com/@archsakhawat)
