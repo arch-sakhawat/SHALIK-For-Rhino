@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shalik for Rhino 8 — Parametric Architectural Modeling Suite & BIM Tools</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Shalik for Rhino 8 — Parametric Architectural Modeling Suite & BIM Tools">
+    <meta name="description" content="Download Shalik for Rhino 8: High-performance parametric architectural suite by Architect Sakhawat Hosen Sumon. Create parametric doors, windows, stairs, railings, walls, curtain walls, and space trusses in Rhinoceros 8 with live viewport preview and double-click editing.">
+    <meta name="keywords" content="Shalik, Rhino 8, Rhino 8 plugin, Rhino architecture, Rhino door generator, Rhino window generator, Rhino stair generator, Rhino railing generator, Rhino parametric wall, Rhino curtain wall, Rhino space truss, Rhinoceros 8 BIM, architectural modeling, Sakhawat Hosen Sumon, Rhino parametric architecture tools">
+    <meta name="author" content="Sakhawat Hosen Sumon">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://arch-sakhawat.github.io/SHALIK-For-Rhino/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arch-sakhawat.github.io/SHALIK-For-Rhino/">
+    <meta property="og:title" content="Shalik for Rhino 8 — Parametric Architectural Suite">
+    <meta property="og:description" content="Generate parametric doors, windows, stairs, railings, and structural frames in Rhino 8 in seconds with real-time viewport feedback. Created by Sakhawat Hosen Sumon.">
+    <meta property="og:image" content="https://arch-sakhawat.github.io/SHALIK-For-Rhino/assets/icon.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://arch-sakhawat.github.io/SHALIK-For-Rhino/">
+    <meta name="twitter:title" content="Shalik for Rhino 8 — Parametric Architecture Generator">
+    <meta name="twitter:description" content="Parametric Architectural Modeling Suite for McNeel Rhinoceros 8. Interactive live preview, IBC/EN code compliance, and instant wall cuts.">
+    <meta name="twitter:image" content="https://arch-sakhawat.github.io/SHALIK-For-Rhino/assets/icon.png">
+
+    <link rel="icon" type="image/x-icon" href="assets/setup.ico">
+
+    <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Shalik for Rhino 8",
+      "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+      "applicationCategory": "DesignApplication",
+      "applicationSubCategory": "CAD Architectural 3D Modeling Plug-in",
+      "softwareVersion": "1.0.4",
+      "datePublished": "2026-10-24",
+      "downloadUrl": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe",
+      "fileSize": "38.1MB",
+      "author": {
+        "@type": "Person",
+        "name": "Sakhawat Hosen Sumon",
+        "jobTitle": "Architect & Computational Software Developer",
+        "email": "arch.sakhawat@gmail.com",
+        "url": "https://www.facebook.com/sakhawat.sumon2"
+      },
+      "description": "Professional parametric architectural modeling suite built natively for McNeel Rhinoceros 8. Generates doors, windows, stairs, railings, curtain walls, and space trusses with live viewport display conduit previews.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "BDT",
+        "lowPrice": "500",
+        "highPrice": "1500",
+        "offerCount": "3"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #8B0000;
+            --primary-dark: #660000;
+            --accent: #2ea44f;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --heading: #f0f6fc;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(180deg, #1f0a0a 0%, var(--card-bg) 100%);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            padding: 45px 20px 35px;
+        }
+        .author-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            color: var(--heading);
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+        }
+        .author-title {
+            color: #58a6ff;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+        .social-links a {
+            color: #58a6ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        .social-links a:hover { text-decoration: underline; }
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(46, 164, 79, 0.4);
+            transition: all 0.2s ease;
+            margin: 15px 0 8px;
+        }
+        .btn-download:hover {
+            background: #2c974b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 164, 79, 0.6);
+        }
+        .badge-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+        .badge b { color: var(--heading); }
+        .section-title {
+            color: var(--heading);
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 22px;
+        }
+        .card h3 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        th, td {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        th { background: #21262d; color: var(--heading); }
+        .price-highlight {
+            color: #3fb950;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .alert-box {
+            background: rgba(139, 0, 0, 0.15);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="assets/author.png" alt="Sakhawat Hosen Sumon - Architect & Developer" class="author-avatar">
+    <h1>Sakhawat Hosen Sumon</h1>
+    <div class="author-title">Architect & Computational Software Developer — Dhaka, Bangladesh</div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/sakhawat.sumon2" target="_blank">🌐 Facebook Profile</a> •
+        <a href="https://www.youtube.com/@archsakhawat" target="_blank">📺 YouTube Channel</a> •
+        <a href="mailto:arch.sakhawat@gmail.com">📧 arch.sakhawat@gmail.com</a> •
+        <a href="https://wa.me/8801521776439" target="_blank">💬 WhatsApp: +8801521776439</a>
+    </div>
+
+    <div class="badge-bar">
+        <span class="badge">Version: <b>v1.0.4</b></span>
+        <span class="badge">Updated: <b>October 24, 2026</b></span>
+        <span class="badge">Rhino Compatibility: <b>Rhino 8.0+ (Windows x64)</b></span>
+        <span class="badge">License: <b>Commercial / Student Discount</b></span>
+    </div>
+</header>
+
+<div class="container">
+
+    <div style="text-align: center; padding: 20px 0 35px;">
+        <img src="assets/icon.png" alt="Shalik Architectural Suite Logo" class="logo-img">
+        <h2 style="font-size: 2.1rem; color: var(--heading);">SHALIK ARCHITECTURAL MODELING SUITE</h2>
+        <p class="subtitle">Next-Generation Parametric Architecture & BIM Generation Engine for Rhinoceros 8</p>
+        
+        <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe" class="btn-download">
+            📥 Download Shalik v1.0.4 Installer (.exe)
+        </a>
+        <p style="font-size: 0.88rem; color: #8b949e; margin-top: 6px;">
+            File: <code>Shalik-1.0.4-Setup.exe</code> (38.1 MB) • Direct GitHub Raw Download
+        </p>
+    </div>
+
+    <div class="alert-box">
+        <h3 style="color: #ff7b72; margin-bottom: 8px;">🎓 MANDATORY: Proof of Student Status Required</h3>
+        <p>Special subsidized pricing is strictly available for currently enrolled <b>Architecture, Engineering, Planning, and Design Students</b>. Proof of student status (clear photo of valid institutional Student ID card) <b>MUST</b> be provided when requesting activation.</p>
+    </div>
+
+    <h2 class="section-title">💳 Pricing & License Plans</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Plan</th>
+                <th>Validity</th>
+                <th>Price (BDT)</th>
+                <th>Scope & Inclusions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>1 Month</b></td>
+                <td>30 Days</td>
+                <td class="price-highlight">500 ৳</td>
+                <td>Full access to all 15 architectural generators + updates</td>
+            </tr>
+            <tr>
+                <td><b>6 Months</b></td>
+                <td>180 Days</td>
+                <td class="price-highlight">800 ৳</td>
+                <td>Full access to all 15 architectural generators + updates</td>
+            </tr>
+            <tr>
+                <td><b>12 Months (1 Year)</b></td>
+                <td>365 Days</td>
+                <td class="price-highlight">1,500 ৳</td>
+                <td>Best Value: Full suite access, prioritized support & all updates</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="color: #8b949e; font-size: 0.95rem;">
+        🏢 <b>Commercial & Professional Licenses:</b> Commercial architectural studios, visualizers, and engineering firms are charged regular commercial prices. Contact directly via WhatsApp or email for commercial quotations.
+    </p>
+
+    <h2 class="section-title">📱 bKash Payment & Instant Activation</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>1. Send Money via bKash</h3>
+            <p><b>bKash Personal Number:</b> <code style="color: #3fb950; font-size: 1.1rem;">01750955823</code></p>
+            <p>Send the exact amount for your chosen plan (500 ৳, 800 ৳, or 1500 ৳ for students).</p>
+        </div>
+        <div class="card">
+            <h3>2. Submit Documents</h3>
+            <p>Send via <b>WhatsApp (<a href="https://wa.me/8801521776439" style="color:#58a6ff;">+8801521776439</a>)</b> or <b>Email (<a href="mailto:arch.sakhawat@gmail.com" style="color:#58a6ff;">arch.sakhawat@gmail.com</a>)</b>:</p>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li>📸 Payment screenshot or TrxID</li>
+                <li>💻 Your Machine ID from Rhino 8</li>
+                <li>🎓 Photo of valid Student ID card</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>3. Receive Activation Key</h3>
+            <p>Your genuine activation key is generated and delivered within <b>24 hours</b>. Paste it into Rhino 8 and click <b>Activate License</b> to unlock all tools immediately.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">🏛️ Included Architectural Parametric Tools</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>🚪 Door Generator (ArchDoor)</h3>
+            <p>Parametric single, double, pivot, sliding doors with customized casing, frame profiles, hardware, and glass inserts.</p>
+        </div>
+        <div class="card">
+            <h3>🪟 Window Generator (ArchWindow)</h3>
+            <p>Fixed, casement, sliding, awning, bifold, multi-pane grids, sills, and transom configurations with auto wall cut.</p>
+        </div>
+        <div class="card">
+            <h3>🪜 Staircase Generator (ArchStair)</h3>
+            <p>10 complete stair systems: Sawtooth, Closed Housed, Central Mono-Stringer, Cantilevered Floating, Spiral, and Dogleg.</p>
+        </div>
+        <div class="card">
+            <h3>🛡️ Railing Generator (ArchRailing)</h3>
+            <p>10 railing types: Frameless glass shoe, glass standoff pins, post & clamp, cable rail, and vertical balusters.</p>
+        </div>
+        <div class="card">
+            <h3>🧱 Wall Generator (ArchWall)</h3>
+            <p>Parametric multi-layer architectural walls with interactive polyline layout, mitered corners, and construction detailing.</p>
+        </div>
+        <div class="card">
+            <h3>🏢 Curtain Wall Facade (ArchCurtainWall)</h3>
+            <p>Parametric multi-floor facade grid generator with mullions, transoms, spandrels, and baseline alignment.</p>
+        </div>
+        <div class="card">
+            <h3>📐 Truss & Space Frame (ArchTruss / ArchSpaceTruss)</h3>
+            <p>Structural Pratt, Warren, Howe, and X-braced trusses (3D solid and 2D drafting) and MERO ball-node spaceframes.</p>
+        </div>
+        <div class="card">
+            <h3>🏠 Pitch Roof Generator (ArchPitchRoof)</h3>
+            <p>Hip, gable, shed, and gambrel roofs with 6 tile/cladding types and timber/steel framing systems.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Sakhawat Hosen Sumon. All Rights Reserved Worldwide.</p>
+    <p>Rhino® is a registered trademark of Robert McNeel & Associates. Shalik is a commercial plug-in developed independently.</p>
+    <p style="margin-top: 10px;">
+        <a href="https://github.com/arch-sakhawat/SHALIK-For-Rhino" style="color: #58a6ff;">GitHub Repository</a> •
+        <a href="mailto:arch.sakhawat@gmail.com" style="color: #58a6ff;">arch.sakhawat@gmail.com</a>
+    </p>
+</footer>
+
+</body>
+</html>
