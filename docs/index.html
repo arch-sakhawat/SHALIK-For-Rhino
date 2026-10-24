@@ -590,6 +590,69 @@
         }
         .footer-links a:hover { text-decoration: underline; }
 
+        /* 3D Demo Showcase Gallery */
+        .demo-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 28px;
+            margin-top: 25px;
+        }
+        .demo-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+        .demo-card:hover {
+            transform: translateY(-6px);
+            border-color: #58a6ff;
+            box-shadow: 0 16px 45px rgba(0,0,0,0.55);
+        }
+        .demo-img-wrapper {
+            background: #ffffff;
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .demo-img-wrapper img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+        .demo-card:hover .demo-img-wrapper img {
+            transform: scale(1.02);
+        }
+        .demo-caption {
+            padding: 22px 24px;
+            background: var(--card-bg);
+        }
+        .demo-caption h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        .demo-caption p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+        .demo-toolbar-badge {
+            display: inline-block;
+            background: rgba(139, 0, 0, 0.2);
+            border: 1px solid var(--primary-light);
+            color: #ff7b72;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
         @media (max-width: 768px) {
             h1.hero-title { font-size: 2.1rem; }
             .tool-detail-card { grid-template-columns: 1fr; }
@@ -608,6 +671,7 @@
     <div class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#features">Capabilities</a>
+        <a href="#showcase">3D Demos</a>
         <a href="#tools">Tools & Tutorials</a>
         <a href="#pricing">Pricing</a>
         <a href="#payment">bKash Payment</a>
@@ -750,6 +814,38 @@
                 </tr>
             </tbody>
         </table>
+    </section>
+
+    <!-- 3D Demo Showcase Gallery -->
+    <section id="showcase" style="margin-bottom: 70px;">
+        <div class="section-header">
+            <h2>Live 3D Geometry Showcase</h2>
+            <p>High-fidelity architectural outputs rendered directly in Rhinoceros 8 with the interactive Shalik toolbar.</p>
+        </div>
+
+        <div class="demo-gallery-grid">
+            <div class="demo-card">
+                <div class="demo-img-wrapper">
+                    <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door in Rhino 8 with Shalik Toolbar" loading="lazy">
+                </div>
+                <div class="demo-caption">
+                    <span class="demo-toolbar-badge">Rhino 8 Parametric Render</span>
+                    <h4>6-Lite Glazed Contemporary Door</h4>
+                    <p>Parametric timber leaf with insulated double-glazing lites, casing trim, detailed threshold, modern lever handle, and customized swing angle.</p>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-img-wrapper">
+                    <img src="assets/demo/demo_door_modern_fluted.png" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" loading="lazy">
+                </div>
+                <div class="demo-caption">
+                    <span class="demo-toolbar-badge">Rhino 8 Parametric Render</span>
+                    <h4>Modern Fluted Slat Feature Door</h4>
+                    <p>Vertical parametric fluting profiles, horizontal reveal shadowlines, floor-to-ceiling sleek matte black pull bar, and flush jamb casing.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Tools & Detailed Tutorials -->

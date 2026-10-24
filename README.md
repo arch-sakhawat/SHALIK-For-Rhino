@@ -72,6 +72,18 @@
 
 ---
 
+## 📸 Live 3D Output Showcase
+
+High-fidelity parametric geometry rendered directly in Rhinoceros 8 with the interactive Shalik toolbar:
+
+<div align="center">
+  <img src="assets/demo/demo_door_glass.png" width="48%" alt="6-Lite Glazed Door Generator in Rhino 8 with Shalik Toolbar" />
+  <img src="assets/demo/demo_door_modern_fluted.png" width="48%" alt="Modern Fluted Slat Feature Door in Rhino 8 with Shalik Toolbar" />
+  <p><i>Left: 6-Lite Glazed Contemporary Door with Swing & Hardware | Right: Modern Fluted Slat Feature Door with Long Pull Handle</i></p>
+</div>
+
+---
+
 ## ⚡ Why Shalik vs Grasshopper & Manual Modeling
 
 | Feature | Manual Rhino 3D Modeling | Grasshopper Scripts | **Shalik Suite for Rhino 8** |
