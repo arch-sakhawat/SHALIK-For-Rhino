@@ -505,39 +505,197 @@
             line-height: 1.6;
         }
 
-        /* Benchmark Comparison Table */
-        .benchmark-card {
+        /* ==========================================================================
+           Elevated Benchmark Matrix (Architectural Studio Quality)
+           ========================================================================== */
+        .benchmark-section-wrap {
+            margin-top: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* KPI Metric Highlights Deck */
+        .benchmark-kpi-deck {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .benchmark-kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 10px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .benchmark-kpi-card:hover {
+            border-color: var(--border-line-hover);
+            transform: translateY(-2px);
+            background: var(--bg-surface-elevated);
+        }
+        .kpi-big-number {
+            font-family: var(--font-mono);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .kpi-big-number.green {
+            color: #4ade80;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.35);
+        }
+        .kpi-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .kpi-subtitle {
+            font-size: 0.85rem;
+            color: var(--ink-secondary);
+            line-height: 1.5;
+        }
+
+        /* The Benchmark Table Shell */
+        .benchmark-shell {
             background: var(--bg-surface);
             border: 1px solid var(--border-line);
             border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 80px;
+            position: relative;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
         }
-        table.benchmark-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        table.benchmark-table th, table.benchmark-table td {
-            padding: 18px 24px;
-            border-bottom: 1px solid var(--border-line);
-            font-size: 0.95rem;
-        }
-        table.benchmark-table th {
+        .benchmark-header-bar {
+            padding: 14px 24px;
             background: var(--bg-surface-elevated);
-            color: #ffffff;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-        table.benchmark-table tr:last-child td { border-bottom: none; }
-        td.highlight-cell {
-            background: rgba(35, 134, 54, 0.1);
-            color: #4ade80;
-            font-weight: 700;
+            border-bottom: 1px solid var(--border-line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
+        .benchmark-table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+        table.benchmark-matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: left;
+        }
+        table.benchmark-matrix-table th {
+            padding: 18px 24px;
+            background: var(--bg-surface-elevated);
+            color: var(--ink-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid var(--border-line);
+            white-space: nowrap;
+        }
+        table.benchmark-matrix-table th.col-hero {
+            background: #141c16;
+            color: #4ade80;
+            border-left: 1px solid rgba(74, 222, 128, 0.25);
+            border-right: 1px solid rgba(74, 222, 128, 0.25);
+            border-top: 2px solid #4ade80;
+            position: relative;
+        }
+        .hero-th-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .hero-winner-tag {
+            background: rgba(35, 134, 54, 0.25);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+
+        table.benchmark-matrix-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-line);
+            font-size: 0.92rem;
+            vertical-align: middle;
+            transition: background 0.15s ease;
+        }
+        table.benchmark-matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        table.benchmark-matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+        table.benchmark-matrix-table td.col-hero {
+            background: rgba(20, 28, 22, 0.6);
+            border-left: 1px solid rgba(74, 222, 128, 0.18);
+            border-right: 1px solid rgba(74, 222, 128, 0.18);
+        }
+        table.benchmark-matrix-table tr:hover td.col-hero {
+            background: rgba(20, 28, 22, 0.85);
+        }
+
+        .feature-title-cell b {
+            display: block;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .feature-title-cell span {
+            font-size: 0.8rem;
+            color: var(--ink-faint);
+            display: block;
+        }
+
+        /* Architectural HUD Badges */
+        .matrix-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .matrix-badge.neg {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+        .matrix-badge.warn {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.22);
+            color: #fcd34d;
+        }
+        .matrix-badge.hero {
+            background: rgba(35, 134, 54, 0.18);
+            border: 1px solid rgba(74, 222, 128, 0.35);
+            color: #86efac;
+            font-weight: 700;
+            box-shadow: 0 0 12px rgba(35, 134, 54, 0.2);
+        }
+        .matrix-badge-icon {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+        
         /* Architectural Tools Catalog */
         .tools-deck {
             display: flex;
@@ -1699,54 +1857,209 @@
         </div>
 
         <!-- Benchmark Comparison Table -->
-        <div class="section-header">
-            <div class="hud-label">BENCHMARK MATRIX</div>
-            <h2>Why Shalik vs Grasshopper & Manual CAD</h2>
-        </div>
+        <div class="benchmark-section-wrap" data-reveal>
+            <div class="section-header">
+                <div class="hud-label">02.1 // PERFORMANCE BENCHMARK MATRIX</div>
+                <h2>Why Shalik vs Grasshopper & Manual CAD</h2>
+                <p>Architectural modeling benchmark comparing native Shalik generation against traditional manual polysurface construction and Grasshopper visual scripting.</p>
+            </div>
 
-        <div class="benchmark-card">
-            <table class="benchmark-table">
-                <thead>
-                    <tr>
-                        <th>Modeling Workflow</th>
-                        <th>Manual Rhino 3D</th>
-                        <th>Grasshopper Canvas</th>
-                        <th>Shalik Suite for Rhino 8</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Parametric Modern Door</b></td>
-                        <td>45 - 60 Minutes</td>
-                        <td>15 - 20 Minutes (Setup Canvas)</td>
-                        <td class="highlight-cell">⚡ 5 - 10 Seconds</td>
-                    </tr>
-                    <tr>
-                        <td><b>Real-Time Live 3D Preview</b></td>
-                        <td>❌ None</td>
-                        <td>⚠️ Wireframe Meshes</td>
-                        <td class="highlight-cell">✅ Full 3D Interactive Conduits</td>
-                    </tr>
-                    <tr>
-                        <td><b>Editing Placed Objects Later</b></td>
-                        <td>❌ Complete Re-model</td>
-                        <td>⚠️ Must locate exact GH file</td>
-                        <td class="highlight-cell">✅ Native Viewport Double-Click</td>
-                    </tr>
-                    <tr>
-                        <td><b>Cutting Solid Wall Openings</b></td>
-                        <td>❌ Manual Boolean Splits</td>
-                        <td>⚠️ Frequent Boolean Failures</td>
-                        <td class="highlight-cell">✅ 1-Click Parametric Wall Cuts</td>
-                    </tr>
-                    <tr>
-                        <td><b>IBC / EN Building Code Check</b></td>
-                        <td>❌ Manual Code Reference</td>
-                        <td>⚠️ Custom Math Scripting</td>
-                        <td class="highlight-cell">✅ Built-in Code Compliant Limits</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Top 3 KPI Metric Highlight Cards -->
+            <div class="benchmark-kpi-deck">
+                <div class="benchmark-kpi-card" data-reveal>
+                    <span class="tick tick-tl"></span>
+                    <span class="tick tick-tr"></span>
+                    <span class="tick tick-bl"></span>
+                    <span class="tick tick-br"></span>
+                    <div class="kpi-big-number green">120x <span style="font-size: 1rem; color: #86efac;">FASTER</span></div>
+                    <div class="kpi-title">Instant Model Generation</div>
+                    <div class="kpi-subtitle">5 to 10 seconds instant generation vs 45 to 60 minutes of tedious manual modeling.</div>
+                </div>
+
+                <div class="benchmark-kpi-card" data-reveal>
+                    <span class="tick tick-tl"></span>
+                    <span class="tick tick-tr"></span>
+                    <span class="tick tick-bl"></span>
+                    <span class="tick tick-br"></span>
+                    <div class="kpi-big-number green">0% <span style="font-size: 1rem; color: #86efac;">FAILURES</span></div>
+                    <div class="kpi-title">Reliable Auto Wall Openings</div>
+                    <div class="kpi-subtitle">1-click manifold Boolean cuts that eliminate Grasshopper surface intersection crashes.</div>
+                </div>
+
+                <div class="benchmark-kpi-card" data-reveal>
+                    <span class="tick tick-tl"></span>
+                    <span class="tick tick-tr"></span>
+                    <span class="tick tick-bl"></span>
+                    <span class="tick tick-br"></span>
+                    <div class="kpi-big-number green">100% <span style="font-size: 1rem; color: #86efac;">NATIVE</span></div>
+                    <div class="kpi-title">Double-Click Edit In-Place</div>
+                    <div class="kpi-subtitle">Modify placed doors, windows, and stairs directly in Rhino viewport without searching for script files.</div>
+                </div>
+            </div>
+
+            <!-- Elevated Benchmark Table Shell -->
+            <div class="benchmark-shell" data-reveal>
+                <span class="tick tick-tl"></span>
+                <span class="tick tick-tr"></span>
+                <span class="tick tick-bl"></span>
+                <span class="tick tick-br"></span>
+
+                <div class="benchmark-header-bar">
+                    <span class="hud-label">COMPREHENSIVE MODELING BENCHMARK</span>
+                    <span class="hud-label" style="color: var(--accent-gold);">RHINOCEROS 8.0+ COMPATIBLE</span>
+                </div>
+
+                <div class="benchmark-table-wrapper">
+                    <table class="benchmark-matrix-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 28%;">MODELING WORKFLOW</th>
+                                <th style="width: 23%;">MANUAL RHINO 3D</th>
+                                <th style="width: 23%;">GRASSHOPPER CANVAS</th>
+                                <th class="col-hero" style="width: 26%;">
+                                    <div class="hero-th-wrap">
+                                        <span>SHALIK SUITE FOR RHINO 8</span>
+                                        <span class="hero-winner-tag">WINNER</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>Parametric Door & Window Assembly</b>
+                                    <span>Generation of frames, casing, glass lites & hardware</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> 45 &ndash; 60 Minutes
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> 15 &ndash; 20 Mins Canvas Setup
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">⚡</span> 5 &ndash; 10 Seconds
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>Real-Time Live 3D Viewport Feedback</b>
+                                    <span>Interactive visual geometry feedback during adjustment</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> None (Blind Modeling)
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> Wireframe Meshes
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">✓</span> Full 3D Interactive Conduits
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>Editing Placed Objects Later</b>
+                                    <span>Re-opening parameters after baking into document</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> Complete Manual Re-model
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> Must Locate Exact .GH File
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">✓</span> Native Viewport Double-Click
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>Cutting Solid Wall Openings</b>
+                                    <span>Punching precise voids into solid polysurface walls</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> Manual Boolean Splits
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> Frequent Boolean Failures
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">✓</span> 1-Click Parametric Wall Cuts
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>IBC & EN Building Code Check</b>
+                                    <span>Riser/tread formulas, railing height & clearances</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> Manual Handbook Calculations
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> Custom Math Scripting Needed
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">✓</span> Built-In Code Compliant Limits
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="feature-title-cell">
+                                    <b>Workflow & Script Dependency</b>
+                                    <span>Opening file on client or studio computers</span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge warn">
+                                        <span class="matrix-badge-icon">▲</span> Static CAD Geometry Only
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="matrix-badge neg">
+                                        <span class="matrix-badge-icon">✕</span> Missing Plugins Break File
+                                    </span>
+                                </td>
+                                <td class="col-hero">
+                                    <span class="matrix-badge hero">
+                                        <span class="matrix-badge-icon">✓</span> 100% Native Rhino Polysurfaces
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
