@@ -1211,79 +1211,41 @@
            ========================================================================== */
         .side-ruler-hud {
             position: fixed;
-            top: 50%;
+            top: 0;
             right: 0;
-            transform: translateY(-50%);
+            bottom: 0;
+            width: 220px;
             z-index: 95;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            height: 76vh;
-            max-height: 820px;
-            padding-right: 0;
             pointer-events: none;
             user-select: none;
-        }
-
-        /* Section Navigation Text Tags */
-        .ruler-sections-track {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            text-align: right;
-            padding: 10px 0;
-            pointer-events: auto;
-        }
-        .ruler-section-tag {
-            font-family: var(--font-sans);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink-faint);
-            text-decoration: none;
-            transition: all 0.25s ease;
-            padding: 4px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-            background: rgba(10, 10, 12, 0.4);
-            border-right: 2px solid transparent;
-        }
-        .ruler-section-tag:hover {
-            color: #ffffff;
-            transform: translateX(-4px);
-            background: rgba(18, 18, 21, 0.85);
-            border-right-color: var(--accent-crimson-bright);
-        }
-        .ruler-section-tag.active {
-            color: #ffffff;
-            background: rgba(18, 18, 21, 0.95);
-            border-right: 2px solid #ffffff;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-        }
-
-        /* The Technical Ruler Scale Column */
-        .ruler-scale-track {
-            position: relative;
-            width: 48px;
-            height: 100%;
-            background: rgba(10, 10, 12, 0.82);
-            backdrop-filter: blur(12px);
-            border-left: 1px solid var(--border-line);
-            border-right: 1px solid var(--border-line);
-            pointer-events: auto;
-            cursor: pointer;
             overflow: visible;
         }
 
-        .ruler-ticks-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        /* The Technical Ruler Rail */
+        .ruler-rail {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 48px;
+            background: rgba(10, 10, 12, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-left: 1px solid var(--border-line);
+            pointer-events: auto;
+            cursor: crosshair;
         }
 
-        .ruler-mark-row {
+        /* Ruler Ticks Container */
+        .ruler-ticks-track {
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+        }
+
+        .ruler-tick-mark {
             position: absolute;
             right: 0;
             display: flex;
@@ -1293,75 +1255,106 @@
             transform: translateY(-50%);
             pointer-events: none;
         }
-        .ruler-mark-number {
+        .ruler-tick-num {
             font-family: var(--font-mono);
-            font-size: 0.60rem;
-            color: var(--ink-faint);
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            color: #63636e;
             margin-right: 6px;
-            letter-spacing: -0.02em;
-            transition: color 0.15s ease, font-weight 0.15s ease;
+            transition: color 0.15s ease, text-shadow 0.15s ease;
         }
-        .ruler-mark-number.active {
+        .ruler-tick-num.active {
             color: #ffffff;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(255,255,255,0.7);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
         }
-        .ruler-tick-major {
-            width: 12px;
+        .ruler-line-major {
+            width: 14px;
             height: 1px;
-            background: var(--border-line-strong);
+            background: #4f4f5a;
             flex-shrink: 0;
-            transition: background 0.15s ease;
         }
-        .ruler-tick-minor {
+        .ruler-line-minor {
             width: 6px;
             height: 1px;
-            background: var(--border-line);
+            background: #222227;
             flex-shrink: 0;
         }
-        .ruler-mark-row.active .ruler-tick-major {
+        .ruler-tick-mark.active .ruler-line-major {
             background: #ffffff;
-            width: 15px;
+            width: 18px;
         }
 
-        /* Dynamic Indicator Needle Line */
-        .ruler-needle {
+        /* Active Blue Indicator Needle with 3-Digit % Badge (Exact ArtCraft Look) */
+        .ruler-needle-bar {
             position: absolute;
             left: 0;
             right: 0;
-            height: 2px;
-            background: #ffffff;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px var(--accent-crimson-bright);
-            z-index: 20;
+            height: 1.5px;
+            background: #2d81ff;
+            box-shadow: 0 0 8px #2d81ff, 0 0 15px rgba(45, 129, 255, 0.5);
             pointer-events: none;
+            z-index: 25;
             transform: translateY(-50%);
-            transition: top 0.08s linear;
+            transition: top 0.06s linear;
         }
-        .needle-pill {
+        .ruler-needle-readout {
             position: absolute;
-            right: 104%;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #000000;
-            border: 1px solid #ffffff;
-            color: #ffffff;
+            right: 52px;
+            bottom: 3px;
             font-family: var(--font-mono);
-            font-size: 0.62rem;
-            font-weight: 800;
-            padding: 2px 5px;
-            border-radius: 3px;
-            margin-right: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #2d81ff;
+            text-shadow: 0 0 10px rgba(45, 129, 255, 0.7);
+            letter-spacing: 0.06em;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            pointer-events: none;
         }
 
-        /* Responsive: Auto-collapse on smaller screens */
+        /* Kinetic Arc Section Letters Stage */
+        .ruler-kinetic-stage {
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            right: 48px;
+            width: 180px;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .kinetic-word-group {
+            position: absolute;
+            width: 100%;
+            height: 0;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .kinetic-char {
+            position: absolute;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #71717a;
+            text-transform: uppercase;
+            white-space: pre;
+            transform-origin: center center;
+            will-change: transform, opacity, color;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+        .kinetic-char.active {
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.85);
+        }
+
+        /* Responsive: auto hide on smaller displays */
         @media (max-width: 1100px) {
             .side-ruler-hud {
                 display: none !important;
             }
         }
-
     </style>
     <!-- Bulletproof Image Fallback Handler -->
     <script>
@@ -1387,27 +1380,21 @@
 <body>
 
 <!-- ========================================================================
-     ARCHITECTURAL HUD ELEVATION SIDE RULER (Technical Scroll & Navigation)
+     ARCHITECTURAL HUD ELEVATION SIDE RULER (Exact ArtCraft Style)
      ======================================================================== -->
 <aside class="side-ruler-hud" id="side-ruler-hud" aria-label="Elevation Side Ruler Navigation">
-    <!-- Section Text Markers -->
-    <div class="ruler-sections-track">
-        <a href="#showcase" class="ruler-section-tag" data-target="showcase">SHOWCASE</a>
-        <a href="#features" class="ruler-section-tag" data-target="features">ENGINE</a>
-        <a href="#tools" class="ruler-section-tag" data-target="tools">TOOLS</a>
-        <a href="#pricing" class="ruler-section-tag" data-target="pricing">PRICING</a>
-        <a href="#payment" class="ruler-section-tag" data-target="payment">PAYMENT</a>
-        <a href="#faq" class="ruler-section-tag" data-target="faq">FAQ</a>
-    </div>
+    <!-- Kinetic Letter Arc Stage -->
+    <div class="ruler-kinetic-stage" id="ruler-kinetic-stage"></div>
 
-    <!-- Ruler Scale Track -->
-    <div class="ruler-scale-track" id="ruler-scale-track" title="Click or drag to scrub scroll position">
-        <!-- Live Needle -->
-        <div class="ruler-needle" id="ruler-needle">
-            <span class="needle-pill" id="needle-pill">00</span>
+    <!-- The Technical Ruler Rail -->
+    <div class="ruler-rail" id="ruler-rail" title="Click or drag to scrub scroll position">
+        <!-- Active Glowing Blue Needle Line -->
+        <div class="ruler-needle-bar" id="ruler-needle-bar">
+            <!-- 019% Percentage Readout -->
+            <span class="ruler-needle-readout" id="ruler-needle-readout">000%</span>
         </div>
-        <!-- Ticks container -->
-        <div class="ruler-ticks-container" id="ruler-ticks-container"></div>
+        <!-- 0 to 100 Ticks Track -->
+        <div class="ruler-ticks-track" id="ruler-ticks-track"></div>
     </div>
 </aside>
 
@@ -2470,100 +2457,192 @@
         });
     }
 
-    // --- Architectural HUD Side Ruler Interactive Logic ---
-    (function initSideRuler() {
-        var ticksContainer = document.getElementById("ruler-ticks-container");
-        var needle = document.getElementById("ruler-needle");
-        var needlePill = document.getElementById("needle-pill");
-        var track = document.getElementById("ruler-scale-track");
-        if (!ticksContainer || !needle || !track) return;
+    // --- Architectural HUD Side Ruler & Kinetic Arc Letter Suite (ArtCraft Style) ---
+    (function initArtCraftRuler() {
+        var rail = document.getElementById("ruler-rail");
+        var ticksTrack = document.getElementById("ruler-ticks-track");
+        var needleBar = document.getElementById("ruler-needle-bar");
+        var needleReadout = document.getElementById("ruler-needle-readout");
+        var kineticStage = document.getElementById("ruler-kinetic-stage");
+        if (!rail || !ticksTrack || !needleBar || !needleReadout || !kineticStage) return;
 
-        // Generate 0 to 100 ticks (5-unit increments with numbers, 1-unit minor ticks)
-        var htmlBuffer = "";
+        // 1. Build 0 to 100 Ticks
+        var ticksHtml = "";
         for (var i = 0; i <= 100; i++) {
             var topPct = i + "%";
             if (i % 5 === 0) {
-                // Major tick with number
                 var numStr = i < 10 ? "0" + i : "" + i;
-                htmlBuffer += '<div class="ruler-mark-row" style="top: ' + topPct + ';" data-val="' + i + '">' +
-                              '<span class="ruler-mark-number" id="ruler-num-' + i + '">' + numStr + '</span>' +
-                              '<span class="ruler-tick-major"></span>' +
-                              '</div>';
+                ticksHtml += '<div class="ruler-tick-mark" style="top: ' + topPct + ';">' +
+                             '<span class="ruler-tick-num" id="ruler-num-' + i + '">' + numStr + '</span>' +
+                             '<span class="ruler-line-major"></span>' +
+                             '</div>';
             } else {
-                // Minor tick
-                htmlBuffer += '<div class="ruler-mark-row" style="top: ' + topPct + ';">' +
-                              '<span class="ruler-tick-minor"></span>' +
-                              '</div>';
+                ticksHtml += '<div class="ruler-tick-mark" style="top: ' + topPct + ';">' +
+                             '<span class="ruler-line-minor"></span>' +
+                             '</div>';
             }
         }
-        ticksContainer.innerHTML = htmlBuffer;
+        ticksTrack.innerHTML = ticksHtml;
 
-        var lastActiveNum = null;
+        // 2. Section Definitions for Kinetic Curved Animation
+        var sections = [
+            { id: "top", label: "ARTCRAFT", targetId: "top" },
+            { id: "showcase", label: "SHOWCASE", targetId: "showcase" },
+            { id: "features", label: "ENGINE", targetId: "features" },
+            { id: "tools", label: "TOOLS", targetId: "tools" },
+            { id: "pricing", label: "PRICING", targetId: "pricing" },
+            { id: "payment", label: "PAYMENT", targetId: "payment" },
+            { id: "faq", label: "FAQ", targetId: "faq" }
+        ];
 
-        // Update needle and numbers on scroll
-        function updateRuler() {
-            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        // Create DOM nodes for each character in each word
+        var wordGroups = [];
+        sections.forEach(function(sec, sIdx) {
+            var group = document.createElement("div");
+            group.className = "kinetic-word-group";
+            group.setAttribute("data-target", sec.targetId);
+            group.title = "Jump to " + sec.label;
+            group.onclick = function() {
+                var el = document.getElementById(sec.targetId);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+            };
+
+            var chars = [];
+            var letters = sec.label.split("");
+            letters.forEach(function(ch) {
+                var span = document.createElement("span");
+                span.className = "kinetic-char";
+                span.innerText = ch;
+                group.appendChild(span);
+                chars.push(span);
+            });
+
+            kineticStage.appendChild(group);
+            wordGroups.push({
+                sec: sec,
+                group: group,
+                chars: chars,
+                len: letters.length
+            });
+        });
+
+        var lastActive5 = null;
+
+        // 3. Animation Engine: Scroll Math & Bézier Arc Trajectory
+        function renderRulerFrame() {
+            var docH = document.documentElement.scrollHeight - window.innerHeight;
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            var pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-            pct = Math.max(0, Math.min(100, pct));
+            var scrollPct = docH > 0 ? (scrollY / docH) : 0;
+            scrollPct = Math.max(0, Math.min(1, scrollPct));
 
-            // Position needle
-            needle.style.top = pct + "%";
-            var roundVal = Math.round(pct);
-            needlePill.innerText = roundVal < 10 ? "0" + roundVal : "" + roundVal;
+            // Needle Position
+            var needleTopPx = scrollPct * ticksTrack.offsetHeight;
+            needleBar.style.top = needleTopPx + "px";
+
+            // Needle Readout (Exact ArtCraft 3-digit format: "019%")
+            var pctInt = Math.round(scrollPct * 100);
+            var pctPadded = (pctInt < 10 ? "00" : pctInt < 100 ? "0" : "") + pctInt + "%";
+            needleReadout.innerText = pctPadded;
 
             // Highlight nearest 5-unit number
-            var nearest5 = Math.round(pct / 5) * 5;
-            if (nearest5 !== lastActiveNum) {
-                if (lastActiveNum !== null) {
-                    var prev = document.getElementById("ruler-num-" + lastActiveNum);
-                    if (prev) prev.classList.remove("active");
+            var nearest5 = Math.round((scrollPct * 100) / 5) * 5;
+            if (nearest5 !== lastActive5) {
+                if (lastActive5 !== null) {
+                    var prevEl = document.getElementById("ruler-num-" + lastActive5);
+                    if (prevEl) prevEl.classList.remove("active");
                 }
-                var current = document.getElementById("ruler-num-" + nearest5);
-                if (current) current.classList.add("active");
-                lastActiveNum = nearest5;
+                var curEl = document.getElementById("ruler-num-" + nearest5);
+                if (curEl) curEl.classList.add("active");
+                lastActive5 = nearest5;
             }
 
-            // Highlight active section label
-            var sections = ["showcase", "features", "tools", "pricing", "payment", "faq"];
-            var currentSec = "";
-            var triggerPoint = window.innerHeight * 0.35;
-            sections.forEach(function(secId) {
-                var el = document.getElementById(secId);
-                if (el) {
-                    var r = el.getBoundingClientRect();
-                    if (r.top <= triggerPoint && r.bottom >= 0) {
-                        currentSec = secId;
-                    }
-                }
-            });
+            // Animate each section word along the kinetic Bézier curve
+            var stageH = kineticStage.offsetHeight;
+            var stageW = kineticStage.offsetWidth;
 
-            document.querySelectorAll(".ruler-section-tag").forEach(function(tag) {
-                if (tag.getAttribute("data-target") === currentSec) {
-                    tag.classList.add("active");
-                } else {
-                    tag.classList.remove("active");
-                }
+            sections.forEach(function(sec, sIdx) {
+                var groupObj = wordGroups[sIdx];
+                var secEl = document.getElementById(sec.targetId);
+                if (!secEl) return;
+
+                // Document anchor of section
+                var rect = secEl.getBoundingClientRect();
+                var elTopDoc = rect.top + scrollY;
+                var anchorPct = Math.max(0, Math.min(1, elTopDoc / (document.documentElement.scrollHeight || 1)));
+
+                // Distance of section from current viewport center (-1 to +1 range)
+                var viewCenter = scrollY + window.innerHeight * 0.45;
+                var distFromView = (elTopDoc - viewCenter) / (window.innerHeight * 0.8);
+                var activeProximity = Math.max(0, 1 - Math.abs(distFromView)); // 1 when active in view
+
+                // Easing curve for active transition
+                var t = activeProximity; // 0 (docked in rail) to 1 (fully fanned out in view)
+
+                // Base Y position along the track
+                var railY = anchorPct * stageH;
+
+                var N = groupObj.len;
+                var letterSpacing = 12;
+
+                groupObj.chars.forEach(function(chSpan, cIdx) {
+                    // Stagger delay per letter (leading letters arc out first!)
+                    var stagger = cIdx / Math.max(1, N - 1);
+                    var charProgress = Math.max(0, Math.min(1, t * 1.5 - stagger * 0.5));
+                    
+                    // Smooth easeInOut
+                    var d = charProgress < 0.5 ? 4 * charProgress * charProgress * charProgress : 1 - Math.pow(-2 * charProgress + 2, 3) / 2;
+
+                    // Rest / Docked state (vertical queue near the rail)
+                    var hX = stageW - 12;
+                    var hY = railY + (cIdx - N / 2) * 11;
+                    var hRot = -90; // vertical text
+
+                    // Active state (fanned out horizontally to the left)
+                    var mX = stageW - 55 - (N - 1 - cIdx) * letterSpacing;
+                    var mY = railY;
+                    var mRot = 0; // horizontal text
+
+                    // Arc midpoint: pushes outward to the left (forming the circular arc!)
+                    var arcDepth = -45; // outward curve
+                    var gX = (hX + mX) / 2 + arcDepth;
+                    var gY = (hY + mY) / 2;
+
+                    // Quadratic Bézier curve: B(d) = (1-d)^2 * h + 2*(1-d)*d * g + d^2 * m
+                    var b = 1 - d;
+                    var curX = b * b * hX + 2 * b * d * gX + d * d * mX;
+                    var curY = b * b * hY + 2 * b * d * gY + d * d * mY;
+                    var curRot = hRot + (mRot - hRot) * d;
+
+                    // Apply 3D transform & rotation
+                    chSpan.style.transform = "translate3d(" + curX.toFixed(1) + "px, " + curY.toFixed(1) + "px, 0) translate(-50%, -50%) rotate(" + curRot.toFixed(1) + "deg)";
+
+                    if (d > 0.65) {
+                        chSpan.classList.add("active");
+                    } else {
+                        chSpan.classList.remove("active");
+                    }
+                });
             });
         }
 
-        window.addEventListener("scroll", updateRuler, { passive: true });
-        updateRuler();
+        window.addEventListener("scroll", renderRulerFrame, { passive: true });
+        window.addEventListener("resize", renderRulerFrame);
+        renderRulerFrame();
 
-        // Click / drag to scrub on the ruler track
+        // 4. Scrubbing by clicking or dragging on the ruler rail
         var isScrubbing = false;
         function scrubTo(clientY) {
-            var rect = track.getBoundingClientRect();
+            var rect = ticksTrack.getBoundingClientRect();
             var y = clientY - rect.top;
             var pct = Math.max(0, Math.min(1, y / rect.height));
-            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var docH = document.documentElement.scrollHeight - window.innerHeight;
             window.scrollTo({
-                top: pct * docHeight,
+                top: pct * docH,
                 behavior: "auto"
             });
         }
 
-        track.addEventListener("mousedown", function(e) {
+        rail.addEventListener("mousedown", function(e) {
             isScrubbing = true;
             scrubTo(e.clientY);
         });
@@ -2573,9 +2652,7 @@
         window.addEventListener("mouseup", function() {
             isScrubbing = false;
         });
-    })();
-
-</script>
+    })();</script>
 </body>
 
 </html>
