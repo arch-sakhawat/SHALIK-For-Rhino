@@ -73,11 +73,19 @@ Dhaka, Bangladesh
 
 ## 💳 Pricing & License Plans
 
-| Plan | Validity | Price (BDT) | Scope & Features |
+### 🎓 Student Special Offer
+> [!NOTE]
+> **Special Student Pricing**: This discounted offer is exclusively available for current **Architecture, Engineering, and Design Students**. A valid Student ID card is required for verification.
+
+| Student Plan | Validity | Price (BDT) | Scope & Features |
 | :---: | :---: | :---: | :--- |
-| **1 Month** | **30 Days** | **200 ৳** | Complete access to all 15 architectural generators + updates |
-| **6 Months** | **180 Days** | **600 ৳** | Complete access to all 15 architectural generators + updates |
-| **12 Months (1 Year)** | **365 Days** | **1,000 ৳** | Best value: Full suite access, prioritized support & all updates |
+| **1 Month** | **30 Days** | **500 ৳** | Complete access to all 15 architectural generators + updates |
+| **6 Months** | **180 Days** | **800 ৳** | Complete access to all 15 architectural generators + updates |
+| **12 Months (1 Year)** | **365 Days** | **1,500 ৳** | Best value: Full suite access, prioritized support & all updates |
+
+### 🏢 Commercial & Professional Licenses
+- Commercial practitioners, architectural studios, visualization firms, and corporate entities will be charged **regular commercial prices**.
+- To obtain a commercial quotation or enterprise volume licensing, please contact directly via [**WhatsApp (+8801521776439)**](https://wa.me/8801521776439) or [**Email (arch.sakhawat@gmail.com)**](mailto:arch.sakhawat@gmail.com).
 
 ---
 
@@ -87,10 +95,10 @@ Follow these simple steps to purchase and activate your license:
 
 ### Step 1: Send Money via bKash
 - **bKash Personal Number:** `01750955823`
-- Send the exact amount for your chosen plan (**200 Taka**, **600 Taka**, or **1000 Taka**).
+- Send the exact amount for your chosen plan (**500 Taka**, **800 Taka**, or **1500 Taka** for students; or agreed commercial fee).
 
 ### Step 2: Send Payment Proof & Machine ID
-After sending the money, send your **payment documents/screenshot** (or TrxID) and your **Machine ID**:
+After sending the money, send your **payment documents/screenshot** (or TrxID), your **Machine ID**, and **Student ID** (if applying for student discount):
 - 💬 **WhatsApp:** [**+8801521776439**](https://wa.me/8801521776439) (`01521776439`)
 - 📧 **Email:** [**arch.sakhawat@gmail.com**](mailto:arch.sakhawat@gmail.com)
 
