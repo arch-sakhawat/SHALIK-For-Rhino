@@ -1205,6 +1205,163 @@
             border-color: var(--accent-crimson-bright);
         }
 
+
+        /* ==========================================================================
+           Architectural HUD Elevation Side Ruler (Exact ArtCraft Style)
+           ========================================================================== */
+        .side-ruler-hud {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 95;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            height: 76vh;
+            max-height: 820px;
+            padding-right: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Section Navigation Text Tags */
+        .ruler-sections-track {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: right;
+            padding: 10px 0;
+            pointer-events: auto;
+        }
+        .ruler-section-tag {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            background: rgba(10, 10, 12, 0.4);
+            border-right: 2px solid transparent;
+        }
+        .ruler-section-tag:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+            background: rgba(18, 18, 21, 0.85);
+            border-right-color: var(--accent-crimson-bright);
+        }
+        .ruler-section-tag.active {
+            color: #ffffff;
+            background: rgba(18, 18, 21, 0.95);
+            border-right: 2px solid #ffffff;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+        }
+
+        /* The Technical Ruler Scale Column */
+        .ruler-scale-track {
+            position: relative;
+            width: 48px;
+            height: 100%;
+            background: rgba(10, 10, 12, 0.82);
+            backdrop-filter: blur(12px);
+            border-left: 1px solid var(--border-line);
+            border-right: 1px solid var(--border-line);
+            pointer-events: auto;
+            cursor: pointer;
+            overflow: visible;
+        }
+
+        .ruler-ticks-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ruler-mark-row {
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .ruler-mark-number {
+            font-family: var(--font-mono);
+            font-size: 0.60rem;
+            color: var(--ink-faint);
+            margin-right: 6px;
+            letter-spacing: -0.02em;
+            transition: color 0.15s ease, font-weight 0.15s ease;
+        }
+        .ruler-mark-number.active {
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(255,255,255,0.7);
+        }
+        .ruler-tick-major {
+            width: 12px;
+            height: 1px;
+            background: var(--border-line-strong);
+            flex-shrink: 0;
+            transition: background 0.15s ease;
+        }
+        .ruler-tick-minor {
+            width: 6px;
+            height: 1px;
+            background: var(--border-line);
+            flex-shrink: 0;
+        }
+        .ruler-mark-row.active .ruler-tick-major {
+            background: #ffffff;
+            width: 15px;
+        }
+
+        /* Dynamic Indicator Needle Line */
+        .ruler-needle {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px var(--accent-crimson-bright);
+            z-index: 20;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: top 0.08s linear;
+        }
+        .needle-pill {
+            position: absolute;
+            right: 104%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #000000;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-right: 4px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* Responsive: Auto-collapse on smaller screens */
+        @media (max-width: 1100px) {
+            .side-ruler-hud {
+                display: none !important;
+            }
+        }
+
     </style>
     <!-- Bulletproof Image Fallback Handler -->
     <script>
@@ -1228,6 +1385,32 @@
     </script>
 </head>
 <body>
+
+<!-- ========================================================================
+     ARCHITECTURAL HUD ELEVATION SIDE RULER (Technical Scroll & Navigation)
+     ======================================================================== -->
+<aside class="side-ruler-hud" id="side-ruler-hud" aria-label="Elevation Side Ruler Navigation">
+    <!-- Section Text Markers -->
+    <div class="ruler-sections-track">
+        <a href="#showcase" class="ruler-section-tag" data-target="showcase">SHOWCASE</a>
+        <a href="#features" class="ruler-section-tag" data-target="features">ENGINE</a>
+        <a href="#tools" class="ruler-section-tag" data-target="tools">TOOLS</a>
+        <a href="#pricing" class="ruler-section-tag" data-target="pricing">PRICING</a>
+        <a href="#payment" class="ruler-section-tag" data-target="payment">PAYMENT</a>
+        <a href="#faq" class="ruler-section-tag" data-target="faq">FAQ</a>
+    </div>
+
+    <!-- Ruler Scale Track -->
+    <div class="ruler-scale-track" id="ruler-scale-track" title="Click or drag to scrub scroll position">
+        <!-- Live Needle -->
+        <div class="ruler-needle" id="ruler-needle">
+            <span class="needle-pill" id="needle-pill">00</span>
+        </div>
+        <!-- Ticks container -->
+        <div class="ruler-ticks-container" id="ruler-ticks-container"></div>
+    </div>
+</aside>
+
 
 <!-- Navigation -->
 <nav class="site-nav">
@@ -2286,6 +2469,112 @@
             }
         });
     }
+
+    // --- Architectural HUD Side Ruler Interactive Logic ---
+    (function initSideRuler() {
+        var ticksContainer = document.getElementById("ruler-ticks-container");
+        var needle = document.getElementById("ruler-needle");
+        var needlePill = document.getElementById("needle-pill");
+        var track = document.getElementById("ruler-scale-track");
+        if (!ticksContainer || !needle || !track) return;
+
+        // Generate 0 to 100 ticks (5-unit increments with numbers, 1-unit minor ticks)
+        var htmlBuffer = "";
+        for (var i = 0; i <= 100; i++) {
+            var topPct = i + "%";
+            if (i % 5 === 0) {
+                // Major tick with number
+                var numStr = i < 10 ? "0" + i : "" + i;
+                htmlBuffer += '<div class="ruler-mark-row" style="top: ' + topPct + ';" data-val="' + i + '">' +
+                              '<span class="ruler-mark-number" id="ruler-num-' + i + '">' + numStr + '</span>' +
+                              '<span class="ruler-tick-major"></span>' +
+                              '</div>';
+            } else {
+                // Minor tick
+                htmlBuffer += '<div class="ruler-mark-row" style="top: ' + topPct + ';">' +
+                              '<span class="ruler-tick-minor"></span>' +
+                              '</div>';
+            }
+        }
+        ticksContainer.innerHTML = htmlBuffer;
+
+        var lastActiveNum = null;
+
+        // Update needle and numbers on scroll
+        function updateRuler() {
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            var pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+            pct = Math.max(0, Math.min(100, pct));
+
+            // Position needle
+            needle.style.top = pct + "%";
+            var roundVal = Math.round(pct);
+            needlePill.innerText = roundVal < 10 ? "0" + roundVal : "" + roundVal;
+
+            // Highlight nearest 5-unit number
+            var nearest5 = Math.round(pct / 5) * 5;
+            if (nearest5 !== lastActiveNum) {
+                if (lastActiveNum !== null) {
+                    var prev = document.getElementById("ruler-num-" + lastActiveNum);
+                    if (prev) prev.classList.remove("active");
+                }
+                var current = document.getElementById("ruler-num-" + nearest5);
+                if (current) current.classList.add("active");
+                lastActiveNum = nearest5;
+            }
+
+            // Highlight active section label
+            var sections = ["showcase", "features", "tools", "pricing", "payment", "faq"];
+            var currentSec = "";
+            var triggerPoint = window.innerHeight * 0.35;
+            sections.forEach(function(secId) {
+                var el = document.getElementById(secId);
+                if (el) {
+                    var r = el.getBoundingClientRect();
+                    if (r.top <= triggerPoint && r.bottom >= 0) {
+                        currentSec = secId;
+                    }
+                }
+            });
+
+            document.querySelectorAll(".ruler-section-tag").forEach(function(tag) {
+                if (tag.getAttribute("data-target") === currentSec) {
+                    tag.classList.add("active");
+                } else {
+                    tag.classList.remove("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", updateRuler, { passive: true });
+        updateRuler();
+
+        // Click / drag to scrub on the ruler track
+        var isScrubbing = false;
+        function scrubTo(clientY) {
+            var rect = track.getBoundingClientRect();
+            var y = clientY - rect.top;
+            var pct = Math.max(0, Math.min(1, y / rect.height));
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            window.scrollTo({
+                top: pct * docHeight,
+                behavior: "auto"
+            });
+        }
+
+        track.addEventListener("mousedown", function(e) {
+            isScrubbing = true;
+            scrubTo(e.clientY);
+        });
+        window.addEventListener("mousemove", function(e) {
+            if (isScrubbing) scrubTo(e.clientY);
+        });
+        window.addEventListener("mouseup", function() {
+            isScrubbing = false;
+        });
+    })();
+
 </script>
 </body>
 
