@@ -1,0 +1,80 @@
+SHALIK ARCHITECTURAL MODELING SUITE - COMMERCIAL SOFTWARE LICENSE AGREEMENT
+Version 1.0.4
+
+Copyright (c) 2026 Sakhawat Hosen Sumon. All Rights Reserved Worldwide.
+Author & Architect: Sakhawat Hosen Sumon
+Email: arch.sakhawat@gmail.com
+Facebook: https://www.facebook.com/sakhawat.sumon2
+YouTube: https://www.youtube.com/@archsakhawat
+GitHub: https://github.com/arch-sakhawat/SHALIK
+
+================================================================================
+NOTICE: THIS IS NOT FREE SOFTWARE. THIS IS A FULLY PAID COMMERCIAL PRODUCT.
+ANY UNAUTHORIZED COPYING, REDISTRIBUTION, OR UNLICENSED USE IS STRICTLY ILLEGAL.
+================================================================================
+
+IMPORTANT — READ CAREFULLY:
+This Commercial Software License Agreement ("Agreement") is a legal agreement between
+you (either an individual or a legal entity) and Sakhawat Hosen Sumon ("Author",
+"Licensor") governing your use of the Shalik software product, including all associated
+components, Rhino toolbar (.rui) files, compiled binaries (.rhp), Python scripts,
+icons, presets, installers, and documentation ("Software").
+
+By installing, downloading, copying, accessing, or using this Software, you agree
+to be bound by the terms of this Agreement. If you do not agree to these terms,
+do not install, copy, or use the Software.
+
+1. COMMERCIAL PAID PRODUCT — NOT FREE TO USE
+   The Software is licensed, not sold. Shalik is a proprietary commercial software
+   suite. It is NOT free of charge, NOT freeware, and NOT open source. A valid paid
+   license purchased directly from the Author (Sakhawat Hosen Sumon) is strictly
+   required to install, activate, and use the Software.
+
+2. GRANT OF LICENSE FOR PAID USERS
+   Upon receipt of the full payment of the commercial license fee, the Author grants
+   you a single-user, non-exclusive, non-transferable, revocable license to install
+   and run the Software solely within McNeel Rhinoceros 8 for professional architectural
+   design, 3D BIM modeling, visualization, drafting, and construction documentation.
+
+3. 3D MODEL & DESIGN OUTPUT RIGHTS
+   All 3D geometric models, drawings, BIM elements, and renderings produced by you
+   using Shalik are your exclusive property. You may freely use, market, and sell
+   such generated 3D geometry in commercial architectural projects, client deliverables,
+   and construction documents without any royalty obligations to the Author.
+
+4. REDISTRIBUTION IS STRICTLY ILLEGAL
+   Redistribution of the Software is strictly illegal. You may NOT:
+   (a) Distribute, share, host, mirror, upload, or transfer the Software, installers
+       (.exe, .yak, .zip), scripts, or binaries to any public or private website,
+       cloud storage, forum, torrent network, social media, or messaging platform.
+   (b) Sublicense, rent, lease, loan, sell, resell, or monetize the Software or any
+       part thereof.
+   (c) Share your installer files, license keys, or package files with third parties.
+   Any unauthorized distribution or unlicensed reproduction constitutes copyright
+   infringement and will be prosecuted under domestic and international civil and
+   criminal intellectual property laws.
+
+5. RESTRICTIONS ON REVERSE ENGINEERING
+   You may NOT decompile, disassemble, reverse-engineer, modify, decrypt, or create
+   derivative works based upon the Software, its compiled binaries (.rhp), scripts,
+   or toolbar definitions (.rui).
+
+6. PROPRIETARY ASSETS AND ICONS
+   All icons, user interfaces, branding, visual assets, and geometric algorithms are
+   the exclusive intellectual property of Sakhawat Hosen Sumon. Unauthorized extraction,
+   copying, or reuse of any icon or graphical element in other software is strictly
+   prohibited.
+
+7. DISCLAIMER OF WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+   ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+8. OFFICIAL CONTACT & LICENSE PURCHASE
+   To purchase commercial licenses, office multi-user packages, custom architectural
+   tool development, or technical support, contact the author directly:
+   • Email:    arch.sakhawat@gmail.com
+   • Facebook: https://www.facebook.com/sakhawat.sumon2
+   • YouTube:  https://www.youtube.com/@archsakhawat
+   • GitHub:   https://github.com/arch-sakhawat/SHALIK
