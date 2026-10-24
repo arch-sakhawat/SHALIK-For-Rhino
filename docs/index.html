@@ -77,6 +77,14 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<!-- Flying Shalik Bird Interactive Sky Stage (Click to Double!) -->
+<div class="shalik-sky-stage" id="shalik-sky-stage"></div>
+<div class="bird-flock-counter" id="bird-flock-counter">
+    <span style="font-size: 0.95rem;">🦅</span>
+    <span>Shalik Flock: <b id="bird-count-num" class="bird-counter-badge">1</b></span>
+    <span style="font-size: 0.7rem; color: #a1a1aa;">(Click bird to double!)</span>
+</div>
+
 
 <!-- Elevation Side Ruler Navigation HUD (ArtCraft Style) -->
 <aside class="side-ruler-hud" id="side-ruler-hud" aria-label="Elevation Side Ruler Navigation">
@@ -113,35 +121,6 @@
 <header class="hero-section" id="top">
     <div class="hero-ambient-glow"></div>
     
-    <!-- Author Profile Card -->
-    <div class="author-card-hero">
-        <div class="author-photo-wrapper">
-            <img src="assets/author.png" alt="Architect Sakhawat Hosen Sumon" class="author-photo">
-            <span class="author-verified-tag">Architect & Developer</span>
-        </div>
-        <div class="author-name">Sakhawat Hosen Sumon</div>
-        <div class="author-title">Architect & Computational Software Developer — Dhaka, Bangladesh</div>
-        
-        <div class="author-links-bar">
-            <a href="https://www.facebook.com/sakhawat.sumon2" target="_blank">
-                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                <span>Facebook Profile</span>
-            </a>
-            <a href="https://www.youtube.com/@archsakhawat" target="_blank">
-                <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><polygon points="10 8 15 11 10 14 10 8" fill="currentColor"></polygon><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                <span>YouTube Channel</span>
-            </a>
-            <a href="mailto:arch.sakhawat@gmail.com">
-                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                <span>arch.sakhawat@gmail.com</span>
-            </a>
-            <a href="https://wa.me/8801521776439" target="_blank">
-                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                <span>WhatsApp: +8801521776439</span>
-            </a>
-        </div>
-    </div>
-
     <!-- Software Branding & Title -->
     <div>
         <img src="assets/icon.png" alt="Shalik Logo" class="shalik-brand-logo">
@@ -412,7 +391,7 @@
         <div class="bw-infograph-wrap" data-reveal id="benchmark-section">
             <div class="bw-infograph-card">
                 <div class="bw-infograph-header">
-                    <div class="bw-hud-tag">// COMPUTATIONAL BENCHMARK INFOGRAPH</div>
+                    <div class="bw-hud-tag"><span class="bw-live-dot"></span> LIVE ARCHITECTURAL BENCHMARK</div>
                     <h2>Native C# Kernel vs Grasshopper vs Manual CAD</h2>
                     <p>Monochrome architectural performance benchmark comparing modeling velocity, geometric stability, and viewport efficiency.</p>
                 </div>
@@ -431,21 +410,21 @@
                                 <span class="bw-comp-name">Manual Rhino 3D</span>
                                 <span class="bw-comp-value dim">45–60 min</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" style="width: 8%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="8%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Grasshopper Visual Canvas</span>
                                 <span class="bw-comp-value dim">15–20 min</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" style="width: 30%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="30%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Shalik C# Suite</span>
                                 <span class="bw-comp-value white">5–10 sec (99.7% Instant)</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill solid" style="width: 100%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
                         </div>
                     </div>
 
@@ -460,21 +439,21 @@
                                 <span class="bw-comp-name">Manual Rhino 3D</span>
                                 <span class="bw-comp-value dim">Slit gaps &amp; naked edges</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" style="width: 15%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="15%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Grasshopper Visual Canvas</span>
                                 <span class="bw-comp-value dim">Flipped normals &amp; mesh lag</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" style="width: 35%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="35%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Shalik C# Suite</span>
                                 <span class="bw-comp-value white">100% Watertight Solid Polysurface</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill solid" style="width: 100%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
                         </div>
                     </div>
 
@@ -489,21 +468,21 @@
                                 <span class="bw-comp-name">Manual Rhino 3D</span>
                                 <span class="bw-comp-value dim">Delete &amp; remodel from scratch</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" style="width: 10%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="10%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Grasshopper Visual Canvas</span>
                                 <span class="bw-comp-value dim">Re-wire script &amp; re-bake solids</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" style="width: 35%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="35%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Shalik C# Suite</span>
                                 <span class="bw-comp-value white">Double-Click Edit In Viewport</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill solid" style="width: 100%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
                         </div>
                     </div>
 
@@ -518,21 +497,21 @@
                                 <span class="bw-comp-name">Manual Rhino 3D</span>
                                 <span class="bw-comp-value dim">30+ manual commands per element</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" style="width: 12%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="12%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Grasshopper Visual Canvas</span>
                                 <span class="bw-comp-value dim">40+ nodes &amp; domain trees</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" style="width: 40%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="40%"></div></div>
                         </div>
                         <div class="bw-comp-row">
                             <div class="bw-comp-labels">
                                 <span class="bw-comp-name">Shalik C# Suite</span>
                                 <span class="bw-comp-value white">Zero Scripting (Native UI &amp; Commands)</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill solid" style="width: 100%;"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
                         </div>
                     </div>
 
@@ -546,15 +525,15 @@
                     </div>
                     <div class="bw-score-pill">
                         <span class="bw-score-lbl">MANUAL CAD</span>
-                        <span class="bw-score-val" style="color: #71717a;">42 / 100</span>
+                        <span class="bw-score-val" style="color: #71717a;"><span class="bw-counter" data-target="42">0</span> / 100</span>
                     </div>
                     <div class="bw-score-pill">
                         <span class="bw-score-lbl">GRASSHOPPER</span>
-                        <span class="bw-score-val" style="color: #a1a1aa;">68 / 100</span>
+                        <span class="bw-score-val" style="color: #a1a1aa;"><span class="bw-counter" data-target="68">0</span> / 100</span>
                     </div>
                     <div class="bw-score-pill winner">
                         <span class="bw-score-lbl">SHALIK SUITE</span>
-                        <span class="bw-score-val">99 / 100 &bull; WINNER</span>
+                        <span class="bw-score-val"><span class="bw-counter" data-target="99">0</span> / 100 &bull; WINNER</span>
                     </div>
                 </div>
 
@@ -642,7 +621,44 @@
     <!-- ========================================================================
          SECTION 05: bKash Payment & Instant Activation
          ======================================================================== -->
-    <footer class="site-footer">
+    
+    <!-- ========================================================================
+         SECTION 05: About the Author & Developer (Bottom of Home Page)
+         ======================================================================== -->
+    <section class="author-section-bottom" id="author" data-reveal>
+        <div class="hud-label" style="margin-bottom: 8px;">// ARCHITECT &amp; COMPUTATIONAL DEVELOPER</div>
+        <h2 style="font-size: 1.85rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; color: #ffffff;">Crafted by Architect Sakhawat Hosen Sumon</h2>
+<!-- Author Profile Card -->
+    <div class="author-card-hero">
+        <div class="author-photo-wrapper">
+            <img src="assets/author.png" alt="Architect Sakhawat Hosen Sumon" class="author-photo">
+            <span class="author-verified-tag">Architect & Developer</span>
+        </div>
+        <div class="author-name">Sakhawat Hosen Sumon</div>
+        <div class="author-title">Architect & Computational Software Developer — Dhaka, Bangladesh</div>
+        
+        <div class="author-links-bar">
+            <a href="https://www.facebook.com/sakhawat.sumon2" target="_blank">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <span>Facebook Profile</span>
+            </a>
+            <a href="https://www.youtube.com/@archsakhawat" target="_blank">
+                <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><polygon points="10 8 15 11 10 14 10 8" fill="currentColor"></polygon><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <span>YouTube Channel</span>
+            </a>
+            <a href="mailto:arch.sakhawat@gmail.com">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                <span>arch.sakhawat@gmail.com</span>
+            </a>
+            <a href="https://wa.me/8801521776439" target="_blank">
+                <svg class="ui-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>WhatsApp: +8801521776439</span>
+            </a>
+        </div>
+    </div>
+    </section>
+
+<footer class="site-footer">
     <img src="assets/icon.png" alt="Shalik Logo" class="footer-logo">
     <h3 style="color: #ffffff; font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">SHALIK ARCHITECTURAL MODELING SUITE</h3>
     <p style="font-size: 0.95rem;">Created & Developed by Sakhawat Hosen Sumon • Architect & Computational Software Developer</p>
@@ -1029,7 +1045,8 @@
             { id: "showcase", label: "RENDERS", targetId: "showcase" },
             { id: "features", label: "ENGINE", targetId: "features" },
             { id: "benchmark-section", label: "BENCHMARK", targetId: "benchmark-section" },
-            { id: "pricing", label: "PRICING", targetId: "pricing" }
+            { id: "pricing", label: "PRICING", targetId: "pricing" },
+            { id: "author", label: "AUTHOR", targetId: "author" }
         ];
 
         // Create DOM nodes for each character in each word
@@ -1226,6 +1243,195 @@
 <div class="cad-cursor-ring" id="cad-cursor-ring"></div>
 <div class="cad-cursor-dot" id="cad-cursor-dot"></div>
 
+
+<!-- ========================================================================
+     Interactive Live Shalik Bird Flocking & B&W Infograph Scripts
+     ======================================================================== -->
+<script>
+// --- Flying Shalik Bird Easter Egg (Click to Double Flock) ---
+(function initShalikBirdFlock() {
+    var stage = document.getElementById("shalik-sky-stage");
+    var counterEl = document.getElementById("bird-flock-counter");
+    var countNumEl = document.getElementById("bird-count-num");
+    if (!stage) return;
+
+    var birds = [];
+    var maxBirds = 64; // Performance guardrail
+
+    function createBird(x, y, vx, vy) {
+        var el = document.createElement("div");
+        el.className = "shalik-bird-unit";
+        el.title = "Click me to double!";
+        el.innerHTML = '<svg viewBox="0 0 54 38" class="bird-svg">' +
+            '<path class="bird-wing-left" d="M24,20 C14,8 2,12 0,16 C10,22 18,24 24,22 Z" fill="#ffffff"/>' +
+            '<path class="bird-wing-right" d="M24,20 C34,8 46,12 50,16 C40,22 32,24 24,22 Z" fill="#ffffff"/>' +
+            '<ellipse cx="24" cy="22" rx="7" ry="4" fill="#e4e4e7"/>' +
+            '<polygon points="27,21 34,22 27,23" fill="#e53935"/>' +
+            '<circle cx="26" cy="21" r="1.2" fill="#0a0a0c"/>' +
+            '<polygon points="17,22 9,25 9,19" fill="#a1a1aa"/>' +
+            '</svg>';
+
+        stage.appendChild(el);
+
+        var bird = {
+            el: el,
+            x: x,
+            y: y,
+            vx: vx || (Math.random() > 0.5 ? 1.7 : -1.7),
+            vy: vy || (Math.random() * 0.8 - 0.4),
+            phase: Math.random() * Math.PI * 2,
+            flapSpeed: 0.05 + Math.random() * 0.03
+        };
+
+        el.addEventListener("click", function(e) {
+            e.stopPropagation();
+            splitBird(bird);
+        });
+
+        el.addEventListener("touchstart", function(e) {
+            e.stopPropagation();
+            splitBird(bird);
+        }, { passive: true });
+
+        birds.push(bird);
+        updateCounter();
+        return bird;
+    }
+
+    function splitBird(target) {
+        if (birds.length >= maxBirds) return;
+
+        // Visual shockwave ring at click point
+        var burst = document.createElement("div");
+        burst.className = "bird-split-burst";
+        burst.style.left = target.x + "px";
+        burst.style.top = target.y + "px";
+        stage.appendChild(burst);
+        setTimeout(function() { if (burst.parentNode) burst.parentNode.removeChild(burst); }, 600);
+
+        // Remove clicked bird and spawn TWO new birds with diverging flight paths
+        var idx = birds.indexOf(target);
+        if (idx !== -1) {
+            if (target.el.parentNode) target.el.parentNode.removeChild(target.el);
+            birds.splice(idx, 1);
+        }
+
+        var speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy) || 1.8;
+        var dir = target.vx >= 0 ? 1 : -1;
+
+        // Doubling: spawn 2 birds
+        createBird(target.x, target.y - 14, dir * (speed * 0.95), -1.1);
+        createBird(target.x, target.y + 14, dir * (speed * 1.05), 1.1);
+    }
+
+    function updateCounter() {
+        if (countNumEl) countNumEl.innerText = birds.length;
+        if (counterEl) {
+            counterEl.style.opacity = "1";
+            counterEl.style.transform = "scale(1.1)";
+            setTimeout(function() { counterEl.style.transform = "scale(1)"; }, 220);
+        }
+    }
+
+    // Start with 1 bird flying smoothly across screen
+    createBird(window.innerWidth * 0.25, window.innerHeight * 0.35, 1.8, 0.2);
+
+    // Continuous 60fps flight loop
+    function animateFlock() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        for (var i = 0; i < birds.length; i++) {
+            var b = birds[i];
+            b.phase += b.flapSpeed;
+            b.x += b.vx;
+            b.y += b.vy + Math.sin(b.phase) * 0.65;
+
+            // Turn around smoothly at viewport edges
+            if (b.x > w - 45) {
+                b.vx = -Math.abs(b.vx);
+            } else if (b.x < 10) {
+                b.vx = Math.abs(b.vx);
+            }
+
+            if (b.y > h - 70) {
+                b.vy = -Math.abs(b.vy) * 0.8;
+            } else if (b.y < 60) {
+                b.vy = Math.abs(b.vy) * 0.8;
+            }
+
+            var faceDir = b.vx >= 0 ? 1 : -1;
+            var tilt = (b.vy * 8);
+            b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px, " + b.y.toFixed(1) + "px, 0) scaleX(" + faceDir + ") rotate(" + tilt.toFixed(1) + "deg)";
+        }
+        requestAnimationFrame(animateFlock);
+    }
+    requestAnimationFrame(animateFlock);
+})();
+
+// --- Live Animations for B&W Infograph (Meter Growth, Score Counters & 3D Tilt) ---
+(function initBwInfographLive() {
+    var wrap = document.getElementById("benchmark-section");
+    if (!wrap) return;
+
+    var hasAnimated = false;
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+
+                // 1. Animate meter bar fills smoothly
+                var fills = wrap.querySelectorAll(".bw-meter-fill");
+                fills.forEach(function(fill, idx) {
+                    var target = fill.getAttribute("data-target") || "100%";
+                    setTimeout(function() {
+                        fill.style.width = target;
+                    }, idx * 60);
+                });
+
+                // 2. Animate scorecard numbers counting up
+                var counters = wrap.querySelectorAll(".bw-counter");
+                counters.forEach(function(c) {
+                    var targetNum = parseInt(c.getAttribute("data-target"), 10) || 0;
+                    var startNum = 0;
+                    var duration = 1200;
+                    var startTime = null;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var ease = 1 - Math.pow(1 - progress, 3);
+                        c.innerText = Math.round(startNum + (targetNum - startNum) * ease);
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            c.innerText = targetNum;
+                        }
+                    }
+                    requestAnimationFrame(step);
+                });
+            }
+        });
+    }, { threshold: 0.25 });
+
+    observer.observe(wrap);
+
+    // 3. Interactive 3D Perspective Tilt on the 4 metric boxes
+    var boxes = wrap.querySelectorAll(".bw-metric-box");
+    boxes.forEach(function(box) {
+        box.addEventListener("mousemove", function(e) {
+            var r = box.getBoundingClientRect();
+            var x = (e.clientX - r.left) / r.width - 0.5;
+            var y = (e.clientY - r.top) / r.height - 0.5;
+            box.style.transform = "perspective(700px) rotateY(" + (x * 8).toFixed(1) + "deg) rotateX(" + (-y * 8).toFixed(1) + "deg) translateY(-2px)";
+        });
+        box.addEventListener("mouseleave", function() {
+            box.style.transform = "";
+        });
+    });
+})();
+</script>
 </body>
 
 </html>
