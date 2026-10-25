@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-removeinspect">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-seamless">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -237,6 +237,28 @@
             color: #e53935 !important;
             opacity: 1 !important;
             transform: translate3d(-3px, var(--cur-y, 0px), 0) !important;
+        }
+        /* 100% Seamless Architectural Showcase Cards & Viewports */
+        .showcase-card,
+        .showcase-header,
+        .showcase-canvas-wrap,
+        .showcase-footer {
+            background: #ffffff !important;
+            border-bottom: none !important;
+        }
+        .showcase-card {
+            border: 1px solid var(--border-line) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+        }
+        .showcase-card:hover {
+            border-color: var(--ink-primary) !important;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+        }
+        .showcase-canvas-wrap img,
+        .slider-slide-item img,
+        .split-image-layer img {
+            object-fit: contain !important;
+            mix-blend-mode: multiply !important;
         }
     </style>
 </head>
