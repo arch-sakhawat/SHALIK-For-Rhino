@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-pricing-commercial">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-sidebar-kinetic">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -769,7 +769,7 @@
                     <p>Commercial architectural practices, visualization firms, and studios can get full client usage rights with the <b>Commercial Studio License at 5,000 &#2547; / Year</b>.</p>
                 </div>
                 <button type="button" class="btn-artcraft-solid" onclick="setPricingTab('commercial')" style="white-space: nowrap;">
-                    View Commercial Plan (5,000 &#2547;) â†’
+                    View Commercial Plan (5,000 &#2547;) &rarr;
                 </button>
             </div>
         </div>
@@ -795,42 +795,42 @@
                     </div>
                     <div class="commercial-features-grid">
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>Full Commercial Usage Rights</b>
                                 <p>Unrestricted use on all paid client commissions, design competitions, and constructed architectural projects.</p>
                             </div>
                         </div>
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>Complete 15-Tool Parametric Engine</b>
                                 <p>Generate custom parametric Doors, Windows, Stairs, Railings, Louvers, Escalators, Curtain Walls, Roofs, and Trees in seconds.</p>
                             </div>
                         </div>
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>100% Watertight Solid Polysurfaces</b>
                                 <p>Native C# Rhino kernel produces clean manifold geometry with automatic wall opening cuts, ready for Revit, IFC &amp; 3ds Max export.</p>
                             </div>
                         </div>
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>Double-Click Viewport Editing</b>
                                 <p>Modify swing angles, tread depths, riser counts, and framing dimensions directly in the viewport anytime without remodeling.</p>
                             </div>
                         </div>
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>1 Full Year of Updates &amp; Feature Releases</b>
                                 <p>Includes all upcoming v1.x feature releases, new parametric tool additions, and performance enhancements at no extra cost.</p>
                             </div>
                         </div>
                         <div class="comm-feature-item">
-                            <span class="comm-check">âœ“</span>
+                            <span class="comm-check">&check;</span>
                             <div>
                                 <b>Priority 1-on-1 Author Direct Support</b>
                                 <p>Direct technical guidance and troubleshooting via dedicated WhatsApp and email channel directly from Architect Sakhawat.</p>
@@ -846,18 +846,18 @@
                         </a>
                     </div>
                     <div class="commercial-guarantee-note">
-                        <span>âš¡ Fast 24-hour node-locked machine key delivery</span>
-                        <span>â€¢</span>
-                        <span>ðŸ“„ Official commercial invoice / tax receipt provided</span>
-                        <span>â€¢</span>
-                        <span>ðŸ”’ Valid for Rhino 8 on Windows</span>
+                        <span>&#9889; Fast 24-hour node-locked machine key delivery</span>
+                        <span>&bull;</span>
+                        <span>&#128196; Official commercial invoice / tax receipt provided</span>
+                        <span>&bull;</span>
+                        <span>&#128274; Valid for Rhino 8 on Windows</span>
                     </div>
                 </div>
 
                 <div class="academic-minimal-notice" style="margin-top: 24px;">
                     <span>Are you currently a university student?</span>
                     <button type="button" onclick="setPricingTab('student')" style="background:none; border:none; color: var(--accent-red); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem;">
-                        Switch to Subsidized Academic Pricing (from 500 &#2547;) â†’
+                        Switch to Subsidized Academic Pricing (from 500 &#2547;) &rarr;
                     </button>
                 </div>
             </div>
@@ -1294,7 +1294,7 @@
             { id: "author", label: "AUTHOR" }
         ];
 
-        // Create DOM nodes for each section inside kineticStage
+        // Create DOM nodes for each section inside kineticStage (Letter-by-Letter Kinetic Assembly)
         kineticStage.innerHTML = "";
         var itemNodes = [];
         sections.forEach(function(sec, sIdx) {
@@ -1308,7 +1308,25 @@
 
             var label = document.createElement("span");
             label.className = "ruler-item-label";
-            label.innerText = sec.label;
+
+            // Split label into individual character spans for letter-by-letter kinetic ascent
+            var charNodes = [];
+            for (var c = 0; c < sec.label.length; c++) {
+                var ch = sec.label[c];
+                var chSpan = document.createElement("span");
+                chSpan.className = "ruler-char";
+                chSpan.style.display = "inline-block";
+                chSpan.style.willChange = "transform, font-size, font-weight";
+                chSpan.style.transformOrigin = "center bottom";
+                if (ch === " ") {
+                    chSpan.innerHTML = "&nbsp;";
+                    chSpan.style.width = "0.32em";
+                } else {
+                    chSpan.textContent = ch;
+                }
+                label.appendChild(chSpan);
+                charNodes.push(chSpan);
+            }
 
             item.appendChild(dot);
             item.appendChild(label);
@@ -1332,6 +1350,8 @@
                 el: item,
                 dot: dot,
                 label: label,
+                charNodes: charNodes,
+                charCount: sec.label.length,
                 index: sIdx
             });
         });
@@ -1365,7 +1385,7 @@
         setTimeout(updateCachedAnchors, 300);
         updateCachedAnchors();
 
-        // 4. Smooth Render Frame
+        // 4. Smooth Render Frame with Kinetic Letter-by-Letter Assembly
         function renderRulerFrame() {
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
             var viewH = window.innerHeight;
@@ -1407,7 +1427,7 @@
                 }
             }
 
-            // ArtCraft Geometry: Stored at Top vs Queued at Bottom (Generously below sticky nav)
+            // ArtCraft Geometry: Stored at Top vs Queued at Bottom
             var stageH = kineticStage.offsetHeight || (viewH - 125);
             var topBase = 14;
             var topSpacing = 26;
@@ -1417,12 +1437,18 @@
             for (var i = 0; i < itemNodes.length; i++) {
                 var node = itemNodes[i];
                 var el = node.el;
+                var dot = node.dot;
+                var charNodes = node.charNodes;
+                var N = node.charCount;
+
                 var slotTop = topBase + i * topSpacing;
                 var slotBottom = bottomBase - (itemNodes.length - 1 - i) * bottomSpacing;
+                var travelVector = slotTop - slotBottom; // negative distance going upward
 
+                // Overall section scroll progress (0 = at bottom queue, 1 = docked at top)
                 var progress = 0;
                 if (i === 0) {
-                    progress = 1; // HERO is docked at the top
+                    progress = 1; // INTRODUCTION is permanently docked at top
                 } else {
                     var targetTop = cachedAnchors[i] || 0;
                     var travelStart = Math.max(0, targetTop - viewH * 0.85);
@@ -1438,35 +1464,77 @@
                     }
                 }
 
-                // Interpolate Y position
-                var curY = slotBottom + (slotTop - slotBottom) * progress;
-                // Top text size is bigger (13px) than bottom (10px)
-                var curFontSize = 10 + (13 - 10) * progress;
-                var curWeight = Math.round(600 + (100 * progress));
-
+                // Smoothly position the container element along the elevation track
+                var curY = slotBottom + travelVector * progress;
                 el.style.setProperty("--cur-y", curY.toFixed(1) + "px");
                 el.style.transform = "translate3d(0, " + curY.toFixed(1) + "px, 0)";
-                el.style.fontSize = curFontSize.toFixed(1) + "px";
-                el.style.fontWeight = String(curWeight);
 
+                // Kinetic Typography: Staggered Letter-by-Letter Ascent
+                // Each letter lifts off sequentially, ascends upward, and snaps into place to form the word at the top
+                var staggerWindow = 0.38; // Flight window for each character
+                var delayStep = N > 1 ? (1.0 - staggerWindow) / (N - 1) : 0;
+
+                for (var k = 0; k < N; k++) {
+                    var charSpan = charNodes[k];
+                    var pK = progress;
+                    if (i !== 0 && N > 1) {
+                        var startK = k * delayStep;
+                        var endK = startK + staggerWindow;
+                        if (progress <= startK) {
+                            pK = 0;
+                        } else if (progress >= endK) {
+                            pK = 1;
+                        } else {
+                            var u = (progress - startK) / staggerWindow;
+                            // Smoothstep easing for silky-smooth acceleration and landing
+                            pK = u * u * (3 - 2 * u);
+                        }
+                    }
+
+                    // Delta displacement relative to the container element
+                    var charDeltaY = travelVector * (pK - progress);
+                    charSpan.style.transform = "translate3d(0, " + charDeltaY.toFixed(1) + "px, 0)";
+
+                    // Letter size scales from 10px (bottom) to 13px (top)
+                    var charFontSize = 10 + (13 - 10) * pK;
+                    charSpan.style.fontSize = charFontSize.toFixed(1) + "px";
+                    charSpan.style.fontWeight = String(Math.round(600 + 100 * pK));
+                }
+
+                // Dot travels alongside the first letter
+                if (dot) {
+                    var pDot = progress;
+                    if (i !== 0 && N > 0) {
+                        if (progress <= 0) {
+                            pDot = 0;
+                        } else if (progress >= staggerWindow) {
+                            pDot = 1;
+                        } else {
+                            var uDot = progress / staggerWindow;
+                            pDot = uDot * uDot * (3 - 2 * uDot);
+                        }
+                    }
+                    var dotDeltaY = travelVector * (pDot - progress);
+                    dot.style.transform = "translate3d(0, " + dotDeltaY.toFixed(1) + "px, 0)";
+                }
+
+                // Visual color & opacity states
                 if (i === activeIdx) {
                     el.classList.add("is-active");
                     el.style.color = "#e53935";
                     el.style.opacity = "1";
-                    el.style.fontWeight = "800";
-                    el.style.fontSize = (curFontSize + 0.5).toFixed(1) + "px";
                 } else {
                     el.classList.remove("is-active");
-                    if (progress >= 0.92) {
-                        // Stored at top
+                    if (progress >= 0.95) {
+                        // Docked at top
                         el.style.color = "#09090b";
                         el.style.opacity = "0.9";
-                    } else if (progress <= 0.08) {
-                        // Present in bottom queue
+                    } else if (progress <= 0.05) {
+                        // Queued at bottom
                         el.style.color = "#71717a";
                         el.style.opacity = "0.75";
                     } else {
-                        // In transit
+                        // In kinetic transit
                         el.style.color = "#27272a";
                         el.style.opacity = "0.95";
                     }

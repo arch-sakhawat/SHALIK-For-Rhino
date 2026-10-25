@@ -2196,6 +2196,18 @@
         }
 
         .ruler-item-label {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .ruler-char {
+            display: inline-block;
+            will-change: transform, font-size, font-weight;
+            transform-origin: center bottom;
+        }
+
+        /* legacy placeholder */ .ruler-old-label {
             display: inline-block;
         }
 
