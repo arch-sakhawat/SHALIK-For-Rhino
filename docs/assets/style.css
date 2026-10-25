@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
            ArtCraft-Inspired Design System: High-End Obsidian Studio Aesthetic
            ========================================================================== */
         :root {
@@ -857,70 +857,116 @@
             padding: 45px 35px;
             margin-bottom: 80px;
         }
-        .student-alert-banner {
-            background: rgba(226, 19, 110, 0.08);
-            border: 1px solid var(--bkash-pink);
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 35px;
+        /* Pricing Section & Audience Segment Switcher */
+        .pricing-deck {
+            padding: 80px 0;
+            text-align: center;
         }
-        .student-alert-banner h4 {
-            color: var(--bkash-pink);
-            font-size: 1.15rem;
-            margin-bottom: 6px;
+        .pricing-audience-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: #f4f4f5;
+            border: 1px solid var(--border-line);
+            border-radius: 999px;
+            padding: 4px;
+            margin: 0 auto 36px;
+            gap: 4px;
         }
-        .student-alert-banner p {
+        .pricing-switch-btn {
+            background: transparent;
+            border: none;
+            padding: 9px 24px;
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--ink-secondary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .pricing-switch-btn:hover {
             color: var(--ink-primary);
-            font-size: 0.95rem;
         }
+        .pricing-switch-btn.active {
+            background: #ffffff;
+            color: var(--ink-primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .pricing-switch-btn.active[data-tab="commercial"] {
+            color: var(--accent-red);
+        }
+
         .tier-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-            margin-bottom: 35px;
+            margin-bottom: 24px;
         }
         .tier-card {
-            background: var(--bg-surface-elevated);
+            background: #ffffff !important;
             border: 1px solid var(--border-line);
             border-radius: 12px;
             padding: 32px 24px;
             text-align: center;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .tier-card:hover {
+            border-color: var(--ink-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
         }
         .tier-card.featured {
-            border-color: var(--accent-red);
-            background: var(--bg-surface);
+            border-color: var(--accent-red) !important;
+            box-shadow: 0 6px 24px rgba(229, 57, 53, 0.08) !important;
         }
         .featured-tag {
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: #238636;
-            color: #ffffff;
-            font-size: 0.72rem;
+            background: var(--accent-red) !important;
+            color: #ffffff !important;
+            font-size: 0.7rem;
             font-family: var(--font-mono);
             font-weight: 700;
-            padding: 3px 12px;
-            border-radius: 12px;
+            padding: 4px 14px;
+            border-radius: 999px;
             letter-spacing: 0.08em;
+            white-space: nowrap;
         }
         .tier-card h4 {
-            font-size: 1.35rem;
-            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ink-primary) !important;
             margin-bottom: 8px;
         }
         .tier-price-amount {
-            font-size: 2.8rem;
+            font-size: 2.75rem;
             font-weight: 800;
-            color: #4ade80;
+            color: var(--ink-primary) !important;
+            letter-spacing: -0.03em;
             margin-bottom: 2px;
+        }
+        .tier-price-amount .tier-currency {
+            color: var(--accent-red);
+            font-size: 2.2rem;
+            margin-left: 2px;
         }
         .tier-period {
             color: var(--ink-faint);
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-family: var(--font-mono);
             margin-bottom: 24px;
+            letter-spacing: 0.05em;
         }
         .tier-features {
             list-style: none;
@@ -928,19 +974,167 @@
             margin-bottom: 26px;
             font-size: 0.9rem;
             color: var(--ink-secondary);
+            flex-grow: 1;
         }
         .tier-features li {
-            margin-bottom: 9px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .tier-features li::before {
-            content: "✓";
-            color: #4ade80;
-            font-weight: bold;
+            content: "\2713";
+            color: var(--accent-red) !important;
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
+        /* Minimal Academic Notice */
+        .academic-minimal-notice {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--ink-faint);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Commercial Callout banner under student cards */
+        .pricing-commercial-callout {
+            margin-top: 28px;
+            padding: 22px 28px;
+            background: #ffffff;
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+        .pricing-commercial-callout h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink-primary);
+            margin: 4px 0 3px;
+        }
+        .pricing-commercial-callout p {
+            font-size: 0.9rem;
+            color: var(--ink-secondary);
+            margin: 0;
+            line-height: 1.45;
+        }
+
+        /* Commercial Studio Dedicated View */
+        .commercial-tier-showcase {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .commercial-card-inner {
+            background: #ffffff;
+            border: 1px solid var(--border-line-strong);
+            border-radius: 14px;
+            padding: 38px 42px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            text-align: left;
+        }
+        .commercial-badge-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .featured-tag.commercial {
+            position: static;
+            transform: none;
+            background: #09090b !important;
+            color: #ffffff !important;
+            display: inline-block;
+        }
+        .commercial-header-flex {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-line);
+            margin-bottom: 28px;
+        }
+        .commercial-header-flex h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--ink-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .commercial-header-flex p {
+            color: var(--ink-secondary);
+            font-size: 0.95rem;
+            max-width: 520px;
+            line-height: 1.5;
+        }
+        .commercial-price-lockup {
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .commercial-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px 32px;
+            margin-bottom: 34px;
+        }
+        .comm-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .comm-check {
+            color: var(--accent-red);
+            font-weight: 800;
+            font-size: 1.1rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+        .comm-feature-item b {
+            display: block;
+            color: var(--ink-primary);
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        .comm-feature-item p {
+            color: var(--ink-secondary);
+            font-size: 0.85rem;
+            line-height: 1.45;
+            margin: 0;
+        }
+        .commercial-action-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .commercial-guarantee-note {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--ink-faint);
+            font-family: var(--font-mono);
+        }
+        @media (max-width: 768px) {
+            .commercial-card-inner { padding: 26px 20px; }
+            .commercial-header-flex { flex-direction: column; gap: 16px; }
+            .commercial-price-lockup { text-align: left; }
+            .pricing-commercial-callout { flex-direction: column; align-items: flex-start; }
+            .pricing-audience-switcher { width: 100%; justify-content: center; }
+            .pricing-switch-btn { padding: 8px 14px; font-size: 0.72rem; }
+        }
         /* bKash Payment Workflow */
         .bkash-panel {
             background: var(--bg-surface);

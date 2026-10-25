@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-original-restored">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-pricing-commercial">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -684,73 +684,185 @@
     </section>
 <section class="pricing-deck" id="pricing" data-reveal>
         <div class="section-header center">
-            <div class="hud-label">04 // SUBSCRIPTION & LICENSES</div>
-            <h2>Pricing & License Plans</h2>
-            <p>Subsidized rates for university students and custom commercial licensing for professional studios.</p>
+            <div class="hud-label">04 // SUBSCRIPTION &amp; LICENSES</div>
+            <h2>Pricing &amp; License Plans</h2>
+            <p>Subsidized academic rates for students and professional commercial licensing for architectural practices.</p>
         </div>
 
-        <div class="student-alert-banner">
-            <h4><svg class="ui-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg> MANDATORY: Proof of Student Status Required</h4>
-            <p>
-                Special subsidized pricing is strictly available for currently enrolled <b>Architecture, Engineering, Planning, and Design Students</b>. Proof of student status (clear photo of valid institutional Student ID card) <b>MUST</b> be provided when requesting activation. Unverified requests will be charged regular commercial fees.
-            </p>
+        <!-- Minimal Audience Switcher -->
+        <div class="pricing-audience-switcher" role="tablist">
+            <button type="button" class="pricing-switch-btn active" data-tab="student" onclick="setPricingTab('student')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <span>Student &amp; Academic</span>
+            </button>
+            <button type="button" class="pricing-switch-btn" data-tab="commercial" onclick="setPricingTab('commercial')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><path d="M9 18h6v4H9z"></path></svg>
+                <span>Commercial Studio (5,000 &#2547; / Yr)</span>
+            </button>
         </div>
 
-        <div class="tier-cards-grid">
-            
-            <!-- 1 Month -->
-            <div class="tier-card interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <h4>1 Month</h4>
-                <div class="tier-price-amount">500 ৳</div>
-                <div class="tier-period">30 DAYS STUDENT ACCESS</div>
-                <ul class="tier-features">
-                    <li>Full access to all 15 generators</li>
-                    <li>Live viewport preview & double-click edit</li>
-                    <li>Automatic wall opening cuts</li>
-                    <li>Imperial & Metric unit scaling</li>
-                    <li>Email & WhatsApp activation support</li>
-                </ul>
-                <a href="buy.html?plan=1month" class="btn-artcraft-outline" style="width: 100%; justify-content: center;">Select 1 Month</a>
+        <!-- VIEW 1: STUDENT & ACADEMIC -->
+        <div id="pricing-view-student">
+            <div class="tier-cards-grid">
+                
+                <!-- 1 Month -->
+                <div class="tier-card interactive-tilt" data-reveal>
+                    <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
+                    <h4>1 Month</h4>
+                    <div class="tier-price-amount">500 <span class="tier-currency">&#2547;</span></div>
+                    <div class="tier-period">30 DAYS STUDENT ACCESS</div>
+                    <ul class="tier-features">
+                        <li>Full access to all 15 generators</li>
+                        <li>Live viewport preview &amp; double-click edit</li>
+                        <li>Automatic wall opening cuts</li>
+                        <li>Imperial &amp; Metric unit scaling</li>
+                        <li>Email &amp; WhatsApp activation support</li>
+                    </ul>
+                    <a href="buy.html?plan=1month" class="btn-artcraft-outline" style="width: 100%; justify-content: center;">Select 1 Month</a>
+                </div>
+
+                <!-- 6 Months -->
+                <div class="tier-card interactive-tilt" data-reveal>
+                    <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
+                    <h4>6 Months</h4>
+                    <div class="tier-price-amount">800 <span class="tier-currency">&#2547;</span></div>
+                    <div class="tier-period">180 DAYS SEMESTER ACCESS</div>
+                    <ul class="tier-features">
+                        <li>Full access to all 15 generators</li>
+                        <li>Full semester design studio coverage</li>
+                        <li>Double-click editing &amp; wall cuts</li>
+                        <li>Free updates within license period</li>
+                        <li>Priority WhatsApp activation support</li>
+                    </ul>
+                    <a href="buy.html?plan=6months" class="btn-artcraft-outline" style="width: 100%; justify-content: center;">Select 6 Months</a>
+                </div>
+
+                <!-- 12 Months -->
+                <div class="tier-card featured interactive-tilt" data-reveal>
+                    <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
+                    <span class="featured-tag">BEST VALUE</span>
+                    <h4>12 Months (1 Year)</h4>
+                    <div class="tier-price-amount">1,500 <span class="tier-currency">&#2547;</span></div>
+                    <div class="tier-period">365 DAYS FULL YEAR ACCESS (~125 &#2547; / MO)</div>
+                    <ul class="tier-features">
+                        <li>Full access to all 15 generators</li>
+                        <li>Best value for thesis &amp; studio projects</li>
+                        <li>All feature releases &amp; updates included</li>
+                        <li>Direct priority support from the author</li>
+                        <li>Instant 24-hour key delivery</li>
+                    </ul>
+                    <a href="buy.html?plan=1year" class="btn-artcraft-solid" style="width: 100%; justify-content: center;">Select 1 Year (Best Value)</a>
+                </div>
+
             </div>
 
-            <!-- 6 Months -->
-            <div class="tier-card interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <h4>6 Months</h4>
-                <div class="tier-price-amount">800 ৳</div>
-                <div class="tier-period">180 DAYS SEMESTER ACCESS</div>
-                <ul class="tier-features">
-                    <li>Full access to all 15 generators</li>
-                    <li>Full semester design studio coverage</li>
-                    <li>Double-click editing & wall cuts</li>
-                    <li>Free updates within license period</li>
-                    <li>Priority WhatsApp activation support</li>
-                </ul>
-                <a href="buy.html?plan=6months" class="btn-artcraft-outline" style="width: 100%; justify-content: center;">Select 6 Months</a>
+            <div class="academic-minimal-notice">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <span>Academic status verification (Student ID card photo) is required during license activation.</span>
             </div>
 
-            <!-- 12 Months -->
-            <div class="tier-card featured interactive-tilt" data-reveal><span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
-                <span class="featured-tag">BEST VALUE</span>
-                <h4>12 Months (1 Year)</h4>
-                <div class="tier-price-amount">1,500 ৳</div>
-                <div class="tier-period">365 DAYS FULL YEAR ACCESS</div>
-                <ul class="tier-features">
-                    <li>Full access to all 15 generators</li>
-                    <li>Best value for thesis & studio projects</li>
-                    <li>All feature releases & updates included</li>
-                    <li>Direct priority support from the author</li>
-                    <li>Instant 24-hour key delivery</li>
-                </ul>
-                <a href="buy.html?plan=1year" class="btn-artcraft-solid" style="width: 100%; justify-content: center;">Select 1 Year (Best Value)</a>
+            <!-- Commercial Callout under student cards -->
+            <div class="pricing-commercial-callout">
+                <div>
+                    <span class="hud-label" style="color: var(--accent-red);">FOR PROFESSIONAL PRACTICES</span>
+                    <h4>Need Commercial Rights for Client Projects?</h4>
+                    <p>Commercial architectural practices, visualization firms, and studios can get full client usage rights with the <b>Commercial Studio License at 5,000 &#2547; / Year</b>.</p>
+                </div>
+                <button type="button" class="btn-artcraft-solid" onclick="setPricingTab('commercial')" style="white-space: nowrap;">
+                    View Commercial Plan (5,000 &#2547;) â†’
+                </button>
             </div>
-
         </div>
 
-        <div style="text-align: center; color: var(--ink-secondary); font-size: 0.95rem; margin-top: 15px;">
-            <svg class="ui-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><path d="M9 18h6v4H9z"></path></svg><b>Commercial & Studio Licenses:</b> Commercial architectural practices, visualization firms, and corporate design studios will be charged standard commercial rates. Order instantly via <a href="buy.html?plan=commercial" style="color: var(--accent-red); font-weight: 700; text-decoration: underline;">Commercial Studio Checkout</a> or inquire on <a href="https://wa.me/8801521776439" style="color: var(--accent-red);">WhatsApp (+8801521776439)</a>.
+        <!-- VIEW 2: COMMERCIAL STUDIO -->
+        <div id="pricing-view-commercial" style="display: none;">
+            <div class="commercial-tier-showcase">
+                <div class="commercial-card-inner interactive-tilt" data-reveal>
+                    <span class="tick tick-tl"></span><span class="tick tick-tr"></span><span class="tick tick-bl"></span><span class="tick tick-br"></span>
+                    <div class="commercial-badge-bar">
+                        <span class="featured-tag commercial">COMMERCIAL STUDIO EDITION</span>
+                        <span class="hud-label" style="color: var(--accent-red-bright);">FULL CLIENT &amp; PRACTICE RIGHTS</span>
+                    </div>
+                    <div class="commercial-header-flex">
+                        <div>
+                            <h3>Commercial Studio License</h3>
+                            <p>Built for architectural practices, visualization studios, and freelance professionals requiring unconstrained commercial usage rights and priority developer support.</p>
+                        </div>
+                        <div class="commercial-price-lockup">
+                            <div class="tier-price-amount">5,000 <span class="tier-currency">&#2547;</span></div>
+                            <div class="tier-period">365 DAYS FULL COMMERCIAL ACCESS (~416 &#2547; / MO)</div>
+                        </div>
+                    </div>
+                    <div class="commercial-features-grid">
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>Full Commercial Usage Rights</b>
+                                <p>Unrestricted use on all paid client commissions, design competitions, and constructed architectural projects.</p>
+                            </div>
+                        </div>
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>Complete 15-Tool Parametric Engine</b>
+                                <p>Generate custom parametric Doors, Windows, Stairs, Railings, Louvers, Escalators, Curtain Walls, Roofs, and Trees in seconds.</p>
+                            </div>
+                        </div>
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>100% Watertight Solid Polysurfaces</b>
+                                <p>Native C# Rhino kernel produces clean manifold geometry with automatic wall opening cuts, ready for Revit, IFC &amp; 3ds Max export.</p>
+                            </div>
+                        </div>
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>Double-Click Viewport Editing</b>
+                                <p>Modify swing angles, tread depths, riser counts, and framing dimensions directly in the viewport anytime without remodeling.</p>
+                            </div>
+                        </div>
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>1 Full Year of Updates &amp; Feature Releases</b>
+                                <p>Includes all upcoming v1.x feature releases, new parametric tool additions, and performance enhancements at no extra cost.</p>
+                            </div>
+                        </div>
+                        <div class="comm-feature-item">
+                            <span class="comm-check">âœ“</span>
+                            <div>
+                                <b>Priority 1-on-1 Author Direct Support</b>
+                                <p>Direct technical guidance and troubleshooting via dedicated WhatsApp and email channel directly from Architect Sakhawat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commercial-action-row">
+                        <a href="buy.html?plan=commercial" class="btn-artcraft-solid" style="padding: 14px 34px; font-size: 0.95rem;">
+                            Select Commercial License (5,000 &#2547; / Year)
+                        </a>
+                        <a href="https://wa.me/8801521776439?text=Hello%20Architect%20Sakhawat%2C%20I%20am%20interested%20in%20a%20Commercial%20Studio%20license%20for%20Shalik%20Rhino%208." class="btn-artcraft-outline" target="_blank" rel="noopener">
+                            Inquire on WhatsApp (+8801521776439)
+                        </a>
+                    </div>
+                    <div class="commercial-guarantee-note">
+                        <span>âš¡ Fast 24-hour node-locked machine key delivery</span>
+                        <span>â€¢</span>
+                        <span>ðŸ“„ Official commercial invoice / tax receipt provided</span>
+                        <span>â€¢</span>
+                        <span>ðŸ”’ Valid for Rhino 8 on Windows</span>
+                    </div>
+                </div>
+
+                <div class="academic-minimal-notice" style="margin-top: 24px;">
+                    <span>Are you currently a university student?</span>
+                    <button type="button" onclick="setPricingTab('student')" style="background:none; border:none; color: var(--accent-red); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem;">
+                        Switch to Subsidized Academic Pricing (from 500 &#2547;) â†’
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
-
     <!-- ========================================================================
          SECTION 05: bKash Payment & Instant Activation
          ======================================================================== -->
@@ -1637,6 +1749,29 @@
         });
     });
 })();
+
+    // --- Pricing Audience Switcher (Student vs Commercial) ---
+    function setPricingTab(tab) {
+        var studentBtns = document.querySelectorAll('.pricing-switch-btn[data-tab="student"]');
+        var commBtns = document.querySelectorAll('.pricing-switch-btn[data-tab="commercial"]');
+        var studentView = document.getElementById('pricing-view-student');
+        var commView = document.getElementById('pricing-view-commercial');
+        
+        if (tab === 'commercial') {
+            studentBtns.forEach(function(b) { b.classList.remove('active'); });
+            commBtns.forEach(function(b) { b.classList.add('active'); });
+            if (studentView) studentView.style.display = 'none';
+            if (commView) commView.style.display = 'block';
+        } else {
+            commBtns.forEach(function(b) { b.classList.remove('active'); });
+            studentBtns.forEach(function(b) { b.classList.add('active'); });
+            if (commView) commView.style.display = 'none';
+            if (studentView) studentView.style.display = 'block';
+        }
+    }
+    if (window.location.hash === '#pricing-commercial' || window.location.search.indexOf('commercial') !== -1) {
+        setPricingTab('commercial');
+    }
 </script>
 </body>
 
