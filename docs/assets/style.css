@@ -42,6 +42,14 @@
             overflow-x: hidden;
         }
 
+        /* Explicitly disable any grid texture or background pseudo-element overlays */
+        body::before, body::after, html::before, html::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+            background-image: none !important;
+        }
+
         /* HUD Micro-Labels (Signature ArtCraft style) */
         .hud-label {
             font-family: var(--font-mono);

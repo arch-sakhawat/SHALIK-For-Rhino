@@ -73,8 +73,21 @@
     }
     </script>
 
-    <!-- Shared External Obsidian Stylesheet -->
-    <link rel="stylesheet" href="assets/style.css">
+    <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
+    <link rel="stylesheet" href="assets/style.css?v=20261026-clean">
+    <style>
+        /* Force-disable any background grid or pseudo-element overlays */
+        body::before, body::after, html::before, html::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+            background-image: none !important;
+        }
+        body, html {
+            background-color: #ffffff !important;
+            background-image: none !important;
+        }
+    </style>
 </head>
 <body>
 
