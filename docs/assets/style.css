@@ -123,7 +123,7 @@
             z-index: 1;
             padding: 70px 24px 60px;
             text-align: center;
-            border-bottom: 1px solid var(--border-line);
+            border-bottom: none;
             background: var(--bg-canvas);
             overflow: hidden; /* Restricts birds strictly within hero area */
         }

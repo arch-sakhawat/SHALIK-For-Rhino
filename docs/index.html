@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-clean">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-noline">
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
         body::before, body::after, html::before, html::after {
@@ -86,6 +86,10 @@
         body, html {
             background-color: #ffffff !important;
             background-image: none !important;
+        }
+        /* Remove divider line under hero section */
+        header.hero-section {
+            border-bottom: none !important;
         }
     </style>
 </head>
