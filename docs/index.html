@@ -77,13 +77,7 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<!-- Flying Shalik Bird Interactive Sky Stage (Click to Double!) -->
-<div class="shalik-sky-stage" id="shalik-sky-stage"></div>
-<div class="bird-flock-counter" id="bird-flock-counter">
-    <span style="font-size: 0.95rem;">🦅</span>
-    <span>Shalik Flock: <b id="bird-count-num" class="bird-counter-badge">4</b></span>
-    <span style="font-size: 0.7rem; color: var(--ink-faint);">(Click bird to double!)</span>
-</div>
+
 
 
 <!-- Elevation Side Ruler Navigation HUD (ArtCraft Style) -->
@@ -120,6 +114,8 @@
 
 <!-- Hero Section -->
 <header class="hero-section" id="top">
+    <!-- Flying Shalik Bird Sky Stage (Restricted to Hero Area) -->
+    <div class="shalik-sky-stage" id="shalik-sky-stage"></div>
         
     <!-- Software Branding & Title -->
     <div>
@@ -1214,28 +1210,54 @@
      Interactive Live Shalik Bird Flocking & B&W Infograph Scripts
      ======================================================================== -->
 <script>
-// --- Flying Shalik Bird Easter Egg (Click to Double Flock) ---
+// --- High-Quality Flying Shalik Bird Simulation (Hero Area Confined) ---
 (function initShalikBirdFlock() {
     var stage = document.getElementById("shalik-sky-stage");
-    var counterEl = document.getElementById("bird-flock-counter");
-    var countNumEl = document.getElementById("bird-count-num");
     if (!stage) return;
 
     var birds = [];
-    var maxBirds = 64; // Performance guardrail
+    var maxBirds = 32;
 
-    function createBird(x, y, vx, vy) {
+    var shalikSvgContent = '<svg viewBox="0 0 64 42" class="shalik-bird-svg">' +
+        '<g class="bird-canvas">' +
+        // Aerodynamic tail
+        '<path class="bird-tail" d="M18,22 L8,24 L10,21 L8,18 L18,20 Z" fill="#18181b"/>' +
+        // Left Wing (layered primaries, signature white pied starling patch, crimson scapular accent)
+        '<g class="bird-wing-group-left">' +
+        '<path d="M26,20 C18,8 6,10 2,14 C8,19 16,23 26,22 Z" fill="#27272a"/>' +
+        '<path d="M22,19 C16,13 10,14 7,16 C11,19 16,21 22,20 Z" fill="#ffffff" opacity="0.95"/>' +
+        '<path d="M24,20 C20,16 16,17 14,18 C18,20 21,21 24,21 Z" fill="#e53935" opacity="0.85"/>' +
+        '</g>' +
+        // Right Wing (layered primaries, signature white pied starling patch, crimson scapular accent)
+        '<g class="bird-wing-group-right">' +
+        '<path d="M26,20 C34,8 46,10 50,14 C44,19 36,23 26,22 Z" fill="#27272a"/>' +
+        '<path d="M30,19 C36,13 42,14 45,16 C41,19 36,21 30,20 Z" fill="#ffffff" opacity="0.95"/>' +
+        '<path d="M28,20 C32,16 36,17 38,18 C34,20 31,21 28,21 Z" fill="#e53935" opacity="0.85"/>' +
+        '</g>' +
+        // Torso & White Underbelly
+        '<ellipse cx="26" cy="21" rx="9" ry="4.2" fill="#27272a"/>' +
+        '<path d="M20,22 C23,24.5 28,24.5 31,22 C28,23 23,23 20,22 Z" fill="#ffffff"/>' +
+        '<path d="M25,19 C28,19.5 31,20.5 32,22 C30,21.5 27,21 25,20 Z" fill="#e53935"/>' +
+        // Head
+        '<circle cx="34" cy="20" r="3.8" fill="#18181b"/>' +
+        // Signature Yellow-Orange Orbital Eye Patch of Shalik
+        '<ellipse cx="34.8" cy="19.5" rx="2" ry="1.6" fill="#f59e0b"/>' +
+        '<circle cx="34.8" cy="19.5" r="0.8" fill="#09090b"/>' +
+        '<circle cx="34.5" cy="19.2" r="0.3" fill="#ffffff"/>' +
+        // Curved Golden-Orange Beak
+        '<path d="M37.5,18.8 L44,20.2 L37.5,21.4 C38,20.5 38,19.5 37.5,18.8 Z" fill="#f59e0b"/>' +
+        '<path d="M37.5,19.8 L42,20.2 L37.5,20.4 Z" fill="#d97706"/>' +
+        '</g>' +
+        '</svg>';
+
+    function createBird(x, y, vx, vy, scale) {
         var el = document.createElement("div");
         el.className = "shalik-bird-unit";
-        el.title = "Click me to double!";
-        el.innerHTML = '<svg viewBox="0 0 54 38" class="bird-svg">' +
-            '<path class="bird-wing-left" d="M24,20 C14,8 2,12 0,16 C10,22 18,24 24,22 Z" fill="#18181b"/>' +
-            '<path class="bird-wing-right" d="M24,20 C34,8 46,12 50,16 C40,22 32,24 24,22 Z" fill="#18181b"/>' +
-            '<ellipse cx="24" cy="22" rx="7" ry="4" fill="#3f3f46"/>' +
-            '<polygon points="27,21 34,22 27,23" fill="#e53935"/>' +
-            '<circle cx="26" cy="21" r="1.2" fill="#ffffff"/>' +
-            '<polygon points="17,22 9,25 9,19" fill="#27272a"/>' +
-            '</svg>';
+        el.title = "Shalik in flight";
+        var s = scale || (0.85 + Math.random() * 0.25);
+        el.style.width = Math.round(58 * s) + "px";
+        el.style.height = Math.round(38 * s) + "px";
+        el.innerHTML = shalikSvgContent;
 
         stage.appendChild(el);
 
@@ -1244,98 +1266,112 @@
             x: x,
             y: y,
             vx: vx || (Math.random() > 0.5 ? 1.7 : -1.7),
-            vy: vy || (Math.random() * 0.8 - 0.4),
+            vy: vy || (Math.random() * 0.6 - 0.3),
+            scale: s,
             phase: Math.random() * Math.PI * 2,
-            flapSpeed: 0.05 + Math.random() * 0.03
+            flapTimer: Math.floor(Math.random() * 90),
+            isGliding: false
         };
 
         el.addEventListener("click", function(e) {
             e.stopPropagation();
-            splitBird(bird);
+            onBirdClick(bird);
         });
 
         el.addEventListener("touchstart", function(e) {
             e.stopPropagation();
-            splitBird(bird);
+            onBirdClick(bird);
         }, { passive: true });
 
         birds.push(bird);
-        updateCounter();
         return bird;
     }
 
-    function splitBird(target) {
-        if (birds.length >= maxBirds) return;
+    function onBirdClick(target) {
+        if (birds.length < maxBirds) {
+            // Visual ripple ring
+            var burst = document.createElement("div");
+            burst.className = "bird-split-burst";
+            burst.style.left = target.x + "px";
+            burst.style.top = target.y + "px";
+            stage.appendChild(burst);
+            setTimeout(function() { if (burst.parentNode) burst.parentNode.removeChild(burst); }, 600);
 
-        // Visual shockwave ring at click point
-        var burst = document.createElement("div");
-        burst.className = "bird-split-burst";
-        burst.style.left = target.x + "px";
-        burst.style.top = target.y + "px";
-        stage.appendChild(burst);
-        setTimeout(function() { if (burst.parentNode) burst.parentNode.removeChild(burst); }, 600);
-
-        // Remove clicked bird and spawn TWO new birds with diverging flight paths
-        var idx = birds.indexOf(target);
-        if (idx !== -1) {
-            if (target.el.parentNode) target.el.parentNode.removeChild(target.el);
-            birds.splice(idx, 1);
+            // Double / spawn companion bird
+            var speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy) || 1.8;
+            var dir = target.vx >= 0 ? 1 : -1;
+            createBird(target.x, Math.max(20, target.y - 18), dir * (speed * 0.95), -0.9, target.scale * 0.95);
         }
-
-        var speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy) || 1.8;
-        var dir = target.vx >= 0 ? 1 : -1;
-
-        // Doubling: spawn 2 birds
-        createBird(target.x, target.y - 14, dir * (speed * 0.95), -1.1);
-        createBird(target.x, target.y + 14, dir * (speed * 1.05), 1.1);
+        // Swift upward acceleration burst
+        target.vy = -1.4;
+        target.vx *= 1.25;
+        target.isGliding = false;
+        target.el.classList.remove("is-gliding");
     }
 
-    function updateCounter() {
-        if (countNumEl) countNumEl.innerText = birds.length;
-        if (counterEl) {
-            counterEl.style.opacity = "1";
-            counterEl.style.transform = "scale(1.1)";
-            setTimeout(function() { counterEl.style.transform = "scale(1)"; }, 220);
-        }
+    // Initialize 4 birds by default positioned organically across Hero sky
+    function setupInitialBirds() {
+        var w = stage.clientWidth || window.innerWidth;
+        var h = stage.clientHeight || 520;
+        createBird(w * 0.15, h * 0.22, 1.8, 0.20, 0.95);
+        createBird(w * 0.38, h * 0.60, 2.1, -0.28, 1.05);
+        createBird(w * 0.68, h * 0.26, -1.9, 0.32, 0.90);
+        createBird(w * 0.86, h * 0.52, -1.6, -0.18, 1.00);
     }
 
-    // Start with 4 birds by default flying smoothly across screen
-    var initW = window.innerWidth;
-    var initH = window.innerHeight;
-    createBird(initW * 0.18, initH * 0.28, 1.8, 0.25);
-    createBird(initW * 0.38, initH * 0.45, 2.1, -0.3);
-    createBird(initW * 0.62, initH * 0.25, -1.9, 0.35);
-    createBird(initW * 0.82, initH * 0.52, -1.6, -0.2);
-
-    // Continuous 60fps flight loop
+    // Continuous 60fps flight loop strictly bounded to Hero Area
     function animateFlock() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
+        var w = stage.clientWidth || 1000;
+        var h = stage.clientHeight || 520;
 
         for (var i = 0; i < birds.length; i++) {
             var b = birds[i];
-            b.phase += b.flapSpeed;
-            b.x += b.vx;
-            b.y += b.vy + Math.sin(b.phase) * 0.65;
 
-            // Turn around smoothly at viewport edges
-            if (b.x > w - 45) {
+            // Natural flap-and-glide cycle
+            b.flapTimer++;
+            if (b.flapTimer > 105) {
+                b.flapTimer = 0;
+                b.isGliding = !b.isGliding;
+                if (b.isGliding) {
+                    b.el.classList.add("is-gliding");
+                } else {
+                    b.el.classList.remove("is-gliding");
+                }
+            }
+
+            b.phase += 0.045;
+            b.x += b.vx;
+            b.y += b.vy + (b.isGliding ? Math.sin(b.phase * 0.6) * 0.25 : Math.sin(b.phase) * 0.6);
+
+            // Confine flight strictly within Hero Section boundaries
+            var marginX = 20;
+            var marginY = 15;
+
+            if (b.x > w - 70) {
                 b.vx = -Math.abs(b.vx);
-            } else if (b.x < 10) {
+            } else if (b.x < marginX) {
                 b.vx = Math.abs(b.vx);
             }
 
-            if (b.y > h - 70) {
-                b.vy = -Math.abs(b.vy) * 0.8;
-            } else if (b.y < 60) {
-                b.vy = Math.abs(b.vy) * 0.8;
+            if (b.y > h - 55) {
+                b.vy = -Math.abs(b.vy) * 0.85;
+            } else if (b.y < marginY) {
+                b.vy = Math.abs(b.vy) * 0.85;
             }
 
             var faceDir = b.vx >= 0 ? 1 : -1;
-            var tilt = (b.vy * 8);
-            b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px, " + b.y.toFixed(1) + "px, 0) scaleX(" + faceDir + ") rotate(" + tilt.toFixed(1) + "deg)";
+            // Realistic banking angle into turns
+            var bankAngle = (b.vy * 8);
+            b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px, " + b.y.toFixed(1) + "px, 0) scaleX(" + faceDir + ") rotate(" + bankAngle.toFixed(1) + "deg)";
         }
         requestAnimationFrame(animateFlock);
+    }
+
+    // Start simulation once DOM and layout dimensions are computed
+    if (stage.clientHeight > 0) {
+        setupInitialBirds();
+    } else {
+        setTimeout(setupInitialBirds, 80);
     }
     requestAnimationFrame(animateFlock);
 })();

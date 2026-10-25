@@ -130,6 +130,11 @@
             text-align: center;
             border-bottom: 1px solid var(--border-line);
             background: var(--bg-canvas);
+            overflow: hidden; /* Restricts birds strictly within hero area */
+        }
+        .hero-section > *:not(.shalik-sky-stage) {
+            position: relative;
+            z-index: 2; /* Keeps interactive buttons, logo and text above bird flight layer */
         }
         .author-card-hero {
             display: inline-flex;
@@ -3359,101 +3364,94 @@
 }
 
 /* ==========================================================================
-   Flying Shalik Bird System (Click-to-Double Interactive Easter Egg)
+   Flying Shalik Bird System (Hero Area Confined, Lifelike Flap & Glide)
    ========================================================================== */
 .shalik-sky-stage {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 85;
+    z-index: 1;
     overflow: hidden;
 }
 
 .shalik-bird-unit {
     position: absolute;
-    width: 48px;
-    height: 34px;
+    width: 58px;
+    height: 38px;
     pointer-events: auto;
     cursor: pointer;
     user-select: none;
     will-change: transform;
-    transition: filter 0.2s ease;
+    transition: filter 0.25s ease;
 }
 .shalik-bird-unit:hover {
-    filter: drop-shadow(0 0 12px rgba(229, 57, 53, 0.85));
+    filter: drop-shadow(0 4px 14px rgba(229, 57, 53, 0.45));
 }
 
-.bird-svg {
+.shalik-bird-svg {
     width: 100%;
     height: 100%;
     overflow: visible;
 }
 
-@keyframes birdWingFlapLeft {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(-35deg) scaleY(0.65); }
+/* Authentic Aerodynamic Wing Flap Cycles with Flex & Skew */
+@keyframes shalikFlapLeft {
+    0%, 100% {
+        transform: rotate(0deg) scaleY(1);
+    }
+    35% {
+        transform: rotate(-38deg) scaleY(0.68) skewX(6deg);
+    }
+    70% {
+        transform: rotate(18deg) scaleY(1.08) skewX(-3deg);
+    }
 }
-@keyframes birdWingFlapRight {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(35deg) scaleY(0.65); }
+@keyframes shalikFlapRight {
+    0%, 100% {
+        transform: rotate(0deg) scaleY(1);
+    }
+    35% {
+        transform: rotate(38deg) scaleY(0.68) skewX(-6deg);
+    }
+    70% {
+        transform: rotate(-18deg) scaleY(1.08) skewX(3deg);
+    }
 }
 
-.bird-wing-left {
-    transform-origin: 24px 20px;
-    animation: birdWingFlapLeft 0.26s infinite ease-in-out;
+.bird-wing-group-left {
+    transform-origin: 26px 20px;
+    animation: shalikFlapLeft 0.26s infinite ease-in-out;
 }
-.bird-wing-right {
-    transform-origin: 24px 20px;
-    animation: birdWingFlapRight 0.26s infinite ease-in-out;
+.bird-wing-group-right {
+    transform-origin: 26px 20px;
+    animation: shalikFlapRight 0.26s infinite ease-in-out;
+}
+
+/* Natural Gliding State (Wings Held Level in Air Currents) */
+.shalik-bird-unit.is-gliding .bird-wing-group-left,
+.shalik-bird-unit.is-gliding .bird-wing-group-right {
+    animation-play-state: paused;
+    transform: rotate(0deg) scaleY(1);
+    transition: transform 0.24s ease-out;
 }
 
 .bird-split-burst {
     position: absolute;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    border: 2px solid #e53935;
-    transform: translate(-50%, -50%) scale(0.5);
+    border: 2px solid var(--accent-red);
+    transform: translate(-50%, -50%) scale(0.4);
     opacity: 1;
     pointer-events: none;
     animation: birdBurstRing 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes birdBurstRing {
-    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
-}
-
-.bird-flock-counter {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    background: rgba(14, 14, 18, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(229, 57, 53, 0.4);
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: #ffffff;
-    z-index: 96;
-    pointer-events: none;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: opacity 0.3s ease, transform 0.2s ease;
-}
-.bird-counter-badge {
-    background: #e53935;
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 10px;
+    0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
 }
 
 /* ==========================================================================
