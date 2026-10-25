@@ -3506,42 +3506,109 @@
 .bw-metric-box {
     background: var(--bg-surface);
     border: 1px solid var(--border-line);
-    border-radius: 8px;
-    padding: 18px 20px;
-    transition: all 0.2s ease;
+    border-radius: 10px;
+    padding: 20px 22px 18px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .bw-metric-box:hover {
     border-color: var(--border-line-hover);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .bw-metric-head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
 }
 .bw-metric-title {
-    font-size: 0.92rem;
-    font-weight: 700;
+    display: block;
+    font-size: 1.02rem;
+    font-weight: 800;
     color: var(--ink-primary);
+    letter-spacing: -0.015em;
+}
+.bw-metric-subtitle {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-top: 2px;
 }
 .bw-metric-tag {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--ink-faint);
+    font-size: 0.68rem;
+    color: var(--accent-red, #e53935);
+    background: rgba(229, 57, 53, 0.08);
+    border: 1px solid rgba(229, 57, 53, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
     text-transform: uppercase;
+    font-weight: 700;
 }
 
+/* Superiority Zoom Comparison Rows */
 .bw-comp-row {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 10px;
+    gap: 6px;
+    padding: 8px 12px;
+    margin-bottom: 7px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    transform-origin: center center;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, border-color 0.2s ease, background 0.2s ease;
+    cursor: pointer;
 }
-.bw-comp-row:last-child {
-    margin-bottom: 0;
+
+/* Tier 1: Manual Rhino - Lowest Superiority (Slight 2% zoom) */
+.bw-comp-row.tier-low:hover {
+    transform: scale(1.02);
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    z-index: 2;
 }
+
+/* Tier 2: Grasshopper - Mid Superiority (Moderate 4.5% zoom) */
+.bw-comp-row.tier-mid:hover {
+    transform: scale(1.045);
+    background: #ffffff;
+    border-color: #94a3b8;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    z-index: 3;
+}
+
+/* Tier 3: Shalik Suite - MAXIMUM SUPERIORITY (Prominent 7.5% zoom + glowing aura) */
+.bw-comp-row.tier-high {
+    background: rgba(229, 57, 53, 0.035);
+    border-color: rgba(229, 57, 53, 0.22);
+}
+.bw-comp-row.tier-high:hover {
+    transform: scale(1.075) translateY(-2px);
+    background: #ffffff;
+    border-color: var(--accent-red, #e53935);
+    box-shadow: 0 12px 30px rgba(229, 57, 53, 0.25), 0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.superiority-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: var(--accent-red, #e53935);
+    background: rgba(229, 57, 53, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
 .bw-comp-labels {
     display: flex;
     justify-content: space-between;
@@ -3550,6 +3617,7 @@
 }
 .bw-comp-name {
     color: var(--ink-secondary);
+    font-weight: 500;
 }
 .bw-comp-value {
     color: var(--ink-primary);
@@ -3558,21 +3626,27 @@
 .bw-comp-value.dim {
     color: var(--ink-faint);
 }
+.bw-comp-value.mid {
+    color: #475569;
+}
 .bw-comp-value.white {
-    color: var(--ink-primary);
+    color: #09090b;
     font-weight: 800;
 }
 
+/* Meter Tracks & Live Shimmer Animation */
 .bw-meter-track {
     width: 100%;
-    height: 5px;
+    height: 6px;
     background: #e4e4e7;
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
 }
 .bw-meter-fill {
     height: 100%;
-    border-radius: 3px;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 1.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .bw-meter-fill.dim {
     background: #cbd5e1;
@@ -3583,6 +3657,52 @@
 .bw-meter-fill.solid {
     background: #09090b;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+.bw-meter-fill.solid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(229, 57, 53, 0.7), transparent);
+    animation: meterShimmer 2.2s infinite ease-in-out;
+}
+@keyframes meterShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* "What this means" explanation block from Image 2 */
+.bw-meaning-box {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-line);
+}
+.bw-meaning-head {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink-primary);
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.bw-meaning-head::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-red, #e53935);
+}
+.bw-meaning-desc {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    margin: 0;
 }
 
 .bw-scorecard-row {
@@ -3608,10 +3728,25 @@
 }
 .bw-score-pill {
     text-align: center;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     border: 1px solid var(--border-line);
     background: #ffffff;
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+.bw-score-pill.tier-low:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.bw-score-pill.tier-mid:hover {
+    transform: scale(1.045);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+.bw-score-pill.winner.tier-high:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 14px 34px rgba(229, 57, 53, 0.35), 0 0 16px rgba(229, 57, 53, 0.3);
+    border-color: var(--accent-red, #e53935);
 }
 .bw-score-pill.winner {
     border-color: #09090b;

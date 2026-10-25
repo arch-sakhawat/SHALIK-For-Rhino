@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-center-align">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-benchmark-zoom">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -529,142 +529,186 @@
                     <p>Monochrome architectural performance benchmark comparing modeling velocity, geometric stability, and viewport efficiency.</p>
                 </div>
 
-                <!-- 4 B&W Metric Grid -->
+                <!-- 4 Comparison Metric Grid (with Live Animations & Superiority Zoom) -->
                 <div class="bw-metrics-grid">
                     
-                    <!-- Metric 1: Speed to Solid -->
+                    <!-- Metric 1: Modeling Speed -->
                     <div class="bw-metric-box">
                         <div class="bw-metric-head">
-                            <span class="bw-metric-title">01 // Modeling Speed to Solid</span>
+                            <div>
+                                <span class="bw-metric-title">Modeling Speed</span>
+                                <span class="bw-metric-subtitle">Time to create a solid</span>
+                            </div>
                             <span class="bw-metric-tag">VELOCITY</span>
                         </div>
-                        <div class="bw-comp-row">
+                        
+                        <div class="bw-comp-row tier-low" title="Manual Rhino 3D: Slow manual curve drafting & lofting">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Manual Rhino 3D</span>
+                                <span class="bw-comp-name">Manual Rhino</span>
                                 <span class="bw-comp-value dim">45–60 min</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="8%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-mid" title="Grasshopper: Faster parametric generation, but high script wiring overhead">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Grasshopper Visual Canvas</span>
-                                <span class="bw-comp-value dim">15–20 min</span>
+                                <span class="bw-comp-name">Grasshopper</span>
+                                <span class="bw-comp-value mid">15–20 min</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="30%"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="32%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-high" title="Shalik Suite: Instant solid generation compiled in native C#">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Shalik C# Suite</span>
-                                <span class="bw-comp-value white">5–10 sec (99.7% Instant)</span>
+                                <span class="bw-comp-name">Shalik Suite <span class="superiority-badge">★ WINNER</span></span>
+                                <span class="bw-comp-value white">5–10 sec</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
+                        </div>
+
+                        <div class="bw-meaning-box">
+                            <div class="bw-meaning-head">What this means</div>
+                            <p class="bw-meaning-desc">See how much manual work or setup is required before the geometry is ready.</p>
                         </div>
                     </div>
 
                     <!-- Metric 2: Topology Stability -->
                     <div class="bw-metric-box">
                         <div class="bw-metric-head">
-                            <span class="bw-metric-title">02 // Solid Polysurface Topology</span>
+                            <div>
+                                <span class="bw-metric-title">Solid Polysurface Topology</span>
+                                <span class="bw-metric-subtitle">Watertight precision &amp; naked edges</span>
+                            </div>
                             <span class="bw-metric-tag">MANIFOLD</span>
                         </div>
-                        <div class="bw-comp-row">
+                        
+                        <div class="bw-comp-row tier-low" title="Manual Rhino 3D: High risk of naked edges and non-manifold slits">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Manual Rhino 3D</span>
+                                <span class="bw-comp-name">Manual Rhino</span>
                                 <span class="bw-comp-value dim">Slit gaps &amp; naked edges</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="15%"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="14%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-mid" title="Grasshopper: Frequently suffers flipped normals or heavy mesh conversions">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Grasshopper Visual Canvas</span>
-                                <span class="bw-comp-value dim">Flipped normals &amp; mesh lag</span>
+                                <span class="bw-comp-name">Grasshopper</span>
+                                <span class="bw-comp-value mid">Flipped normals &amp; mesh lag</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="35%"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="36%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-high" title="Shalik Suite: 100% Watertight Closed Brep Solids directly ready for IFC/Revit">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Shalik C# Suite</span>
-                                <span class="bw-comp-value white">100% Watertight Solid Polysurface</span>
+                                <span class="bw-comp-name">Shalik Suite <span class="superiority-badge">★ WINNER</span></span>
+                                <span class="bw-comp-value white">100% Watertight Solid</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
+                        </div>
+
+                        <div class="bw-meaning-box">
+                            <div class="bw-meaning-head">What this means</div>
+                            <p class="bw-meaning-desc">Clean manifold solids with zero naked edges, ready for automatic wall cuts and Revit/IFC export.</p>
                         </div>
                     </div>
 
                     <!-- Metric 3: Viewport Editing -->
                     <div class="bw-metric-box">
                         <div class="bw-metric-head">
-                            <span class="bw-metric-title">03 // In-Place Viewport Modification</span>
+                            <div>
+                                <span class="bw-metric-title">In-Place Viewport Modification</span>
+                                <span class="bw-metric-subtitle">Workflow when design parameters change</span>
+                            </div>
                             <span class="bw-metric-tag">WORKFLOW</span>
                         </div>
-                        <div class="bw-comp-row">
+                        
+                        <div class="bw-comp-row tier-low" title="Manual Rhino 3D: Requires deleting and remodeling from scratch">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Manual Rhino 3D</span>
+                                <span class="bw-comp-name">Manual Rhino</span>
                                 <span class="bw-comp-value dim">Delete &amp; remodel from scratch</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="10%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-mid" title="Grasshopper: Must locate canvas script, re-wire sliders and re-bake geometries">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Grasshopper Visual Canvas</span>
-                                <span class="bw-comp-value dim">Re-wire script &amp; re-bake solids</span>
+                                <span class="bw-comp-name">Grasshopper</span>
+                                <span class="bw-comp-value mid">Re-wire script &amp; re-bake</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="35%"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="34%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-high" title="Shalik Suite: Direct double-click in Rhino viewport modifies geometry live">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Shalik C# Suite</span>
+                                <span class="bw-comp-name">Shalik Suite <span class="superiority-badge">★ WINNER</span></span>
                                 <span class="bw-comp-value white">Double-Click Edit In Viewport</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
                         </div>
+
+                        <div class="bw-meaning-box">
+                            <div class="bw-meaning-head">What this means</div>
+                            <p class="bw-meaning-desc">Modify swing angles, tread depths, and dimensions live in the viewport without starting over.</p>
+                        </div>
                     </div>
 
-                    <!-- Metric 4: Code & Scripting Overhead -->
+                    <!-- Metric 4: Scripting & Setup Overhead -->
                     <div class="bw-metric-box">
                         <div class="bw-metric-head">
-                            <span class="bw-metric-title">04 // Scripting &amp; Setup Overhead</span>
+                            <div>
+                                <span class="bw-metric-title">Scripting &amp; Setup Overhead</span>
+                                <span class="bw-metric-subtitle">Required prerequisite setup &amp; nodes</span>
+                            </div>
                             <span class="bw-metric-tag">EFFICIENCY</span>
                         </div>
-                        <div class="bw-comp-row">
+                        
+                        <div class="bw-comp-row tier-low" title="Manual Rhino 3D: Dozens of repetitive manual Rhino commands">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Manual Rhino 3D</span>
-                                <span class="bw-comp-value dim">30+ manual commands per element</span>
+                                <span class="bw-comp-name">Manual Rhino</span>
+                                <span class="bw-comp-value dim">30+ manual commands</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill dim" data-target="12%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-mid" title="Grasshopper: 40+ nodes, list matching, domain trees, canvas clutter">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Grasshopper Visual Canvas</span>
-                                <span class="bw-comp-value dim">40+ nodes &amp; domain trees</span>
+                                <span class="bw-comp-name">Grasshopper</span>
+                                <span class="bw-comp-value mid">40+ nodes &amp; domain trees</span>
                             </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="40%"></div></div>
+                            <div class="bw-meter-track"><div class="bw-meter-fill mid" data-target="38%"></div></div>
                         </div>
-                        <div class="bw-comp-row">
+
+                        <div class="bw-comp-row tier-high" title="Shalik Suite: Zero scripting, native C# commands with floating dialog">
                             <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Shalik C# Suite</span>
-                                <span class="bw-comp-value white">Zero Scripting (Native UI &amp; Commands)</span>
+                                <span class="bw-comp-name">Shalik Suite <span class="superiority-badge">★ WINNER</span></span>
+                                <span class="bw-comp-value white">Zero Scripting (Native UI)</span>
                             </div>
                             <div class="bw-meter-track"><div class="bw-meter-fill solid" data-target="100%"></div></div>
+                        </div>
+
+                        <div class="bw-meaning-box">
+                            <div class="bw-meaning-head">What this means</div>
+                            <p class="bw-meaning-desc">No Grasshopper canvas to manage, debug, or rewire. Works directly as native Rhino commands.</p>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- B&W Scorecard Summary Row -->
+                <!-- B&W Scorecard Summary Row (Interactive Superiority Zoom) -->
                 <div class="bw-scorecard-row">
                     <div>
                         <div class="bw-score-meta">Computational Architecture Scorecard</div>
-                        <div class="bw-score-sub">Overall modeling score across speed, topology, and frame rate.</div>
+                        <div class="bw-score-sub">Overall modeling score across velocity, topology stability, and viewport efficiency.</div>
                     </div>
-                    <div class="bw-score-pill">
+                    <div class="bw-score-pill tier-low" title="Manual CAD: 42/100 baseline performance">
                         <span class="bw-score-lbl">MANUAL CAD</span>
                         <span class="bw-score-val" style="color: #71717a;"><span class="bw-counter" data-target="42">0</span> / 100</span>
                     </div>
-                    <div class="bw-score-pill">
+                    <div class="bw-score-pill tier-mid" title="Grasshopper: 68/100 mid performance">
                         <span class="bw-score-lbl">GRASSHOPPER</span>
-                        <span class="bw-score-val" style="color: #a1a1aa;"><span class="bw-counter" data-target="68">0</span> / 100</span>
+                        <span class="bw-score-val" style="color: #64748b;"><span class="bw-counter" data-target="68">0</span> / 100</span>
                     </div>
-                    <div class="bw-score-pill winner">
+                    <div class="bw-score-pill winner tier-high" title="Shalik Suite: 99/100 highest superiority winner">
                         <span class="bw-score-lbl">SHALIK SUITE</span>
                         <span class="bw-score-val"><span class="bw-counter" data-target="99">0</span> / 100 &bull; WINNER</span>
                     </div>
