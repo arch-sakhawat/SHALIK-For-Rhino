@@ -1591,29 +1591,10 @@
             text-align: center;
         }
         .zoom-indicator-pill {
-            position: absolute;
-            top: 14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(14, 15, 17, 0.88);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #e6edf3;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            padding: 5px 14px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            pointer-events: none;
-            z-index: 10;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-            text-transform: uppercase;
-        }
-        .zoom-indicator-pill .ui-icon {
-            stroke: var(--accent-gold);
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
         .slider-slide-item {
             position: absolute;

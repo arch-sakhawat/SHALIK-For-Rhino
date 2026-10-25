@@ -74,8 +74,15 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-enginebento">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-removeinspect">
     <style>
+        /* Permanently remove "Move mouse to inspect" floating pill */
+        .zoom-indicator-pill {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
         /* Hide default browser scrollbar completely - only custom ArtCraft ruler HUD acts as sidebar */
         html {
             overflow-y: scroll !important;
@@ -354,7 +361,7 @@
                 </div>
             </div>
 
-            <div class="slider-viewport zoom-magnifier-viewport" id="slider-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
+            <div class="slider-viewport zoom-magnifier-viewport" id="slider-viewport">
                 
                 <!-- Slide 0: Glazed Door -->
                 <div class="slider-slide-item active" id="slide-0">
@@ -419,7 +426,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 01</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
                     <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
@@ -438,7 +445,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 02</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
                     <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
@@ -457,7 +464,7 @@
                     <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
                     <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 03</span>
                 </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport"><span class="zoom-indicator-pill"><svg class="ui-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>MOVE MOUSE TO INSPECT</span>
+                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
                     <img src="assets/demo/demo_escalator.png" alt="Commercial Crisscross Escalator Suite" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
