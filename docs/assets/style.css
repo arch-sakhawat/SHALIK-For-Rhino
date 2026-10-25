@@ -153,122 +153,85 @@
             z-index: 2; /* Keeps interactive buttons, logo and text above bird flight layer */
         }
         .author-card-hero {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--bg-surface-card);
-            border: 1px solid var(--border-line-strong);
-            border-radius: 16px;
-            padding: 40px 32px 34px;
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            display: flex;
+            display: inline-flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
+            margin-bottom: 28px;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
         }
         .author-photo-wrapper {
             position: relative;
-            width: 175px;
-            height: 175px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 50% 30%, #343440 0%, #16161d 65%, #08080a 100%);
-            border: 2.5px solid var(--border-line-strong);
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.75), 0 0 28px rgba(229, 57, 53, 0.22);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            display: inline-block;
+            margin: 0 auto 16px;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
         }
         .author-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
+            width: auto;
+            max-width: 210px;
+            height: 220px;
+            object-fit: contain;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
             display: block;
-            filter: grayscale(100%) contrast(1.06);
-            transition: filter 0.3s ease, transform 0.3s ease;
+            margin: 0 auto;
+            filter: none !important;
         }
-        .author-card-hero:hover .author-photo {
-            filter: grayscale(0%) contrast(1.04);
-            transform: scale(1.03);
+        .author-verified-tag {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-red, #e53935);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            padding: 3px 10px;
+            border-radius: 10px;
+            border: 2px solid #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
         .author-name {
-            font-size: 1.65rem;
-            font-weight: 800;
+            font-size: 1.45rem;
+            font-weight: 700;
             color: var(--ink-primary);
-            letter-spacing: -0.018em;
-            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+            margin-top: 8px;
         }
         .author-title {
-            color: var(--accent-red);
-            font-size: 0.96rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            margin-bottom: 12px;
+            color: var(--ink-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
         }
-        .author-location {
+        .author-links-bar {
+            margin-top: 14px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .author-links-bar a {
+            color: var(--ink-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            font-size: 0.88rem;
-            color: var(--ink-secondary);
-            margin-bottom: 18px;
-            padding: 5px 14px;
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-line);
-            border-radius: 20px;
+            transition: color 0.15s ease;
         }
-        .author-location .ui-icon {
-            stroke: var(--accent-red);
-        }
-        .author-bio {
-            max-width: 580px;
-            font-size: 0.92rem;
-            line-height: 1.65;
-            color: var(--ink-muted);
-            margin: 0 auto 24px;
-            text-align: center;
-        }
-        .author-bio b {
-            color: var(--ink-primary);
-        }
-        .author-links-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            width: 100%;
-        }
-        .author-link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--ink-secondary);
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-line);
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.18s ease;
-        }
-        .author-link-btn:hover {
-            color: #ffffff;
-            border-color: var(--border-line-hover);
-            background: #1e1e28;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-        }
-        .author-link-btn.primary {
-            background: rgba(229, 57, 53, 0.12);
-            border-color: rgba(229, 57, 53, 0.4);
-            color: #ffffff;
-        }
-        .author-link-btn.primary:hover {
-            background: rgba(229, 57, 53, 0.25);
-            border-color: var(--accent-red);
-            box-shadow: 0 4px 16px rgba(229, 57, 53, 0.3);
+        .author-links-bar a:hover {
+            color: var(--accent-red, #e53935);
         }
 
         .shalik-brand-logo {
