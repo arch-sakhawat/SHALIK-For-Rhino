@@ -216,12 +216,14 @@
         .author-links-bar a:hover { color: #58a6ff; }
 
         .shalik-brand-logo {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 16px;
+            width: clamp(160px, 20vw, 210px);
+            height: auto;
+            max-width: 90vw;
+            margin: 0 auto 18px;
             display: block;
             filter: none !important;
             box-shadow: none !important;
+            object-fit: contain;
         }
         h1.hero-main-title {
             font-size: 3.2rem;
@@ -243,9 +245,58 @@
         .cta-container {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            align-items: center;
+            gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 25px;
+            margin-bottom: 26px;
+        }
+        .btn-hero-download {
+            background: #09090b;
+            color: #ffffff !important;
+            border: 1px solid #09090b;
+            font-size: 0.94rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            letter-spacing: -0.01em;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: all 0.18s ease;
+        }
+        .btn-hero-download:hover {
+            background: #27272a;
+            border-color: #27272a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+        .btn-hero-download .ui-icon {
+            stroke: #ffffff;
+        }
+        .btn-hero-tutorial {
+            background: #ffffff;
+            color: #09090b !important;
+            border: 1px solid #d4d4d8;
+            font-size: 0.94rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            letter-spacing: -0.01em;
+            transition: all 0.18s ease;
+        }
+        .btn-hero-tutorial:hover {
+            background: #f4f4f5;
+            border-color: #09090b;
+            transform: translateY(-1px);
+        }
+        .btn-hero-tutorial .ui-icon {
+            fill: #e53935;
         }
         .btn-artcraft-solid {
             background: #ffffff;
@@ -2084,6 +2135,34 @@
     display: flex;
     align-items: center;
     gap: 12px;
+}
+.nav-social-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 12px;
+    border-right: 1px solid var(--border-line);
+}
+.nav-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    transition: transform 0.16s ease, filter 0.16s ease;
+    text-decoration: none;
+}
+.nav-social-btn img {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    object-fit: contain;
+    display: block;
+}
+.nav-social-btn:hover {
+    transform: translateY(-2px) scale(1.1);
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.22));
 }
 
 .nav-links a.active {
