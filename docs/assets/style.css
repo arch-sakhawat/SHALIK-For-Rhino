@@ -3686,11 +3686,23 @@
    ========================================================================== */
 .author-section-bottom {
     padding: 70px 24px 60px;
-    text-align: center;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     border-top: 1px solid var(--border-line);
     background: linear-gradient(180deg, var(--bg-canvas) 0%, var(--bg-surface) 100%);
     position: relative;
     z-index: 2;
+}
+
+.author-section-bottom .hud-label {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 24px !important;
+    text-align: center !important;
 }
 
 /* ==========================================================================
