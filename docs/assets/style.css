@@ -78,7 +78,7 @@
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-line);
-            padding: 14px 32px;
+            padding: 14px 64px 14px 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1826,8 +1826,8 @@
         /* Ruler Ticks Container */
         .ruler-ticks-track {
             position: absolute;
-            top: 50px;
-            bottom: 50px;
+            top: 85px;
+            bottom: 40px;
             left: 0;
             right: 0;
         }
@@ -1902,7 +1902,7 @@
         /* ArtCraft Elevation Section Navigation Items */
         .ruler-kinetic-stage {
             position: absolute;
-            top: 40px;
+            top: 85px;
             bottom: 40px;
             right: 48px;
             width: 170px;

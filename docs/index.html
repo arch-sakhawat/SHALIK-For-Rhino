@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-artcraft-ruler">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-navclear">
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
         body::before, body::after, html::before, html::after {
@@ -96,6 +96,20 @@
             filter: none !important;
             box-shadow: none !important;
             margin: 0 auto 16px !important;
+        }
+        /* Ensure Ruler & Kinetic Navigation HUD sits clear below sticky navbar */
+        nav.site-nav {
+            padding: 14px 64px 14px 32px !important;
+        }
+        .ruler-ticks-track {
+            top: 85px !important;
+            bottom: 40px !important;
+        }
+        .ruler-kinetic-stage {
+            top: 85px !important;
+            bottom: 40px !important;
+            right: 48px !important;
+            width: 170px !important;
         }
         /* Desktop PC View: Open White Sky in Top, Content Shifted Down, Aligned From Bottom */
         @media (min-width: 769px) {
@@ -1167,8 +1181,8 @@
             var scrollPct = docH > 0 ? (scrollY / docH) : 0;
             scrollPct = Math.max(0, Math.min(1, scrollPct));
 
-            // Needle Bar Position & Readout
-            var needleTopPx = scrollPct * ticksTrack.offsetHeight;
+            // Needle Bar Position & Readout (Aligned with Ticks Track)
+            var needleTopPx = ticksTrack.offsetTop + (scrollPct * ticksTrack.offsetHeight);
             needleBar.style.top = needleTopPx.toFixed(1) + "px";
 
             var pctInt = Math.round(scrollPct * 100);
@@ -1201,9 +1215,9 @@
                 }
             }
 
-            // ArtCraft Geometry: Stored at Top vs Queued at Bottom
-            var stageH = kineticStage.offsetHeight || (viewH - 100);
-            var topBase = 20;
+            // ArtCraft Geometry: Stored at Top vs Queued at Bottom (Generously below sticky nav)
+            var stageH = kineticStage.offsetHeight || (viewH - 125);
+            var topBase = 14;
             var topSpacing = 26;
             var bottomBase = stageH - 24;
             var bottomSpacing = 20;
