@@ -129,7 +129,7 @@
             padding: 70px 24px 60px;
             text-align: center;
             border-bottom: 1px solid var(--border-line);
-            background: radial-gradient(circle at 50% 0%, rgba(229, 57, 53, 0.05) 0%, transparent 60%);
+            background: var(--bg-canvas);
         }
         .author-card-hero {
             display: inline-flex;
@@ -1351,17 +1351,7 @@
 
         /* Ambient Hero Breathing Glow */
         .hero-ambient-glow {
-            position: absolute;
-            top: 15%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 650px;
-            height: 420px;
-            background: radial-gradient(circle, rgba(211, 47, 47, 0.20) 0%, rgba(158, 26, 26, 0.08) 50%, transparent 75%);
-            filter: blur(70px);
-            pointer-events: none;
-            z-index: 0;
-            animation: ambient-breathe 8s ease-in-out infinite alternate;
+            display: none !important;
         }
         @keyframes ambient-breathe {
             0% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.92); }
@@ -2903,7 +2893,7 @@
     color: #ff7875 !important;
 }
 .bkash-hero-box {
-    background: linear-gradient(135deg, rgba(229, 57, 53, 0.12) 0%, rgba(10, 10, 12, 0.8) 100%) !important;
+    background: #ffffff !important;
     border: 1px solid rgba(229, 57, 53, 0.4) !important;
 }
 .bkash-badge {
