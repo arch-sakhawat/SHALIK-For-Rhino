@@ -117,11 +117,17 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section */
+        /* Hero Section (PC First Screen: Generous Top White Sky & Bottom-Aligned Elements) */
         header.hero-section {
             position: relative;
             z-index: 1;
-            padding: 70px 24px 60px;
+            min-height: clamp(620px, calc(100vh - 65px), 920px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 80px 24px 60px;
+            box-sizing: border-box;
             text-align: center;
             border-bottom: none;
             background: var(--bg-canvas);
@@ -197,9 +203,10 @@
         .shalik-brand-logo {
             width: 140px;
             height: 140px;
-            margin: 20px auto 14px;
+            margin: 0 auto 16px;
             display: block;
-            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+            filter: none !important;
+            box-shadow: none !important;
         }
         h1.hero-main-title {
             font-size: 3.2rem;
@@ -287,7 +294,8 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 0;
+            margin-bottom: 0;
         }
         .meta-pill {
             background: var(--bg-surface);

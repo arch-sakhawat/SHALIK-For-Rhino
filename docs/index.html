@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-noline">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-heroalign">
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
         body::before, body::after, html::before, html::after {
@@ -90,6 +90,25 @@
         /* Remove divider line under hero section */
         header.hero-section {
             border-bottom: none !important;
+        }
+        /* Remove shadow from under the logo */
+        .shalik-brand-logo {
+            filter: none !important;
+            box-shadow: none !important;
+            margin: 0 auto 16px !important;
+        }
+        /* Desktop PC View: Open White Sky in Top, Content Shifted Down, Aligned From Bottom */
+        @media (min-width: 769px) {
+            header.hero-section {
+                min-height: clamp(620px, calc(100vh - 65px), 920px) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-end !important;
+                align-items: center !important;
+                padding-top: 80px !important;
+                padding-bottom: 60px !important;
+                box-sizing: border-box !important;
+            }
         }
     </style>
 </head>
