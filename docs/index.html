@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-heroalign">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-artcraft-ruler">
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
         body::before, body::after, html::before, html::after {
@@ -109,6 +109,50 @@
                 padding-bottom: 60px !important;
                 box-sizing: border-box !important;
             }
+        }
+        /* ArtCraft Elevation Section Navigation Items */
+        .ruler-nav-item {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            justify-content: flex-end;
+            cursor: pointer;
+            pointer-events: auto;
+            white-space: nowrap;
+            user-select: none;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            transform-origin: right center;
+            will-change: transform, font-size, color, opacity;
+            transition: color 0.18s ease, opacity 0.18s ease;
+        }
+        .ruler-item-dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #e53935;
+            opacity: 0;
+            transform: scale(0);
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+            box-shadow: 0 0 6px #e53935;
+            flex-shrink: 0;
+        }
+        .ruler-nav-item.is-active .ruler-item-dot {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .ruler-item-label {
+            display: inline-block;
+        }
+        .ruler-nav-item:hover {
+            color: #e53935 !important;
+            opacity: 1 !important;
+            transform: translate3d(-3px, var(--cur-y, 0px), 0) !important;
         }
     </style>
 </head>
@@ -1034,56 +1078,67 @@
         }
         ticksTrack.innerHTML = ticksHtml;
 
-        // 2. Section Definitions for Kinetic Curved Animation
+        // 2. Section Definitions for Elevation Navigation (ArtCraft Style)
         var sections = [
-            { id: "top", label: "HERO", targetId: "top" },
-            { id: "showcase", label: "RENDERS", targetId: "showcase" },
-            { id: "features", label: "ENGINE", targetId: "features" },
-            { id: "benchmark-section", label: "BENCHMARK", targetId: "benchmark-section" },
-            { id: "pricing", label: "PRICING", targetId: "pricing" },
-            { id: "author", label: "AUTHOR", targetId: "author" }
+            { id: "top", label: "HERO" },
+            { id: "showcase", label: "3D RENDERS" },
+            { id: "features", label: "ENGINE" },
+            { id: "benchmark-section", label: "BENCHMARK" },
+            { id: "pricing", label: "PRICING" },
+            { id: "author", label: "AUTHOR" }
         ];
 
-        // Create DOM nodes for each character in each word
-        var wordGroups = [];
+        // Create DOM nodes for each section inside kineticStage
+        kineticStage.innerHTML = "";
+        var itemNodes = [];
         sections.forEach(function(sec, sIdx) {
-            var group = document.createElement("div");
-            group.className = "kinetic-word-group";
-            group.setAttribute("data-target", sec.targetId);
-            group.title = "Jump to " + sec.label;
-            group.onclick = function() {
-                var el = document.getElementById(sec.targetId);
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-            };
+            var item = document.createElement("div");
+            item.className = "ruler-nav-item";
+            item.setAttribute("data-target", sec.id);
+            item.title = "Jump to " + sec.label;
 
-            var chars = [];
-            var letters = sec.label.split("");
-            letters.forEach(function(ch) {
-                var span = document.createElement("span");
-                span.className = "kinetic-char";
-                span.innerText = ch;
-                group.appendChild(span);
-                chars.push(span);
+            var dot = document.createElement("span");
+            dot.className = "ruler-item-dot";
+
+            var label = document.createElement("span");
+            label.className = "ruler-item-label";
+            label.innerText = sec.label;
+
+            item.appendChild(dot);
+            item.appendChild(label);
+            kineticStage.appendChild(item);
+
+            // Smooth Scroll on Click
+            item.addEventListener("click", function(e) {
+                e.preventDefault();
+                var targetEl = document.getElementById(sec.id);
+                if (!targetEl) return;
+                var navOffset = sec.id === "top" ? 0 : 65;
+                var targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - navOffset;
+                window.scrollTo({
+                    top: Math.max(0, targetY),
+                    behavior: "smooth"
+                });
             });
 
-            kineticStage.appendChild(group);
-            wordGroups.push({
+            itemNodes.push({
                 sec: sec,
-                group: group,
-                chars: chars,
-                len: letters.length
+                el: item,
+                dot: dot,
+                label: label,
+                index: sIdx
             });
         });
 
         var lastActive5 = null;
 
-        // 3. Ultra-Optimized Animation Engine: Cached Anchors & Zero-Lag RAF Loop
+        // 3. Cache Anchors for High-Performance Animation (Zero layout thrashing on scroll)
         var cachedAnchors = [];
         var totalDocHeight = 0;
         function updateCachedAnchors() {
             totalDocHeight = document.documentElement.scrollHeight - window.innerHeight;
             cachedAnchors = sections.map(function(sec) {
-                var el = document.getElementById(sec.targetId);
+                var el = document.getElementById(sec.id);
                 if (!el) return 0;
                 var top = 0, cur = el;
                 while (cur) {
@@ -1097,24 +1152,30 @@
             updateCachedAnchors();
             queueRulerFrame();
         });
+        window.addEventListener("load", function() {
+            updateCachedAnchors();
+            queueRulerFrame();
+        });
+        setTimeout(updateCachedAnchors, 300);
         updateCachedAnchors();
 
+        // 4. Smooth Render Frame
         function renderRulerFrame() {
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            var docH = totalDocHeight || (document.documentElement.scrollHeight - window.innerHeight);
+            var viewH = window.innerHeight;
+            var docH = totalDocHeight || (document.documentElement.scrollHeight - viewH);
             var scrollPct = docH > 0 ? (scrollY / docH) : 0;
             scrollPct = Math.max(0, Math.min(1, scrollPct));
 
-            // Needle Position
+            // Needle Bar Position & Readout
             var needleTopPx = scrollPct * ticksTrack.offsetHeight;
             needleBar.style.top = needleTopPx.toFixed(1) + "px";
 
-            // Needle Readout (Exact ArtCraft 3-digit format: "019%")
             var pctInt = Math.round(scrollPct * 100);
             var pctPadded = (pctInt < 10 ? "00" : pctInt < 100 ? "0" : "") + pctInt + "%";
             needleReadout.innerText = pctPadded;
 
-            // Highlight nearest 5-unit number
+            // Nearest 5-unit tick mark active highlight
             var nearest5 = Math.round((scrollPct * 100) / 5) * 5;
             if (nearest5 !== lastActive5) {
                 if (lastActive5 !== null) {
@@ -1126,71 +1187,82 @@
                 lastActive5 = nearest5;
             }
 
-            // Animate each section word using pre-cached anchors (ZERO getBoundingClientRect calls!)
-            var stageH = kineticStage.offsetHeight;
-            var stageW = kineticStage.offsetWidth;
-            var fullDocH = document.documentElement.scrollHeight || 1;
-            var viewH = window.innerHeight;
-            var viewCenter = scrollY + viewH * 0.45;
-
-            for (var sIdx = 0; sIdx < sections.length; sIdx++) {
-                var sec = sections[sIdx];
-                var groupObj = wordGroups[sIdx];
-                var elTopDoc = cachedAnchors[sIdx] || 0;
-                var anchorPct = Math.max(0, Math.min(1, elTopDoc / fullDocH));
-
-                // Proximity to viewport
-                var distFromView = (elTopDoc - viewCenter) / (viewH * 0.75);
-                var activeProximity = Math.max(0, 1 - Math.abs(distFromView));
-                var t = activeProximity;
-
-                var railY = anchorPct * stageH;
-                var N = groupObj.len;
-                var letterSpacing = 13;
-
-                // Zoom effect calculations
-                if (activeProximity > 0.01) {
-                    for (var cIdx = 0; cIdx < N; cIdx++) {
-                        var chSpan = groupObj.chars[cIdx];
-                        var stagger = cIdx / Math.max(1, N - 1);
-                        var charProgress = Math.max(0, Math.min(1, t * 1.5 - stagger * 0.4));
-                        var d = charProgress < 0.5 ? 4 * charProgress * charProgress * charProgress : 1 - Math.pow(-2 * charProgress + 2, 3) / 2;
-
-                        // Resting state (upright stacked from top to bottom)
-                        var hX = stageW - 14;
-                        var hY = railY + (cIdx - N / 2) * 12;
-
-                        // Active state: zooms out horizontally with clear letter spacing
-                        var mX = stageW - 55 - (N - 1 - cIdx) * letterSpacing;
-                        var mY = railY;
-
-                        var arcDepth = -32;
-                        var gX = (hX + mX) / 2 + arcDepth;
-                        var gY = (hY + mY) / 2;
-
-                        var b = 1 - d;
-                        var curX = b * b * hX + 2 * b * d * gX + d * d * mX;
-                        var curY = b * b * hY + 2 * b * d * gY + d * d * mY;
-
-                        // Smooth zoom scale effect from 0.92 up to 1.30 when active
-                        var zoomScale = 0.92 + (d * 0.38);
-
-                        chSpan.style.transform = "translate3d(" + curX.toFixed(1) + "px, " + curY.toFixed(1) + "px, 0) translate(-50%, -50%) scale(" + zoomScale.toFixed(2) + ")";
-
-                        if (d > 0.55) {
-                            chSpan.classList.add("active");
-                        } else {
-                            chSpan.classList.remove("active");
-                        }
+            // Determine Active Section
+            var centerDocY = scrollY + viewH * 0.40;
+            var activeIdx = 0;
+            if (scrollY + viewH >= document.documentElement.scrollHeight - 60) {
+                activeIdx = sections.length - 1;
+            } else {
+                for (var s = sections.length - 1; s >= 0; s--) {
+                    if (centerDocY >= (cachedAnchors[s] || 0) - 50) {
+                        activeIdx = s;
+                        break;
                     }
+                }
+            }
+
+            // ArtCraft Geometry: Stored at Top vs Queued at Bottom
+            var stageH = kineticStage.offsetHeight || (viewH - 100);
+            var topBase = 20;
+            var topSpacing = 26;
+            var bottomBase = stageH - 24;
+            var bottomSpacing = 20;
+
+            for (var i = 0; i < itemNodes.length; i++) {
+                var node = itemNodes[i];
+                var el = node.el;
+                var slotTop = topBase + i * topSpacing;
+                var slotBottom = bottomBase - (itemNodes.length - 1 - i) * bottomSpacing;
+
+                var progress = 0;
+                if (i === 0) {
+                    progress = 1; // HERO is docked at the top
                 } else {
-                    // Docked resting state (always upright, natural top-to-bottom forward order)
-                    for (var cIdx = 0; cIdx < N; cIdx++) {
-                        var chSpan = groupObj.chars[cIdx];
-                        var hX = stageW - 14;
-                        var hY = railY + (cIdx - N / 2) * 12;
-                        chSpan.style.transform = "translate3d(" + hX.toFixed(1) + "px, " + hY.toFixed(1) + "px, 0) translate(-50%, -50%) scale(0.92)";
-                        chSpan.classList.remove("active");
+                    var targetTop = cachedAnchors[i] || 0;
+                    var travelStart = Math.max(0, targetTop - viewH * 0.85);
+                    var travelEnd = Math.max(travelStart + 50, targetTop - viewH * 0.18);
+
+                    if (scrollY <= travelStart) {
+                        progress = 0;
+                    } else if (scrollY >= travelEnd) {
+                        progress = 1;
+                    } else {
+                        var p = (scrollY - travelStart) / (travelEnd - travelStart);
+                        progress = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+                    }
+                }
+
+                // Interpolate Y position
+                var curY = slotBottom + (slotTop - slotBottom) * progress;
+                // Top text size is bigger (13px) than bottom (10px)
+                var curFontSize = 10 + (13 - 10) * progress;
+                var curWeight = Math.round(600 + (100 * progress));
+
+                el.style.setProperty("--cur-y", curY.toFixed(1) + "px");
+                el.style.transform = "translate3d(0, " + curY.toFixed(1) + "px, 0)";
+                el.style.fontSize = curFontSize.toFixed(1) + "px";
+                el.style.fontWeight = String(curWeight);
+
+                if (i === activeIdx) {
+                    el.classList.add("is-active");
+                    el.style.color = "#e53935";
+                    el.style.opacity = "1";
+                    el.style.fontWeight = "800";
+                    el.style.fontSize = (curFontSize + 0.5).toFixed(1) + "px";
+                } else {
+                    el.classList.remove("is-active");
+                    if (progress >= 0.92) {
+                        // Stored at top
+                        el.style.color = "#09090b";
+                        el.style.opacity = "0.9";
+                    } else if (progress <= 0.08) {
+                        // Present in bottom queue
+                        el.style.color = "#71717a";
+                        el.style.opacity = "0.75";
+                    } else {
+                        // In transit
+                        el.style.color = "#27272a";
+                        el.style.opacity = "0.95";
                     }
                 }
             }
@@ -1210,7 +1282,7 @@
         window.addEventListener("scroll", queueRulerFrame, { passive: true });
         queueRulerFrame();
 
-        // 4. Scrubbing by clicking or dragging on the ruler rail
+        // 5. Scrubbing by clicking or dragging on the ruler rail
         var isScrubbing = false;
         function scrubTo(clientY) {
             var rect = ticksTrack.getBoundingClientRect();
