@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-socialhero">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-showcasetools">
     <style>
         /* Hide default browser scrollbar completely - only custom ArtCraft ruler HUD acts as sidebar */
         html {
@@ -301,12 +301,12 @@
                 <div class="hud-label">
                     <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent-crimson-bright);box-shadow:0 0 8px var(--accent-crimson-glow);margin-right:4px;"></span>
                     <span>RHINO 8 VIEWPORT CONDUIT</span>
-                    <span style="color: var(--accent-red-bright); margin-left: 10px;" id="current-slide-label">SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR</span>
+                    <span style="color: var(--accent-red-bright); margin-left: 10px;" id="current-slide-label">SLIDE 01 // PARAMETRIC DOOR GENERATOR</span>
                 </div>
                 <div class="slider-tabs-nav">
-                    <button class="slider-tab-btn active" onclick="switchSlide(0)">01 // Glazed Door</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Stair & Cable Railing</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Commercial Escalator</button>
+                    <button class="slider-tab-btn active" onclick="switchSlide(0)">01 // Door Generator</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Stair &amp; Railing</button>
+                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Escalator Generator</button>
                     <button class="slider-tab-btn" onclick="switchSlide(3)">04 // Split Comparison</button>
                 </div>
             </div>
@@ -352,7 +352,7 @@
 
             <div class="slider-footer-bar">
                 <div class="slider-caption-text" id="slider-caption">
-                    <b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.
+                    <b>Door Generator:</b> Generate custom parametric doors with live swing angles, frame trims, and automatic wall cuts in seconds.
                 </div>
                 <div class="slider-nav-actions">
                     <span class="slider-counter-display" id="slider-counter">01 / 04</span>
@@ -380,8 +380,8 @@
                     <img src="assets/demo/demo_door_glass.png" alt="6-Lite Glazed Parametric Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
-                    <h3>6-Lite Glazed Contemporary Door</h3>
-                    <p>Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.</p>
+                    <h3>Door Generator</h3>
+                    <p>Generate custom parametric doors with live swing angles, frame trims, and automatic wall cuts in seconds.</p>
                 </div>
             </article>
 
@@ -399,8 +399,8 @@
                     <img src="assets/demo/demo_stair_cable_railing.png" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
-                    <h3>Quarter-Turn Stair with Cable Railing</h3>
-                    <p>Parametric quarter-turn staircase with intermediate landing, solid wood treads, structural steel stringers, and matte black posts with horizontal stainless cable wire infill.</p>
+                    <h3>Stair &amp; Railing Generator</h3>
+                    <p>Create code-compliant straight, L-turn, and spiral stairs with parametric railings and landings instantly.</p>
                 </div>
             </article>
 
@@ -418,8 +418,8 @@
                     <img src="assets/demo/demo_escalator.png" alt="Commercial Crisscross Escalator Suite" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
                 </div>
                 <div class="showcase-footer">
-                    <h3>Commercial Crisscross Escalator Suite</h3>
-                    <p>Dual crisscross commercial escalators with continuous transparent glass balustrades, slim handrail guides, internal mechanical truss housing, and illuminated comb plates.</p>
+                    <h3>Escalator Generator</h3>
+                    <p>Model commercial escalators and moving walkways with custom floor heights and glass balustrades in seconds.</p>
                 </div>
             </article>
 
@@ -775,16 +775,16 @@
     var currentSlide = 0;
     var totalSlides = 4;
     var slideLabels = [
-        "SLIDE 01 // 6-LITE GLAZED CONTEMPORARY DOOR",
-        "SLIDE 02 // PARAMETRIC STAIRCASE WITH CABLE RAILING",
-        "SLIDE 03 // COMMERCIAL CRISSCROSS ESCALATOR SUITE",
-        "SLIDE 04 // INTERACTIVE CIRCULATION COMPARISON SLIDER"
+        "SLIDE 01 // PARAMETRIC DOOR GENERATOR",
+        "SLIDE 02 // STAIR & RAILING GENERATOR",
+        "SLIDE 03 // COMMERCIAL ESCALATOR GENERATOR",
+        "SLIDE 04 // INTERACTIVE GEOMETRY COMPARISON"
     ];
     var slideCaptions = [
-        "<b>Model 01 // 6-Lite Glazed Door:</b> Parametric solid timber leaf, double-glazed insulated lites, mitered casing trim, architectural threshold, modern lever handle, and live interactive swing angle.",
-        "<b>Model 02 // Quarter-Turn Staircase with Cable Railing:</b> Parametric quarter-turn staircase with intermediate landing, solid wood treads, structural steel stringers, and matte black posts with horizontal stainless cable wire infill.",
-        "<b>Model 03 // Commercial Crisscross Escalator Suite:</b> Dual crisscross commercial escalators with continuous transparent glass balustrades, slim handrail guides, internal mechanical truss housing, and illuminated comb plates.",
-        "<b>Interactive Split Slider:</b> Drag the center hairline divider left and right across the canvas to inspect vertical circulation geometry variations between the residential timber stair and the commercial escalator in real-time."
+        "<b>Door Generator:</b> Generate custom parametric doors with live swing angles, frame trims, and automatic wall cuts in seconds.",
+        "<b>Stair & Railing Generator:</b> Create code-compliant straight, L-turn, and spiral stairs with parametric railings and landings instantly.",
+        "<b>Escalator Generator:</b> Model commercial escalators and moving walkways with custom floor heights and glass balustrades in seconds.",
+        "<b>Interactive Split Slider:</b> Drag the center hairline divider to compare vertical circulation geometry variations between stair and escalator in real time."
     ];
 
     function switchSlide(index) {
