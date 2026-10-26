@@ -1491,7 +1491,7 @@
     if (!stage) return;
 
     var birds = [];
-    var maxBirds = 32;
+    var maxBirds = 48;
 
     var shalikSvgContent = '<svg viewBox="0 0 64 42" class="shalik-bird-svg">' +
         '<g class="bird-canvas">' +
@@ -1584,15 +1584,78 @@
         target.el.classList.remove("is-gliding");
     }
 
-    // Initialize 4 birds by default positioned organically across Hero sky
-    function setupInitialBirds() {
-        var w = stage.clientWidth || window.innerWidth;
-        var h = stage.clientHeight || 520;
-        createBird(w * 0.15, h * 0.22, 1.8, 0.20, 0.95);
-        createBird(w * 0.38, h * 0.60, 2.1, -0.28, 1.05);
-        createBird(w * 0.68, h * 0.26, -1.9, 0.32, 0.90);
-        createBird(w * 0.86, h * 0.52, -1.6, -0.18, 1.00);
+    // Compute responsive bird count based on screen size (minimum 4 birds for small screens, scaling up for larger screens)
+    function getTargetBirdCount() {
+        var w = window.innerWidth || document.documentElement.clientWidth || 1200;
+        if (w < 600) {
+            return 4; // minimum 4 birds for small mobile screens
+        } else if (w < 900) {
+            return 6; // tablets / mobile landscape
+        } else if (w < 1280) {
+            return 9; // laptops & standard desktops
+        } else if (w < 1680) {
+            return 12; // large monitors
+        } else {
+            return 16; // extra large / ultrawide / 4K displays
+        }
     }
+
+    // Initialize birds organically distributed across the Hero sky
+    function setupInitialBirds() {
+        while (birds.length > 0) {
+            var old = birds.pop();
+            if (old.el && old.el.parentNode) old.el.parentNode.removeChild(old.el);
+        }
+
+        var w = stage.clientWidth || window.innerWidth || 1000;
+        var h = stage.clientHeight || 520;
+        var count = getTargetBirdCount();
+
+        for (var i = 0; i < count; i++) {
+            var colWidth = (w * 0.84) / count;
+            var startX = (w * 0.08) + (i * colWidth) + (Math.random() * (colWidth * 0.45));
+            var startY = (h * 0.14) + ((i % 4) * (h * 0.16)) + (Math.random() * (h * 0.08));
+            var dir = (i % 2 === 0) ? 1 : -1;
+            var vx = dir * (1.5 + Math.random() * 0.7);
+            var vy = (Math.random() * 0.5 - 0.25);
+            var s = 0.82 + Math.random() * 0.28;
+
+            createBird(startX, startY, vx, vy, s);
+        }
+    }
+
+    // Dynamic responsive adjustment on window resize
+    var resizeTimer = null;
+    window.addEventListener("resize", function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            var targetCount = getTargetBirdCount();
+            var w = stage.clientWidth || window.innerWidth || 1000;
+            var h = stage.clientHeight || 520;
+
+            // Spawn additional birds if screen size expanded
+            while (birds.length < targetCount && birds.length < maxBirds) {
+                var startX = Math.random() * (w * 0.8) + (w * 0.1);
+                var startY = Math.random() * (h * 0.6) + (h * 0.15);
+                var dir = Math.random() > 0.5 ? 1 : -1;
+                createBird(
+                    startX,
+                    startY,
+                    dir * (1.5 + Math.random() * 0.7),
+                    Math.random() * 0.5 - 0.25,
+                    0.82 + Math.random() * 0.28
+                );
+            }
+
+            // Remove excess birds if screen shrunk (strictly keeping minimum 4 birds)
+            while (birds.length > targetCount && birds.length > 4) {
+                var removed = birds.pop();
+                if (removed.el && removed.el.parentNode) {
+                    removed.el.parentNode.removeChild(removed.el);
+                }
+            }
+        }, 200);
+    });
 
     // Continuous 60fps flight loop strictly bounded to Hero Area
     function animateFlock() {
