@@ -74,7 +74,7 @@
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-single-card-bench">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-ref-exact-dark">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -520,106 +520,62 @@
         </div>
 
         
-        <!-- Simple B&W Architectural Computational Infograph -->
-        <div class="bw-infograph-wrap" data-reveal id="benchmark-section">
-            <div class="bw-infograph-card">
-                <div class="bw-infograph-header">
-                    <div class="bw-hud-tag"><span class="bw-live-dot"></span> LIVE ARCHITECTURAL BENCHMARK</div>
-                    <h2>Native C# Kernel vs Grasshopper vs Manual CAD</h2>
-                    <p>Monochrome architectural performance benchmark comparing modeling velocity, geometric stability, and viewport efficiency.</p>
+        <!-- Simple B&W Architectural Computational Infograph (100% Faithful to Reference) -->
+        <div class="ref-benchmark-wrap" data-reveal id="benchmark-section">
+            <div class="section-header center">
+                <div class="hud-label">03 // COMPUTATIONAL BENCHMARK</div>
+                <h2>Native C# Kernel vs Grasshopper vs Manual CAD</h2>
+                <p>Monochrome architectural performance benchmark comparing modeling velocity, geometric stability, and viewport efficiency.</p>
+            </div>
+
+            <!-- Reference Card Architecture (Obsidian Dark Theme) -->
+            <div class="ref-benchmark-card">
+                <div class="ref-bench-header">
+                    <h3 class="ref-bench-title">Modeling Speed</h3>
+                    <p class="ref-bench-subtitle">Time to create a solid</p>
                 </div>
 
-                <!-- Architectural 4-Metric Switcher Tabs (One Single Card for the 4 Metrics) -->
-                <div class="bw-tabs-bar" role="tablist" aria-label="Benchmark Metrics">
-                    <button type="button" class="bw-tab-btn active" data-metric="speed" onclick="switchBenchmarkMetric('speed')">
-                        <span class="bw-tab-idx">01</span>
-                        <span class="bw-tab-txt">Modeling Speed</span>
-                    </button>
-                    <button type="button" class="bw-tab-btn" data-metric="topology" onclick="switchBenchmarkMetric('topology')">
-                        <span class="bw-tab-idx">02</span>
-                        <span class="bw-tab-txt">Solid Topology</span>
-                    </button>
-                    <button type="button" class="bw-tab-btn" data-metric="viewport" onclick="switchBenchmarkMetric('viewport')">
-                        <span class="bw-tab-idx">03</span>
-                        <span class="bw-tab-txt">Viewport Editing</span>
-                    </button>
-                    <button type="button" class="bw-tab-btn" data-metric="overhead" onclick="switchBenchmarkMetric('overhead')">
-                        <span class="bw-tab-idx">04</span>
-                        <span class="bw-tab-txt">Setup Overhead</span>
-                    </button>
-                </div>
-
-                <!-- Single Focused Comparison Card (Exact Reference Card Architecture) -->
-                <div class="bw-single-card-wrap">
-                    <div class="bw-metric-box bw-single-card" id="benchmark-active-box">
-                        <div class="bw-metric-head">
-                            <div>
-                                <span class="bw-metric-title" id="bm-title">Modeling Speed</span>
-                                <span class="bw-metric-subtitle" id="bm-subtitle">Time to create a solid</span>
-                            </div>
-                            <span class="bw-metric-tag" id="bm-tag">VELOCITY</span>
+                <div class="ref-bench-rows">
+                    <!-- Option 1: Manual Rhino (Lowest Superiority -> scale(1.02)) -->
+                    <div class="ref-bench-row tier-low" title="Manual Rhino 3D: 45–60 min">
+                        <div class="ref-bench-labels">
+                            <span class="ref-bench-name">Manual Rhino</span>
+                            <span class="ref-bench-val">45–60 min</span>
                         </div>
-                        
-                        <div class="bw-comp-row tier-low" id="bm-row-manual" title="Manual Rhino 3D: Slow manual curve drafting &amp; lofting">
-                            <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Manual Rhino</span>
-                                <span class="bw-comp-value dim" id="bm-val-manual">45–60 min</span>
-                            </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill dim" id="bm-meter-manual" data-target="8%" style="width: 0%;"></div></div>
+                        <div class="ref-bench-track">
+                            <div class="ref-bench-fill fill-manual" data-target="8%" style="width: 0%;"></div>
                         </div>
+                    </div>
 
-                        <div class="bw-comp-row tier-mid" id="bm-row-gh" title="Grasshopper: Faster parametric generation, but high script wiring overhead">
-                            <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Grasshopper</span>
-                                <span class="bw-comp-value mid" id="bm-val-gh">15–20 min</span>
-                            </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill mid" id="bm-meter-gh" data-target="32%" style="width: 0%;"></div></div>
+                    <!-- Option 2: Grasshopper (Mid Superiority -> scale(1.045)) -->
+                    <div class="ref-bench-row tier-mid" title="Grasshopper: 15–20 min">
+                        <div class="ref-bench-labels">
+                            <span class="ref-bench-name">Grasshopper</span>
+                            <span class="ref-bench-val">15–20 min</span>
                         </div>
-
-                        <div class="bw-comp-row tier-high" id="bm-row-shalik" title="Shalik Suite: Instant solid generation compiled in native C#">
-                            <div class="bw-comp-labels">
-                                <span class="bw-comp-name">Shalik Suite <span class="superiority-badge">★ WINNER</span></span>
-                                <span class="bw-comp-value white" id="bm-val-shalik">5–10 sec</span>
-                            </div>
-                            <div class="bw-meter-track"><div class="bw-meter-fill solid" id="bm-meter-shalik" data-target="100%" style="width: 0%;"></div></div>
+                        <div class="ref-bench-track">
+                            <div class="ref-bench-fill fill-gh" data-target="32%" style="width: 0%;"></div>
                         </div>
+                    </div>
 
-                        <div class="bw-meaning-box">
-                            <div class="bw-meaning-head">What this means</div>
-                            <p class="bw-meaning-desc" id="bm-meaning-desc">See how much manual work or setup is required before the geometry is ready.</p>
+                    <!-- Option 3: Shalik Suite (Maximum Superiority -> scale(1.075)) -->
+                    <div class="ref-bench-row tier-high" title="Shalik Suite: 5–10 sec">
+                        <div class="ref-bench-labels">
+                            <span class="ref-bench-name highlight">Shalik Suite</span>
+                            <span class="ref-bench-val highlight">5–10 sec</span>
+                        </div>
+                        <div class="ref-bench-track">
+                            <div class="ref-bench-fill fill-shalik" data-target="100%" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- B&W Scorecard Summary Row (Interactive Superiority Zoom) -->
-                <div class="bw-scorecard-row">
-                    <div>
-                        <div class="bw-score-meta">Computational Architecture Scorecard</div>
-                        <div class="bw-score-sub">Overall modeling score across velocity, topology stability, and viewport efficiency.</div>
-                    </div>
-                    <div class="bw-score-pill tier-low" title="Manual CAD: 42/100 baseline performance">
-                        <span class="bw-score-lbl">MANUAL CAD</span>
-                        <span class="bw-score-val" style="color: #71717a;"><span class="bw-counter" data-target="42">0</span> / 100</span>
-                    </div>
-                    <div class="bw-score-pill tier-mid" title="Grasshopper: 68/100 mid performance">
-                        <span class="bw-score-lbl">GRASSHOPPER</span>
-                        <span class="bw-score-val" style="color: #64748b;"><span class="bw-counter" data-target="68">0</span> / 100</span>
-                    </div>
-                    <div class="bw-score-pill winner tier-high" title="Shalik Suite: 99/100 highest superiority winner">
-                        <span class="bw-score-lbl">SHALIK SUITE</span>
-                        <span class="bw-score-val"><span class="bw-counter" data-target="99">0</span> / 100 &bull; WINNER</span>
-                    </div>
+                <!-- Reference Takeaway Block -->
+                <div class="ref-bench-takeaway">
+                    <div class="ref-bench-takeaway-head">What this means</div>
+                    <p class="ref-bench-takeaway-desc">See how much manual work or setup is required before the geometry is ready.</p>
+                    <p class="ref-bench-takeaway-note">Illustrative interface preview. Replace the example scores and claims with verified benchmark results before publishing.</p>
                 </div>
-
-                <!-- Bottom Action -->
-                <div class="bw-bottom-action">
-                    <span>Explore complete parameter tables, video previews, and tutorials for all 15 tools:</span>
-                    <a href="tools.html" class="btn-bw-link">
-                        <span>View 15-Tool Catalog &amp; Tutorials</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </a>
-                </div>
-
             </div>
         </div>
     </section>
@@ -1695,129 +1651,8 @@
     requestAnimationFrame(animateFlock);
 })();
 
-// --- 4-Metric Benchmark Data & Switcher ("Place One for 4") ---
-var BENCHMARK_METRICS = {
-    speed: {
-        title: "Modeling Speed",
-        subtitle: "Time to create a solid",
-        tag: "VELOCITY",
-        manualVal: "45–60 min",
-        manualPct: "8%",
-        manualTitle: "Manual Rhino 3D: Slow manual curve drafting & lofting",
-        ghVal: "15–20 min",
-        ghPct: "32%",
-        ghTitle: "Grasshopper: Faster parametric generation, but high script wiring overhead",
-        shalikVal: "5–10 sec",
-        shalikPct: "100%",
-        shalikTitle: "Shalik Suite: Instant solid generation compiled in native C#",
-        meaning: "See how much manual work or setup is required before the geometry is ready."
-    },
-    topology: {
-        title: "Solid Polysurface Topology",
-        subtitle: "Watertight precision & naked edges",
-        tag: "MANIFOLD",
-        manualVal: "Slit gaps & naked edges",
-        manualPct: "14%",
-        manualTitle: "Manual Rhino 3D: High risk of naked edges and non-manifold slits",
-        ghVal: "Flipped normals & mesh lag",
-        ghPct: "36%",
-        ghTitle: "Grasshopper: Frequently suffers flipped normals or heavy mesh conversions",
-        shalikVal: "100% Watertight Solid",
-        shalikPct: "100%",
-        shalikTitle: "Shalik Suite: 100% Watertight Closed Brep Solids directly ready for IFC/Revit",
-        meaning: "Clean manifold solids with zero naked edges, ready for automatic wall cuts and Revit/IFC export."
-    },
-    viewport: {
-        title: "In-Place Viewport Modification",
-        subtitle: "Workflow when design parameters change",
-        tag: "WORKFLOW",
-        manualVal: "Delete & remodel from scratch",
-        manualPct: "10%",
-        manualTitle: "Manual Rhino 3D: Requires deleting and remodeling from scratch",
-        ghVal: "Re-wire script & re-bake",
-        ghPct: "34%",
-        ghTitle: "Grasshopper: Must locate canvas script, re-wire sliders and re-bake geometries",
-        shalikVal: "Double-Click Edit In Viewport",
-        shalikPct: "100%",
-        shalikTitle: "Shalik Suite: Direct double-click in Rhino viewport modifies geometry live",
-        meaning: "Modify swing angles, tread depths, and dimensions live in the viewport without starting over."
-    },
-    overhead: {
-        title: "Scripting & Setup Overhead",
-        subtitle: "Required prerequisite setup & nodes",
-        tag: "EFFICIENCY",
-        manualVal: "30+ manual commands",
-        manualPct: "12%",
-        manualTitle: "Manual Rhino 3D: Dozens of repetitive manual Rhino commands",
-        ghVal: "40+ nodes & domain trees",
-        ghPct: "38%",
-        ghTitle: "Grasshopper: 40+ nodes, list matching, domain trees, canvas clutter",
-        shalikVal: "Zero Scripting (Native UI)",
-        shalikPct: "100%",
-        shalikTitle: "Shalik Suite: Zero scripting, native C# commands with floating dialog",
-        meaning: "No Grasshopper canvas to manage, debug, or rewire. Works directly as native Rhino commands."
-    }
-};
-
-function switchBenchmarkMetric(key) {
-    var data = BENCHMARK_METRICS[key];
-    if (!data) return;
-
-    var tabBtns = document.querySelectorAll('.bw-tab-btn');
-    tabBtns.forEach(function(btn) {
-        if (btn.getAttribute('data-metric') === key) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    var box = document.getElementById('benchmark-active-box');
-    if (box) box.classList.add('switching');
-
-    setTimeout(function() {
-        var titleEl = document.getElementById('bm-title');
-        var subEl = document.getElementById('bm-subtitle');
-        var tagEl = document.getElementById('bm-tag');
-        var manualVal = document.getElementById('bm-val-manual');
-        var ghVal = document.getElementById('bm-val-gh');
-        var shalikVal = document.getElementById('bm-val-shalik');
-        var meaningEl = document.getElementById('bm-meaning-desc');
-
-        if (titleEl) titleEl.textContent = data.title;
-        if (subEl) subEl.textContent = data.subtitle;
-        if (tagEl) tagEl.textContent = data.tag;
-        if (manualVal) manualVal.textContent = data.manualVal;
-        if (ghVal) ghVal.textContent = data.ghVal;
-        if (shalikVal) shalikVal.textContent = data.shalikVal;
-        if (meaningEl) meaningEl.textContent = data.meaning;
-
-        var rowManual = document.getElementById('bm-row-manual');
-        var rowGh = document.getElementById('bm-row-gh');
-        var rowShalik = document.getElementById('bm-row-shalik');
-        if (rowManual) rowManual.setAttribute('title', data.manualTitle);
-        if (rowGh) rowGh.setAttribute('title', data.ghTitle);
-        if (rowShalik) rowShalik.setAttribute('title', data.shalikTitle);
-
-        var m1 = document.getElementById('bm-meter-manual');
-        var m2 = document.getElementById('bm-meter-gh');
-        var m3 = document.getElementById('bm-meter-shalik');
-
-        if (m1) m1.style.width = '0%';
-        if (m2) m2.style.width = '0%';
-        if (m3) m3.style.width = '0%';
-
-        setTimeout(function() {
-            if (m1) m1.style.width = data.manualPct;
-            if (m2) m2.style.width = data.ghPct;
-            if (m3) m3.style.width = data.shalikPct;
-            if (box) box.classList.remove('switching');
-        }, 60);
-    }, 120);
-}
-
-// --- Live Animations for Benchmark Card & Score Counters ---
-(function initBwInfographLive() {
+// --- Live Animations for Reference Benchmark Card ---
+(function initRefBenchmarkLive() {
     var wrap = document.getElementById("benchmark-section");
     if (!wrap) return;
 
@@ -1828,35 +1663,13 @@ function switchBenchmarkMetric(key) {
             if (entry.isIntersecting && !hasAnimated) {
                 hasAnimated = true;
 
-                // Animate meter fills on entry
-                var fills = wrap.querySelectorAll(".bw-meter-fill");
+                // Animate meter fills smoothly
+                var fills = wrap.querySelectorAll(".ref-bench-fill");
                 fills.forEach(function(fill, idx) {
                     var target = fill.getAttribute("data-target") || "100%";
                     setTimeout(function() {
                         fill.style.width = target;
-                    }, idx * 80);
-                });
-
-                // Animate scorecard numbers counting up
-                var counters = wrap.querySelectorAll(".bw-counter");
-                counters.forEach(function(c) {
-                    var targetNum = parseInt(c.getAttribute("data-target"), 10) || 0;
-                    var startNum = 0;
-                    var duration = 1200;
-                    var startTime = null;
-
-                    function step(timestamp) {
-                        if (!startTime) startTime = timestamp;
-                        var progress = Math.min((timestamp - startTime) / duration, 1);
-                        var ease = 1 - Math.pow(1 - progress, 3);
-                        c.innerText = Math.round(startNum + (targetNum - startNum) * ease);
-                        if (progress < 1) {
-                            requestAnimationFrame(step);
-                        } else {
-                            c.innerText = targetNum;
-                        }
-                    }
-                    requestAnimationFrame(step);
+                    }, idx * 100);
                 });
             }
         });
