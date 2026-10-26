@@ -4118,39 +4118,42 @@
 
 
 /* ==========================================================================
-   EXACT REFERENCE BENCHMARK CARD (Obsidian Theme, Faithful to Reference)
+   BENCHMARK COMPARISON CARD (White Theme, Perfect Top & Bottom Grid Alignment)
    ========================================================================== */
 .ref-benchmark-wrap {
-    max-width: 860px;
-    margin: 48px auto 0;
-    padding: 0 20px;
+    width: 100%;
+    margin: 50px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .ref-benchmark-card {
-    background: #000000;
-    border: 1px solid #222226;
-    border-radius: 14px;
-    padding: 34px 38px;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid var(--border-line);
+    border-radius: 12px;
+    padding: 36px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
 }
 
 .ref-bench-header {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
 }
 
 .ref-bench-title {
     font-size: 1.45rem;
-    font-weight: 700;
-    color: #ffffff;
+    font-weight: 800;
+    color: var(--ink-primary, #09090b);
     letter-spacing: -0.02em;
     margin: 0 0 6px 0;
 }
 
 .ref-bench-subtitle {
     font-size: 0.92rem;
-    color: #a1a1aa;
+    color: var(--ink-secondary, #71717a);
     margin: 0;
     font-weight: 400;
 }
@@ -4166,28 +4169,30 @@
     padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    border: 1px solid transparent;
 }
 
 /* Superiority-based Hover Zoom */
 .ref-bench-row.tier-low:hover {
-    transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.035);
+    transform: scale(1.015);
+    background: rgba(0, 0, 0, 0.02);
 }
 
 .ref-bench-row.tier-mid:hover {
-    transform: scale(1.045);
-    background: rgba(255, 255, 255, 0.055);
+    transform: scale(1.03);
+    background: rgba(0, 0, 0, 0.035);
 }
 
 .ref-bench-row.tier-high {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(0, 0, 0, 0.015);
 }
 
 .ref-bench-row.tier-high:hover {
-    transform: scale(1.075) translateY(-2px);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.08);
+    transform: scale(1.05) translateY(-2px);
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
     z-index: 5;
 }
 
@@ -4200,31 +4205,31 @@
 
 .ref-bench-name {
     font-size: 0.94rem;
-    color: #d4d4d8;
+    color: var(--ink-secondary, #52525b);
     font-weight: 500;
 }
 
 .ref-bench-name.highlight {
-    color: #ffffff;
+    color: var(--ink-primary, #09090b);
     font-weight: 700;
 }
 
 .ref-bench-val {
     font-size: 0.90rem;
-    color: #a1a1aa;
+    color: var(--ink-faint, #71717a);
     font-family: var(--font-mono, monospace);
     font-weight: 500;
 }
 
 .ref-bench-val.highlight {
-    color: #ffffff;
-    font-weight: 700;
+    color: var(--ink-primary, #09090b);
+    font-weight: 800;
 }
 
 .ref-bench-track {
     width: 100%;
     height: 8px;
-    background: #212124;
+    background: #e4e4e7;
     border-radius: 999px;
     overflow: hidden;
     position: relative;
@@ -4238,16 +4243,16 @@
 }
 
 .ref-bench-fill.fill-manual {
-    background: #b9bec6;
+    background: #cbd5e1;
 }
 
 .ref-bench-fill.fill-gh {
-    background: #b9bec6;
+    background: #94a3b8;
 }
 
 .ref-bench-fill.fill-shalik {
-    background: #ffffff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+    background: #09090b;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
 }
@@ -4256,7 +4261,7 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(229, 57, 53, 0.7), transparent);
     animation: refMeterShimmer 2.2s infinite ease-in-out;
 }
 
@@ -4268,26 +4273,26 @@
 .ref-bench-takeaway {
     margin-top: 26px;
     padding-top: 20px;
-    border-top: 1px solid #1f1f23;
+    border-top: 1px solid var(--border-line);
 }
 
 .ref-bench-takeaway-head {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--ink-primary, #09090b);
     margin-bottom: 6px;
 }
 
 .ref-bench-takeaway-desc {
     font-size: 0.88rem;
-    color: #a1a1aa;
+    color: var(--ink-secondary, #52525b);
     line-height: 1.55;
     margin: 0;
 }
 
 .ref-bench-takeaway-note {
     font-size: 0.74rem;
-    color: #52525b;
+    color: var(--ink-faint, #a1a1aa);
     line-height: 1.5;
     margin: 8px 0 0 0;
 }
