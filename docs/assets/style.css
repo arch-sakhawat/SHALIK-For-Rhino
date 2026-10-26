@@ -4171,9 +4171,19 @@
    ========================================================================== */
 .ref-benchmark-wrap {
     width: 100%;
-    margin: 50px 0 0 0;
+    margin: 60px 0 0 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.ref-benchmark-wrap .section-header {
+    text-align: left !important;
+    margin-bottom: 28px;
+}
+
+.ref-benchmark-wrap .section-header p {
+    margin: 0 !important;
+    max-width: 720px;
 }
 
 .ref-benchmark-card {
