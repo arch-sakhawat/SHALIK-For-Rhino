@@ -183,8 +183,8 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             <span>STEP 02 // SEND ORDER EMAIL</span>
         </div>
-        <h2 class="buy-panel-title">Send Mail From Website</h2>
-        <p class="buy-panel-desc">Submit your details and upload your payment receipt or student ID photo directly through this form. Our system dispatches your order instantly.</p>
+        <h2 class="buy-panel-title">Open Order in Gmail</h2>
+        <p class="buy-panel-desc">Fill in your details below. Clicking the button automatically generates your official activation request and opens your Gmail ready to send &mdash; no manual typing required.</p>
 
         <!-- Direct In-Website Mail Form -->
         <form id="license-order-form" class="buy-order-form" action="https://formsubmit.co/ajax/arch.sakhawat@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="handleOrderSubmit(event)">
@@ -227,9 +227,9 @@
                     <span class="field-hint">Run <code>_ShalikLicense</code> in Rhino 8 to copy ID</span>
                 </div>
                 <div class="form-group">
-                    <label for="order-trxid">bKash Transaction ID (TrxID) <span class="req">*</span></label>
-                    <input type="text" id="order-trxid" name="trxid" required placeholder="e.g. BAX894K29L">
-                    <span class="field-hint">From bKash SMS or App statement</span>
+                    <label for="order-trxid">bKash Transaction ID (TrxID) <span style="font-size: 0.78rem; font-weight: normal; color: var(--ink-faint);">(Optional)</span></label>
+                    <input type="text" id="order-trxid" name="trxid" placeholder="e.g. BAX894K29L (Optional)">
+                    <span class="field-hint">Optional if payment screenshot is attached</span>
                 </div>
             </div>
 
@@ -272,7 +272,7 @@
 
             <button type="submit" id="btn-submit-order" class="btn-submit-order">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                <span id="submit-btn-text">Send Order Email From Website</span>
+                <span id="submit-btn-text">Open Pre-Filled Order in Gmail</span>
             </button>
 
             <!-- Status Alert Box -->
@@ -280,11 +280,11 @@
 
             <!-- Alternative 1-Click Dispatch Options -->
             <div class="alt-dispatch-actions">
-                <div class="alt-dispatch-title">Alternative 1-Click Verification Options:</div>
+                <div class="alt-dispatch-title">Alternative Verification Options:</div>
                 <div class="alt-btn-row">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arch.sakhawat@gmail.com" id="btn-alt-email" class="btn-alt-mailto" target="_blank" rel="noopener noreferrer">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>Open in Web Gmail</span>
+                        <span>Open in Mail App</span>
                     </a>
                     <a href="https://wa.me/8801521776439" id="btn-alt-whatsapp" class="btn-alt-wa" target="_blank">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -478,42 +478,81 @@
     })();
 
     // Update mailto and whatsapp links as user fills the form
-    function updateDirectLinks() {
-        var name = encodeURIComponent(document.getElementById("order-name").value || "Architect");
-        var email = encodeURIComponent(document.getElementById("order-email").value || "");
-        var whatsapp = encodeURIComponent(document.getElementById("order-whatsapp").value || "");
-        var plan = encodeURIComponent(document.getElementById("order-plan").value);
-        var machineId = encodeURIComponent(document.getElementById("order-machine-id").value || "[Machine ID]");
-        var trxId = encodeURIComponent(document.getElementById("order-trxid").value || "[TrxID]");
-        var hasPhoto = document.getElementById("order-photo").files.length > 0 ? "Yes (Attached in form)" : "Pending upload";
-        var notes = encodeURIComponent(document.getElementById("order-notes").value || "None");
+    function buildOrderEmailData() {
+        var name = (document.getElementById("order-name").value || "").trim();
+        var email = (document.getElementById("order-email").value || "").trim();
+        var whatsapp = (document.getElementById("order-whatsapp").value || "").trim();
+        var plan = document.getElementById("order-plan").value;
+        var machineId = (document.getElementById("order-machine-id").value || "").trim();
+        var trxId = (document.getElementById("order-trxid").value || "").trim();
+        var notes = (document.getElementById("order-notes").value || "").trim();
+        var hasPhoto = (document.getElementById("order-photo").files && document.getElementById("order-photo").files.length > 0) ? "Yes (Attached / Screenshot Ready)" : "Payment receipt / Student ID ready";
 
-        var subject = encodeURIComponent("SHALIK Rhino 8 License Order: " + decodeURIComponent(name) + " (" + decodeURIComponent(plan) + ")");
-        var body = "SHALIK FOR RHINO 8 - LICENSE ACTIVATION ORDER%0D%0A" +
-                   "--------------------------------------------------%0D%0A" +
-                   "Full Name: " + name + "%0D%0A" +
-                   "Email: " + email + "%0D%0A" +
-                   "WhatsApp: " + whatsapp + "%0D%0A" +
-                   "Selected Plan: " + plan + "%0D%0A" +
-                   "Rhino Machine ID: " + machineId + "%0D%0A" +
-                   "bKash TrxID: " + trxId + "%0D%0A" +
-                   "Photo Proof: " + hasPhoto + "%0D%0A" +
-                   "Additional Notes: " + notes + "%0D%0A" +
-                   "--------------------------------------------------%0D%0A" +
-                   "Sent from official Shalik website.";
+        var now = new Date();
+        var dateStr = now.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        var trxDisplay = trxId ? trxId : "Not provided (See attached payment screenshot)";
+        var notesDisplay = notes ? notes : "None";
 
-        document.getElementById("btn-alt-email").href = "https://mail.google.com/mail/?view=cm&fs=1&to=arch.sakhawat@gmail.com&su=" + subject + "&body=" + body;
+        var subject = "SHALIK Rhino 8 License Activation Request — " + (name || "Customer") + " (" + plan + ")";
+        var body = 
+"OFFICIAL SHALIK FOR RHINO 8 — LICENSE ACTIVATION REQUEST\n" +
+"================================================================\n\n" +
+"ORDER DETAILS:\n" +
+"----------------------------------------------------------------\n" +
+"• Full Name:           " + (name || "[Name]") + "\n" +
+"• Selected Plan:       " + plan + "\n" +
+"• Hardware Machine ID: " + (machineId || "[Machine ID]") + "\n" +
+"• Delivery Email:      " + (email || "[Email]") + "\n" +
+"• WhatsApp / Phone:    " + (whatsapp || "[WhatsApp]") + "\n" +
+"• bKash TrxID:         " + trxDisplay + "\n" +
+"• Photo Proof Status:  " + hasPhoto + "\n" +
+"• Request Date:        " + dateStr + "\n\n" +
+"ADDITIONAL NOTES:\n" +
+"----------------------------------------------------------------\n" +
+notesDisplay + "\n\n" +
+"ATTACHMENT REMINDER:\n" +
+"----------------------------------------------------------------\n" +
+"[✓] Please attach or drag-and-drop your bKash payment screenshot or Student ID card into this email before hitting Send.\n\n" +
+"================================================================\n" +
+"Deliver Activation Serial Key to: " + (email || "[Email]") + "\n" +
+"Software: Shalik for Rhino 8 (C# Native Parametric Plugin)\n" +
+"Official Developer: Sakhawat Hosen Sumon (arch.sakhawat@gmail.com)\n" +
+"Website: https://arch-sakhawat.github.io/SHALIK-For-Rhino/\n" +
+"================================================================";
+
+        var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=arch.sakhawat@gmail.com" +
+                       "&su=" + encodeURIComponent(subject) +
+                       "&body=" + encodeURIComponent(body);
+
+        var mailtoUrl = "mailto:arch.sakhawat@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 
         var waText = encodeURIComponent(
             "Hello Architect Sakhawat, I have submitted payment for Shalik Rhino 8 license.\n\n" +
-            "• Name: " + decodeURIComponent(name) + "\n" +
-            "• Plan: " + decodeURIComponent(plan) + "\n" +
-            "• Machine ID: " + decodeURIComponent(machineId) + "\n" +
-            "• bKash TrxID: " + decodeURIComponent(trxId) + "\n" +
-            "• Email: " + decodeURIComponent(email) + "\n\n" +
-            "Photo proof has been attached. Please deliver my activation key."
+            "• Name: " + (name || "[Name]") + "\n" +
+            "• Plan: " + plan + "\n" +
+            "• Machine ID: " + (machineId || "[Machine ID]") + "\n" +
+            "• bKash TrxID: " + (trxId || "Attached in photo") + "\n" +
+            "• Email: " + (email || "[Email]") + "\n\n" +
+            "Payment screenshot / ID photo is ready. Please deliver my activation key."
         );
-        document.getElementById("btn-alt-whatsapp").href = "https://wa.me/8801521776439?text=" + waText;
+        var waUrl = "https://wa.me/8801521776439?text=" + waText;
+
+        return {
+            subject: subject,
+            body: body,
+            gmailUrl: gmailUrl,
+            mailtoUrl: mailtoUrl,
+            waUrl: waUrl
+        };
+    }
+
+    function updateDirectLinks() {
+        var data = buildOrderEmailData();
+        var altEmailBtn = document.getElementById("btn-alt-email");
+        if (altEmailBtn) altEmailBtn.href = data.mailtoUrl;
+
+        var altWaBtn = document.getElementById("btn-alt-whatsapp");
+        if (altWaBtn) altWaBtn.href = data.waUrl;
     }
 
     var inputs = document.querySelectorAll("#license-order-form input, #license-order-form textarea, #license-order-form select");
@@ -521,70 +560,26 @@
         input.addEventListener("input", updateDirectLinks);
     });
 
-    // In-Website Form Submission Handler
-    async function handleOrderSubmit(e) {
+    // Handle Form Submit: Redirect directly to user's Gmail with pre-filled official format
+    function handleOrderSubmit(e) {
         e.preventDefault();
+
         var btn = document.getElementById("btn-submit-order");
         var btnText = document.getElementById("submit-btn-text");
         var statusAlert = document.getElementById("form-status");
 
-        btn.disabled = true;
-        btnText.innerText = "Dispatching Order Directly...";
-        statusAlert.className = "form-status-alert";
-        statusAlert.style.display = "none";
+        var data = buildOrderEmailData();
 
-        var form = document.getElementById("license-order-form");
-        var formData = new FormData(form);
+        btnText.innerText = "Opening in Gmail...";
+        statusAlert.className = "form-status-alert success";
+        statusAlert.style.display = "block";
+        statusAlert.innerHTML = "<b>✓ Official License Request Formatted!</b><br>Opening your Gmail compose window now with all necessary details pre-filled. Simply click <b>'Send'</b> in Gmail.<br><br>" +
+            "<a href='" + data.gmailUrl + "' class='btn-artcraft-outline' style='display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; background: #ffffff; border-color: var(--accent-red); color: var(--accent-red); font-weight: 700; text-decoration: none; padding: 8px 18px; border-radius: 6px;'>" +
+            "<svg width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg>" +
+            "Click Here If Gmail Did Not Open Automatically</a>";
 
-        var nameVal = document.getElementById("order-name").value || "Customer";
-        var planVal = document.getElementById("order-plan").value || "License";
-        formData.set("_subject", "Shalik License Order: " + nameVal + " (" + planVal + ")");
-        formData.set("_captcha", "false");
-        formData.set("_template", "table");
-
-        // Attach optimized photo if available
-        if (window.optimizedPhotoFile) {
-            formData.set("photo", window.optimizedPhotoFile, window.optimizedPhotoFile.name);
-        }
-
-        try {
-            var response = await fetch("https://formsubmit.co/ajax/arch.sakhawat@gmail.com", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            var result = {};
-            try {
-                result = await response.json();
-            } catch (jsonErr) {
-                result = { success: response.ok ? "true" : "false" };
-            }
-
-            if (response.ok || result.success === "true" || (result.message && result.message.indexOf("Activation") !== -1)) {
-                statusAlert.className = "form-status-alert success";
-                statusAlert.innerHTML = "<b>✓ Order Email &amp; Photo Dispatched Successfully!</b><br>Your license request, payment verification, and photo proof have been delivered directly to <b>arch.sakhawat@gmail.com</b> natively from the website.<br><br>Your genuine activation key will be delivered to <b>" + (document.getElementById("order-email").value || "your email") + "</b> within 24 hours.<br><br>For immediate 5-minute activation, you can also notify us on WhatsApp below.";
-                statusAlert.style.display = "block";
-                btnText.innerText = "Order Dispatched ✓";
-                form.reset();
-                removePhoto();
-            } else {
-                throw new Error(result.message || "Dispatch failed");
-            }
-        } catch (err) {
-            console.error("Native dispatch error:", err);
-            statusAlert.className = "form-status-alert";
-            statusAlert.style.borderColor = "var(--accent-red)";
-            statusAlert.style.background = "rgba(229, 57, 53, 0.06)";
-            statusAlert.style.color = "var(--ink-primary)";
-            statusAlert.innerHTML = "<b>Notice:</b> Network could not complete automatic dispatch.<br>Your order details are preserved. You can notify us instantly on <b>WhatsApp</b> below or click <b>'Open in Web Gmail'</b>.";
-            statusAlert.style.display = "block";
-            btnText.innerText = "Send Order Email From Website";
-        } finally {
-            btn.disabled = false;
-        }
+        // Direct redirection to user's Gmail with pre-filled official format
+        window.location.href = data.gmailUrl;
     }
 </script>
 
