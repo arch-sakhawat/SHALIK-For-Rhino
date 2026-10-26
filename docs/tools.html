@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- External Shared Design System Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-fix-buy-contrast">
+    <link rel="stylesheet" href="assets/style.css?v=20261026-fix-tools-contrast">
 
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
@@ -40,7 +40,76 @@
             background-image: none !important;
         }
 
-        /* Force Guaranteed Immediate Card Visibility */
+        /* Active Navigation Link High-Contrast Fix */
+        .nav-links a.active {
+            color: var(--accent-red, #e53935) !important;
+            font-weight: 700 !important;
+        }
+
+        /* Tools Hero Title High-Contrast Fix */
+        .tools-page-header h1 {
+            color: var(--ink-primary, #09090b) !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: initial !important;
+        }
+
+        /* Search Input High-Contrast Fix */
+        .tools-search-input {
+            background: #ffffff !important;
+            color: var(--ink-primary, #09090b) !important;
+            border: 1px solid var(--border-line-hover, #cbd5e1) !important;
+        }
+        .tools-search-input::placeholder {
+            color: var(--ink-faint, #71717a) !important;
+        }
+        .tools-search-input:focus {
+            border-color: var(--accent-red, #e53935) !important;
+            box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12) !important;
+        }
+
+        /* Filter Tabs High-Contrast Crisp Styling */
+        .matrix-tab-btn {
+            background: #f8fafc !important;
+            color: var(--ink-secondary, #3f3f46) !important;
+            border: 1px solid var(--border-line-hover, #cbd5e1) !important;
+            padding: 8px 16px !important;
+            border-radius: 8px !important;
+            font-family: var(--font-sans) !important;
+            font-size: 0.84rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.02em !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+        .matrix-tab-btn:hover {
+            color: var(--ink-primary, #09090b) !important;
+            border-color: var(--border-line-strong, #94a3b8) !important;
+            background: #f1f5f9 !important;
+        }
+        .matrix-tab-btn.active {
+            color: #ffffff !important;
+            border-color: var(--accent-red, #e53935) !important;
+            background: var(--accent-red, #e53935) !important;
+            box-shadow: 0 4px 14px rgba(229, 57, 53, 0.28) !important;
+            font-weight: 700 !important;
+        }
+
+        /* Counter Badge High-Contrast */
+        .tool-counter-badge {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-red, #e53935) !important;
+            background: rgba(229, 57, 53, 0.08) !important;
+            border: 1px solid rgba(229, 57, 53, 0.25) !important;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+
+        /* Force Guaranteed Immediate Card Visibility & Crisp Theme */
         .tool-row-card {
             opacity: 1 !important;
             transform: none !important;
@@ -48,23 +117,75 @@
             grid-template-columns: 75px 1fr !important;
             gap: 25px !important;
             margin-bottom: 20px !important;
+            background: #ffffff !important;
+            border: 1px solid var(--border-line, #e4e4e7) !important;
+            border-radius: 12px !important;
+            padding: 28px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+        }
+        .tool-row-card:hover {
+            border-color: var(--border-line-hover, #cbd5e1) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+            transform: translateY(-2px) !important;
         }
         @media (max-width: 768px) {
             .tool-row-card {
                 grid-template-columns: 1fr !important;
                 gap: 16px !important;
+                padding: 20px !important;
             }
         }
-        .tool-counter-badge {
+
+        .code-cmd-tag {
             font-family: var(--font-mono);
-            font-size: 0.82rem;
-            color: var(--accent-red);
-            background: rgba(229, 57, 53, 0.12);
-            border: 1px solid rgba(229, 57, 53, 0.35);
-            padding: 5px 14px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 18px;
+            background: rgba(229, 57, 53, 0.08) !important;
+            border: 1px solid rgba(229, 57, 53, 0.25) !important;
+            color: var(--accent-red, #e53935) !important;
+            font-size: 0.82rem !important;
+            padding: 3px 10px !important;
+            border-radius: 4px !important;
+            font-weight: 700 !important;
+        }
+
+        /* Tutorial Workflow Box Contrast Guarantee */
+        .tutorial-workflow-box {
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            border-left: 3px solid var(--accent-red, #e53935) !important;
+            border-radius: 0 8px 8px 0 !important;
+            padding: 16px 20px !important;
+            margin-top: 14px !important;
+        }
+        .tutorial-workflow-box h5,
+        .tutorial-workflow-box .tutorial-hd {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-red, #e53935) !important;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700 !important;
+        }
+        .tutorial-workflow-box h5 .ui-icon,
+        .tutorial-workflow-box .tutorial-hd .ui-icon {
+            stroke: var(--accent-red, #e53935) !important;
+        }
+        .tutorial-workflow-box ol {
+            margin-left: 20px;
+            color: var(--ink-secondary, #3f3f46) !important;
+            font-size: 0.90rem;
+            line-height: 1.65;
+        }
+        .tutorial-workflow-box li {
+            margin-bottom: 6px;
+            color: var(--ink-secondary, #3f3f46) !important;
+        }
+        .tutorial-workflow-box li b {
+            color: var(--ink-primary, #09090b) !important;
+            font-weight: 700 !important;
         }
     </style>
 </head>
@@ -520,7 +641,7 @@
     
 
     <!-- Bottom Checkout Call to Action -->
-    <div style="margin-top: 50px; text-align: center; padding: 45px 25px; background: var(--bg-surface-elevated); border: 1px solid var(--border-line-strong); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.5);">
+    <div style="margin-top: 50px; text-align: center; padding: 45px 25px; background: #ffffff; border: 1px solid var(--border-line-hover); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
         <div class="hud-label" style="color: var(--accent-red-bright); margin-bottom: 8px;">READY TO ELEVATE YOUR ARCHITECTURAL PRODUCTION?</div>
         <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;">Get Instant Access to All 15 Tools</h2>
         <p style="color: var(--ink-secondary); max-width: 600px; margin: 0 auto 24px; font-size: 0.95rem;">
