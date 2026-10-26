@@ -1,20 +1,17 @@
 {
-  "latest_version": "1.0.5",
+  "latest_version": "1.0.6",
   "update_type": "installer",
   "release_date": "2026-10-26",
   "min_rhino_version": "8.0",
-  "file_size_mb": 36.4,
+  "file_size_mb": 36.7,
   "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
-  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe",
-  "title": "Shalik 1.0.5 - Architectural Suite for Rhino 8",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.6-Setup.exe",
+  "title": "Shalik 1.0.6 - Architectural Suite for Rhino 8",
   "changelog": [
-    "Security Hardening: Cryptographic HMAC-SHA256 authenticated pings, anti-replay protection, and full binary obfuscation",
-    "Subscription Insights: Real-time Start Date and End Date tracking in developer control sheet",
-    "Maximum Offline Lease: 14-day periodic online check-in enforcement preventing offline tampering",
-    "Door Generator: Added smooth 3D curved reveal groove separating fluted zone in Style 9",
-    "Window Generator: Fixed frame alignment and double-click live re-editing",
-    "Auto-Update & Check Update: Built-in update checking directly from sidebar and license popup",
-    "Active User Tracking: Real-time user presence and remote license management",
-    "Stability & Performance: Conflict-free unique plugin GUID and faster viewport generation"
+    "Fix: Numeric text input focus bug resolved - continuous typing without cursor loss or deselecting across all 15 tools",
+    "Feature: Total Usage Time tracking added to real-time developer dashboard",
+    "Security: Subscription Start Date & End Date active enforcement via Google Sheets gateway",
+    "Security: HMAC-SHA256 authenticated cryptographic telemetry & anti-replay protection",
+    "Enhancement: Improved stability, viewport preview rendering, and door groove detailing"
   ]
 }

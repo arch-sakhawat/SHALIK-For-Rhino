@@ -9,3 +9,6 @@ $RECYCLE.BIN/
 *.tmp
 *.bak
 *.~*
+
+# Installer alias (only versioned setup is tracked)
+Shalik-Setup.exe
