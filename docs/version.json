@@ -1,0 +1,17 @@
+﻿{
+  "latest_version": "1.0.5",
+  "update_type": "installer",
+  "release_date": "2026-10-26",
+  "min_rhino_version": "8.0",
+  "file_size_mb": 36.3,
+  "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe",
+  "title": "Shalik 1.0.5 - Architectural Suite for Rhino 8",
+  "changelog": [
+    "Door Generator: Added smooth 3D curved reveal groove separating fluted zone in Style 9",
+    "Window Generator: Fixed frame alignment and double-click live re-editing",
+    "Auto-Update & Check Update: Built-in update checking directly from sidebar and license popup",
+    "Active User Tracking: Real-time user presence and remote license management",
+    "Stability & Performance: Conflict-free unique plugin GUID and faster viewport generation"
+  ]
+}

@@ -1146,7 +1146,151 @@
             color: var(--ink-faint);
             font-family: var(--font-mono);
         }
-        @media (max-width: 768px) {
+        
+/* ==========================================================================
+   4-METRIC SWITCHER TABS & SINGLE BENCHMARK CARD ("Place One for 4")
+   ========================================================================== */
+.bw-tabs-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto 24px;
+    padding: 6px;
+    background: #f4f4f5;
+    border: 1px solid var(--border-line);
+    border-radius: 999px;
+    max-width: 660px;
+    width: 100%;
+}
+
+.bw-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.bw-tab-btn:hover {
+    color: var(--ink-primary);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.bw-tab-btn.active {
+    background: #09090b;
+    color: #ffffff;
+    border-color: #09090b;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.bw-tab-idx {
+    font-size: 0.68rem;
+    color: #a1a1aa;
+    font-weight: 700;
+}
+
+.bw-tab-btn.active .bw-tab-idx {
+    color: var(--accent-red-bright, #ff5252);
+}
+
+.bw-single-card-wrap {
+    max-width: 780px;
+    margin: 0 auto 24px;
+    width: 100%;
+}
+
+.bw-metric-box.bw-single-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-radius: 12px;
+    padding: 26px 30px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+    transition: opacity 0.18s ease, transform 0.18s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bw-metric-box.bw-single-card.switching {
+    opacity: 0.5;
+    transform: scale(0.995);
+}
+
+.bw-metric-box.bw-single-card:hover {
+    border-color: var(--border-line-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.bw-single-card .bw-metric-head {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-line);
+}
+
+.bw-single-card .bw-metric-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--ink-primary);
+    letter-spacing: -0.01em;
+}
+
+.bw-single-card .bw-metric-subtitle {
+    font-size: 0.82rem;
+    color: var(--ink-secondary);
+    margin-top: 3px;
+}
+
+.bw-single-card .bw-comp-row {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+}
+
+.bw-single-card .bw-comp-name {
+    font-size: 0.88rem;
+}
+
+.bw-single-card .bw-comp-value {
+    font-size: 0.86rem;
+}
+
+.bw-single-card .bw-meter-track {
+    height: 7px;
+    margin-top: 7px;
+}
+
+.bw-single-card .bw-meaning-box {
+    margin-top: 18px;
+    padding-top: 14px;
+}
+
+@media (max-width: 768px) {
+
+    .bw-tabs-bar {
+        border-radius: 14px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 6px;
+    }
+    .bw-tab-btn {
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.72rem;
+    }
+    .bw-single-card-wrap {
+        padding: 0 4px;
+    }
+    .bw-metric-box.bw-single-card {
+        padding: 18px 16px;
+    }
+
             .commercial-card-inner { padding: 26px 20px; }
             .commercial-header-flex { flex-direction: column; gap: 16px; }
             .commercial-price-lockup { text-align: left; }
@@ -3455,7 +3599,7 @@
    Simple Black & White (B&W) Architectural Infograph
    ========================================================================== */
 .bw-infograph-wrap {
-    max-width: 1100px;
+    max-width: 900px;
     margin: 40px auto 0;
     padding: 0 20px;
 }
