@@ -1,9 +1,9 @@
-
+{
   "latest_version": "1.0.5",
   "update_type": "installer",
   "release_date": "2026-10-26",
   "min_rhino_version": "8.0",
-  "file_size_mb": 36.3,
+  "file_size_mb": 36.4,
   "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
   "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe",
   "title": "Shalik 1.0.5 - Architectural Suite for Rhino 8",

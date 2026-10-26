@@ -13,8 +13,8 @@
 
 <br />
 
-[![Version](https://img.shields.io/badge/Version-1.0.4-brightgreen?style=for-the-badge&logo=rhino)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)
-[![Release Date](https://img.shields.io/badge/Updated-October_24%2C_2026-blue?style=for-the-badge)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
+[![Version](https://img.shields.io/badge/Version-1.0.5-brightgreen?style=for-the-badge&logo=rhino)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe)
+[![Release Date](https://img.shields.io/badge/Updated-October_26%2C_2026-blue?style=for-the-badge)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
 [![Rhino Compatibility](https://img.shields.io/badge/Rhino-8.0%2B-red?style=for-the-badge)](https://www.rhino3d.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows_x64-lightgrey?style=for-the-badge&logo=windows)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
 [![Live Website](https://img.shields.io/badge/Official_Website-Live-orange?style=for-the-badge)](https://arch-sakhawat.github.io/SHALIK-For-Rhino/)
@@ -32,12 +32,12 @@
 
 <br />
 
-### 📥 **[Download Official Installer: Shalik-1.0.4-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)**
-**Version:** `1.0.4` • **Update Date:** `October 24, 2026` • **File Size:** `38.1 MB` • **OS:** Windows 10 / 11 64-bit (Rhino 8.0+)
+### 📥 **[Download Official Installer: Shalik-1.0.5-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe)**
+**Version:** `1.0.5` • **Update Date:** `October 26, 2026` • **File Size:** `36.4 MB` • **OS:** Windows 10 / 11 64-bit (Rhino 8.0+)
 
 <br />
 
-👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.4-Setup.exe)**  
+👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.5-Setup.exe)**  
 🌐 **[Visit Official Web Page](https://arch-sakhawat.github.io/SHALIK-For-Rhino/)**
 
 </div>
@@ -185,12 +185,12 @@ After sending the money, send the following items via WhatsApp or Email:
 
 ### Step 1: Download
 Download the latest installer directly using either link below:
-- 📥 **[Download Shalik-1.0.4-Setup.exe (Direct GitHub Raw)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.4-Setup.exe)**
-- 📥 **[Alternative Mirror Link (raw.githubusercontent.com)](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.4-Setup.exe)**
+- 📥 **[Download Shalik-1.0.5-Setup.exe (Direct GitHub Raw)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe)**
+- 📥 **[Alternative Mirror Link (raw.githubusercontent.com)](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.0.5-Setup.exe)**
 
 ### Step 2: Install
 1. Make sure **Rhino 8 is closed**.
-2. Double-click `Shalik-1.0.4-Setup.exe`.
+2. Double-click `Shalik-1.0.5-Setup.exe`.
 3. Follow the installation wizard. The installer automatically deploys the plug-in (`Shalik.rhp`), toolbar (`Shalik.rui`), and aliases.
 4. Click **Finish**.
 
