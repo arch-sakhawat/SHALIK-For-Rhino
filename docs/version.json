@@ -8,6 +8,7 @@
   "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.6-Setup.exe",
   "title": "Shalik 1.0.6 - Architectural Suite for Rhino 8",
   "changelog": [
+    "Feature: Dog-Leg & Mid-Landing Stair - customizable user-defined steps before landing with automatic remaining steps calculation",
     "Fix: Numeric text input focus bug resolved - continuous typing without cursor loss or deselecting across all 15 tools",
     "Feature: Total Usage Time tracking added to real-time developer dashboard",
     "Security: Subscription Start Date & End Date active enforcement via Google Sheets gateway",
