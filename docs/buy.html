@@ -44,7 +44,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- External Shared Design System Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-orange-selection-v1793036981494">
+    <link rel="stylesheet" href="assets/style.css?v=20261027-buy-alignment">
     <style>
         /* Force-disable any background grid or pseudo-element overlays */
         body::before, body::after, html::before, html::after {
@@ -174,7 +174,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
             <div class="inst-step-item">
                 <div class="inst-step-num">3</div>
                 <div class="inst-step-text">
-                    Complete the transaction and copy your <b>bKash Transaction ID (TrxID)</b> and take a screenshot of the confirmation.
+                    Complete the transaction and copy your <b>bKash Transaction ID (TrxID)</b> to enter in the order form.
                 </div>
             </div>
             <div class="inst-step-item">
@@ -186,18 +186,18 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
         </div>
 
         <!-- Student Verification Notice -->
-        <div style="margin-top: 24px; padding: 14px 16px; background: rgba(229, 57, 53, 0.05); border: 1px dashed rgba(229, 57, 53, 0.35); border-radius: 8px;">
+        <div style="margin-top: auto; padding: 14px 16px; background: rgba(229, 57, 53, 0.05); border: 1px dashed rgba(229, 57, 53, 0.35); border-radius: 8px;">
             <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-red); margin-bottom: 4px;">
                 STUDENT SUBSIDY VERIFICATION
             </div>
             <div style="font-size: 0.78rem; color: var(--ink-secondary); line-height: 1.55;">
-                Enrolled Architecture &amp; Engineering students must upload an institutional Student ID card photo to qualify for subsidized student pricing.
+                Enrolled Architecture &amp; Engineering students can verify student status via WhatsApp or attach Student ID when sending order details.
             </div>
         </div>
 
     </div>
 
-    <!-- RIGHT COLUMN: Send Mail Directly from Website with Photo Upload -->
+    <!-- RIGHT COLUMN: Open Order in Gmail -->
     <div class="buy-panel-card">
         <div class="buy-step-pill">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -207,11 +207,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
         <p class="buy-panel-desc">Fill in your details below. Clicking the button automatically generates your official activation request and opens your Gmail ready to send &mdash; no manual typing required.</p>
 
         <!-- Direct In-Website Mail Form -->
-        <form id="license-order-form" class="buy-order-form" action="https://formsubmit.co/ajax/arch.sakhawat@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="handleOrderSubmit(event)">
-            <!-- FormSubmit Native Configuration -->
-            <input type="hidden" name="_subject" id="formsubmit-subject" value="New Shalik for Rhino 8 License Order">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
+        <form id="license-order-form" class="buy-order-form" onsubmit="handleOrderSubmit(event)">
             
             <div class="form-row-2">
                 <div class="form-group">
@@ -247,47 +243,15 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
                     <span class="field-hint">Run <code>_ShalikLicense</code> in Rhino 8 to copy ID</span>
                 </div>
                 <div class="form-group">
-                    <label for="order-trxid">bKash Transaction ID (TrxID) <span style="font-size: 0.78rem; font-weight: normal; color: var(--ink-faint);">(Optional)</span></label>
-                    <input type="text" id="order-trxid" name="trxid" placeholder="e.g. BAX894K29L (Optional)">
-                    <span class="field-hint">Optional if payment screenshot is attached</span>
+                    <label for="order-trxid">bKash Transaction ID (TrxID) <span class="req">*</span></label>
+                    <input type="text" id="order-trxid" name="trxid" required placeholder="e.g. BAX894K29L">
+                    <span class="field-hint">From bKash SMS or App statement</span>
                 </div>
-            </div>
-
-            <!-- PHOTO UPLOAD COMPONENT (Payment Screenshot or Student ID) -->
-            <div class="form-group">
-                <label>Upload Photo (bKash Screenshot or Student ID) <span class="req">*</span></label>
-                
-                <div class="photo-upload-zone" id="photo-upload-zone" onclick="triggerFileInput()">
-                    <input type="file" id="order-photo" name="photo" accept="image/*,.pdf" style="display: none;" onchange="handleFileChosen(event)">
-                    
-                    <!-- Empty State -->
-                    <div id="upload-empty-state" class="upload-empty-state">
-                        <div class="upload-icon-wrap">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                        </div>
-                        <div class="upload-prompt">
-                            <span class="upload-btn-fake">Click to Upload Photo</span> or drag &amp; drop
-                        </div>
-                        <div class="upload-subtext">bKash payment confirmation screenshot or institutional Student ID card</div>
-                    </div>
-
-                    <!-- Selected Preview State -->
-                    <div id="upload-preview-state" class="upload-preview-state" style="display: none;">
-                        <img id="photo-thumbnail" src="" alt="Uploaded Photo" class="photo-thumbnail">
-                        <div class="upload-file-meta">
-                            <div class="file-name" id="file-name-label">filename.png</div>
-                            <div class="file-size" id="file-size-label">1.2 MB</div>
-                            <button type="button" class="btn-remove-file" onclick="removePhoto(event)">✕ Remove &amp; Choose Another</button>
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" id="photo-data-base64" name="photo_base64">
-                <span class="field-hint">Photo proof is required to verify your transaction and student status.</span>
             </div>
 
             <div class="form-group">
                 <label for="order-notes">Additional Message / Note (Optional)</label>
-                <textarea id="order-notes" name="notes" rows="2" placeholder="Any special notes or university details..."></textarea>
+                <textarea id="order-notes" name="notes" rows="3" placeholder="Any special notes or university details..."></textarea>
             </div>
 
             <button type="submit" id="btn-submit-order" class="btn-submit-order">
@@ -298,19 +262,13 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
             <!-- Status Alert Box -->
             <div id="form-status" class="form-status-alert"></div>
 
-            <!-- Alternative 1-Click Dispatch Options -->
+            <!-- Alternative Verification Options -->
             <div class="alt-dispatch-actions">
-                <div class="alt-dispatch-title">Alternative Verification Options:</div>
-                <div class="alt-btn-row">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arch.sakhawat@gmail.com" id="btn-alt-email" class="btn-alt-mailto" target="_blank" rel="noopener noreferrer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>Open in Mail App</span>
-                    </a>
-                    <a href="https://wa.me/8801521776439" id="btn-alt-whatsapp" class="btn-alt-wa" target="_blank">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                        <span>Verify on WhatsApp</span>
-                    </a>
-                </div>
+                <div class="alt-dispatch-title">Direct WhatsApp Support:</div>
+                <a href="https://wa.me/8801521776439" id="btn-alt-whatsapp" class="btn-alt-wa" target="_blank">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <span>Verify on WhatsApp (+8801521776439)</span>
+                </a>
             </div>
 
         </form>
@@ -349,155 +307,47 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
         });
     }
 
-    // Photo Upload Handler
-    function triggerFileInput() {
-        document.getElementById("order-photo").click();
-    }
-
-    window.optimizedPhotoFile = null;
-
-    function handleFileChosen(e) {
-        var file = e.target.files[0];
-        if (!file) return;
-
-        var emptyState = document.getElementById("upload-empty-state");
-        var previewState = document.getElementById("upload-preview-state");
-        var thumbnail = document.getElementById("photo-thumbnail");
-        var nameLabel = document.getElementById("file-name-label");
-        var sizeLabel = document.getElementById("file-size-label");
-
-        nameLabel.innerText = file.name;
-        var origMB = (file.size / (1024 * 1024)).toFixed(2);
-        sizeLabel.innerText = origMB + " MB";
-
-        var reader = new FileReader();
-        reader.onload = function(evt) {
-            thumbnail.src = evt.target.result;
-            emptyState.style.display = "none";
-            previewState.style.display = "flex";
-
-            // If it is an image, compress client-side for rapid, reliable web upload
-            if (file.type && file.type.startsWith('image/')) {
-                var img = new Image();
-                img.onload = function() {
-                    var maxDim = 1600;
-                    var width = img.width;
-                    var height = img.height;
-                    if (width > maxDim || height > maxDim) {
-                        if (width > height) {
-                            height = Math.round((height * maxDim) / width);
-                            width = maxDim;
-                        } else {
-                            width = Math.round((width * maxDim) / height);
-                            height = maxDim;
-                        }
-                    }
-                    var canvas = document.createElement('canvas');
-                    canvas.width = width;
-                    canvas.height = height;
-                    var ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-
-                    canvas.toBlob(function(blob) {
-                        if (blob && blob.size < file.size) {
-                            window.optimizedPhotoFile = new File([blob], file.name.replace(/\.[^/.]+$/, ".jpg"), {
-                                type: 'image/jpeg',
-                                lastModified: Date.now()
-                            });
-                            var optKB = (blob.size / 1024).toFixed(0);
-                            sizeLabel.innerText = origMB + " MB → " + optKB + " KB (Optimized for Web)";
-                            document.getElementById("photo-data-base64").value = canvas.toDataURL('image/jpeg', 0.82);
-                        } else {
-                            window.optimizedPhotoFile = file;
-                            document.getElementById("photo-data-base64").value = evt.target.result;
-                        }
-                    }, 'image/jpeg', 0.82);
-                };
-                img.src = evt.target.result;
-            } else {
-                window.optimizedPhotoFile = file;
-                document.getElementById("photo-data-base64").value = evt.target.result;
-            }
-        };
-        reader.readAsDataURL(file);
-        updateDirectLinks();
-    }
-
-    function removePhoto(e) {
-        if (e) e.stopPropagation();
-        document.getElementById("order-photo").value = "";
-        window.optimizedPhotoFile = null;
-        document.getElementById("photo-data-base64").value = "";
-        document.getElementById("photo-thumbnail").src = "";
-        document.getElementById("upload-empty-state").style.display = "block";
-        document.getElementById("upload-preview-state").style.display = "none";
-        updateDirectLinks();
-    }
-
-    // Drag and Drop Zone support
-    var dropZone = document.getElementById("photo-upload-zone");
-    dropZone.addEventListener("dragover", function(e) {
-        e.preventDefault();
-        dropZone.classList.add("dragover");
-    });
-    dropZone.addEventListener("dragleave", function(e) {
-        dropZone.classList.remove("dragover");
-    });
-    dropZone.addEventListener("drop", function(e) {
-        e.preventDefault();
-        dropZone.classList.remove("dragover");
-        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            document.getElementById("order-photo").files = e.dataTransfer.files;
-            handleFileChosen({ target: { files: e.dataTransfer.files } });
-        }
-    });
-
-    // Sync Plan Picker Pills with Select Dropdown
+    // Interactive Plan Picker
     function selectPlan(planKey, selectValue) {
         var pills = document.querySelectorAll(".price-pill-option");
         pills.forEach(function(p) { p.classList.remove("active"); });
-        var targetPill = document.querySelector('.price-pill-option[data-plan="' + planKey + '"]');
-        if (targetPill) targetPill.classList.add("active");
+
+        var clicked = document.querySelector(".price-pill-option[data-plan='" + planKey + "']");
+        if (clicked) clicked.classList.add("active");
 
         var select = document.getElementById("order-plan");
-        if (select) {
-            for (var i = 0; i < select.options.length; i++) {
-                if (select.options[i].value.indexOf(planKey) !== -1 || select.options[i].text.indexOf(planKey) !== -1 || select.options[i].value === selectValue) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-        }
+        select.value = selectValue;
         updateDirectLinks();
     }
 
     function syncPickerFromSelect(val) {
+        var pills = document.querySelectorAll(".price-pill-option");
+        pills.forEach(function(p) { p.classList.remove("active"); });
+
         var key = "1year";
         if (val.indexOf("1 Month") !== -1) key = "1month";
         else if (val.indexOf("6 Months") !== -1) key = "6months";
         else if (val.indexOf("12 Months") !== -1) key = "1year";
         else if (val.indexOf("Commercial") !== -1) key = "commercial";
 
-        var pills = document.querySelectorAll(".price-pill-option");
-        pills.forEach(function(p) { p.classList.remove("active"); });
-        var targetPill = document.querySelector('.price-pill-option[data-plan="' + key + '"]');
-        if (targetPill) targetPill.classList.add("active");
+        var target = document.querySelector(".price-pill-option[data-plan='" + key + "']");
+        if (target) target.classList.add("active");
         updateDirectLinks();
     }
 
-    // Auto-detect plan parameter from URL (e.g., buy.html?plan=1month)
-    (function checkUrlParams() {
+    // Auto-detect plan parameter from URL (?plan=1month, 6months, 1year, commercial)
+    (function readUrlParams() {
         var params = new URLSearchParams(window.location.search);
-        var plan = params.get("plan");
-        if (plan) {
-            if (plan === "1month") selectPlan("1month", "1 Month Student (500 ৳)");
-            else if (plan === "6months") selectPlan("6months", "6 Months Student (800 ৳)");
-            else if (plan === "1year" || plan === "12months") selectPlan("1year", "12 Months Student (1,500 ৳)");
-            else if (plan === "commercial") selectPlan("commercial", "Commercial Studio (5,000 ৳)");
+        var p = params.get("plan");
+        if (p) {
+            if (p === "1month") selectPlan('1month', '1 Month Student (500 ৳)');
+            else if (p === "6months") selectPlan('6months', '6 Months Student (800 ৳)');
+            else if (p === "1year" || p === "12months") selectPlan('1year', '12 Months Student (1,500 ৳)');
+            else if (p === "commercial") selectPlan('commercial', 'Commercial Studio (5,000 ৳)');
         }
     })();
 
-    // Update mailto and whatsapp links as user fills the form
+    // Construct structured official order data
     function buildOrderEmailData() {
         var name = (document.getElementById("order-name").value || "").trim();
         var email = (document.getElementById("order-email").value || "").trim();
@@ -506,11 +356,9 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
         var machineId = (document.getElementById("order-machine-id").value || "").trim();
         var trxId = (document.getElementById("order-trxid").value || "").trim();
         var notes = (document.getElementById("order-notes").value || "").trim();
-        var hasPhoto = (document.getElementById("order-photo").files && document.getElementById("order-photo").files.length > 0) ? "Yes (Attached / Screenshot Ready)" : "Payment receipt / Student ID ready";
 
         var now = new Date();
         var dateStr = now.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-        var trxDisplay = trxId ? trxId : "Not provided (See attached payment screenshot)";
         var notesDisplay = notes ? notes : "None";
 
         var subject = "SHALIK Rhino 8 License Activation Request — " + (name || "Customer") + " (" + plan + ")";
@@ -524,15 +372,11 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
 "• Hardware Machine ID: " + (machineId || "[Machine ID]") + "\n" +
 "• Delivery Email:      " + (email || "[Email]") + "\n" +
 "• WhatsApp / Phone:    " + (whatsapp || "[WhatsApp]") + "\n" +
-"• bKash TrxID:         " + trxDisplay + "\n" +
-"• Photo Proof Status:  " + hasPhoto + "\n" +
+"• bKash TrxID:         " + (trxId || "[TrxID]") + "\n" +
 "• Request Date:        " + dateStr + "\n\n" +
 "ADDITIONAL NOTES:\n" +
 "----------------------------------------------------------------\n" +
 notesDisplay + "\n\n" +
-"ATTACHMENT REMINDER:\n" +
-"----------------------------------------------------------------\n" +
-"[✓] Please attach or drag-and-drop your bKash payment screenshot or Student ID card into this email before hitting Send.\n\n" +
 "================================================================\n" +
 "Deliver Activation Serial Key to: " + (email || "[Email]") + "\n" +
 "Software: Shalik for Rhino 8 (C# Native Parametric Plugin)\n" +
@@ -551,9 +395,9 @@ notesDisplay + "\n\n" +
             "• Name: " + (name || "[Name]") + "\n" +
             "• Plan: " + plan + "\n" +
             "• Machine ID: " + (machineId || "[Machine ID]") + "\n" +
-            "• bKash TrxID: " + (trxId || "Attached in photo") + "\n" +
+            "• bKash TrxID: " + (trxId || "[TrxID]") + "\n" +
             "• Email: " + (email || "[Email]") + "\n\n" +
-            "Payment screenshot / ID photo is ready. Please deliver my activation key."
+            "Payment completed. Please deliver my activation key."
         );
         var waUrl = "https://wa.me/8801521776439?text=" + waText;
 
@@ -568,9 +412,6 @@ notesDisplay + "\n\n" +
 
     function updateDirectLinks() {
         var data = buildOrderEmailData();
-        var altEmailBtn = document.getElementById("btn-alt-email");
-        if (altEmailBtn) altEmailBtn.href = data.mailtoUrl;
-
         var altWaBtn = document.getElementById("btn-alt-whatsapp");
         if (altWaBtn) altWaBtn.href = data.waUrl;
     }
