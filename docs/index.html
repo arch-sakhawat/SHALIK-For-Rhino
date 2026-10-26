@@ -1491,7 +1491,7 @@
     if (!stage) return;
 
     var birds = [];
-    var maxBirds = 7;
+    var maxBirds = 5;
 
     var shalikSvgContent = '<svg viewBox="0 0 64 42" class="shalik-bird-svg">' +
         '<g class="bird-canvas">' +
@@ -1584,17 +1584,15 @@
         target.el.classList.remove("is-gliding");
     }
 
-    // Compute responsive bird count: only 2 on mobile phones, scaling up to maximum 7 on large screens
+    // Compute responsive bird count: only 2 on mobile phones, scaling up to maximum 5 on large screens
     function getTargetBirdCount() {
         var w = window.innerWidth || document.documentElement.clientWidth || 1200;
         if (w < 600) {
             return 2; // for mobile phone, only 2
-        } else if (w < 900) {
-            return 4; // tablets / foldables
-        } else if (w < 1280) {
-            return 5; // small laptops / standard displays
+        } else if (w < 960) {
+            return 3; // tablets / foldables
         } else {
-            return 7; // large screens: strictly not more than 7
+            return 5; // desktop & large screens: strictly maximum 5
         }
     }
 
