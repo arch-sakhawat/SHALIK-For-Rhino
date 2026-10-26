@@ -93,7 +93,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
     </script>
 
     <!-- Shared External Obsidian Stylesheet (Cache-Busted) -->
-    <link rel="stylesheet" href="assets/style.css?v=20261026-orange-selection-v1793036981494">
+    <link rel="stylesheet" href="assets/style.css?v=20261027-showcase-single-1793044704473">
     <style>
         /* Permanently remove "Move mouse to inspect" floating pill */
         .zoom-indicator-pill {
@@ -353,147 +353,48 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
     <!-- ========================================================================
          SECTION 01: 3D Render Gallery (ArtCraft Style Studio View)
          ======================================================================== -->
+        <!-- SECTION 01: TOOLS PREVIEW & INTERACTIVE GALLERY -->
     <section id="showcase" data-reveal>
         <div class="section-header">
             <div class="hud-label">01 // TOOLS PREVIEW &amp; INTERACTIVE GALLERY</div>
             <h2>Live 3D Geometry Studio Gallery</h2>
-            <p>Turn hours of manual modeling into seconds. Generate complex, code-compliant architectural geometry natively in Rhino 8 with zero Grasshopper scripting &mdash; explore the live interactive models below.</p>
+            <p>Turn hours of manual modeling into seconds. Generate complex, code-compliant architectural geometry natively in Rhino 8 with zero Grasshopper scripting &mdash; inspect the comprehensive parametric composition below.</p>
         </div>
 
-        <!-- Interactive 3D Showcase Slider -->
+        <!-- Single Featured 3D Showcase Display -->
         <div class="showcase-slider-wrapper">
             <span class="tick tick-tl"></span>
             <span class="tick tick-tr"></span>
             <span class="tick tick-bl"></span>
             <span class="tick tick-br"></span>
 
-            <div class="slider-header-bar">
+            <div class="slider-header-bar" style="display: flex; justify-content: space-between; align-items: center;">
                 <div class="hud-label">
                     <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent-crimson-bright);box-shadow:0 0 8px var(--accent-crimson-glow);margin-right:4px;"></span>
                     <span>RHINO 8 VIEWPORT CONDUIT</span>
-                    <span style="color: var(--accent-red-bright); margin-left: 10px;" id="current-slide-label">SLIDE 01 // PARAMETRIC DOOR GENERATOR</span>
+                    <span style="color: var(--accent-red-bright); margin-left: 10px;">COMPLETE ARCHITECTURAL COMPOSITION // NATIVE PARAMETRIC SUITE</span>
                 </div>
-                <div class="slider-tabs-nav">
-                    <button class="slider-tab-btn active" onclick="switchSlide(0)">01 // Door Generator</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(1)">02 // Stair &amp; Railing</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(2)">03 // Escalator Generator</button>
-                    <button class="slider-tab-btn" onclick="switchSlide(3)">04 // Split Comparison</button>
-                </div>
+                <button type="button" class="btn-artcraft-outline" onclick="openLightbox('assets/demo/demo_suite_overview.png')" style="padding: 5px 14px; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+                    <span>Full-Screen Lightbox</span>
+                </button>
             </div>
 
-            <div class="slider-viewport zoom-magnifier-viewport" id="slider-viewport">
-                
-                <!-- Slide 0: Glazed Door -->
-                <div class="slider-slide-item active" id="slide-0">
-                    <img src="assets/demo/demo_door_glass.png?v=original" alt="6-Lite Glazed Parametric Door in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
-                </div>
-
-                <!-- Slide 1: Stair with Cable Railing -->
-                <div class="slider-slide-item" id="slide-1">
-                    <img src="assets/demo/demo_stair_cable_railing.png?v=original" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing in Rhino 8" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
-                </div>
-
-                <!-- Slide 2: Commercial Escalator -->
-                <div class="slider-slide-item" id="slide-2">
-                    <img src="assets/demo/demo_escalator.png?v=original" alt="Commercial Crisscross Escalator Suite in Rhino 8 with Shalik Toolbar" title="Click to enlarge in full-screen Lightbox" onclick="openLightbox(this.src)">
-                </div>
-
-                <!-- Slide 3: Interactive Draggable Split-Screen Comparison -->
-                <div class="slider-slide-item" id="slide-3">
-                    <div class="split-compare-container" id="split-compare-box">
-                        <!-- Bottom Layer: Escalator -->
-                        <div class="split-image-layer">
-                            <img src="assets/demo/demo_escalator.png?v=original" alt="Commercial Escalator Suite">
-                        </div>
-                        <!-- Top Layer: Stair with Cable Railing (Clipped) -->
-                        <div class="split-image-overlay" id="split-overlay">
-                            <img src="assets/demo/demo_stair_cable_railing.png?v=original" alt="Parametric Stair with Cable Railing">
-                        </div>
-                        <!-- Draggable Divider Line & Pill -->
-                        <div class="split-divider-line" id="split-divider">
-                            <div class="split-handle-pill" id="split-handle">
-                                <span>◂ DRAG TO COMPARE CIRCULATION ▸</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="slider-viewport" style="background: #ffffff; padding: 20px 24px; display: flex; align-items: center; justify-content: center; min-height: 520px;">
+                <img src="assets/demo/demo_suite_overview.png" alt="Shalik for Rhino 8 Comprehensive Parametric Architectural Suite" class="showcase-featured-img" style="max-width: 100%; height: auto; max-height: 680px; object-fit: contain; border-radius: 8px; cursor: zoom-in; box-shadow: 0 4px 24px rgba(0,0,0,0.03);" onclick="openLightbox(this.src)" title="Click to enlarge in full-screen Lightbox">
             </div>
 
-            <div class="slider-footer-bar">
-                <div class="slider-caption-text" id="slider-caption">
-                    <b>Door Generator:</b> Generate custom parametric doors with live swing angles, frame trims, and automatic wall cuts in seconds.
+            <div class="slider-footer-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div class="slider-caption-text" style="font-size: 0.88rem; color: var(--ink-secondary); line-height: 1.5; flex: 1; min-width: 280px;">
+                    <b>Comprehensive Parametric Composition:</b> Modeled entirely in Rhino 8 using the Shalik suite &mdash; featuring Parametric Pitched Roof, Walls, Openings, Trees, Asphalt Road &amp; Curbs, Utility Poles, and Cable Railings with live DisplayConduit viewport feedback.
                 </div>
-                <div class="slider-nav-actions">
-                    <span class="slider-counter-display" id="slider-counter">01 / 04</span>
-                    <button class="slider-btn-nav" onclick="prevSlide()">← PREV</button>
-                    <button class="slider-btn-nav" onclick="nextSlide()">NEXT →</button>
+                <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap;">
+                    RHINO 8 NATIVE // 44.6 FPS
                 </div>
             </div>
 
         </div>
 
-        <!-- 3-Column Visual Showcase Cards Grid for Direct Reference -->
-        <div class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-bottom: 20px;">
-            
-            <!-- Card 1: Glazed Door -->
-            <article class="showcase-card interactive-tilt" data-reveal>
-                <span class="tick tick-tl"></span>
-                <span class="tick tick-tr"></span>
-                <span class="tick tick-bl"></span>
-                <span class="tick tick-br"></span>
-                <div class="showcase-header">
-                    <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
-                    <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 01</span>
-                </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
-                    <img src="assets/demo/demo_door_glass.png?v=original" alt="6-Lite Glazed Parametric Door" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
-                </div>
-                <div class="showcase-footer">
-                    <h3>Door Generator</h3>
-                    <p>Generate custom parametric doors with live swing angles, frame trims, and automatic wall cuts in seconds.</p>
-                </div>
-            </article>
-
-            <!-- Card 2: Stair with Cable Railing -->
-            <article class="showcase-card interactive-tilt" data-reveal>
-                <span class="tick tick-tl"></span>
-                <span class="tick tick-tr"></span>
-                <span class="tick tick-bl"></span>
-                <span class="tick tick-br"></span>
-                <div class="showcase-header">
-                    <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
-                    <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 02</span>
-                </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
-                    <img src="assets/demo/demo_stair_cable_railing.png?v=original" alt="Parametric Quarter-Turn Stair with Horizontal Cable Railing" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
-                </div>
-                <div class="showcase-footer">
-                    <h3>Stair &amp; Railing Generator</h3>
-                    <p>Create code-compliant straight, L-turn, and spiral stairs with parametric railings and landings instantly.</p>
-                </div>
-            </article>
-
-            <!-- Card 3: Commercial Escalator Suite -->
-            <article class="showcase-card interactive-tilt" data-reveal>
-                <span class="tick tick-tl"></span>
-                <span class="tick tick-tr"></span>
-                <span class="tick tick-bl"></span>
-                <span class="tick tick-br"></span>
-                <div class="showcase-header">
-                    <span class="hud-label">RHINO 8 VIEWPORT RENDER</span>
-                    <span class="hud-label" style="color: var(--accent-red-bright);">MODEL 03</span>
-                </div>
-                <div class="showcase-canvas-wrap zoom-magnifier-viewport">
-                    <img src="assets/demo/demo_escalator.png?v=original" alt="Commercial Crisscross Escalator Suite" loading="eager" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
-                </div>
-                <div class="showcase-footer">
-                    <h3>Escalator Generator</h3>
-                    <p>Model commercial escalators and moving walkways with custom floor heights and glass balustrades in seconds.</p>
-                </div>
-            </article>
-
-        </div>
     </section>
 
     <!-- ========================================================================
