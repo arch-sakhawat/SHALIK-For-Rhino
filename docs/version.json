@@ -8,6 +8,9 @@
   "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.5-Setup.exe",
   "title": "Shalik 1.0.5 - Architectural Suite for Rhino 8",
   "changelog": [
+    "Security Hardening: Cryptographic HMAC-SHA256 authenticated pings, anti-replay protection, and full binary obfuscation",
+    "Subscription Insights: Real-time Start Date and End Date tracking in developer control sheet",
+    "Maximum Offline Lease: 14-day periodic online check-in enforcement preventing offline tampering",
     "Door Generator: Added smooth 3D curved reveal groove separating fluted zone in Style 9",
     "Window Generator: Fixed frame alignment and double-click live re-editing",
     "Auto-Update & Check Update: Built-in update checking directly from sidebar and license popup",
