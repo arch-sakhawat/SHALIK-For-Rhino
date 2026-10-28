@@ -1,13 +1,14 @@
 {
-  "latest_version": "1.0.7",
+  "latest_version": "1.0.8",
   "update_type": "installer",
-  "release_date": "2026-10-27",
+  "release_date": "2026-10-28",
   "min_rhino_version": "8.0",
   "file_size_mb": 36.5,
   "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
-  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.7-Setup.exe",
-  "title": "Shalik 1.0.7 - Architectural Suite for Rhino 8",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.8-Setup.exe",
+  "title": "Shalik 1.0.8 - Architectural Suite for Rhino 8",
   "changelog": [
+    "Fix: Automatic wall opening expansion and fill healing during door/window editing",
     "Fix: Bulletproof CLR AppDomain assembly resolution for all tools and command stubs",
     "Security: Real-time telemetry heartbeat on license activation & live Google Sheet presence",
     "Security: Remote developer block control with persistent disk marker enforcement",
