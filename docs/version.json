@@ -1,17 +1,17 @@
 {
-  "latest_version": "1.0.8",
+  "latest_version": "1.0.9",
   "update_type": "installer",
   "release_date": "2026-10-28",
   "min_rhino_version": "8.0",
-  "file_size_mb": 36.5,
+  "file_size_mb": 38.5,
   "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
-  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.8-Setup.exe",
-  "title": "Shalik 1.0.8 - Architectural Suite for Rhino 8",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.9-Setup.exe",
+  "title": "Shalik 1.0.9 - Architectural Suite for Rhino 8",
   "changelog": [
+    "Fix: Completely eliminated textbox focus locking across all 15 parametric dialogs",
     "Fix: Automatic wall opening expansion and fill healing during door/window editing",
-    "Fix: Bulletproof CLR AppDomain assembly resolution for all tools and command stubs",
-    "Security: Real-time telemetry heartbeat on license activation & live Google Sheet presence",
-    "Security: Remote developer block control with persistent disk marker enforcement",
+    "Enhancement: Dual-target deployment directly to live Rhino 8 package environment",
+    "Security: Real-time telemetry heartbeat on license activation & live presence",
     "Feature: Dog-Leg & Mid-Landing Stair customizable steps before landing",
     "Enhancement: UI layout stability, responsive clamping, and memory optimizations"
   ]
