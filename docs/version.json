@@ -1,18 +1,17 @@
-{
-  "latest_version": "1.0.9",
+﻿{
+  "latest_version": "1.1.0",
   "update_type": "installer",
-  "release_date": "2026-10-28",
   "min_rhino_version": "8.0",
-  "file_size_mb": 38.5,
-  "bundle_url": "https://arch-sakhawat.github.io/SHALIK-For-Rhino/updates/ShalikScripts.bundle",
-  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.0.9-Setup.exe",
-  "title": "Shalik 1.0.9 - Architectural Suite for Rhino 8",
+  "release_date": "2026-10-31",
+  "download_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
+  "bundle_url": "https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/updates/ShalikScripts.bundle",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
+  "title": "Shalik 1.1.0 - Architectural Modeling Suite for Rhino 8",
   "changelog": [
-    "Fix: Completely eliminated textbox focus locking across all 15 parametric dialogs",
-    "Fix: Automatic wall opening expansion and fill healing during door/window editing",
-    "Enhancement: Dual-target deployment directly to live Rhino 8 package environment",
-    "Security: Real-time telemetry heartbeat on license activation & live presence",
-    "Feature: Dog-Leg & Mid-Landing Stair customizable steps before landing",
-    "Enhancement: UI layout stability, responsive clamping, and memory optimizations"
+    "Permanent hardware fingerprint anchor resilient across Windows Updates",
+    "Independent background auto-update agent running outside Rhino via Windows Task Scheduler",
+    "Full telemetry auto-registration for all devices and free trial users",
+    "Super-optimized 4MB installer package (90% size reduction with zero clutter)",
+    "Full compatibility with Rhino 8 Service Releases"
   ]
 }
