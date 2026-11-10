@@ -4094,20 +4094,23 @@ button::-moz-selection, label::-moz-selection {
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
+    perspective: 900px;
 }
 
 .shalik-bird-unit {
     position: absolute;
-    width: 58px;
-    height: 38px;
+    width: 68px;
+    height: 46px;
     pointer-events: auto;
     cursor: pointer;
     user-select: none;
     will-change: transform;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.16));
     transition: filter 0.25s ease;
 }
 .shalik-bird-unit:hover {
-    filter: drop-shadow(0 4px 14px rgba(229, 57, 53, 0.45));
+    filter: drop-shadow(0 6px 18px rgba(229, 57, 53, 0.55)) !important;
 }
 
 .shalik-bird-svg {
@@ -4116,51 +4119,51 @@ button::-moz-selection, label::-moz-selection {
     overflow: visible;
 }
 
-/* Authentic Aerodynamic Wing Flap Cycles with Flex & Skew */
+/* Authentic 3D Aerodynamic Wing Flap with Depth Flex & Twist */
 @keyframes shalikFlapLeft {
     0%, 100% {
-        transform: rotate(0deg) scaleY(1);
+        transform: rotateZ(0deg) rotateX(0deg) scaleY(1);
     }
     35% {
-        transform: rotate(-38deg) scaleY(0.68) skewX(6deg);
+        transform: rotateZ(-44deg) rotateX(-24deg) scaleY(0.60) skewX(8deg);
     }
     70% {
-        transform: rotate(18deg) scaleY(1.08) skewX(-3deg);
+        transform: rotateZ(22deg) rotateX(16deg) scaleY(1.14) skewX(-4deg);
     }
 }
 @keyframes shalikFlapRight {
     0%, 100% {
-        transform: rotate(0deg) scaleY(1);
+        transform: rotateZ(0deg) rotateX(0deg) scaleY(1);
     }
     35% {
-        transform: rotate(38deg) scaleY(0.68) skewX(-6deg);
+        transform: rotateZ(44deg) rotateX(24deg) scaleY(0.60) skewX(-8deg);
     }
     70% {
-        transform: rotate(-18deg) scaleY(1.08) skewX(3deg);
+        transform: rotateZ(-22deg) rotateX(-16deg) scaleY(1.14) skewX(4deg);
     }
 }
 
 .bird-wing-group-left {
-    transform-origin: 26px 20px;
-    animation: shalikFlapLeft 0.26s infinite ease-in-out;
+    transform-origin: 29px 23px;
+    animation: shalikFlapLeft 0.25s infinite ease-in-out;
 }
 .bird-wing-group-right {
-    transform-origin: 26px 20px;
-    animation: shalikFlapRight 0.26s infinite ease-in-out;
+    transform-origin: 30px 22px;
+    animation: shalikFlapRight 0.25s infinite ease-in-out;
 }
 
 /* Natural Gliding State (Wings Held Level in Air Currents) */
 .shalik-bird-unit.is-gliding .bird-wing-group-left,
 .shalik-bird-unit.is-gliding .bird-wing-group-right {
     animation-play-state: paused;
-    transform: rotate(0deg) scaleY(1);
-    transition: transform 0.24s ease-out;
+    transform: rotateZ(0deg) rotateX(0deg) scaleY(1);
+    transition: transform 0.22s ease-out;
 }
 
 .bird-split-burst {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 2px solid var(--accent-red);
     transform: translate(-50%, -50%) scale(0.4);
@@ -4170,7 +4173,7 @@ button::-moz-selection, label::-moz-selection {
 }
 @keyframes birdBurstRing {
     0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
 }
 
 /* ==========================================================================
