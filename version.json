@@ -1,13 +1,16 @@
-﻿{
+{
   "latest_version": "1.1.0",
   "update_type": "installer",
   "min_rhino_version": "8.0",
-  "release_date": "2026-10-31",
+  "release_date": "2026-11-11",
   "download_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
   "bundle_url": "https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/updates/ShalikScripts.bundle",
   "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
   "title": "Shalik 1.1.0 - Architectural Modeling Suite for Rhino 8",
   "changelog": [
+    "New Hole in Wall tool (ArchHole) placed before Door for custom & quick wall opening cuts",
+    "Left-click interactive mode prompts for wall/door, sill height, and lintel height",
+    "Right-click quick mode cuts openings instantly using previous sill and lintel heights",
     "Permanent hardware fingerprint anchor resilient across Windows Updates",
     "Independent background auto-update agent running outside Rhino via Windows Task Scheduler",
     "Full telemetry auto-registration for all devices and free trial users",

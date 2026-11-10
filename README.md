@@ -102,6 +102,7 @@ High-fidelity parametric geometry rendered directly in Rhinoceros 8 with the int
 
 | Tool | Rhino Command | Description |
 | :--- | :--- | :--- |
+| **Hole in Wall** | `ArchHole` / `ArchHoleQuick` | Fast wall opening maker. Left-click prompts for door/wall, sill and lintel heights; Right-click cuts opening using previous heights. |
 | **Door Generator** | `ArchDoor` / `ShalikDoor` | Modern single, double, unequal leaves, pivot, sliding, frame profiles, hardware, and glass inserts. |
 | **Window Generator** | `ArchWindow` / `ShalikWindow` | Fixed, casement, sliding, awning, bifold, multi-pane grids, sills, and transom configurations with auto wall cuts. |
 | **Staircase Generator** | `ArchStair` / `ShalikStair` | 10 stair systems: Sawtooth, Closed Housed, Central Mono-Stringer, Cantilevered Floating, Spiral, and Dogleg. |
