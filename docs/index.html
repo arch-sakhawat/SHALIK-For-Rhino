@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <style>
@@ -1468,7 +1468,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
      Interactive Live Shalik Bird Flocking & B&W Infograph Scripts
      ======================================================================== -->
 <script>
-// --- High-Quality Flying Shalik Bird Simulation (Hero Area Confined) ---
+// --- High-Quality 3D Flying Shalik Bird Simulation with Mouse Attraction (Hero Area Confined) ---
 (function initShalikBirdFlock() {
     var stage = document.getElementById("shalik-sky-stage");
     if (!stage) return;
@@ -1476,45 +1476,144 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
     var birds = [];
     var maxBirds = 5;
 
-    var shalikSvgContent = '<svg viewBox="0 0 64 42" class="shalik-bird-svg">' +
-        '<g class="bird-canvas">' +
-        // Aerodynamic tail
-        '<path class="bird-tail" d="M18,22 L8,24 L10,21 L8,18 L18,20 Z" fill="#18181b"/>' +
-        // Left Wing (layered primaries, signature white pied starling patch, crimson scapular accent)
-        '<g class="bird-wing-group-left">' +
-        '<path d="M26,20 C18,8 6,10 2,14 C8,19 16,23 26,22 Z" fill="#27272a"/>' +
-        '<path d="M22,19 C16,13 10,14 7,16 C11,19 16,21 22,20 Z" fill="#ffffff" opacity="0.95"/>' +
-        '<path d="M24,20 C20,16 16,17 14,18 C18,20 21,21 24,21 Z" fill="#e53935" opacity="0.85"/>' +
-        '</g>' +
-        // Right Wing (layered primaries, signature white pied starling patch, crimson scapular accent)
-        '<g class="bird-wing-group-right">' +
-        '<path d="M26,20 C34,8 46,10 50,14 C44,19 36,23 26,22 Z" fill="#27272a"/>' +
-        '<path d="M30,19 C36,13 42,14 45,16 C41,19 36,21 30,20 Z" fill="#ffffff" opacity="0.95"/>' +
-        '<path d="M28,20 C32,16 36,17 38,18 C34,20 31,21 28,21 Z" fill="#e53935" opacity="0.85"/>' +
-        '</g>' +
-        // Torso & White Underbelly
-        '<ellipse cx="26" cy="21" rx="9" ry="4.2" fill="#27272a"/>' +
-        '<path d="M20,22 C23,24.5 28,24.5 31,22 C28,23 23,23 20,22 Z" fill="#ffffff"/>' +
-        '<path d="M25,19 C28,19.5 31,20.5 32,22 C30,21.5 27,21 25,20 Z" fill="#e53935"/>' +
-        // Head
-        '<circle cx="34" cy="20" r="3.8" fill="#18181b"/>' +
-        // Signature Yellow-Orange Orbital Eye Patch of Shalik
-        '<ellipse cx="34.8" cy="19.5" rx="2" ry="1.6" fill="#f59e0b"/>' +
-        '<circle cx="34.8" cy="19.5" r="0.8" fill="#09090b"/>' +
-        '<circle cx="34.5" cy="19.2" r="0.3" fill="#ffffff"/>' +
-        // Curved Golden-Orange Beak
-        '<path d="M37.5,18.8 L44,20.2 L37.5,21.4 C38,20.5 38,19.5 37.5,18.8 Z" fill="#f59e0b"/>' +
-        '<path d="M37.5,19.8 L42,20.2 L37.5,20.4 Z" fill="#d97706"/>' +
-        '</g>' +
-        '</svg>';
+    // Rich 3D Anatomical Vector Shalik SVG with Volumetric Gradients & Ambient Shadows
+    var shalikSvgContent = '<svg viewBox="0 0 72 48" class="shalik-bird-svg">' +
+      '<defs>' +
+        '<linearGradient id="sbBody" x1="0%" y1="0%" x2="100%" y2="80%">' +
+          '<stop offset="0%" stop-color="#3f3f46"/>' +
+          '<stop offset="40%" stop-color="#27272a"/>' +
+          '<stop offset="85%" stop-color="#141416"/>' +
+          '<stop offset="100%" stop-color="#09090b"/>' +
+        '</linearGradient>' +
+        '<linearGradient id="sbBelly" x1="0%" y1="0%" x2="0%" y2="100%">' +
+          '<stop offset="0%" stop-color="#ffffff"/>' +
+          '<stop offset="65%" stop-color="#f4f4f5"/>' +
+          '<stop offset="100%" stop-color="#d4d4d8"/>' +
+        '</linearGradient>' +
+        '<linearGradient id="sbChest" x1="0%" y1="0%" x2="100%" y2="100%">' +
+          '<stop offset="0%" stop-color="#4a3733"/>' +
+          '<stop offset="50%" stop-color="#342826"/>' +
+          '<stop offset="100%" stop-color="#1f1817"/>' +
+        '</linearGradient>' +
+        '<radialGradient id="sbHead" cx="40%" cy="35%" r="65%">' +
+          '<stop offset="0%" stop-color="#3f3f46"/>' +
+          '<stop offset="50%" stop-color="#18181b"/>' +
+          '<stop offset="90%" stop-color="#09090b"/>' +
+          '<stop offset="100%" stop-color="#000000"/>' +
+        '</radialGradient>' +
+        '<linearGradient id="sbBeak" x1="0%" y1="0%" x2="0%" y2="100%">' +
+          '<stop offset="0%" stop-color="#fde047"/>' +
+          '<stop offset="35%" stop-color="#f59e0b"/>' +
+          '<stop offset="85%" stop-color="#d97706"/>' +
+          '<stop offset="100%" stop-color="#b45309"/>' +
+        '</linearGradient>' +
+        '<radialGradient id="sbEyePatch" cx="45%" cy="40%" r="60%">' +
+          '<stop offset="0%" stop-color="#fef08a"/>' +
+          '<stop offset="55%" stop-color="#f59e0b"/>' +
+          '<stop offset="100%" stop-color="#d97706"/>' +
+        '</radialGradient>' +
+        '<linearGradient id="sbWingNear" x1="0%" y1="0%" x2="100%" y2="100%">' +
+          '<stop offset="0%" stop-color="#3f3f46"/>' +
+          '<stop offset="35%" stop-color="#27272a"/>' +
+          '<stop offset="85%" stop-color="#18181b"/>' +
+          '<stop offset="100%" stop-color="#09090b"/>' +
+        '</linearGradient>' +
+        '<linearGradient id="sbWingFar" x1="0%" y1="0%" x2="100%" y2="100%">' +
+          '<stop offset="0%" stop-color="#27272a"/>' +
+          '<stop offset="50%" stop-color="#18181b"/>' +
+          '<stop offset="100%" stop-color="#050506"/>' +
+        '</linearGradient>' +
+        '<linearGradient id="sbScapular" x1="0%" y1="0%" x2="100%" y2="0%">' +
+          '<stop offset="0%" stop-color="#ef4444"/>' +
+          '<stop offset="60%" stop-color="#dc2626"/>' +
+          '<stop offset="100%" stop-color="#991b1b"/>' +
+        '</linearGradient>' +
+        '<filter id="sbShadow" x="-20%" y="-20%" width="150%" height="150%">' +
+          '<feDropShadow dx="0.6" dy="1.4" stdDeviation="1.2" flood-color="#000000" flood-opacity="0.38"/>' +
+        '</filter>' +
+      '</defs>' +
+      '<!-- Far Wing (Behind Body in 3D Depth) -->' +
+      '<g class="bird-wing-group-right">' +
+        '<path d="M30,22 C39,8 53,10 58,15 C51,21 42,25 30,24 Z" fill="url(#sbWingFar)"/>' +
+        '<path d="M58,15 Q49,14 40,19 M54,12 Q45,11 36,18 M50,10 Q41,9 33,17" stroke="#050506" stroke-width="0.6" fill="none" opacity="0.7"/>' +
+        '<path d="M35,21 C42,14 49,15 52,17 C47,21 41,23 35,22 Z" fill="#ffffff" opacity="0.85"/>' +
+        '<path d="M33,22 C38,18 43,19 45,20 C41,22 37,23 33,23 Z" fill="url(#sbScapular)" opacity="0.7"/>' +
+      '</g>' +
+      '<!-- Tail with Layered Rectrices & White Tips -->' +
+      '<g class="bird-tail">' +
+        '<path d="M20,24 L6,27 L10,24 L6,20 L20,22 Z" fill="url(#sbWingFar)"/>' +
+        '<path d="M6,27 L9,26 L7,24 L10,24 L8,21 L6,20 L8,23 Z" fill="#ffffff" opacity="0.95"/>' +
+        '<line x1="20" y1="23" x2="7" y2="21" stroke="#3f3f46" stroke-width="0.5" opacity="0.7"/>' +
+        '<line x1="20" y1="24" x2="7" y2="26" stroke="#3f3f46" stroke-width="0.5" opacity="0.7"/>' +
+      '</g>' +
+      '<!-- Main Torso with 3D Shading -->' +
+      '<g class="bird-body-group">' +
+        '<ellipse cx="29" cy="24" rx="11" ry="5.2" fill="url(#sbBody)"/>' +
+        '<path d="M27,21 C31,21.5 35,22.5 36,24.5 C34,24 30,23.5 27,22 Z" fill="url(#sbChest)"/>' +
+        '<path d="M21,25 C25,28.2 32,28 35,25 C31,26.5 25,26.5 21,25 Z" fill="url(#sbBelly)"/>' +
+      '</g>' +
+      '<!-- 3D Head, Crest & Face Details -->' +
+      '<g class="bird-head-group">' +
+        '<path d="M35,19 Q38,17 41,18.5 Q38,18 35,19 Z" fill="#18181b"/>' +
+        '<circle cx="39" cy="22" r="4.6" fill="url(#sbHead)"/>' +
+        '<ellipse cx="40" cy="21.2" rx="2.5" ry="1.9" fill="url(#sbEyePatch)"/>' +
+        '<circle cx="40.1" cy="21.2" r="1.1" fill="#facc15"/>' +
+        '<circle cx="40.2" cy="21.2" r="0.75" fill="#09090b"/>' +
+        '<circle cx="39.8" cy="20.8" r="0.32" fill="#ffffff"/>' +
+        '<path d="M43,20.6 Q47,21.2 53,22.4 Q47,23.5 43,24.2 C43.6,23 43.6,21.8 43,20.6 Z" fill="url(#sbBeak)"/>' +
+        '<path d="M43,22.4 L51.5,22.4 L43,23.8 Z" fill="#d97706"/>' +
+        '<path d="M43.5,21.1 Q47,21.7 51,22.3" stroke="#fef08a" stroke-width="0.5" stroke-linecap="round" fill="none"/>' +
+      '</g>' +
+      '<!-- Near Wing (Front Layer with 3D Ambient Shadow onto Body) -->' +
+      '<g class="bird-wing-group-left" filter="url(#sbShadow)">' +
+        '<path d="M29,23 C20,7 5,9 0,14 C7,20 17,26 29,25 Z" fill="url(#sbWingNear)"/>' +
+        '<path d="M0,14 Q9,13 18,18 M4,11 Q13,10 22,17 M8,9 Q17,8 26,16" stroke="#18181b" stroke-width="0.6" fill="none" opacity="0.6"/>' +
+        '<path d="M0,14 L3,16 L1,17 L5,19 L3,20 L8,22" stroke="#3f3f46" stroke-width="0.4" fill="none" opacity="0.4"/>' +
+        '<path d="M24,22 C17,15 11,16 7,18 C12,22 18,24 24,23 Z" fill="url(#sbBelly)"/>' +
+        '<path d="M26,23 C21,19 16,20 14,21 C18,23 22,24 26,24 Z" fill="url(#sbScapular)"/>' +
+        '<path d="M12,17 Q18,19 24,22" stroke="#ffffff" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.6"/>' +
+      '</g>' +
+    '</svg>';
+
+    var mouse = {
+        x: -9999,
+        y: -9999,
+        active: false,
+        timer: null
+    };
+
+    function onPointerMove(e) {
+        var rect = stage.getBoundingClientRect();
+        var clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+        var clientY = e.clientY !== undefined ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : null);
+        if (clientX === null) return;
+
+        // Attract when cursor is within or near the hero section
+        if (clientY >= rect.top - 80 && clientY <= rect.bottom + 80 &&
+            clientX >= rect.left - 60 && clientX <= rect.right + 60) {
+            mouse.x = clientX - rect.left;
+            mouse.y = clientY - rect.top;
+            mouse.active = true;
+            clearTimeout(mouse.timer);
+            mouse.timer = setTimeout(function() {
+                mouse.active = false;
+            }, 3000);
+        } else {
+            mouse.active = false;
+        }
+    }
+
+    window.addEventListener("mousemove", onPointerMove, { passive: true });
+    window.addEventListener("touchmove", onPointerMove, { passive: true });
+    window.addEventListener("mouseleave", function() { mouse.active = false; });
 
     function createBird(x, y, vx, vy, scale) {
         var el = document.createElement("div");
         el.className = "shalik-bird-unit";
-        el.title = "Shalik in flight";
+        el.title = "Shalik in 3D flight";
         var s = scale || (0.85 + Math.random() * 0.25);
-        el.style.width = Math.round(58 * s) + "px";
-        el.style.height = Math.round(38 * s) + "px";
+        el.style.width = Math.round(68 * s) + "px";
+        el.style.height = Math.round(46 * s) + "px";
         el.innerHTML = shalikSvgContent;
 
         stage.appendChild(el);
@@ -1523,12 +1622,16 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
             el: el,
             x: x,
             y: y,
-            vx: vx || (Math.random() > 0.5 ? 1.7 : -1.7),
+            z: Math.random() * 20 - 10,
+            vx: vx || (Math.random() > 0.5 ? 1.8 : -1.8),
             vy: vy || (Math.random() * 0.6 - 0.3),
             scale: s,
             phase: Math.random() * Math.PI * 2,
             flapTimer: Math.floor(Math.random() * 90),
-            isGliding: false
+            isGliding: false,
+            orbitDir: Math.random() > 0.5 ? 1 : -1,
+            roll: 0,
+            pitch: 0
         };
 
         el.addEventListener("click", function(e) {
@@ -1547,7 +1650,6 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
 
     function onBirdClick(target) {
         if (birds.length < maxBirds) {
-            // Visual ripple ring
             var burst = document.createElement("div");
             burst.className = "bird-split-burst";
             burst.style.left = target.x + "px";
@@ -1555,31 +1657,27 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
             stage.appendChild(burst);
             setTimeout(function() { if (burst.parentNode) burst.parentNode.removeChild(burst); }, 600);
 
-            // Double / spawn companion bird
             var speed = Math.sqrt(target.vx * target.vx + target.vy * target.vy) || 1.8;
             var dir = target.vx >= 0 ? 1 : -1;
             createBird(target.x, Math.max(20, target.y - 18), dir * (speed * 0.95), -0.9, target.scale * 0.95);
         }
-        // Swift upward acceleration burst
-        target.vy = -1.4;
-        target.vx *= 1.25;
+        target.vy = -1.6;
+        target.vx *= 1.3;
         target.isGliding = false;
         target.el.classList.remove("is-gliding");
     }
 
-    // Compute responsive bird count: only 2 on mobile phones, scaling up to maximum 5 on large screens
     function getTargetBirdCount() {
         var w = window.innerWidth || document.documentElement.clientWidth || 1200;
         if (w < 600) {
-            return 2; // for mobile phone, only 2
+            return 2; // mobile: strictly 2
         } else if (w < 960) {
-            return 3; // tablets / foldables
+            return 3;
         } else {
-            return 5; // desktop & large screens: strictly maximum 5
+            return 5; // desktop: maximum 5
         }
     }
 
-    // Initialize birds organically distributed across the Hero sky
     function setupInitialBirds() {
         while (birds.length > 0) {
             var old = birds.pop();
@@ -1592,18 +1690,17 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
 
         for (var i = 0; i < count; i++) {
             var colWidth = (w * 0.84) / count;
-            var startX = (w * 0.08) + (i * colWidth) + (Math.random() * (colWidth * 0.45));
-            var startY = (h * 0.14) + ((i % 4) * (h * 0.16)) + (Math.random() * (h * 0.08));
+            var startX = (w * 0.08) + (i * colWidth) + (Math.random() * (colWidth * 0.4));
+            var startY = (h * 0.15) + ((i % 4) * (h * 0.18)) + (Math.random() * (h * 0.06));
             var dir = (i % 2 === 0) ? 1 : -1;
-            var vx = dir * (1.5 + Math.random() * 0.7);
+            var vx = dir * (1.6 + Math.random() * 0.6);
             var vy = (Math.random() * 0.5 - 0.25);
-            var s = 0.82 + Math.random() * 0.28;
+            var s = 0.85 + Math.random() * 0.25;
 
             createBird(startX, startY, vx, vy, s);
         }
     }
 
-    // Dynamic responsive adjustment on window resize
     var resizeTimer = null;
     window.addEventListener("resize", function() {
         clearTimeout(resizeTimer);
@@ -1612,7 +1709,6 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
             var w = stage.clientWidth || window.innerWidth || 1000;
             var h = stage.clientHeight || 520;
 
-            // Spawn additional birds if screen size expanded
             while (birds.length < targetCount && birds.length < maxBirds) {
                 var startX = Math.random() * (w * 0.8) + (w * 0.1);
                 var startY = Math.random() * (h * 0.6) + (h * 0.15);
@@ -1620,13 +1716,12 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
                 createBird(
                     startX,
                     startY,
-                    dir * (1.5 + Math.random() * 0.7),
+                    dir * (1.6 + Math.random() * 0.6),
                     Math.random() * 0.5 - 0.25,
-                    0.82 + Math.random() * 0.28
+                    0.85 + Math.random() * 0.25
                 );
             }
 
-            // Remove excess birds if screen shrunk (keeping minimum 2 birds for mobile)
             while (birds.length > targetCount && birds.length > 2) {
                 var removed = birds.pop();
                 if (removed.el && removed.el.parentNode) {
@@ -1636,7 +1731,6 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
         }, 200);
     });
 
-    // Continuous 60fps flight loop strictly bounded to Hero Area
     function animateFlock() {
         var w = stage.clientWidth || 1000;
         var h = stage.clientHeight || 520;
@@ -1646,7 +1740,7 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
 
             // Natural flap-and-glide cycle
             b.flapTimer++;
-            if (b.flapTimer > 105) {
+            if (b.flapTimer > 105 && !mouse.active) {
                 b.flapTimer = 0;
                 b.isGliding = !b.isGliding;
                 if (b.isGliding) {
@@ -1656,35 +1750,97 @@ li::-moz-selection, code::-moz-selection, pre::-moz-selection, input::-moz-selec
                 }
             }
 
+            // Mouse pointer attraction dynamics
+            if (mouse.active) {
+                var dx = mouse.x - b.x;
+                var dy = mouse.y - b.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist > 8 && dist < 880) {
+                    var normX = dx / dist;
+                    var normY = dy / dist;
+                    // Tangential swirl creates dynamic circling swoops around the pointer
+                    var tangentX = -normY * b.orbitDir;
+                    var tangentY = normX * b.orbitDir;
+
+                    var pull = Math.min(0.065, 14 / (dist + 50));
+                    var orbitWeight = dist < 140 ? 0.9 : 0.35;
+
+                    var targetVx = normX * 2.6 + tangentX * orbitWeight * 2.3;
+                    var targetVy = normY * 2.0 + tangentY * orbitWeight * 1.8;
+
+                    b.vx += (targetVx - b.vx) * pull;
+                    b.vy += (targetVy - b.vy) * pull;
+
+                    // Swoop depth toward viewer in 3D
+                    b.z += (18 - b.z) * 0.04;
+
+                    // Smooth banking glide when sweeping close to mouse
+                    if (dist < 75 && Math.random() > 0.35) {
+                        b.isGliding = true;
+                        b.el.classList.add("is-gliding");
+                    } else {
+                        b.isGliding = false;
+                        b.el.classList.remove("is-gliding");
+                    }
+                }
+            } else {
+                b.z += (0 - b.z) * 0.02;
+                var curSpeed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+                if (curSpeed > 2.6) {
+                    b.vx *= 0.985;
+                    b.vy *= 0.985;
+                } else if (curSpeed < 1.3) {
+                    var curDir = b.vx >= 0 ? 1 : -1;
+                    b.vx = curDir * 1.6;
+                }
+            }
+
             b.phase += 0.045;
             b.x += b.vx;
-            b.y += b.vy + (b.isGliding ? Math.sin(b.phase * 0.6) * 0.25 : Math.sin(b.phase) * 0.6);
+            b.y += b.vy + (b.isGliding ? Math.sin(b.phase * 0.6) * 0.22 : Math.sin(b.phase) * 0.55);
 
             // Confine flight strictly within Hero Section boundaries
             var marginX = 20;
             var marginY = 15;
 
-            if (b.x > w - 70) {
+            if (b.x > w - 75) {
                 b.vx = -Math.abs(b.vx);
             } else if (b.x < marginX) {
                 b.vx = Math.abs(b.vx);
             }
 
-            if (b.y > h - 55) {
+            if (b.y > h - 60) {
                 b.vy = -Math.abs(b.vy) * 0.85;
             } else if (b.y < marginY) {
                 b.vy = Math.abs(b.vy) * 0.85;
             }
 
+            // 3D Banking & Pitch Calculation
+            var targetRoll = (b.vy * 7.5) + (b.vx * 3.5);
+            b.roll += (targetRoll - b.roll) * 0.12;
+
+            var targetPitch = Math.max(-25, Math.min(25, -b.vy * 15));
+            b.pitch += (targetPitch - b.pitch) * 0.14;
+
             var faceDir = b.vx >= 0 ? 1 : -1;
-            // Realistic banking angle into turns
-            var bankAngle = (b.vy * 8);
-            b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px, " + b.y.toFixed(1) + "px, 0) scaleX(" + faceDir + ") rotate(" + bankAngle.toFixed(1) + "deg)";
+            var currentScale = b.scale * (1 + b.z * 0.006);
+
+            // Dynamic 3D shadow blur based on Z depth
+            var shadowBlur = Math.round(7 + b.z * 0.25);
+            var shadowY = Math.round(5 + b.z * 0.18);
+            b.el.style.filter = "drop-shadow(0 " + shadowY + "px " + shadowBlur + "px rgba(0,0,0,0.18))";
+
+            b.el.style.transform = 
+                "translate3d(" + b.x.toFixed(1) + "px, " + b.y.toFixed(1) + "px, " + b.z.toFixed(1) + "px) " +
+                "scaleX(" + faceDir + ") " +
+                "rotateZ(" + (faceDir * b.roll).toFixed(1) + "deg) " +
+                "rotateX(" + b.pitch.toFixed(1) + "deg) " +
+                "scale(" + currentScale.toFixed(2) + ")";
         }
         requestAnimationFrame(animateFlock);
     }
 
-    // Start simulation once DOM and layout dimensions are computed
     if (stage.clientHeight > 0) {
         setupInitialBirds();
     } else {
