@@ -117,7 +117,8 @@ High-fidelity parametric geometry rendered directly in Rhinoceros 8 with the int
 | **Pitch Roof Generator** | `ArchPitchRoof` / `PitchRoof` | Hip, gable, shed, and gambrel roofs with 6 tile/cladding types and timber/steel framing systems. |
 | **Security & Privacy Grill** | `ArchGrill` / `ShalikGrill` | Architectural window grills and geometric screens with 12 distinct patterns and bar profiles. |
 | **Window Blinds & Shades** | `ArchBlind` / `ShalikBlind` | Venetian, Vertical, Roller, and Matchstick window shades with customizable slat rotation angles. |
-| **Road & Utility Pole** | `ArchRoad` / `ArchElectricPole` | Urban road corridors, asphalt curbs, sidewalks, crosswalks, street lights, and power poles. |
+| **Road & Pavement** | `ArchRoad` | Urban road corridors, asphalt curbs, sidewalks, crosswalks, and street lighting. |
+| **Electric Utility Pole** | `ArchElectricPole` | Modern electric utility pole & overhead power line corridor generator. |
 | **License & Suite Info** | `ArchAbout` / `ArchActivate` | Credits dialog, suite version diagnostics, and license activation management. |
 
 ---
