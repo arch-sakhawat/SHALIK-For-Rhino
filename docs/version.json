@@ -1,17 +1,16 @@
 ﻿{
-  "latest_version": "1.1.0",
+  "latest_version": "1.1.1",
   "update_type": "installer",
   "min_rhino_version": "8.0",
-  "release_date": "2026-10-31",
-  "download_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
+  "release_date": "2026-11-22",
+  "download_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe",
   "bundle_url": "https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/updates/ShalikScripts.bundle",
-  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe",
-  "title": "Shalik 1.1.0 - Architectural Modeling Suite for Rhino 8",
+  "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe",
+  "title": "Shalik 1.1.1 - Architectural Modeling Suite for Rhino 8 & 9",
   "changelog": [
-    "Permanent hardware fingerprint anchor resilient across Windows Updates",
-    "Independent background auto-update agent running outside Rhino via Windows Task Scheduler",
-    "Full telemetry auto-registration for all devices and free trial users",
-    "Super-optimized 4MB installer package (90% size reduction with zero clutter)",
-    "Full compatibility with Rhino 8 Service Releases"
+    "Full compatibility with both Rhino 8 and Rhino 9 (Windows x64)",
+    "Unified installer (Shalik-Setup.exe) automatically detects and installs into Rhino 8, Rhino 9, or both",
+    "Bundled Tree Generator 3D model library (Source.3dm) inside installer and package",
+    "Automatic toolbar, registry, and double-click edit registration for Rhino 8 & Rhino 9"
   ]
 }
