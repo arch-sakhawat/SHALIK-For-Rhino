@@ -2,15 +2,16 @@
   "latest_version": "1.1.1",
   "update_type": "installer",
   "min_rhino_version": "8.0",
-  "release_date": "2026-11-22",
+  "release_date": "2026-11-23",
   "download_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe",
   "bundle_url": "https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/updates/ShalikScripts.bundle",
   "installer_url": "https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe",
   "title": "Shalik 1.1.1 - Architectural Modeling Suite for Rhino 8 & 9",
   "changelog": [
-    "Full compatibility with both Rhino 8 and Rhino 9 (Windows x64)",
-    "Unified installer (Shalik-Setup.exe) automatically detects and installs into Rhino 8, Rhino 9, or both",
-    "Bundled Tree Generator 3D model library (Source.3dm) inside installer and package",
-    "Automatic toolbar, registry, and double-click edit registration for Rhino 8 & Rhino 9"
+    "Native VisualARQ-style Smart Wall creation in ArchWall and ArchWallDetail",
+    "Direct on-screen Cyan length and Orange height drag arrows for intuitive wall stretching",
+    "Seamless automatic 45-degree corner miter joins and T-butt connections",
+    "Dynamic hole, door, and window preservation during wall parameter and length edits",
+    "Unified installer (Shalik-Setup.exe) with automatic Rhino 8 and Rhino 9 dual-detection"
   ]
 }
