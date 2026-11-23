@@ -13,9 +13,9 @@
 
 <br />
 
-[![Version](https://img.shields.io/badge/Version-1.1.0-brightgreen?style=for-the-badge&logo=rhino)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe)
-[![Release Date](https://img.shields.io/badge/Updated-October_31%2C_2026-blue?style=for-the-badge)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
-[![Rhino Compatibility](https://img.shields.io/badge/Rhino-8.0%2B-red?style=for-the-badge)](https://www.rhino3d.com/)
+[![Version](https://img.shields.io/badge/Version-1.1.1-brightgreen?style=for-the-badge&logo=rhino)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe)
+[![Release Date](https://img.shields.io/badge/Updated-November_23%2C_2026-blue?style=for-the-badge)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
+[![Rhino Compatibility](https://img.shields.io/badge/Rhino-8_%26_9-red?style=for-the-badge)](https://www.rhino3d.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows_x64-lightgrey?style=for-the-badge&logo=windows)](https://github.com/arch-sakhawat/SHALIK-For-Rhino)
 [![Live Website](https://img.shields.io/badge/Official_Website-Live-orange?style=for-the-badge)](https://arch-sakhawat.github.io/SHALIK-For-Rhino/)
 
@@ -25,19 +25,19 @@
 
 <div align="center">
 
-<img src="assets/icon.png" width="180" alt="Shalik Architectural Suite for Rhinoceros 8 Logo" />
+<img src="assets/icon.png" width="180" alt="Shalik Architectural Suite for Rhinoceros 8 & 9 Logo" />
 
 ## **SHALIK ARCHITECTURAL MODELING SUITE**
-### High-Performance Parametric Generation Engine for Rhinoceros 8
+### High-Performance Parametric Generation Engine for Rhinoceros 8 & 9
 
 <br />
 
-### 📥 **[Download Official Installer: Shalik-1.1.0-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe)**
-**Version:** `1.1.0` • **Update Date:** `October 31, 2026` • **File Size:** `4.15 MB` • **OS:** Windows 10 / 11 64-bit (Rhino 8.0+)
+### 📥 **[Download Official Installer: Shalik-1.1.1-Setup.exe](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe)**
+**Version:** `1.1.1` • **Update Date:** `November 23, 2026` • **File Size:** `8.91 MB` • **OS:** Windows 10 / 11 64-bit (Rhino 8 & 9)
 
 <br />
 
-👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.1.0-Setup.exe)**  
+👉 **[Alternative Direct Mirror Link](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.1.1-Setup.exe)**  
 🌐 **[Visit Official Web Page](https://arch-sakhawat.github.io/SHALIK-For-Rhino/)**
 
 </div>
@@ -107,7 +107,7 @@ High-fidelity parametric geometry rendered directly in Rhinoceros 8 with the int
 | **Window Generator** | `ArchWindow` / `ShalikWindow` | Fixed, casement, sliding, awning, bifold, multi-pane grids, sills, and transom configurations with auto wall cuts. |
 | **Staircase Generator** | `ArchStair` / `ShalikStair` | 10 stair systems: Sawtooth, Closed Housed, Central Mono-Stringer, Cantilevered Floating, Spiral, and Dogleg. |
 | **Railing Generator** | `ArchRailing` / `ShalikRailing` | 10 railing types: Frameless glass shoe, glass standoff pins, post & clamp, cable rail, and balusters. |
-| **Wall Generator** | `ArchWall` / `ShalikWall` | Parametric multi-layer walls with interactive polyline layout, mitered corners, and layer detailing. |
+| **Smart Wall Generator** | `ArchWall` / `ShalikWall` | VisualARQ-style Smart Walls with individual polyline segment editing, Cyan length & Orange height drag arrows, 45° auto-miter corner joins, and live hole/door/window cut preservation. |
 | **Escalator Generator** | `ArchEscalator` / `ShalikEscalator` | Commercial escalators and moving walkways with live 3D truss, step treads, and balustrades. |
 | **Curtain Wall Facade** | `ArchCurtainWall` / `ShalikCurtainWall` | Modern facade grid generator with mullions, transoms, spandrels, and baseline alignment. |
 | **Truss Generator** | `ArchTruss` / `ArchTruss2D` | Structural Pratt, Warren, Howe, and X-braced trusses in solid 3D or 2D planar centerline drafting. |
@@ -187,12 +187,12 @@ After sending the money, send the following items via WhatsApp or Email:
 
 ### Step 1: Download
 Download the latest installer directly using either link below:
-- 📥 **[Download Shalik-1.1.0-Setup.exe (Direct GitHub Raw)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.0-Setup.exe)**
-- 📥 **[Alternative Mirror Link (raw.githubusercontent.com)](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.1.0-Setup.exe)**
+- 📥 **[Download Shalik-1.1.1-Setup.exe (Direct GitHub Raw)](https://github.com/arch-sakhawat/SHALIK-For-Rhino/raw/main/Shalik-1.1.1-Setup.exe)**
+- 📥 **[Alternative Mirror Link (raw.githubusercontent.com)](https://raw.githubusercontent.com/arch-sakhawat/SHALIK-For-Rhino/main/Shalik-1.1.1-Setup.exe)**
 
 ### Step 2: Install
-1. Make sure **Rhino 8 is closed**.
-2. Double-click `Shalik-1.1.0-Setup.exe`.
+1. Make sure **Rhino 8 / 9 is closed**.
+2. Double-click `Shalik-1.1.1-Setup.exe`.
 3. Follow the installation wizard. The installer automatically deploys the plug-in (`Shalik.rhp`), toolbar (`Shalik.rui`), and aliases.
 4. Click **Finish**.
 
